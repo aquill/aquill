@@ -1,0 +1,41 @@
+.login {
+    position: absolute;
+    top: 30%;
+    width: 100%;
+}
+
+.loginform {
+    max-width: 360px;
+    margin: 0 auto;
+    background: #fff;
+    padding: .8em;
+    border-radius: 6px;
+}
+
+.loginform label {
+    display: none;
+}
+
+.loginform input {
+    width: 100%;
+    background: #edf0ef;
+    border-radius: 3px;
+}
+
+.loginform .form-actions {
+    line-height: 2em;
+    margin: 0;
+}
+
+.loginform .form-actions button {
+    display: inline-block;
+    line-height: 2em;
+}
+
+.loginform .form-actions a {
+    float: right;
+}
+
+.loginform .notifications {
+    margin-bottom: .8em
+}

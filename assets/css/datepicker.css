@@ -1,0 +1,102 @@
+.datepicker {
+    background: #fff;
+    box-shadow: 0px 1px 6px #c8c8c8;
+    border-radius: 3px;
+    padding: 0.5em .5em .5em;
+}
+
+.datepicker_header {
+    text-align: center;
+    background: #edf0ef;
+    border-radius: 3px;
+    position: relative;
+}
+
+.datepicker_header .today {
+    position: absolute;
+    left: .5em;
+}
+
+.datepicker_header a {
+    display: inline-block;
+    padding: 0 .5em;
+    cursor: pointer;
+    font-weight: bold;
+    min-width: 3em;
+    text-align: center;
+}
+
+.datepicker_header span {
+    width: 6em;
+    display: inline-block;
+}
+
+.datepicker_calendar {
+    float: left;
+}
+
+.datepicker_timelist {
+    height: 95% !important;
+    overflow: auto;
+    position: absolute;
+    right: 0;
+    top: .7em;
+    width: 5em;
+    text-align: center;
+    margin-right: 0;
+    background: #edf0ef;
+    border-radius: 3px;
+    padding-left: 6px;
+    cursor: pointer;
+    line-height: 2em;
+
+}
+
+.datepicker_timelist .timelist_item {
+    margin: 0 .3em;
+}
+
+.datepicker_table th,
+.datepicker_table td {
+    width: 2.4em;
+    text-align: center;
+    height: 2.4em;
+    line-height: 2.4em;
+}
+
+.datepicker_table td {
+    cursor: pointer;
+}
+
+.day_another_month {
+    color: #aaa;
+}
+
+.datepicker .today,
+.datepicker .active,
+.datepicker .hover {
+    color: #3B7548;
+    background: #edf0ef;
+    border-radius: 6px;
+    margin-top: 0;
+    font-weight: bold;
+}
+
+.datepicker_timelist .active,
+.datepicker_timelist .hover {
+    background: #3B7548;
+    color: #fff;
+}
+
+.datepicker_inner_container {
+    width: 24em;
+    position: relative;
+}
+
+.datepicker_inner_container:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}

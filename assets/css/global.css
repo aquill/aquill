@@ -1,0 +1,130 @@
+@import url(reset.css);
+@import url(fonts.css);
+@import url(forms.css);
+@import url(selecter.css);
+@import url(datepicker.css);
+@import url(notifications.css);
+@import url(layout.css);
+@import url(color.css);
+
+.toolbar,
+.sidebar {
+    width: 360px;
+    position: fixed;
+    top: 0;
+    left: 60px;
+    height: 100%;
+    z-index: 100;
+}
+
+.sidebar {
+    left: 60px;
+}
+
+.toolbar {
+    left: 0;
+    width: 60px;
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.container {
+    margin-left: 420px;
+    padding: 0;
+}
+
+.container .wrap {
+    padding: 0 2em;
+    max-width: 60em;
+    margin: 0;
+    position: relative;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 1em;
+    width: 60px;
+    text-align: center;
+    z-index: 9999;
+}
+
+.widget {
+    clear: both;
+}
+
+.widget li a {
+    display: block;
+    line-height: 50px;
+    padding: 0 30px;
+}
+
+.widget-search h3 {
+    display: none;
+}
+
+.widget-search input {
+    width: 70%;
+}
+
+.widget-search button {
+    width: 30%;
+}
+
+/*
+#site-title {
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+}
+
+#site-title a {
+    display: block;
+    width: 200px;
+    position: relative;
+    left: 40px;
+    color: #637083;
+}
+
+.sidebar-title {
+    line-height: 42px;
+    text-align: center;
+    font-weight: bold;
+    background: rgba(0, 0, 0, 0.05);
+}
+*/
+
+body {
+    font: 16px/25px 'Ruda', 'Hiragino Sans GB', 'Microsoft Yahei', Arial, Verdana;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+    -webkit-transition: color .25s, background .25s, opacity .25s;
+    -moz-transition: color .25s, background .25s, opacity .25s;
+    -ms-transition: color .25s, background .25s, opacity .25s;
+    -o-transition: color .25s, background .25s, opacity .25s;
+    transition: color .25s, background .25s, opacity .25s;
+}
+
+h1,
+h2 {
+    font-family: 'Ruda', 'Hiragino Sans GB', 'Microsoft Yahei', Arial, Verdana;
+    font-weight: normal;
+}
+
+pre {
+    font-size: 14px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.elapsed, .usage {
+    display: block;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.2em;
+}

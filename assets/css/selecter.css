@@ -1,0 +1,137 @@
+.selecter-element {
+    position: absolute;
+    opacity: 0;
+}
+
+.selecter {
+    max-width: 100%;
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    color: #333;
+    border-radius: 0;
+}
+
+.selecter-wrapper .selecter-item:hover i,
+.selecter-wrapper .selecter-item.selected i {
+    font-weight: normal;
+    background: #3B7548;
+    color: #fff;
+}
+
+.selecter .selecter-wrapper {
+    position: relative;
+    z-index: 999;
+    left: 0;
+    padding: .3em;
+    width: 100%;
+    border-radius: 0px;
+    background: #fff;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.selecter.multiple .selecter-wrapper {
+    position: relative;
+    z-index: 1;
+    box-shadow: none;
+}
+
+.selecter.open .selecter-wrapper {
+    display: block;
+    position: absolute;
+    box-shadow: 0px 3px 3px #ccc;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.selecter.closed .selecter-wrapper {
+    display: none;
+}
+
+.selecter .selecter-selected {
+    display: block;
+    padding: 0 .6em;
+    background: #fff;
+    border-radius: 3px;
+}
+
+.selecter .selecter-selected i {
+    font-style: normal;
+}
+
+.selecter-wrapper .selecter-item {
+    display: block;
+    line-height: 2em;
+    vertical-align: middle;
+    height: 2em;
+    cursor: pointer;
+    width: 100%;
+}
+
+.selecter-group {
+    color: #aaa;
+}
+
+.selecter-item i {
+    font-style: normal;
+    display: inline-block;
+    /*background: #3B7548;
+    color: #fff;*/
+    line-height: 1.6em;
+    padding: 0 .5em;
+    border-radius: 6px;
+}
+
+.selecter-item i {
+    text-decoration: none;
+    -webkit-transition: color .25s, background .25s, opacity .25s;
+    -moz-transition: color .25s, background .25s, opacity .25s;
+    -ms-transition: color .25s, background .25s, opacity .25s;
+    -o-transition: color .25s, background .25s, opacity .25s;
+    transition: color .25s, background .25s, opacity .25s;
+}
+
+.selecter .selecter-selected {
+
+}
+
+.selecter.open .selecter-selected {
+    border-width: .4em .4em 0 .4em;
+    border-style: solid;
+    border-color: #fff;
+    line-height: 2em;
+    background: #fff;
+    border-radius: 0;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    box-shadow: 0px 0px 6px #c8c8c8;
+    background: #edf0ef;
+}
+
+.selecter .selecter-options {
+    max-height: 12em;
+    overflow: auto;
+}
+
+.selecter .icon-select:before {
+    font-size: 10px;
+    color: #333;
+    position: absolute;
+    right: 1em;
+    height: inherit;
+    line-height: inherit;
+}
+
+.selecter-wrapper {
+    padding: .6em;
+}
+
+.selecter.disabled {
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.selecter.disabled .icon-select:before {
+    color: #aaa;
+}

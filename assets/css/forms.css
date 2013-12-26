@@ -1,0 +1,178 @@
+:focus {
+    outline: none;
+}
+
+fieldset, a, img {
+    border: none;
+}
+
+legend {
+    font-size: 19px;
+    font-weight: 500;
+    display: block;
+    float: left;
+    margin: 40px 0 30px;
+}
+
+input, textarea {
+    padding: 0 .6em;
+    font-size: inherit;
+    line-height: 1em;
+    width: 100%;
+    font-family: inherit;
+    border: none;
+    border-radius: 0;
+    display: block;
+    height: 2.4em;
+    border-bottom: 0;
+    background: #fff;
+    border-radius: 3px;
+}
+
+textarea {
+    width: 100%;
+    font-family: inherit;
+    min-height: 6em;
+    padding: 0.6em;
+    height: 9em;
+    line-height: 1.2em;
+}
+
+button,
+.button,
+.btn {
+    display: inline-block;
+    padding: 0 1em;
+    font-size: inherit;
+    line-height: 2em;
+    height: 2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled] {
+    cursor: not-allowed;
+}
+
+label {
+    display: inline-block;
+    cursor: pointer;
+    height: inherit;
+    line-height: inherit;
+}
+
+.control-group {
+    position: relative;
+    clear: both;
+    margin-bottom: .8em;
+    line-height: 2.4em;
+    min-height: 2.4em;
+    border-radius: 4px;
+}
+
+.control-group:after {
+    display: block;
+    content: '';
+    clear: both;
+}
+
+.control-label {
+    display: inline-block;
+    float: left;
+    text-align: center;
+    padding-right: 0;
+    text-align: center;
+    -webkit-user-select: none;
+    border-radius: 0;
+    width: 150px;
+    color: #555;
+}
+
+.controls {
+    width: auto;
+    margin-left: 150px;
+    line-height: inherit;
+    background: none;
+    min-height: 2.4em;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.controls label {
+    padding-right: .5em;
+}
+
+.controls label:first-child {
+    margin-left: 0;
+}
+
+input.hidden {
+    opacity: 0;
+    position: absolute;
+    left: -9999em;
+}
+
+.input-radio, .input-checkbox {
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    border: 1px solid #aaa;
+    margin-right: .5em;
+    vertical-align: middle;
+}
+
+.input-radio {
+    border-radius: 2em;
+}
+
+.input-radio.hover, .input-checkbox.hover {
+    border-width: 2px;
+    border-style: solid;
+}
+
+.input-radio.checked, .input-checkbox.checked {
+    border: 0;
+}
+
+.input-radio.disabled, .input-checkbox.disabled {
+    border-width: 1px !important;
+}
+
+.input-radio.disabled.checked, .input-checkbox.disabled.checked {
+    border: 0 !important;
+}
+
+.input-radio.hover, .input-checkbox.hover {
+    border-color: #3B7548;
+}
+
+.input-radio.checked, .input-checkbox.checked {
+    background: #3B7548;
+}
+
+.input-radio.disabled, .input-checkbox.disabled {
+    border-color: #CDD1D0 !important;
+    background: #E1E4E3 !important;
+    cursor: not-allowed;
+}
+
+.input-radio.disabled.checked, .input-checkbox.disabled.checked {
+    background: #CDD1D0 !important;
+}
+
+.checkable.icon-on:before {
+    font-size: 12px;
+    line-height: 16px;
+    width: 16px;
+    text-align: center;
+    display: block;
+}
+
+.form-actions {
+    margin: 1.5em 0 3em 150px;
+}

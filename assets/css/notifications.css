@@ -1,0 +1,31 @@
+.notifications {
+    margin-bottom: 0;
+    position: relative;
+    z-index: 999;
+}
+
+.notifications .notice,
+.notifications .error,
+.notifications .success {
+    padding: 0 18px;
+    margin-bottom: 0;
+    font-size: inherit;
+    line-height: 2.4em;
+    font-weight: 500;
+    border-radius: 0;
+}
+
+.notifications .notice {
+    color: #fff;
+    background: #578cd9;
+}
+
+.notifications .error {
+    color: #fff;
+    background: #d34937;
+}
+
+.notifications .success {
+    color: #fff;
+    background: #3B7548;
+}

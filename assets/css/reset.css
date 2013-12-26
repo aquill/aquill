@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-input-placeholder {
+    color: #bec8d4;
+}
+
+::-moz-placeholder {
+    color: #bec8d4;
+}
+
+::placeholder {
+    color: #bec8d4;
+}
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track-piece {
+    background: #f2f4f8;
+    background: none;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+    display: none;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+    height: 25px;
+    background-color: #3B7548;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-button:start:decrement {
+
+}
+
+::-webkit-scrollbar-button:end:increment {
+
+}

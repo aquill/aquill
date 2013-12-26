@@ -1,0 +1,388 @@
+.widget-list .widget-title {
+    display: none;
+}
+
+.list {
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    width: 100%;
+    overflow: auto;
+}
+
+.list li {
+    position: relative;
+}
+
+.list li a {
+    display: block;
+    padding: 25px 30px 15px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 0;
+}
+
+.list li a {
+    display: block;
+}
+
+.list li:nth-child(odd) a {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.list li a.active,
+.list li a:hover {
+    background: rgba(0, 0, 0, .06);
+}
+
+.list li strong {
+    display: block;
+    width: 72%;
+    height: 2.5em;
+    font-size: 18px;
+    font-weight: normal;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.list li time {
+    display: block;
+    padding-bottom: 8px;
+    font-size: 13px;
+    color: #999;
+    line-height: 1em;
+}
+
+.list li .highlight,
+.list li .status {
+    background: rgba(0, 0, 0, .05);
+    color: #666;
+    font-size: 10px;
+    line-height: 14px;
+    font-style: normal;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 3px 6px;
+    border-radius: 3px;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    cursor: pointer;
+}
+.list li .status:hover {
+    background: rgba(0, 0, 0, .2);
+}
+.statuses {
+    position: absolute;
+    right: 1.5em;
+    top: 1.5em;
+    list-style-type: none; 
+    background: #fff;
+    box-shadow: 0px 1px 6px #c8c8c8;
+    border-radius: 3px;
+    color: #666;
+    padding: .5em;
+    z-index: 99;
+    display: none;
+}
+.statuses li {
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 0 .2em;
+}
+.statuses li:hover {
+    background: #3B7548;
+    color: #fff;
+}
+.list li .statuses a {
+    padding: 0;
+    line-height: inherit;
+    color: #666;
+    background: none;
+}
+.list li .statuses a:hover {
+    color: #fff;
+}
+.pagination {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.05);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+.pagination li {
+    display: inline-block;
+    height: 42px;
+    line-height: 42px;
+    min-width: 25px;
+    text-align: center;
+}
+
+.pagination li a {
+    color: #606b7b;
+}
+
+.pagination li.active a {
+    color: #3560A0;
+}
+
+/*.site-navigation li a {
+    display: block;
+    line-height: 60px;
+    border-bottom: 1px solid #4E5A6D;
+    color: #444f5f;
+    padding: 0 .5em;
+    font-size: 24px;
+    text-align: center;
+    position: relative;
+    width: 60px;
+    height: 60px;
+}
+
+.site-navigation li a:before {
+    color: #637083;
+    position: absolute;
+    left: 0;
+    height: 60px;
+    width: 60px;
+    line-height: 60px;
+}
+
+.site-navigation li a:hover:before,
+.site-navigation li.active a:before {
+    color: #3B4553;
+    background: #4E5A6D;
+}
+
+.widget-title {
+    display: none;
+}
+
+.searchform input {
+    width: 70%;
+    float: left;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.searchform button {
+    width: 30%;
+    float: right;
+    height: 40px;
+}
+
+
+
+
+
+.admin form fieldset {
+    padding: 0 3%;
+}
+
+.admin form .header {
+    background: #fff;
+    position: relative;
+}
+
+.admin form .header input[name="title"] {
+    padding: 30px 0;
+    line-height: 40px;
+    font-size: 29px;
+    font-weight: lighter;
+    width: 80%;
+}
+
+.admin form .meta {
+    padding: 30px 20px;
+    background: #ccd2d9;
+    display: none;
+}
+
+.admin form .meta label,
+.admin form .meta p {
+    background: rgba(0, 0, 0, 0.01);
+}
+
+.admin form .editor textarea {
+    width: 100%;
+    min-height: 30em;
+    background: none;
+    padding: 20px 0;
+}
+
+.admin form fieldset.preview {
+    display: none;
+    padding: 20px;
+}
+
+.admin .html p {
+    margin-bottom: 15px;
+}
+
+.admin .buttons {
+    text-align: center;
+}
+*/
+
+.admin hgroup h1 {
+    font-size: 1.8em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    line-height: 1.6em;
+    font-weight: 300;
+    color: #555;
+    border-bottom: 0;
+}
+
+fieldset.header {
+    position: relative;
+    background: none;
+    padding: 0;
+    border-bottom: 0;
+    background: #fff;
+    z-index: 99;
+}
+
+fieldset.header .controls {
+    margin: 0;
+
+    border-bottom: 0;
+    background: none;
+}
+
+fieldset.header input[name="title"] {
+    padding-top: 1em;
+    padding: 1em 0 0;
+    line-height: 1.4em;
+    height: auto;
+    font-size: 2em;
+    font-weight: lighter;
+    width: 80%;
+    background: none;
+    color: #333;
+    border: 0;
+}
+
+fieldset.header .buttons {
+    position: absolute;
+    right: 2em;
+    top: 2em;
+}
+
+fieldset.meta {
+    padding: 1.8em 0 1em;
+    display: none;
+}
+
+fieldset.meta .control-group {
+    border-bottom: 0;
+    padding: 0 0%;
+}
+
+fieldset.meta .control-label {
+    width: 150px;
+}
+
+/*
+.control-label {
+    background: #e5e8e7;
+    
+    text-align: right;
+}
+.controls {
+    border-left: 0;
+    background: #fff;
+}
+.controls label {
+    display: block;
+    float: left;
+}
+.controls label:first-child {
+    margin-left: .5em;
+}
+.controls input,
+.controls .selecter,
+.controls textarea {
+    max-width: 100%;
+    width: 100%;
+    background: #fff;
+}*/
+fieldset.preview {
+    padding: 30px 0;
+    display: none;
+}
+
+fieldset.editor {
+    padding-top: 1em;
+    background: #fff;
+}
+
+fieldset.editor .control-group {
+    background: none;
+
+}
+
+fieldset.editor textarea {
+    background: none;
+    width: 100%;
+    border: 0;
+    padding: 0;
+    margin-bottom: 5em;
+    min-height: 30em;
+}
+
+.userform .control-label {
+    width: 150px;
+    background: none;
+}
+
+.searchform input {
+    width: 75%;
+
+    height: 2.4em;
+}
+
+.searchform button {
+    border-top-left-radius: 0;
+
+    border-bottom-left-radius: 0;
+    width: 25%;
+    position: absolute;
+    top: 0;
+    right: 0; 
+    height: 2.4em;
+    border-radius: 0;
+}
+
+.admin.posts {
+    background: #fff;
+}
+
+.admin.posts .wrap {
+    margin: 0 auto;
+}
+
+.admin.posts .header .controls {
+    margin-left: 0;
+}
+
+.load-more {
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    line-height: 5em;
+}
+
+.load-more span {
+    display: inline-block;
+
+    line-height: 2em;
+    padding: 0 1em;
+    background: #3B7548;
+    color: #fff;
+    border-radius: 2em;
+}

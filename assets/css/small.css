@@ -1,0 +1,62 @@
+.split.small label {
+    display: block;
+    float: inherit;
+    width: 100%;
+    padding: 5px 8px;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.split.small label + input,
+.split.small label + textarea,
+.split.small input,
+.split.small label + input,
+.split.small input,
+.split.small select {
+    width: 100%;
+    float: inherit;
+    height: 54px;
+}
+
+.split.small input[type=checkbox]:before {
+    height: 54px;
+}
+
+.radios {
+    float: left;
+    width: 60%;
+    display: block;
+}
+
+.split.small .radios {
+    float: inherit;
+    width: 100%;
+}
+
+.split.small .radios label {
+    float: inherit;
+    display: block;
+    clear: both;
+    margin-top: 1px;
+    border-top: 1px solid #eceef1;
+    width: 100% !important;
+}
+
+.split input[type=radio] {
+    margin: 8px;
+}
+
+.split label.radio,
+.split label.radio input {
+    height: 54px;
+    line-height: 54px !important;
+}
+
+.split.small label.radio.checked,
+.split.small label.radio:hover {
+}
+
+.split.small + .buttons .btn {
+    line-height: 54px;
+    font-size: 18px;
+}

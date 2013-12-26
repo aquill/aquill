@@ -1,0 +1,164 @@
+::-webkit-input-placeholder {
+    color: #888;
+}
+
+::-moz-placeholder {
+    color: #888;
+}
+
+::placeholder {
+    color: #888;
+}
+
+.toolbar {
+    background: #3B7548;
+}
+
+.toolbar a {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.toolbar [class^="icon-"] {
+    height: 60px;
+    width: 60px;
+    display: block;
+    font-size: 24px;
+    line-height: 60px;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar {
+    background: #dfe1e0;
+}
+
+.widget li a {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.widget li:nth-child(odd) a {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.widget-search input {
+    background: #eff1f0;
+}
+
+::selection {
+    background: #3B7548;
+    color: #fff;
+}
+
+body {
+    color: #333;
+    background: #edf0ef;
+}
+
+a {
+    color: #072;
+}
+
+pre {
+    background: #f5f7f6;
+}
+
+/* --- forms --- */
+
+input, textarea, button, select {
+    color: #333;
+    background: #fff;
+}
+
+input[disabled],
+select[disabled],
+textarea[disabled] {
+    color: #ccc;
+    border: 1px solid #eee;
+}
+
+input[type=checkbox] {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+input[type=checkbox]:before {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+input[type=radio] {
+
+}
+
+button, .button, .btn {
+    background: #3B7548;
+    color: #fff;
+}
+
+.button:hover
+.btn:hover {
+    background: #4f8c12;
+}
+
+.button.secondary,
+.btn.secondary {
+    background: #a4adbb;
+}
+
+.button.secondary:hover,
+.btn.secondary:hover {
+    background: #848f9f;
+}
+
+.button.blue,
+.btn.blue {
+    background: #3F5D8A;
+}
+
+.button.blue:hover,
+.btn.blue:hover {
+    background: #3560A0;
+}
+
+.button.green,
+.btn.green {
+    background: #3B7548;
+}
+
+.button.green:hover,
+.btn.green:hover {
+    background: #3E853E;
+}
+
+.button.red,
+.btn.red {
+    background: #c4533d;
+}
+
+.button.red:hover,
+.btn.red:hover {
+    background: #a03621;
+}
+
+.split .field {
+    background: #edf0ef;
+}
+
+.split .field em, .split .field i {
+    color: #808996;
+}
+
+.split .field input,
+.split .field select,
+.split .field textarea {
+    border-left: 1px solid #fff;
+}
+
+fieldset.header {
+}
+
+fieldset.meta {
+    background: #edf0ef;
+}
+
+.checkable.icon-on:before {
+    color: #fff;
+}
