@@ -202,7 +202,7 @@ class Lang
      */
     protected static function path($bundle, $language, $file)
     {
-        return Bundle::path($bundle) . "language/{$language}/{$file}" . EXT;
+        return Bundle::path($bundle) . "lang/{$language}/{$file}" . EXT;
     }
 
     /**
