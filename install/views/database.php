@@ -10,9 +10,8 @@
 
         <form method="post" action="<?php echo URL::to('database'); ?>" autocomplete="off">
             <?php echo $messages; ?>
-
             <?php echo Form::token(); ?>
-
+            <input type="hidden" name="charset" value="utf8">
             <fieldset>
                 <p>
                     <label for="driver">Driver</label>

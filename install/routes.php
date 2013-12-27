@@ -23,7 +23,7 @@ Route::get('/, start', function () {
     return View::make('start', $vars);
 });
 
-Route::post('start', array('before'=> 'csrf', function () {
+Route::post('start', array('before' => 'csrf', function () {
     $i18n = Input::only(array('language', 'timezone'));
     $rules = array(
         'language' => 'required',
@@ -81,7 +81,7 @@ Route::get('database', function () {
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
-        'prefix' => 'anchor_',
+        'prefix' => 'aquill_',
     );
 
     if ($temp = Session::get('install.database')) {
@@ -93,23 +93,16 @@ Route::get('database', function () {
     return View::make('database', $vars);
 });
 
-Route::post('database', array('before'=> 'csrf', function () {
+Route::post('database', array('before' => 'csrf', function () {
     $database = Input::only(array('driver', 'host', 'port', 'username', 'password', 'database', 'charset', 'prefix'));
 
+    Config::set('database.default', $database['driver']);
+    Config::set('database.connections.' . $database['driver'], $database);
+
     try {
-        DB::connection($database['driver'], array(
-            'driver' => $database['driver'],
-            'host' => $database['host'],
-            'port' => $database['port'],
-            'database' => $database['database'],
-            'username' => $database['username'],
-            'password' => $database['password'],
-            'charset' => 'utf8',
-            'prefix' => $database['prefix'],
-        ))->first('select now()');
+        DB::connection()->first('select now()');
     } catch (Exception $e) {
         Notify::error($e->getMessage());
-
         return Redirect::to('database');
     };
 
@@ -129,7 +122,7 @@ Route::get('metadata', function () {
     $metadata = array(
         'title' => 'My First Anchor Blog',
         'description' => 'It&rsquo;s not just any blog. It&rsquo;s an Anchor blog.',
-        'url' => rtrim(rtrim(URL::base(),'install'),'/'),
+        'url' => rtrim(rtrim(URL::base(), 'install'), '/'),
         'index' => 'index.php',
     );
 
@@ -142,9 +135,9 @@ Route::get('metadata', function () {
     return View::make('metadata', $vars);
 });
 
-Route::post('metadata', array('before'=> 'csrf', function () {
+Route::post('metadata', array('before' => 'csrf', function () {
     $metadata = Input::only(array('title', 'description', 'url', 'index'));
-    
+
     $rules = array(
         'url' => 'required',
         'index' => 'required'
@@ -158,7 +151,7 @@ Route::post('metadata', array('before'=> 'csrf', function () {
     }
 
     Session::put('install.metadata', $metadata);
-    
+
     return Redirect::to('account');
 }));
 
@@ -185,7 +178,7 @@ Route::get('account', function () {
     return View::make('account', $vars);
 });
 
-Route::post('account', array('before'=> 'csrf', function () {
+Route::post('account', array('before' => 'csrf', function () {
     $account = Input::only(array('username', 'email', 'password'));
 
     $rules = array(
@@ -203,7 +196,7 @@ Route::post('account', array('before'=> 'csrf', function () {
 
     Session::put('install.account', $account);
 
-    return Redirect::to('complete'); 
+    return Redirect::to('complete');
 }));
 
 Route::get('complete', function () {
@@ -214,9 +207,45 @@ Route::get('complete', function () {
 
     $vars['messages'] = Notify::read();
 
-    echo '<pre>' ;
-    var_dump(Session::get('install'));
-    echo '</pre>' ;
+    echo '<pre>';
+    var_dump($settings = Session::get('install'));
+    echo '</pre>';
+
+    $config['app'] = Braces::compile(APP . 'storage/app.php', array(
+            'url' => $settings['metadata']['url'],
+            'index' => $settings['metadata']['index'],
+            'key' => 'Dc2kDVWq6YXZeSC5IQfO3vWRmY7li7SZ',
+            'language' => $settings['i18n']['language'],
+            'timezone' => $settings['i18n']['timezone']
+        ));
+
+    echo '<pre>';
+    var_dump($config['app']);
+    echo '</pre>';
+
+    $database = $settings['database'];
+
+    Config::set('database.default', $database['driver']);
+    Config::set('database.connections.' . $database['driver'], $database);
+
+    echo '<pre>';
+    var_dump(Config::get('database.connections.mysql'));
+    echo '</pre>';
+
+    $config['database'] = Braces::compile(APP . 'storage/database.php', array(
+            'driver' => $database['driver'],
+            'host' => $database['host'],
+            'port' => $database['port'],
+            'username' => $database['username'],
+            'password' => $database['password'],
+            'database' => $database['database'],
+            'charset' => $database['charset'],
+            'prefix' => $database['prefix']
+        ));
+
+    echo '<pre>';
+    var_dump($config['database']);
+    echo '</pre>';
 });
 
 /*
