@@ -26,11 +26,11 @@ Route::post('login', function () {
         if (Auth::attempt($credentials)) {
             return Redirect::to('admin/posts');
         } else {
-            Notify::error('login failed.');
+            $credentials['messages'] = 'login failed.';
         }
     }
 
-    return Redirect::to('login');
+    return Response::view('users::login', $credentials);
 });
 
 Route::get('logout', function () {

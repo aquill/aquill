@@ -268,8 +268,7 @@ Route::filter('csrf', function () {
 
 Route::filter('check', function () {
     if (!is_writable(PATH . 'aquill/config')) {
-        Notify::error('<code>aquill/config</code> directory is not writeable.');
-        $vars['messages'] = Notify::read();
+        $vars['messages'] = '<code>aquill/config</code> directory is not writeable.';
         return Response::view('halt', $vars);
     }
 });
