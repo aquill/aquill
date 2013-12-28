@@ -1,15 +1,23 @@
 <?php
 
-Autoloader::map(array(
-    'User' => Bundle::path('users') . 'user.php',
-));
+/*
+|--------------------------------------------------------------------------
+| Settings Routes
+|--------------------------------------------------------------------------
+|
+| Simply tell Laravel the HTTP verbs and URIs it should respond to. It is a
+| breeze to setup your applications using Laravel's RESTful routing, and it
+| is perfectly suited for building both large applications and simple APIs.
+| Enjoy the fresh air and simplicity of the framework.
+|
+*/
 
 Route::get('login', function () {
     if (Auth::check()) return Redirect::to('admin/posts');
 
     $vars['messages'] = Notify::read();
 
-    return View::make('users::login', $vars);
+    return View::make('users/login', $vars);
 });
 
 Route::post('login', function () {
@@ -30,7 +38,7 @@ Route::post('login', function () {
         }
     }
 
-    return Response::view('users::login', $credentials);
+    return Response::view('users/login', $credentials);
 });
 
 Route::get('logout', function () {
@@ -41,7 +49,7 @@ Route::get('logout', function () {
     return Redirect::to('login');
 });
 
-Route::get('(:bundle), (:bundle)/(:num)', function ($id = null) {
+Route::get('admin/users, admin/users/(:num)', function ($id = null) {
     $vars['messages'] = Notify::read();
 
     $vars['users'] = User::paginate(6);
@@ -63,20 +71,20 @@ Route::get('(:bundle), (:bundle)/(:num)', function ($id = null) {
         'user' => __('User')
     );
 
-    return View::make('users::index', $vars)->nest('formdata', 'users::form', $data);
+    return View::make('users/index', $vars)->nest('formdata', 'users/form', $data);
 });
 
-Route::post('(:bundle)', function () {
+Route::post('admin/users', function () {
     if (Input::get('page') > User::count() / 20) {
         return;
     }
 
     $vars['users'] = User::paginate(20);
 
-    return View::make('users::users', $vars);
+    return View::make('users/users', $vars);
 });
 
-Route::post('(:bundle)/new, (:bundle)/edit/(:num)', function ($id = null) {
+Route::post('admin/users/new, admin/users/edit/(:num)', function ($id = null) {
     $start = microtime(true);
     $input = Input::only(array('real_name', 'bio', 'status', 'role',
         'username', 'password', 'email'));
@@ -95,11 +103,11 @@ Route::post('(:bundle)/new, (:bundle)/edit/(:num)', function ($id = null) {
         Notify::success('user updated time: ' . $time);
     }
 
-    return Redirect::to_action('users::?id=' . $id);
+    return Redirect::to('admin/users?id=' . $id);
 });
 
-Route::post('(:bundle)/delete/(:num)', function ($id) {
+Route::post('admin/users/delete/(:num)', function ($id) {
     if (!is_null($id)) User::delete($id);
 
-    return Redirect::to_action('users::');
+    return Redirect::to('admin/users');
 });

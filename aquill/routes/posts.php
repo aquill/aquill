@@ -1,10 +1,18 @@
 <?php
 
-Autoloader::map(array(
-    'Post' => Bundle::path('posts') . 'post.php',
-));
+/*
+|--------------------------------------------------------------------------
+| Settings Routes
+|--------------------------------------------------------------------------
+|
+| Simply tell Laravel the HTTP verbs and URIs it should respond to. It is a
+| breeze to setup your applications using Laravel's RESTful routing, and it
+| is perfectly suited for building both large applications and simple APIs.
+| Enjoy the fresh air and simplicity of the framework.
+|
+*/
 
-Route::get('(:bundle), (:bundle)/(:num)', function ($id = null) {
+Route::get('admin/posts, admin/posts/(:num)', function ($id = null) {
     $vars['messages'] = Notify::read();
     $vars['posts'] = Post::order_by('created', 'DESC')->paginate(10);
 
@@ -21,20 +29,19 @@ Route::get('(:bundle), (:bundle)/(:num)', function ($id = null) {
         $data['post'] = new Post;
     }
 
-    return View::make('posts::index', $vars)->nest('formdata', 'posts::form', $data);
-
+    return View::make('posts/index', $vars)->nest('formdata', 'posts/form', $data);
 });
 
-Route::post('(:bundle)', function () {
+Route::post('admin/posts', function () {
     if (Input::get('page') > Post::count() / 10) {
         return;
     }
     $vars['posts'] = Post::order_by('created', 'DESC')->paginate(10);
 
-    return View::make('posts::posts', $vars);
+    return View::make('posts/posts', $vars);
 });
 
-Route::post('(:bundle)/new, (:bundle)/edit/(:num)', function ($id = null) {
+Route::post('admin/posts/new, admin/posts/edit/(:num)', function ($id = null) {
     $start = microtime(true);
     $input = Input::only(array('title', 'slug', 'created',
         'html', 'category', 'status'));
@@ -67,11 +74,11 @@ Route::post('(:bundle)/new, (:bundle)/edit/(:num)', function ($id = null) {
         }
     }
 
-    return Redirect::to_action('posts::' . $id);
+    return Redirect::to('admin/posts' . $id);
 });
 
-Route::post('(:bundle)/delete/(:num)', function ($id) {
+Route::post('admin/posts/delete/(:num)', function ($id) {
     if (!is_null($id)) Post::delete($id);
 
-    return Redirect::to_action('posts::');
+    return Redirect::to('admin/posts');
 });

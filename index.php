@@ -16,7 +16,7 @@ define('LARAVEL_START', microtime(true));
 // --------------------------------------------------------------
 // Aquill's version.
 // --------------------------------------------------------------
-define('VERSION', '0.0.1');
+define('AQUILL_VERSION', '0.0.1');
 
 // --------------------------------------------------------------
 // Define the directory separator for the environment.

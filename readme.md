@@ -57,14 +57,14 @@ SAE(Sina App Engine) don't support `.htaccess`, you need to modify the rewrite i
     handle:
     - rewrite: if(!is_dir() && !is_file()) goto "index.php?%{QUERY_STRING}"
 
-##Bundles
+## Bundles
 
 Bundles extend from Laravel 3. They are better than the blog plugins. A bundle can have it's own views, configuration, routes, migrations, tasks, and more. A bundle could be everything from a database ORM to a robust authentication system. I have made a revision and make the bundles friendly to activate and deactivate.
 
-##Themes
+## Themes
 
 Aquill theming is easy, all you need is some basic knowledge of HTML, CSS, JavaScript, and PHP. 
 
-##Localization
+## Localization
 
 Localization is the process of translating Aquill into different languages. the language files under the `aquill/lang`, `(:bandle)/lang` and `(:themes)/lang` directories.

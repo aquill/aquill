@@ -33,10 +33,4 @@
 |
 */
 
-return array(
-    'smtp' => array('auto' => true),
-    'categories' => array('auto' => true, 'handles' => 'admin/categories'),
-    'posts' => array('auto' => true, 'handles' => 'admin/posts'),
-    'users' => array('auto' => true, 'handles' => 'admin/users'),
-    'comments' => array('auto' => true, 'handles' => 'admin/comments')
-);
+return array();

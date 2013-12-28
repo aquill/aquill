@@ -1,5 +1,5 @@
 <form id="postform-<?php echo $post->id; ?>" class="postform" method="POST" 
-    action="<?php echo $post->id ? URL::to_action("posts::edit/{$post->id}") : URL::to_action("posts::new"); ?>"
+    action="<?php echo $post->id ? url("admin/posts/edit/{$post->id}") : url("admin/posts/new"); ?>"
     accept-charset="UTF-8">
 
     <fieldset class="meta split">

@@ -3,7 +3,7 @@
         <h1><?php echo $comment->id ? sprintf('Editing %s\'s Comment', $comment->name) : __('Add Comment'); ?></h1>
     </hgroup>
     <form class="commentform" method="POST"
-          action="<?php echo $comment->id ? URL::to_action("comments::edit/{$comment->id}") : URL::to_action("comments::new"); ?>"
+          action="<?php echo $comment->id ? url("admin/comments/edit/{$comment->id}") : url("admin/comments/new"); ?>"
           accept-charset="UTF-8">
 
         <fieldset class="split">
@@ -45,7 +45,7 @@
             </div>
             <div class="form-actions">
                 <button type="submit" class="btn green">Update</button>
-                <a class="btn red" href="<?php echo url('admin/category/' . $comment->id); ?>">Delete</a>
+                <a class="btn red" href="<?php echo url('admin/comment/delete/' . $comment->id); ?>">Delete</a>
             </div>
         </fieldset>
     </form>

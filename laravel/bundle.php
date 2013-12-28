@@ -113,7 +113,7 @@ class Bundle
     {
         if (static::routed($bundle)) return;
 
-        $path = static::path($bundle) . 'routes' . EXT;
+        $path = static::path($bundle) . 'routes';
 
         // By setting the bundle property on the router the router knows what
         // value to replace the (:bundle) place-holder with when the bundle
@@ -123,7 +123,13 @@ class Bundle
         if (!static::routed($bundle) and file_exists($path)) {
             static::$routed[] = $bundle;
 
-            require $path;
+            if (file_exists($path)) {
+                foreach (glob($path.'/*.php') as $p) require $p;
+            }
+
+            if (file_exists($path . EXT)) {
+                require $path . EXT;
+            }
         }
     }
 

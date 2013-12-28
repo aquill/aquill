@@ -37,7 +37,7 @@ class SMTP
     public function __construct($connection = null)
     {
         // load connection
-        $connection = $connection ? Config::get('smtp::smtp.connections.' . $connection) : Config::get('smtp::smtp.connections.' . Config::get('smtp::smtp.default'));
+        $connection = $connection ? Config::get('smtp.connections.' . $connection) : Config::get('smtp.connections.' . Config::get('smtp.default'));
 
         // set connection vars
         $this->host = $connection['host'];
@@ -48,10 +48,10 @@ class SMTP
         $this->pass = $connection['pass'];
 
         // set debug mode
-        $this->debug_mode = Config::get('smtp::smtp.debug_mode');
+        $this->debug_mode = Config::get('smtp.debug_mode');
 
         // set localhost
-        $this->localhost = Config::get('smtp::smtp.default');
+        $this->localhost = Config::get('smtp.default');
     }
 
     public function from($email, $name = null)

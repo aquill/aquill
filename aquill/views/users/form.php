@@ -3,7 +3,7 @@
         <h1><?php echo $user->id ? sprintf('Editing %s\'s Profile', $user->username) : __('Add User'); ?></h1>
     </hgroup>
     <form class="userform" method="POST" 
-     action="<?php echo $post->id ? URL::to_action("users::edit/{$user->id}") : URL::to_action("users::new"); ?>"
+     action="<?php echo $post->id ? url("admin/users/edit/{$user->id}") : url("admin/users/new"); ?>"
      accept-charset="UTF-8">
         <fieldset class="split">
             <div class="control-group  width-60">
