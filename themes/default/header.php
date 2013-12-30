@@ -2,35 +2,21 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Admin Panel</title>
-    <?php echo Asset::container('header')->styles(); ?>
-    <script type="text/javascript">var base = "<?php echo url('admin') . '/'; ?>";</script>
-    <?php echo Asset::container('header')->scripts(); ?>
+    <title><?php echo site_title(); ?> - <?php echo site_description(); ?></title>
+    <?php echo theme_styles(); ?>
 </head>
+
 <body <?php echo body_class(); ?>>
-<div id="header" class="col toolbar">
-    <ul class="site-navigation">
-        <li>
-            <a class="icon-undo" title="Visit your site" target="_blank" href="<?php echo url('/') ?>"></a>
-        </li>
-        <li <?php echo is_page('posts') ? 'class="active" ' : ' '; ?>>
-            <a class="icon-posts" href="<?php echo url('admin/posts'); ?>" title="Posts.posts"></a>
-        </li>
-        <li <?php echo is_page('comments') ? 'class="active" ' : ' '; ?>>
-            <a class="icon-comments" href="<?php echo url('admin/comments'); ?>" title="Comments.comments"></a>
-        </li>
-        <li <?php echo is_page('categories') ? 'class="active" ' : ' '; ?>>
-            <a class="icon-categories" href="<?php echo url('admin/categories'); ?>" title="Categories.categories"></a>
-        </li>
-        <li <?php echo is_page('users') ? 'class="active" ' : ' '; ?>>
-            <a class="icon-users" href="<?php echo url('admin/users'); ?>" title="Users.users"></a>
-        </li>
-        <li <?php echo is_page('settings') ? 'class="active" ' : ' '; ?>>
-            <a class="icon-extend" href="<?php echo url('admin/settings'); ?>" title="Extend.extend"></a>
-        </li>
-        <li>
-            <a class="icon-logout" title="Logout" href="<?php echo url('logout'); ?>"></a>
-        </li>
-    </ul>
-</div>
-<div id="main" class="container">
+    
+    <div id="header" class="col toolbar">
+        <hgroup>
+            <h1 class="site-title"><?php echo site_title(); ?></h1>
+            <h2 class="site-description"><?php echo site_description(); ?></h2>
+        </hgroup>
+
+        <div class="site-navigation">
+            <?php echo site_navigation(); ?>
+        </div>
+    </div>
+
+    <div id="main" class="container">

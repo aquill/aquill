@@ -12,25 +12,25 @@
                 ); foreach ($variable as $key => $value): */
             ?>
             <li class="post">
-                <a <?php echo is_page('settings') ? 'class="active" ' : ' '; ?>href="<?php echo url('admin/settings'); ?>">
+                <a <?php echo uri_has('settings') ? 'class="active" ' : ' '; ?>href="<?php echo url('admin/settings'); ?>">
                     <strong>Settings</strong>
                     <time>Site</time>
                 </a>
             </li>
             <li class="post">
-                <a <?php echo is_page('themes') ? 'class="active" ' : ' '; ?>href="<?php echo url('admin/themes'); ?>">
+                <a <?php echo uri_has('themes') ? 'class="active" ' : ' '; ?>href="<?php echo url('admin/themes'); ?>">
                     <strong>Themes</strong>
                     <time>Site</time>
                 </a>
             </li>
             <li class="post">
-                <a <?php echo is_page('bundles') ? 'class="active" ' : ' '; ?>href="<?php echo url('admin/bundles'); ?>">
+                <a <?php echo uri_has('bundles') ? 'class="active" ' : ' '; ?>href="<?php echo url('admin/bundles'); ?>">
                     <strong>Bundles</strong>
                     <time>Site</time>
                 </a>
             </li>
             <li class="post">
-                <a <?php echo is_page('migrations') ? 'class="active" ' : ' '; ?>href="<?php echo url('admin/migrations'); ?>">
+                <a <?php echo uri_has('migrations') ? 'class="active" ' : ' '; ?>href="<?php echo url('admin/migrations'); ?>">
                     <strong>Migrations</strong>
                     <time>Site</time>
                 </a>

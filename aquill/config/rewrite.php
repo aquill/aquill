@@ -27,7 +27,7 @@ return array(
     |
     */
 
-    'category' => '/category/{name}',
+    'category' => '/category/{id}',
 
     /*
     |--------------------------------------------------------------------------
@@ -36,6 +36,6 @@ return array(
     |
     */
 
-    'tag' => '/tag/{name}',
+    'tag' => '/tag/{id}',
 
 );

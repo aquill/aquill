@@ -9,7 +9,7 @@ class Post extends Eloquent
         return static::where('slug', '=', urlencode(urldecode($slug)))->first();
     }
 
-    public function url()
+    public function link()
     {
         $permalink['year'] = date('Y',strtotime($this->created));
         $permalink['month'] = date('m',strtotime($this->created));
@@ -38,12 +38,19 @@ class Post extends Eloquent
 
     public function comments()
     {
-        return $this->has_many('Comment' , 'post_id');
+        return $this->has_many('Comment' , 'post_id')->get();
     }
 
     public function tags()
     {
-        return $this->has_many_and_belongs_to('Term', 'relationships');
+        return $this->has_many_and_belongs_to('Tag', 'relationships', 'post_id', 'term_id')
+                    ->where('taxonomy', '=','post_tag')->get();
+    }
+
+    public function categories()
+    {
+        return $this->has_many_and_belongs_to('Category', 'relationships', 'post_id', 'term_id')
+                    ->where('taxonomy', '=','category')->get();
     }
 
 }

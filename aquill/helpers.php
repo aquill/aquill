@@ -1,5 +1,17 @@
 <?php
 
+function markdown($text) {
+    return Markdown::defaultTransform($text);
+}
+
+function csrf_token() {
+    return Session::token();
+}
+
+function csrf_token_input() {
+    return '<input type="hidden" name="csrf_token" value="'.csrf_toke().'">';
+}
+
 function admin_include($filename) {
     if (is_readable($path = APP . 'views/partials/' . $filename . EXT)) {
         return require $path;
@@ -12,23 +24,13 @@ function aquill_include($filename, $bundle = DEFAULT_BUNDLE ) {
     }
 }
 
-function theme_include($filename) {
-    if (is_readable($path = PATH . 'themes/default/' . $filename . EXT)) {
-        return require $path;
-    }
-}
-
-function is_admin() {
-    return strpos(URL::current(), 'admin') !== 0;
-}
-
 function body_class($classes = '') {
     $classes .= str_replace('/', ' ', URI::current());
 
     return 'class="' . $classes . '"';
 }
 
-function is_page($page = 'admin') {
+function uri_has($page = 'admin') {
     return strpos(URL::current(), $page) !== false;
 }
 

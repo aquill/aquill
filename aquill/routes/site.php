@@ -13,21 +13,12 @@
 */
 
 Route::get('/, home', function () {
+    $posts = Post::order_by('created', 'DESC')->paginate(10);
 
-    $vars['posts'] = Post::order_by('created', 'desc')->take(20)->get();
+    Registry::set('posts', $posts->results);
+    Registry::set('posts_paging', $posts->links());
 
     return new Theme('index');
-});
-
-Route::get('(:all).html', function ($slug) {
-    $page = Page::find_by_slug($slug);
-
-    if (is_null($page))
-        return Response::make(Theme::make('404'), 404);
-
-    var_dump($page);
-
-    return new Theme('page');
 });
 
 Route::get(rewrite_rule(), function ($id) {
@@ -41,6 +32,8 @@ Route::get(rewrite_rule(), function ($id) {
     if (is_null($post))
         Response::make(Theme::make('404'), 404);
 
+    Registry::set('post', $post);
+/*
     $comments = $post->comments()->get();
 
     foreach ($comments as $comment) {
@@ -52,7 +45,7 @@ Route::get(rewrite_rule(), function ($id) {
     foreach ($tags as $tag) {
         var_dump($tag->name);
     }
-
+*/
     return new Theme('post');
 });
 
@@ -131,7 +124,7 @@ Route::get('(feed|rss|atom)', function ($uri) {
         $feed->add(
             $post->title,
             $post->author_name(),
-            $post->url(),
+            $post->link(),
             date('D, d M Y H:i:s O', strtotime($post->created)),
             strip_tags($post->html),
             $post->html
@@ -161,7 +154,7 @@ Route::get('sitemap.(:any)', function ($suffix = 'xml') {
     $sitemap->add(url(), $lastmod, '1.0', 'daily');
 
     foreach ($posts as $post) {
-        $sitemap->add($post->url(), date('Y-m-d\TH:i:sP', strtotime($post->created)));
+        $sitemap->add($post->link(), date('Y-m-d\TH:i:sP', strtotime($post->created)));
     }
 
     return $sitemap->render($suffix);
