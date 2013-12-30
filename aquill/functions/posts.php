@@ -8,12 +8,20 @@ function has_posts() {
     return count(Registry::get('posts'));
 }
 
+function post_author() {
+    $author = Registry::prop('post', 'author');
+    
+    return sprintf('<a class="post-author" href="%s">%s</a>',
+        $author->link(),
+        $author->real_name);
+}
+
 function post_id() {
     return Registry::prop('post', 'id');
 }
 
 function post_title() {
-    return Registry::prop('post', 'title');
+    return apply_filters('post_title', Registry::prop('post', 'title'));
 }
 
 function post_date() {
@@ -21,7 +29,7 @@ function post_date() {
 }
 
 function post_content() {
-    return markdown(Registry::prop('post', 'html'));
+    return apply_filters('post_content', Registry::prop('post', 'html'));
 }
 
 function post_excerpt() {
@@ -36,7 +44,7 @@ function post_link() {
     return Registry::prop('post', 'link');
 }
 
-function post_prev() {
+function post_previous() {
     return Registry::prop('post', 'prev');
 }
 
@@ -45,7 +53,7 @@ function post_next() {
 }
 
 function posts_paging() {
-    return Registry::get('posts_paging');
+    return apply_filters('posts_paging', Registry::get('posts_paging'));
 }
 
 function the_post() {

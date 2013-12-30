@@ -28,28 +28,29 @@
     <?php if (comments_open()) : ?>
         <div class="response">
             <form method="post" action="<?php echo url('comment') ?>" class="response">
-                
-                <input type="hidden" name="csrf_token" value="<?php echo csrf_token(); ?>">
-                <input type="hidden" name="post_id" value="<?php echo post_id(); ?>">
+
+                <?php echo comment_message(); ?>
+                <?php echo comment_post_input(); ?>
+                <?php echo csrf_token_input(); ?>
 
                 <p class="comment-author-name">
                     <label for="">Name</label>
-                    <input type="text" name="name">
+                    <?php echo comment_name_input('Name'); ?>
                 </p>
 
                 <p class="comment-author-email">
                     <label for="">Email</label>
-                    <input type="text" name="email">
+                    <?php echo comment_email_input('Email'); ?>
                 </p>
 
                 <p class="comment-author-url">
                     <label for="">Homepage</label>
-                    <input type="text" name="url">
+                    <?php echo comment_url_input('Homepage'); ?>
                 </p>
 
                 <p class="comment-author-content">
                     <label for="">Comment</label>
-                    <textarea name="content" id="content" cols="30" rows="10"></textarea>
+                    <?php echo comment_content_input('Comment'); ?>
                 </p>
 
                 <p class="actions">

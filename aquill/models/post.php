@@ -23,12 +23,12 @@ class Post extends Eloquent
 
     public function category_slug()
     {
-        return Category::find($this->category)->slug;
+        return current($this->categories())->slug;
     }
 
     public function author()
     {
-        return User::find($this->author);
+        return User::find($this->author_id);
     }
 
     public function author_name()

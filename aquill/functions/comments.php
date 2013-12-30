@@ -9,9 +9,11 @@ function comment_id() {
 }
 
 function comment_author() {
-    return sprintf('<a class="comment-author" href="%s">%s</a>',
+    $author = sprintf('<a class="comment-author" href="%s">%s</a>',
         comment_author_url(),
         comment_author_name());
+
+    return apply_filters('comment_author', $author);
 }
 
 function comment_author_name() {
@@ -35,7 +37,11 @@ function comment_date() {
 }
 
 function comment_content() {
-    return markdown(Registry::prop('comment', 'text'));
+    return apply_filters('comment_content', Registry::prop('comment', 'text'));
+}
+
+function comment_message() {
+    return Notify::read();
 }
 
 function comment_text() {
@@ -58,6 +64,55 @@ function has_comments() {
     Registry::set('comments', $comments);
 
     return count($comments);
+}
+
+function comment_post_input() {
+    return '<input type="hidden" name="post_id" value="'.post_id().'">';
+}
+
+function comment_name_input() {
+    $name = '';
+    
+    if ($comment = Cookie::get('comment'))
+        $name = $comment['name'];
+    
+    if ($comment = Session::get('comment'))
+        $name = $comment['name'];
+    
+    return '<input type="text" name="name" value="'.$name.'">';
+}
+
+function comment_email_input() {
+    $email = '';
+    
+    if ($comment = Cookie::get('comment'))
+        $email = $comment['email'];
+    
+    if ($comment = Session::get('comment'))
+        $email = $comment['email'];
+    
+    return '<input type="text" name="email" value="'.$email.'">';
+}
+
+function comment_url_input() {
+    $url = '';
+    
+    if ($comment = Cookie::get('comment'))
+        $url = $comment['url'];
+    
+    if ($comment = Session::get('comment'))
+        $url = $comment['url'];
+    
+    return '<input type="text" name="url" value="'.$url.'">';
+}
+
+function comment_content_input() {
+    $content = '';
+
+    if ($comment = Session::get('comment'))
+        $content = $comment['content'];
+    
+    return '<textarea name="content" id="content" cols="30" rows="10">'.$content.'</textarea>';
 }
 
 function the_comment() {

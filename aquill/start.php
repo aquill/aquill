@@ -17,6 +17,8 @@
 
 require 'helpers.php';
 
+require 'plugin.php';
+
 /*
 |--------------------------------------------------------------------------
 | Auto-Loader Directories
@@ -31,6 +33,10 @@ require 'helpers.php';
 | the auto-loader will take care of the rest.
 |
 */
+
+Autoloader::map(array(
+    'AdminController' => APP . 'controllers/admin.php',
+));
 
 Autoloader::directories(array(
 	APP . 'models',

@@ -1,7 +1,7 @@
 <?php
 
 function get_tags() {
-    return Registry::get('tags');
+    return apply_filters('get_tags', Registry::get('tags'));
 }
 
 function has_tags() {
@@ -12,7 +12,7 @@ function has_tags() {
 }
 
 function tag_description() {
-    return Registry::prop('tag', 'description');
+    return apply_filters('tag_description', Registry::prop('tag', 'description'));
 }
 
 function tag_id() {
@@ -36,11 +36,11 @@ function tag_list() {
 }
 
 function tag_name() {
-    return Registry::prop('tag', 'name');
+    return apply_filters('tag_name', Registry::prop('tag', 'name'));
 }
 
 function tag_slug() {
-    return Registry::prop('tag', 'slug');
+    return apply_filters('tag_slug', Registry::prop('tag', 'slug'));
 }
 
 function the_tag() {

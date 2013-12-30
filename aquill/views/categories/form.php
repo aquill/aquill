@@ -12,7 +12,7 @@
 
                 <div class="controls">
                     <input placeholder="Title" name="title" id="title" type="text"
-                           value="<?php echo $category->title; ?>"/>
+                           value="<?php echo $category->name; ?>"/>
                 </div>
             </div>
 

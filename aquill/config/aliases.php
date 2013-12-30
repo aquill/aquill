@@ -33,7 +33,7 @@ return array(
     'Form' => 'Laravel\\Form',
     'Hash' => 'Laravel\\Hash',
     'HTML' => 'Laravel\\HTML',
-    'Input' => 'Laravel\\Input',
+    //'Input' => 'Laravel\\Input',
     'IoC' => 'Laravel\\IoC',
     'Lang' => 'Laravel\\Lang',
     'Log' => 'Laravel\\Log',

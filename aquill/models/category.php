@@ -3,7 +3,8 @@
 class Category extends Tag
 {
 
-    public static function titles() {
+    public static function titles()
+    {
         $titles = array();
         $categories = static::order_by('name', 'ASC')->get();
         foreach ($categories as $category) {
@@ -11,6 +12,7 @@ class Category extends Tag
         }
         return $titles;
     }
+
     public function link()
     {
         $patterns['id'] = $this->id;

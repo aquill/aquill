@@ -9,7 +9,7 @@ function csrf_token() {
 }
 
 function csrf_token_input() {
-    return '<input type="hidden" name="csrf_token" value="'.csrf_toke().'">';
+    return '<input type="hidden" name="csrf_token" value="'.csrf_token().'">';
 }
 
 function admin_include($filename) {
@@ -46,7 +46,7 @@ function rewrite($arr ,$type = 'post') {
     return $rewrite;
 }
 
-function rule_by_id($type = 'post') {
+function get_by_id($type = 'post') {
     $rewrite = Config::get('rewrite.'.$type);
 
     if (strpos($rewrite, '{id}') !== false) {
@@ -56,7 +56,7 @@ function rule_by_id($type = 'post') {
     return false;
 }
 
-function rewrite_rule($type = 'post') {
+function pattern($type = 'post') {
     if ($type == 'post') {
         $patterns['year'] = '[0-9]+';
         $patterns['month'] = '[0-9]+';
@@ -64,7 +64,7 @@ function rewrite_rule($type = 'post') {
         $patterns['category'] = '.*';        
     }
 
-    if (rule_by_id($type)) {
+    if (get_by_id($type)) {
         $patterns['id'] = '(:num)';
         $patterns['name'] = '.*';
     } else {
@@ -72,5 +72,5 @@ function rewrite_rule($type = 'post') {
         $patterns['name'] = '(.*)';
     }
 
-    return trim(rewrite($patterns), '/');
+    return trim(rewrite($patterns, $type), '/');
 }

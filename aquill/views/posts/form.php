@@ -38,7 +38,7 @@
                 <label class="control-label" for="comments">Comment</label>
 
                 <div class="controls">
-                    <label><?php echo Form::checkbox('comments', 1, $post->comments); ?>Comment for
+                    <label><?php echo Form::checkbox('comments', 1, $post->comment_status); ?>Comment for
                         the post.</label>
                 </div>
             </div>
