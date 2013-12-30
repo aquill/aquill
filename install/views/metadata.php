@@ -2,49 +2,54 @@
 
 <section class="content">
     <article>
-        <h1>Site metadata</h1>
-
-        <p>In order to personalise your Anchor blog, it's recommended you add some metadata about your site. This can
-            all be changed at any time, though.</p>
+        <h1><?php echo __('metadata.title'); ?></h1>
+        <p><?php echo __('metadata.description'); ?></p>
     </article>
 
-    <form method="post" action="<?php echo URL::to('metadata'); ?>" autocomplete="off">
+    <form method="post" action="<?php echo url('metadata'); ?>" autocomplete="off">
         <?php echo $messages; ?>
-
         <?php echo Form::token(); ?>
-
         <fieldset>
-            <p>
-                <label for="title">Site Name</label>
-                <i>What’s your blog called?.</i>
+            <div class="control-group">
+                <label for="title" class="control-label"><?php echo __('metadata.site_title'); ?></label>
 
-                <input id="title" name="title" value="<?php echo $title; ?>">
-            </p>
+                <div class="controls">
+                    <input id="title" name="title" value="<?php echo $title; ?>">
+                    <i><?php echo __('metadata.site_title_description'); ?></i>
+                </div>
+            </div>
 
-            <p>
-                <label for="description">Site Description</label>
-                <i>A little bit about you or your blog.</i>
+            <div class="control-group">
+                <label for="description" class="control-label"><?php echo __('metadata.site_description'); ?></label>
 
-                <textarea id="description" name="description"><?php echo $description; ?></textarea>
-            </p>
+                <div class="controls" style="line-height:0;">
+                    <textarea id="description" name="description"><?php echo $description; ?></textarea>
+                    <i><?php echo __('metadata.site_description_description'); ?></i>
+                </div>
+            </div>
 
-            <p>
-                <label for="url">Site URL</label>
-                <i>Anchor’s folder. Change if this is wrong.</i>
-                <input id="url" name="url" value="<?php echo $url; ?>">
-            </p>
+            <div class="control-group">
+                <label for="url" class="control-label"><?php echo __('metadata.site_url'); ?></label>
 
-            <p>
-                <label for="index">Site Index</label>
-                <i>Anchor’s folder. Change if this is wrong.</i>
-                <input id="index" name="index" value="<?php echo $index; ?>">
-            </p>
+                <div class="controls">
+                    <input id="url" name="url" value="<?php echo $url; ?>">
+                    <i><?php echo __('metadata.site_url_description'); ?></i>
+                </div>
+            </div>
 
+            <div class="control-group">
+                <label for="index" class="control-label"><?php echo __('metadata.site_index'); ?></label>
+
+                <div class="controls">
+                    <input id="index" name="index" value="<?php echo $index; ?>">
+                    <i><?php echo __('metadata.site_index_description'); ?></i>
+                </div>
+            </div>
         </fieldset>
 
-        <section class="options">
-            <a href="<?php echo URL::to('database'); ?>" class="btn quiet">&laquo; Back</a>
-            <button type="submit" class="btn">Next Step &raquo;</button>
+        <section class="form-actions">
+            <a href="<?php echo url('database'); ?>" class="btn quiet"><?php echo __('install.back'); ?></a>
+            <button type="submit" class="btn"><?php echo __('install.next'); ?></button>
         </section>
     </form>
 </section>

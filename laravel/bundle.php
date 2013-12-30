@@ -34,6 +34,13 @@ class Bundle
     public static $routed = array();
 
     /**
+     * All of the bundles that have their functions files loaded.
+     *
+     * @var array
+     */
+    public static $func = array();
+
+    /**
      * Register the bundle for the application.
      *
      * @param  string $bundle
@@ -93,10 +100,13 @@ class Bundle
             require $path;
         }
 
-        // Each bundle may also have a "routes" file which is responsible for
+        // Each bundle may also have "routes" files which is responsible for
         // registering the bundle's routes. This is kept separate from the
         // start script for reverse routing efficiency purposes.
         static::routes($bundle);
+
+        // Each bundle may also have "functions" files.
+        static::functions($bundle);
 
         Event::fire("laravel.started: {$bundle}");
 
@@ -120,8 +130,33 @@ class Bundle
         // routes are added, keeping the routes flexible.
         Router::$bundle = static::option($bundle, 'handles');
 
-        if (!static::routed($bundle) and file_exists($path)) {
+        if (!static::routed($bundle)) {
             static::$routed[] = $bundle;
+
+            if (file_exists($path)) {
+                foreach (glob($path.'/*.php') as $p) require $p;
+            }
+
+            if (file_exists($path . EXT)) {
+                require $path . EXT;
+            }
+        }
+    }
+
+    /**
+     * Load the "functions" file for a given bundle.
+     *
+     * @param  string $bundle
+     * @return void
+     */
+    public static function functions($bundle)
+    {
+        if (static::func($bundle)) return;
+
+        $path = static::path($bundle) . 'functions';
+
+        if (!static::func($bundle)) {
+            static::$func[] = $bundle;
 
             if (file_exists($path)) {
                 foreach (glob($path.'/*.php') as $p) require $p;
@@ -223,6 +258,17 @@ class Bundle
     public static function routed($bundle)
     {
         return in_array(strtolower($bundle), static::$routed);
+    }
+
+    /**
+     * Determine if a given bundle has its functions file loaded.
+     *
+     * @param  string $bundle
+     * @return void
+     */
+    public static function func($bundle)
+    {
+        return in_array(strtolower($bundle), static::$func);
     }
 
     /**

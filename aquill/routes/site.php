@@ -16,10 +16,21 @@ Route::get('/, home', function () {
 
     $vars['posts'] = Post::order_by('created', 'desc')->take(20)->get();
 
-    return Theme::make('index', $vars);
+    return new Theme('index');
 });
 
-Route::get(permalink_rule(), function ($id) {
+Route::get('(:all).html', function ($slug) {
+    $page = Page::find_by_slug($slug);
+
+    if (is_null($page))
+        return Response::make(Theme::make('404'), 404);
+
+    var_dump($page);
+
+    return new Theme('page');
+});
+
+Route::get(rewrite_rule(), function ($id) {
 
     if (rule_by_id()) {
         $post = Post::find($id);
@@ -27,11 +38,72 @@ Route::get(permalink_rule(), function ($id) {
         $post = Post::find_by_slug($id);
     }
 
-    var_dump($post);
+    if (is_null($post))
+        Response::make(Theme::make('404'), 404);
 
-    return Theme::make('post');
+    $comments = $post->comments()->get();
+
+    foreach ($comments as $comment) {
+        var_dump($comment->plink());
+    }
+
+    $tags = $post->tags()->get();
+
+    foreach ($tags as $tag) {
+        var_dump($tag->name);
+    }
+
+    return new Theme('post');
 });
 
+Route::get(rewrite_rule('page'), function ($id) {
+
+    if (rule_by_id('page')) {
+        $page = Page::find($id);
+    } else {
+        $page = Page::find_by_slug($id);
+    }
+
+    if (is_null($page))
+        Response::make(Theme::make('404'), 404);
+
+    var_dump($page);
+
+    return new Theme('page');
+});
+/*
+Route::get(rewrite_rule('category'), function ($id) {
+
+    if (rule_by_id('page')) {
+        $category = Category::find($id);
+    } else {
+        $category = Category::find_by_slug($id);
+    }
+
+    if (is_null($page))
+        Response::make(Theme::make('404'), 404);
+
+    var_dump($page);
+
+    return new Theme('category');
+});
+
+Route::get(rewrite_rule('tag'), function ($id) {
+
+    if (rule_by_id('page')) {
+        $page = Tag::find($id);
+    } else {
+        $page = Tag::find_by_slug($id);
+    }
+
+    if (is_null($page))
+        Response::make(Theme::make('404'), 404);
+
+    var_dump($page);
+
+    return new Theme('tag');
+});
+*/
 Route::get('robots.txt', function () {
     $vars['site_url'] = URL::base();
 
@@ -74,7 +146,7 @@ Route::get('sitemap.(:any)', function ($suffix = 'xml') {
     $suffixes = array('xml', 'html', 'ror.rdf', 'ror.rss', 'txt');
 
     if (!in_array($suffix, $suffixes))
-        return Response::error('404');
+        return Response::make(Theme::make('404'), 404);
 
     $sitemap = new Sitemap();
 
@@ -93,7 +165,6 @@ Route::get('sitemap.(:any)', function ($suffix = 'xml') {
     }
 
     return $sitemap->render($suffix);
-
 });
 
 /*
@@ -112,9 +183,9 @@ Route::get('sitemap.(:any)', function ($suffix = 'xml') {
 */
 
 Event::listen('404', function () {
-    return Response::make(Theme::make('404'), 404);
+    return Response::error(404);
 });
 
 Event::listen('500', function () {
-    return Response::error('500');
+    return Response::error(500);
 });

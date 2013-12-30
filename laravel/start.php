@@ -124,7 +124,6 @@ if (file_exists($path = APP . 'bundles' . EXT)) {
     $bundles = require $path;
 
     if (is_array($bundles)) {
-
         /**
          * Finally we'll grab all of the bundles and register them
          * with the bundle class. All of the bundles are stored in
@@ -136,14 +135,14 @@ if (file_exists($path = APP . 'bundles' . EXT)) {
     }
 }
 
-        /**
-         * Auto-start any bundles configured to start on every request.
-         * This is especially useful for debug bundles or bundles that
-         * are used throughout the application.
-         */
-        foreach (Bundle::$bundles as $bundle => $config) {
-            if ($config['auto']) Bundle::start($bundle);
-        }
+/**
+ * Auto-start any bundles configured to start on every request.
+ * This is especially useful for debug bundles or bundles that
+ * are used throughout the application.
+ */
+foreach (Bundle::$bundles as $bundle => $config) {
+    if ($config['auto']) Bundle::start($bundle);
+}
 
 /**
  * Register the "catch-all" route that handles 404 responses for

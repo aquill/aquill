@@ -13,4 +13,8 @@ class Comment extends Eloquent
         'text' => 'required'
     );
 
+    public function plink() {
+        return 'plink';
+    }
+
 }

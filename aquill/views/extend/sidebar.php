@@ -29,6 +29,12 @@
                     <time>Site</time>
                 </a>
             </li>
+            <li class="post">
+                <a <?php echo is_page('migrations') ? 'class="active" ' : ' '; ?>href="<?php echo url('admin/migrations'); ?>">
+                    <strong>Migrations</strong>
+                    <time>Site</time>
+                </a>
+            </li>
         </ul>
     </aside>
 </div>

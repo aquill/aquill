@@ -43,7 +43,7 @@ return array(
     |
     */
 
-    'permalink' => '/post/{year}/{month}/{day}/{id}.html',
+    'permalink' => '/{category}/{year}/{month}/{day}/{id}.html',
 
     /*
     |--------------------------------------------------------------------------

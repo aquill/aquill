@@ -5,14 +5,15 @@
 | Install Routes
 |--------------------------------------------------------------------------
 */
+
 Route::group(array('before' => 'check'), function() {
 
     Route::get('/, start', function () {
         $vars['messages'] = Notify::read();
-        $vars['languages'] = array('en_GB', 'zh_CN');
+        $vars['languages'] = array('en', 'zh');
         $vars['timezones'] = timezones();
         $i18n = array(
-            'language' => 'zh_CN',
+            'language' => 'zh',
             'timezone' => current_timezone()
         );
 
@@ -100,6 +101,38 @@ Route::group(array('before' => 'check'), function() {
         return View::make('metadata', $vars);
     });
 
+    Route::get('rewrite', function() {
+        if (!Session::get('install.database')) {
+            Notify::error('Please enter your database details');
+            return Redirect::to('database');
+        }
+
+        $vars['messages'] = Notify::read();
+
+        $vars['post_rewrites'] = array(
+            'numeric' => '/archives/{id}',
+            'name' => '/archives/{name}',
+            'month_name' => '/{year}/{month}/{name}',
+            'day_name' => '/{year}/{month}/{day}/{name}',
+            'custom' => '',
+        );
+
+        $rewrites = array(
+            'post_rewrite' => '/archives/{id}.html',
+            'page_rewrite' => '/{name}.html',
+            'category_rewrite' => '/category/{name}',
+            'tag_rewrite' => '/tag/{name}',
+        );
+
+        if ($temp = Session::get('install.rewrites')) {
+            $vars = array_merge($vars, $temp);
+        } else {
+            $vars = array_merge($vars, $rewrites);
+        }
+
+        return View::make('rewrite', $vars);
+    });
+
     Route::get('account', function () {
         if (!Session::get('install.metadata')) {
             Notify::error('Please enter metadata');
@@ -125,13 +158,13 @@ Route::group(array('before' => 'check'), function() {
 
     Route::get('complete', function () {
         if (!Session::get('install.account')) {
-            Notify::error('Please select a account');
+            Notify::error(__('install.account_error'));
             return Redirect::to('account');
         }
 
         $vars['messages'] = Notify::read();
 
-        $settings = Session::get('install'));
+        $settings = Session::get('install');
 
         $config['app'] = Braces::compile(APP . 'storage/app.php', array(
                 'url' => $settings['metadata']['url'],
@@ -157,9 +190,31 @@ Route::group(array('before' => 'check'), function() {
                 'prefix' => $database['prefix']
             ));
 
-        file_put_contents(PATH . 'aquill/config/local/app.php', $config['app']);
-        file_put_contents(PATH . 'aquill/config/local/database.php', $config['database']);
+        $rewrites = $settings['rewrites'];
 
+        $config['rewrite'] = Braces::compile(APP . 'storage/rewrite.php', array(
+                'post' => $rewrites['post_rewrite'],
+                'page' => $rewrites['page_rewrite'],
+                'category' => $rewrites['category_rewrite'],
+                'tag' => $rewrites['tag_rewrite'],
+            ));
+        
+        $htaccess = file_get_contents(STORAGE . 'htaccess');
+
+        try {
+            file_put_contents(PATH . 'aquill/config/local/app.php', $config['app']);
+            file_put_contents(PATH . 'aquill/config/local/database.php', $config['database']);
+            file_put_contents(PATH . 'aquill/config/rewrite.php', $config['rewrite']);
+            file_put_contents(PATH . '.htaccess', $htaccess);
+        } catch (Exception $e) {
+            return Redirect::to('account');
+        }
+
+        $vars['site_url'] = $settings['metadata']['url'];
+        $vars['admin_url'] = $vars['site_url'] . '/admin';
+        $vars['htaccess'] = $htaccess;
+
+        return View::make('complete', $vars);
     });
 });
 
@@ -175,7 +230,7 @@ Route::group(array('before' => 'csrf'), function() {
         $validation = Validator::make($i18n, $rules);
 
         if ($validation->invalid()) {
-            Notify::error('Please select a language');
+            Notify::error(__('install.language_error'));
             return Redirect::to('start');
         }
 
@@ -213,11 +268,28 @@ Route::group(array('before' => 'csrf'), function() {
         $validation = Validator::make($metadata, $rules);
 
         if ($validation->invalid()) {
-            Notify::error('Please select a language');
+            Notify::error(__('install.language_error'));
             return Redirect::to('metadata');
         }
 
         Session::put('install.metadata', $metadata);
+
+        return Redirect::to('rewrite');
+    });
+
+    Route::post('rewrite', function () {
+        $rewrites = Input::only(array('post_rewrite',
+            'page_rewrite', 'category_rewrite', 'tag_rewrite'));
+
+        $custom = Input::get('post_rewrite_custom');
+
+        if (empty($rewrites['post_rewrite'])) {
+            $rewrites['post_rewrite'] = $custom;
+        } else if (empty($rewrites['post_rewrite'])) {
+            $rewrites['post_rewrite'] = '/archives/{id}';
+        }
+
+        Session::put('install.rewrites', $rewrites);
 
         return Redirect::to('account');
     });
@@ -234,7 +306,7 @@ Route::group(array('before' => 'csrf'), function() {
         $validation = Validator::make($account, $rules);
 
         if ($validation->invalid()) {
-            Notify::error('Please enter a account');
+            Notify::error(__('install.account_error'));
             return Redirect::to('account');
         }
 
@@ -268,7 +340,7 @@ Route::filter('csrf', function () {
 
 Route::filter('check', function () {
     if (!is_writable(PATH . 'aquill/config')) {
-        $vars['messages'] = '<code>aquill/config</code> directory is not writeable.';
+        $vars['messages'] = __('install.not_writeable');
         return Response::view('halt', $vars);
     }
 });

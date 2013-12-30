@@ -1,66 +1,68 @@
 <?php
 
-function admin_include($filename)
-{
+function admin_include($filename) {
     if (is_readable($path = APP . 'views/partials/' . $filename . EXT)) {
         return require $path;
     }
 }
 
-function theme_include($filename)
-{
+function aquill_include($filename, $bundle = DEFAULT_BUNDLE ) {
+    if (is_readable($path = Bundle::path($bundle) . 'views/partials/' . $filename . EXT)) {
+        return require $path;
+    }
+}
+
+function theme_include($filename) {
     if (is_readable($path = PATH . 'themes/default/' . $filename . EXT)) {
         return require $path;
     }
 }
 
-function is_admin()
-{
+function is_admin() {
     return strpos(URL::current(), 'admin') !== 0;
 }
 
-function body_class($classes = '')
-{
+function body_class($classes = '') {
     $classes .= str_replace('/', ' ', URI::current());
 
     return 'class="' . $classes . '"';
 }
 
-function is_page($page = 'admin')
-{
+function is_page($page = 'admin') {
     return strpos(URL::current(), $page) !== false;
 }
 
-function permalink($vars)
-{
-    $permalink = Config::get('app.permalink');
+function rewrite($arr ,$type = 'post') {
+    $rewrite = Config::get('rewrite.'.$type);
 
-    foreach ($vars as $key => $value) {
-        if (strpos($permalink, '{' . $key . '}') !== false) {
-            $permalink = str_replace('{' . $key . '}', $value, $permalink);
+    foreach ($arr as $key => $value) {
+        if (strpos($rewrite, '{' . $key . '}') !== false) {
+            $rewrite = str_replace('{' . $key . '}', $value, $rewrite);
         }
     }
 
-    return $permalink;
+    return $rewrite;
 }
 
-function rule_by_id()
-{
-    $permalink = Config::get('app.permalink');
+function rule_by_id($type = 'post') {
+    $rewrite = Config::get('rewrite.'.$type);
 
-    if (strpos($permalink, '{id}') !== false) {
+    if (strpos($rewrite, '{id}') !== false) {
         return true;
     }
+
     return false;
 }
 
-function permalink_rule()
-{
-    $patterns['year'] = '[0-9]+';
-    $patterns['month'] = '[0-9]+';
-    $patterns['day'] = '[0-9]+';
+function rewrite_rule($type = 'post') {
+    if ($type == 'post') {
+        $patterns['year'] = '[0-9]+';
+        $patterns['month'] = '[0-9]+';
+        $patterns['day'] = '[0-9]+';
+        $patterns['category'] = '.*';        
+    }
 
-    if (rule_by_id()) {
+    if (rule_by_id($type)) {
         $patterns['id'] = '(:num)';
         $patterns['name'] = '.*';
     } else {
@@ -68,5 +70,5 @@ function permalink_rule()
         $patterns['name'] = '(.*)';
     }
 
-    return trim(permalink($patterns), '/');
+    return trim(rewrite($patterns), '/');
 }

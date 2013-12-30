@@ -33,4 +33,4 @@
 |
 */
 
-return array();
+return array('migrations' => array('auto'=> true));

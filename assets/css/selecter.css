@@ -4,12 +4,16 @@
 }
 
 .selecter {
-    max-width: 100%;
     position: relative;
     padding-left: 0;
     padding-right: 0;
     color: #333;
     border-radius: 0;
+    height: 2.4em;
+    line-height: 2.4em;
+    min-width: 60%;
+    width: auto;
+    display: inline-block;
 }
 
 .selecter-wrapper .selecter-item:hover i,

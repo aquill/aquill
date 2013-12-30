@@ -5,36 +5,32 @@
  *
  * The encoding specified in the application configuration file will be used.
  *
- * @param  string $value
+ * @param string  $value
  * @return string
  */
-function e($value)
-{
+function e($value) {
     return Laravel\HTML::entities($value);
 }
 
 /**
  * Retrieve a language line.
  *
- * @param  string $key
- * @param  array  $replacements
- * @param  string $language
+ * @param string  $key
+ * @param array   $replacements
+ * @param string  $language
  * @return string
  */
-function __($key, $replacements = array(), $language = null)
-{
-    return $key;
-    return Laravel\Lang::line($key, $replacements, $language);
+function __($key, $replacements = array(), $language = null) {
+    return Laravel\Lang::line($key, $replacements, $language)->get();
 }
 
 /**
  * Dump the given value and kill the script.
  *
- * @param  mixed  $value
+ * @param mixed   $value
  * @return void
  */
-function dd()
-{
+function dd($value) {
     echo '<pre>';
     echo var_dump($value);
     echo '</prev>';
@@ -46,19 +42,16 @@ function dd()
  *
  * @return string
  */
-function exec_time()
-{
+function exec_time() {
     $elapsed = number_format((microtime(true) - LARAVEL_START) * 1000, 2);
     return '<i class="elapsed">' . $elapsed . 'ms</i>';
 }
 
-function memory_usage()
-{
+function memory_usage() {
     return '<i class="usage">'.convert(memory_get_usage(true)).'</i>';
 }
 
-function convert($size)
-{
+function convert($size) {
     $unit=array('b','kb','mb','gb','tb','pb');
     return @round($size/pow(1024,($i=floor(log($size,1024)))),2).' '.$unit[$i];
 }
@@ -75,13 +68,12 @@ function convert($size)
  *        $name = array_get($array, 'user.name', 'Taylor');
  * </code>
  *
- * @param  array  $array
- * @param  string $key
- * @param  mixed  $default
+ * @param array   $array
+ * @param string  $key
+ * @param mixed   $default
  * @return mixed
  */
-function array_get($array, $key, $default = null)
-{
+function array_get($array, $key, $default = null) {
     if (is_null($key)) return $array;
 
     // To retrieve the array item using dot syntax, we'll iterate through
@@ -112,13 +104,12 @@ function array_get($array, $key, $default = null)
  *        array_set($array, 'user.name.first', 'Michael');
  * </code>
  *
- * @param  array  $array
- * @param  string $key
- * @param  mixed  $value
+ * @param array   $array
+ * @param string  $key
+ * @param mixed   $value
  * @return void
  */
-function array_set(&$array, $key, $value)
-{
+function array_set(&$array, $key, $value) {
     if (is_null($key)) return $array = $value;
 
     $keys = explode('.', $key);
@@ -154,12 +145,11 @@ function array_set(&$array, $key, $value)
  *        array_forget($array, 'user.name.first');
  * </code>
  *
- * @param  array  $array
- * @param  string $key
+ * @param array   $array
+ * @param string  $key
  * @return void
  */
-function array_forget(&$array, $key)
-{
+function array_forget(&$array, $key) {
     $keys = explode('.', $key);
 
     // This loop functions very similarly to the loop in the "set" method.
@@ -194,13 +184,12 @@ function array_forget(&$array, $key)
  *        $value = array_first($array, function($k, $v) {return $v == 'Taylor'}, 'Default');
  * </code>
  *
- * @param  array   $array
- * @param  Closure $callback
- * @param  mixed   $default
+ * @param array   $array
+ * @param Closure $callback
+ * @param mixed   $default
  * @return mixed
  */
-function array_first($array, $callback, $default = null)
-{
+function array_first($array, $callback, $default = null) {
     foreach ($array as $key => $value) {
         if (call_user_func($callback, $key, $value)) return $value;
     }
@@ -211,11 +200,10 @@ function array_first($array, $callback, $default = null)
 /**
  * Recursively remove slashes from array keys and values.
  *
- * @param  array $array
+ * @param array   $array
  * @return array
  */
-function array_strip_slashes($array)
-{
+function array_strip_slashes($array) {
     $result = array();
 
     foreach ($array as $key => $value) {
@@ -237,23 +225,21 @@ function array_strip_slashes($array)
 /**
  * Divide an array into two arrays. One with keys and the other with values.
  *
- * @param  array $array
+ * @param array   $array
  * @return array
  */
-function array_divide($array)
-{
+function array_divide($array) {
     return array(array_keys($array), array_values($array));
 }
 
 /**
  * Get all of the given array except for a specified array of items.
  *
- * @param  array $array
- * @param  array $keys
+ * @param array   $array
+ * @param array   $keys
  * @return array
  */
-function array_except($array, $keys)
-{
+function array_except($array, $keys) {
     return array_diff_key($array, array_flip((array)$keys));
 }
 
@@ -262,8 +248,7 @@ function array_except($array, $keys)
  *
  * @return bool
  */
-function magic_quotes()
-{
+function magic_quotes() {
     return function_exists('get_magic_quotes_gpc') and get_magic_quotes_gpc();
 }
 
@@ -272,11 +257,10 @@ function magic_quotes()
  *
  * This is simply a convenient wrapper around the "reset" method.
  *
- * @param  array $array
+ * @param array   $array
  * @return mixed
  */
-function head($array)
-{
+function head($array) {
     return reset($array);
 }
 
@@ -291,24 +275,26 @@ function head($array)
  *        $url = path('user/profile', true);
  * </code>
  *
- * @param  string $url
- * @param  bool   $https
+ * @param string  $url
+ * @param bool    $https
  * @return string
  */
-function url($url = '', $https = false)
-{
+function url($url = '', $https = false) {
     return Laravel\URL::to($url, $https);
+}
+
+function current_url() {
+    return Laravel\URL::current();
 }
 
 /**
  * Generate an application URL to an asset.
  *
- * @param  string $url
- * @param  bool   $https
+ * @param string  $url
+ * @param bool    $https
  * @return string
  */
-function asset($url, $https = false)
-{
+function asset($url, $https = false) {
     return Laravel\URL::to_asset($url, $https);
 }
 
@@ -323,12 +309,11 @@ function asset($url, $https = false)
  *        $url = action('user@profile', array('taylor'));
  * </code>
  *
- * @param  string $action
- * @param  array  $parameters
+ * @param string  $action
+ * @param array   $parameters
  * @return string
  */
-function action($action, $parameters = array())
-{
+function action($action, $parameters = array()) {
     return Laravel\URL::to_action($action, $parameters);
 }
 
@@ -343,71 +328,65 @@ function action($action, $parameters = array())
  *        $url = route('profile', array($username));
  * </code>
  *
- * @param  string $name
- * @param  array  $parameters
+ * @param string  $name
+ * @param array   $parameters
  * @return string
  */
-function route($name, $parameters = array())
-{
+function route($name, $parameters = array()) {
     return Laravel\URL::to_route($name, $parameters);
 }
 
 /**
  * Determine if a given string begins with a given value.
  *
- * @param  string $haystack
- * @param  string $needle
+ * @param string  $haystack
+ * @param string  $needle
  * @return bool
  */
-function starts_with($haystack, $needle)
-{
+function starts_with($haystack, $needle) {
     return strpos($haystack, $needle) === 0;
 }
 
 /**
  * Determine if a given string ends with a given value.
  *
- * @param  string $haystack
- * @param  string $needle
+ * @param string  $haystack
+ * @param string  $needle
  * @return bool
  */
-function ends_with($haystack, $needle)
-{
+function ends_with($haystack, $needle) {
     return $needle == substr($haystack, strlen($haystack) - strlen($needle));
 }
 
 /**
  * Determine if a given string contains a given sub-string.
  *
- * @param  string $haystack
- * @param  string $needle
+ * @param string  $haystack
+ * @param string  $needle
  * @return bool
  */
-function str_contains($haystack, $needle)
-{
+function str_contains($haystack, $needle) {
     return strpos($haystack, $needle) !== false;
 }
 
 /**
  * Cap a string with a single instance of the given string.
  *
- * @param  string $value
- * @param  string $cap
+ * @param string  $value
+ * @param string  $cap
  * @return string
  */
-function str_finish($value, $cap)
-{
+function str_finish($value, $cap) {
     return rtrim($value, $cap) . $cap;
 }
 
 /**
  * Get the root namespace of a given class.
  *
- * @param  string $class
+ * @param string  $class
  * @return string
  */
-function root_namespace($class)
-{
+function root_namespace($class) {
     if (str_contains($class, '\\')) {
         return head(explode('\\', $class));
     }
@@ -418,37 +397,48 @@ function root_namespace($class)
  *
  * If the given item is a Closure the result of the Closure will be returned.
  *
- * @param  mixed $value
+ * @param mixed   $value
  * @return mixed
  */
-function value($value)
-{
+function value($value) {
     return ($value instanceof Closure) ? call_user_func($value) : $value;
 }
 
 /**
  * Short-cut for constructor method chaining.
  *
- * @param  mixed $object
+ * @param mixed   $object
  * @return mixed
  */
-function with($object)
-{
+function with($object) {
     return $object;
+}
+
+/**
+ * Get the "class basename" of a class or object.
+ *
+ * The basename is considered to be the name of the class minus all namespaces.
+ *
+ * @param  object|string  $class
+ * @return string
+ */
+function class_basename($class)
+{
+    if (is_object($class)) $class = get_class($class);
+
+    return basename(str_replace('\\', '/', $class));
 }
 
 /**
  * Determine if the current version of PHP is at least the supplied version.
  *
- * @param  string $version
+ * @param string  $version
  * @return bool
  */
-function has_php($version)
-{
+function has_php($version) {
     return version_compare(PHP_VERSION, $version) >= 0;
 }
 
-function redirect($url, $status = 302, $https = false)
-{
+function redirect($url, $status = 302, $https = false) {
     Redirect::to($url, $status, $https);
 }

@@ -45,7 +45,7 @@ abstract class Grammar
             $prefix = $this->connection->config['prefix'];
         }
 
-        return $this->wrap($prefix . $table);
+        return $this->wrap($prefix . $table . ' AS ' . $table);
     }
 
     /**
@@ -56,6 +56,7 @@ abstract class Grammar
      */
     public function wrap($value)
     {
+
         // Expressions should be injected into the query as raw strings so
         // so we do not want to wrap them in any way. We will just return
         // the string value from the expression to be included.

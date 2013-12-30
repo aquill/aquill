@@ -16,8 +16,14 @@ class Post extends Eloquent
         $permalink['day'] = date('d',strtotime($this->created));
         $permalink['name'] = $this->slug;
         $permalink['id'] = $this->id;
+        $permalink['category'] = $this->category_slug();
 
-        return url(permalink($permalink));
+        return url(rewrite($permalink));
+    }
+
+    public function category_slug()
+    {
+        return Category::find($this->category)->slug;
     }
 
     public function author()
@@ -28,6 +34,16 @@ class Post extends Eloquent
     public function author_name()
     {
         return $this->author()->real_name;
+    }
+
+    public function comments()
+    {
+        return $this->has_many('Comment' , 'post_id');
+    }
+
+    public function tags()
+    {
+        return $this->has_many_and_belongs_to('Term', 'relationships');
     }
 
 }

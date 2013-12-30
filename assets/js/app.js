@@ -2,7 +2,7 @@ $(function () {
 
     $('input[name="created"]').appendDtpicker();
 
-    $('textarea[name=html]').autosize();
+    $('textarea').autosize();
 
     $("select").selecter();
 
