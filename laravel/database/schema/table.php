@@ -58,6 +58,11 @@ class Table
         $this->name = $name;
     }
 
+    public function exists()
+    {
+        return $this->command(__FUNCTION__);
+    }
+
     /**
      * Indicate that the table should be created.
      *

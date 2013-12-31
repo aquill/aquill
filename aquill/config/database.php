@@ -51,24 +51,24 @@ return array(
 
         'sqlite' => array(
             'driver' => 'sqlite',
-            'database' => 'aquill',
+            'database' => 'blog',
             'prefix' => 'aq_',
         ),
 
         'mysql' => array(
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'aquill',
+            'database' => 'blog',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
-            'prefix' => 'aq_',
+            'prefix' => 'aquill_',
         ),
 
         'pgsql' => array(
             'driver' => 'pgsql',
             'host' => 'localhost',
-            'database' => 'aquill',
+            'database' => 'blog',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',

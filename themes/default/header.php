@@ -14,9 +14,9 @@
             <h2 class="site-description"><?php echo site_description(); ?></h2>
         </hgroup>
 
-        <div class="site-navigation">
+        <ul class="site-navigation">
             <?php echo site_navigation(); ?>
-        </div>
+        </ul>
     </div>
 
     <div id="main" class="container">

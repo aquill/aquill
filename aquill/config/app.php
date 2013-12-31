@@ -30,23 +30,6 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
-    | Permalink Settings
-    |--------------------------------------------------------------------------
-    |
-    | By default Aquill uses web URLs which have question marks and lots of 
-    | numbers in them; however, Aquill offers you the ability to create a custom 
-    | URL structure for your permalinks and archives. This can improve the 
-    | aesthetics, usability, and forward-compatibility of your links. A number 
-    | of tags are available, and here are some examples to get you started.
-    |
-    | Keys: {year}, {month}, {day}, {id}, {name}, {category}
-    |
-    */
-
-    'permalink' => '/{category}/{year}/{month}/{day}/{id}.html',
-
-    /*
-    |--------------------------------------------------------------------------
     | Application Key
     |--------------------------------------------------------------------------
     |

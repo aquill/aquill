@@ -17,7 +17,7 @@ class Category extends Tag
     {
         $patterns['id'] = $this->id;
         $patterns['name'] = $this->slug;
-        return url(rewrite($patterns, 'category'));
+        return url(rewrite($patterns, __CLASS__));
     }
 
 }

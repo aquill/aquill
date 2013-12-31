@@ -11,6 +11,7 @@
                 <li class="li-comment">
                     <article>
                         <h3><?php echo comment_author(); ?></h3>
+                        <time><?php echo comment_date(); ?></time>
                         <div class="comment-content">
                             <?php echo comment_content(); ?>
                         </div>

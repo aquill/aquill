@@ -45,7 +45,7 @@ abstract class Grammar
             $prefix = $this->connection->config['prefix'];
         }
 
-        return $this->wrap($prefix . $table . ' AS ' . $table);
+        return $this->wrap($prefix . $table);
     }
 
     /**

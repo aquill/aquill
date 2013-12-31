@@ -14,6 +14,17 @@ class MySQL extends Grammar
     public $wrapper = '`%s`';
 
     /**
+     * Generate the SQL statements for check table exists command.
+     *
+     * @param  Table  $table
+     * @return array
+     */
+    public function exists(Table $table)
+    {
+        return 'SHOW TABLES LIKE \'%'.trim($this->wrap($table), '`').'%\'';
+    }
+
+    /**
      * Generate the SQL statements for a table creation command.
      *
      * @param  Table  $table
@@ -27,6 +38,7 @@ class MySQL extends Grammar
         // First we will generate the base table creation statement. Other than auto
         // incrementing keys, no indexes will be created during the first creation
         // of the table as they're added in separate commands.
+
         $sql = 'CREATE TABLE ' . $this->wrap($table) . ' (' . $columns . ')';
 
         if (!is_null($table->engine)) {

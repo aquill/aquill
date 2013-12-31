@@ -1,6 +1,7 @@
 <?php namespace Laravel\Database\Eloquent;
 
 use Laravel\Str;
+use Laravel\Config;
 use Laravel\Paginator;
 use Laravel\Database as DB;
 
@@ -369,11 +370,12 @@ abstract class Model {
 	 */
 	public function has_many_and_belongs_to($model, $table = null, $foreign_key = null, $associated_key = null)
 	{
+		$driver = Config::get('database.default');
+		$prefix = Config::get('database.connections.'.$driver.'.prefix');
+
 		$this->relating = __FUNCTION__;
 
 		$this->relating_table = (is_null($table)) ? $this->intermediate_table($model) : $table;
-
-		//dd($this->relating_table);
 
 		// Allowing the overriding of the foreign and associated keys provides
 		// the flexibility for self-referential many-to-many relationships.
@@ -384,9 +386,16 @@ abstract class Model {
 		$associated_key = (is_null($associated_key)) ? strtolower(static::model_name($model)).'_id' : $associated_key;
 
 		return static::query($model)
-                             ->select(array(static::table($model).'.*', $this->relating_table.'.'.$this->relating_key))
-                             ->join($this->relating_table, static::table($model).'.'.static::pk($model), '=', $this->relating_table.'.'.$associated_key)
-                             ->where($this->relating_table.'.'.$this->relating_key, '=', $this->{static::$primary_key});
+                             ->select(array(
+                             	$prefix.static::table($model).'.*', 
+                             	$prefix.$this->relating_table.'.'.$this->relating_key))
+                             ->join($this->relating_table, 
+                             	$prefix.static::table($model).'.'.static::pk($model), 
+                             	'=', 
+                             	$prefix.$this->relating_table.'.'.$associated_key)
+                             ->where($prefix.$this->relating_table.'.'.$this->relating_key, 
+                             	'=', 
+                             	$this->{static::$primary_key});
 	}
 
 	/**

@@ -13,4 +13,8 @@ class Comment extends Eloquent
         'text' => 'required'
     );
 
+    public function date($format = 'Y-m-d H:i:s')
+    {
+        return date($format, strtotime($this->created_at));
+    }
 }

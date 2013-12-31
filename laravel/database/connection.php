@@ -146,6 +146,8 @@ class Connection
             return $statement->fetchAll(PDO::FETCH_CLASS, 'stdClass');
         } elseif (stripos($sql, 'update') === 0 or stripos($sql, 'delete') === 0) {
             return $statement->rowCount();
+        } elseif (stripos($sql, 'show') === 0) {
+            return $statement->fetch();
         } else {
             return $result;
         }

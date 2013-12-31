@@ -9,9 +9,14 @@ function comment_id() {
 }
 
 function comment_author() {
-    $author = sprintf('<a class="comment-author" href="%s">%s</a>',
-        comment_author_url(),
-        comment_author_name());
+    if (comment_author_url()) {
+        $author = sprintf('<a class="comment-author" href="%s">%s</a>',
+            comment_author_url(),
+            comment_author_name());
+    } else {
+        $author = sprintf('<span class="comment-author">%s</span>',
+            comment_author_name());
+    }
 
     return apply_filters('comment_author', $author);
 }
@@ -32,12 +37,12 @@ function comment_avatar_avatar() {
     return Registry::prop('comment', 'avatar');
 }
 
-function comment_date() {
-    return Registry::prop('comment', 'date');
+function comment_date($format = 'Y-m-d H:i:s') {
+    return apply_filters('comment_date', Registry::prop('comment', 'date', $format));
 }
 
 function comment_content() {
-    return apply_filters('comment_content', Registry::prop('comment', 'text'));
+    return apply_filters('comment_content', Registry::prop('comment', 'content'));
 }
 
 function comment_message() {
@@ -45,7 +50,7 @@ function comment_message() {
 }
 
 function comment_text() {
-    return Registry::prop('comment', 'text');
+    return Registry::prop('comment', 'content');
 }
 
 function comment_paging() {}
@@ -61,9 +66,10 @@ function get_comments() {
 function has_comments() {
     $comments = Registry::prop('post', 'comments');
 
-    Registry::set('comments', $comments);
+    Registry::set('comments', $comments->results);
+    Registry::set('comment_paging', $comments->links());
 
-    return count($comments);
+    return count(Registry::get('comments'));
 }
 
 function comment_post_input() {

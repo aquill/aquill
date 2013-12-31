@@ -12,13 +12,18 @@ class Registry {
         return $default;
     }
 
-    public static function prop($object, $key, $default = null) {
-        if($obj = static::get($object)) {
-            if (method_exists($obj, $key)) {
-                return call_user_func_array(array($obj, $key), array());
-            }
+    public static function prop($object, $key, $params = array()) {
+        if (func_num_args() > 2) {
+            $params = func_get_args();
+            $object = array_shift($params);
+            $key = array_shift($params);
+        }
 
-            return $obj->{$key};
+        if($object = static::get($object)) {
+            if (method_exists($object, $key)) {
+                return call_user_func_array(array($object, $key), $params);
+            }
+            return $object->{$key};
         }
 
         return $default;

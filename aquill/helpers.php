@@ -35,7 +35,7 @@ function uri_has($page = 'admin') {
 }
 
 function rewrite($arr ,$type = 'post') {
-    $rewrite = Config::get('rewrite.'.$type);
+    $rewrite = Config::get('rewrite.'.strtolower($type));
 
     foreach ($arr as $key => $value) {
         if (strpos($rewrite, '{' . $key . '}') !== false) {
@@ -47,7 +47,7 @@ function rewrite($arr ,$type = 'post') {
 }
 
 function get_by_id($type = 'post') {
-    $rewrite = Config::get('rewrite.'.$type);
+    $rewrite = Config::get('rewrite.'.strtolower($type));
 
     if (strpos($rewrite, '{id}') !== false) {
         return true;
@@ -57,6 +57,8 @@ function get_by_id($type = 'post') {
 }
 
 function pattern($type = 'post') {
+    $type = strtolower($type);
+
     if ($type == 'post') {
         $patterns['year'] = '[0-9]+';
         $patterns['month'] = '[0-9]+';
@@ -73,4 +75,14 @@ function pattern($type = 'post') {
     }
 
     return trim(rewrite($patterns, $type), '/');
+}
+
+function is_url($string) {
+    if (strpos($string, 'http://') !== false) {
+        return true;
+    } elseif (strpos($string, 'https://') !== false) {
+        return true;
+    }
+
+    return false;
 }

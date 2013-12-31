@@ -2,6 +2,7 @@
 
 class CategoryController extends AdminController
 {
+
     public function index($id = null) {
         $vars['messages'] = Notify::read();
 

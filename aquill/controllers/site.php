@@ -2,14 +2,82 @@
 
 class SiteController extends Controller
 {
+    public function __construct()
+    {
+        $this->filter('before', 'csrf')->on('post');
+
+        $menus = Menu::site();
+        $pages = Page::published()->get();
+
+        Registry::set('menus', $menus);
+        Registry::set('pages', $pages);
+    }
 
     public function home() {
-        $posts = Post::order_by('created', 'DESC')->paginate(10);
+        $posts = Post::published()->paginate(10);
 
-        Registry::set('posts', $posts->results);
-        Registry::set('posts_paging', $posts->links());
+        Registry::set('posts', $posts);
 
         return new Theme('index');
+    }
+
+    public function feed($uri) {
+        $posts = Post::published()->take(20)->get();
+
+        $feed = new Feed();
+
+        $feed->title = 'Your title';
+        $feed->description = 'Your description';
+        $feed->link = url('feed');
+        $feed->pubdate = current($posts)->date('D, d M Y H:i:s O');
+        $feed->lang = 'en';
+
+        foreach ($posts as $post) {
+            $feed->add(
+                $post->title,
+                $post->author_name(),
+                $post->link(),
+                $post->date('D, d M Y H:i:s O'),
+                strip_tags($post->content),
+                autop($post->content)
+            );
+        }
+
+        return $feed->render($uri);
+    }
+
+    public function sitemap($suffix = 'xml') {
+
+        $suffixes = array('xml', 'html', 'ror.rdf', 'ror.rss', 'txt');
+
+        if (!in_array($suffix, $suffixes))
+            return Theme::error(404);
+
+        $sitemap = new Sitemap();
+
+        $sitemap->title = 'Aquill';
+
+        $posts = Post::published()->get();
+
+        $lastmod = current($posts)->date('Y-m-d\TH:i:sP');
+
+        $sitemap->add(url(), $lastmod, '0.9', 'daily');
+
+        foreach ($posts as $post) {
+            $sitemap->add($post->link(), $post->date('Y-m-d\TH:i:sP'));
+        }
+
+        return $sitemap->render($suffix);
+    }
+
+    public function robots() {
+        $vars['site_url'] = URL::base();
+
+        $content = View::make('robots', $vars);
+        $status = 200;
+        $headers = array('Content-Type' => 'text/plain');
+
+        return Response::make($content, $status, $headers);
     }
 
     public function post($id) {
@@ -21,7 +89,7 @@ class SiteController extends Controller
         }
 
         if (is_null($post))
-            Response::make(Theme::make('404'), 404);
+            return Theme::error(404);
 
         Registry::set('post', $post);
 
@@ -37,9 +105,9 @@ class SiteController extends Controller
         }
 
         if (is_null($page))
-            Response::make(Theme::make('404'), 404);
-
-        var_dump($page);
+            return Theme::error(404);
+        
+        Registry::set('page', $page);
 
         return new Theme('page');
     }
@@ -52,12 +120,11 @@ class SiteController extends Controller
         }
 
         if (is_null($category))
-            Response::make(Theme::make('404'), 404);
+            return Theme::error(404);
 
         $posts = $category->posts();
 
-        Registry::set('posts', $posts->results);
-        Registry::set('posts_paging', $posts->links());
+        Registry::set('posts', $posts);
 
         return new Theme('index');
     }
@@ -70,12 +137,11 @@ class SiteController extends Controller
         }
 
         if (is_null($tag))
-            Response::make(Theme::make('404'), 404);
+            return Theme::error(404);
 
         $posts = $tag->posts();
 
-        Registry::set('posts', $posts->results);
-        Registry::set('posts_paging', $posts->links());
+        Registry::set('posts', $posts);
 
         return new Theme('index');
     }
@@ -88,12 +154,11 @@ class SiteController extends Controller
         }
 
         if (is_null($author))
-            Response::make(Theme::make('404'), 404);
+            return Theme::error(404);
 
         $posts = $author->posts();
 
-        Registry::set('posts', $posts->results);
-        Registry::set('posts_paging', $posts->links());
+        Registry::set('posts', $posts);
 
         return new Theme('index');
     }
@@ -110,72 +175,14 @@ class SiteController extends Controller
             Notify::error('Publish comment error.');
             return Redirect::to($post->link() . '#response');
         }
+        
+        if (!Cookie::get('comment')) {
+            Cookie::forever('comment', $comment);
+        }
 
         Session::forget('comment');
 
         return Redirect::to($post->link() . '#comment');
-    }
-
-    public function robots() {
-        $vars['site_url'] = URL::base();
-
-        $content = View::make('robots', $vars);
-        $status = 200;
-        $headers = array('Content-Type' => 'text/plain');
-
-        return Response::make($content, $status, $headers);
-    }
-
-    public function feed($uri) {
-        $posts = Post::order_by('created', 'desc')->take(20)->get();
-
-        $feed = new Feed();
-
-        $feed->title = 'Your title';
-        $feed->description = 'Your description';
-        $feed->link = url('feed');
-        $feed->pubdate = date('D, d M Y H:i:s O', strtotime(current($posts)->created));
-        $feed->lang = 'en';
-
-        foreach ($posts as $post) {
-            // set item's title, author, url, pubdate and description
-            $feed->add(
-                $post->title,
-                $post->author_name(),
-                $post->link(),
-                date('D, d M Y H:i:s O', strtotime($post->created)),
-                strip_tags($post->html),
-                $post->html
-            );
-        }
-
-        return $feed->render($uri);
-    }
-
-    public function sitemap($suffix = 'xml') {
-
-        $suffixes = array('xml', 'html', 'ror.rdf', 'ror.rss', 'txt');
-
-        if (!in_array($suffix, $suffixes))
-            return Response::make(Theme::make('404'), 404);
-
-        $sitemap = new Sitemap();
-
-        $sitemap->title = 'Aquill';
-
-        $posts = Post::order_by('created', 'desc')->get();
-
-        $post = array_slice($posts, 0, 1);
-
-        $lastmod = date('Y-m-d\TH:i:sP', strtotime($post[0]->created));
-
-        $sitemap->add(url(), $lastmod, '1.0', 'daily');
-
-        foreach ($posts as $post) {
-            $sitemap->add($post->link(), date('Y-m-d\TH:i:sP', strtotime($post->created)));
-        }
-
-        return $sitemap->render($suffix);
     }
 
 }

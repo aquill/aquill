@@ -26,4 +26,9 @@ class Theme extends View
         throw new \Exception("View [$path] does not exist.");
     }
 
+    public static function error($stauts)
+    {
+        return Response::make(static::make('404'), $stauts);
+    }
+
 }

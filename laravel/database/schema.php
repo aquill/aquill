@@ -20,6 +20,15 @@ class Schema
         return static::execute($table);
     }
 
+    public static function hasTable($table)
+    {
+        $table = new Schema\Table($table);
+
+        $table->exists();
+
+        return static::execute($table);
+    }
+
     /**
      * Create a new database table schema.
      *
@@ -82,6 +91,10 @@ class Schema
             // stay granular across various database systems.
             if (method_exists($grammar, $method = $command->type)) {
                 $statements = $grammar->$method($table, $command);
+
+                if ($method == 'exists') {
+                    return $connection->query($statements);
+                }
 
                 // Once we have the statements, we will cast them to an array even
                 // though not all of the commands return an array just in case it

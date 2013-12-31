@@ -21,7 +21,11 @@ class User extends Eloquent
 
     public function posts()
     {
-        return $this->has_many('Post' , 'author_id')->paginate(10);
+        return $this->has_many('Post' , 'author')
+                    ->where('status', '=', 'publish')
+                    ->where('type', '=', 'post')
+                    ->order_by('created_at', 'DESC')
+                    ->paginate(10);
     }
 
 }

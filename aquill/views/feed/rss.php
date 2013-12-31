@@ -13,7 +13,7 @@
             <link><?php echo $item->link; ?></link>
             <guid isPermaLink="true"><?php echo $item->link; ?></guid>
             <description><![CDATA[<?php echo $item->description; ?>]]></description>
-            <content:encoded><![CDATA[<?php echo $item->description; ?>]]></content:encoded>
+            <content:encoded><![CDATA[<?php echo $item->content; ?>]]></content:encoded>
             <pubDate><?php echo $item->pubdate; ?></pubDate>
         </item>
         <?php endforeach; ?>
