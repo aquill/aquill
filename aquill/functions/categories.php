@@ -24,15 +24,18 @@ function category_link() {
 }
 
 function category_list() {
-    $output = '<ul>';
-    while (categories()) {
-        the_category();
-        $output .= sprintf('<li><a class="category" href="%s">%s</a></li>',
-            category_link(),
-            category_name());
+    if (has_categories()) {
+        $output = '<ul class="categories">';
+
+        foreach (get_categories() as $category) {
+            $output .= sprintf('<li><a class="category" href="%s">%s</a></li>', 
+                $category->link(), $category->name());
+        }
+        
+        $output .= '</ul>';
+
+        return $output;  
     }
-    $output .= '</ul>';
-    return $output;
 }
 
 function category_name() {

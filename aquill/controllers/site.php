@@ -2,6 +2,7 @@
 
 class SiteController extends Controller
 {
+
     public function __construct()
     {
         $this->filter('before', 'csrf')->on('post');
@@ -14,11 +15,17 @@ class SiteController extends Controller
     }
 
     public function home() {
+        $homepage = Config::get('rewrite.home');
+
         $posts = Post::published()->paginate(10);
-
         Registry::set('posts', $posts);
+        
+        if (is_null($homepage)) {
 
-        return new Theme('index');
+            return new Theme('index');            
+        }
+
+        return new Theme($homepage);
     }
 
     public function feed($uri) {

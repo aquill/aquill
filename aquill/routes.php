@@ -49,12 +49,6 @@ Route::get('schema', function () {
     echo exec_time();
 });
 
-Route::get('test', function () {
-    $p = Post::find(3602);
-    $p->tags();
-    var_dump($p);
-});
-
 Route::get('/, home', 'site@home');
 Route::get('robots.txt', 'site@robots');
 Route::get('(feed|rss|atom)', 'site@feed');

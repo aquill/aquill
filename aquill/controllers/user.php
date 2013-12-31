@@ -2,6 +2,7 @@
 
 class UserController extends AdminController
 {
+
     public function login() {
         if (Auth::check()) return Redirect::to('admin/posts');
 

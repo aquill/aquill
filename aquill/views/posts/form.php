@@ -17,7 +17,7 @@
 
                 <div class="controls">
                     <input type="text" name="created" id="created"
-                           value="<?php echo urldecode($post->created); ?>"/>
+                           value="<?php echo urldecode($post->created_at); ?>"/>
                 </div>
             </div>
             <div class="control-group width-50">
@@ -31,7 +31,7 @@
                 <label class="control-label" for="category">Category</label>
 
                 <div class="controls">
-                    <?php echo Form::select('category', $categories, $post->category); ?>
+                    <?php //echo Form::select('category', $categories, $post->category); ?>
                 </div>
             </div>
             <div class="control-group width-60">
@@ -46,7 +46,7 @@
                 <label class="control-label" for="desc">Description</label>
 
                 <div class="controls">
-                    <textarea name="desc"><?php echo $post->description; ?></textarea>
+                    <textarea name="desc"><?php echo $post->excerpt; ?></textarea>
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
         <div class="wrap">
             <textarea placeholder="Write something..." id="markdown-input" class="textarea-resize"
                       data-markdown-preview="#markdown-preview" name="html" rows="10" cols="50"
-                ><?php echo $post->html; ?></textarea>
+                ><?php echo $post->content; ?></textarea>
         </div>
     </fieldset>
 

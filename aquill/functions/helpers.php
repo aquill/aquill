@@ -110,7 +110,7 @@ function site_title() {}
 
 function site_description() {}
 
-function site_navigation() {
+function site_menu_list() {
     $menus = Registry::get('menus');
     foreach ($menus as $menu) {
         printf('<li><a href="%s">%s</a></li>', $menu->link(), $menu->title());

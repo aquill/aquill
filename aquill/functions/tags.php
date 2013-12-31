@@ -1,7 +1,7 @@
 <?php
 
 function get_tags() {
-    return apply_filters('get_tags', Registry::get('tags'));
+    return Registry::get('tags');
 }
 
 function has_tags() {
@@ -24,15 +24,17 @@ function tag_link() {
 }
 
 function tag_list() {
-    $output = '<ul>';
-    while (tags()) {
-        the_tag();
-        $output .= sprintf('<li><a class="tag" href="%s">%s</a></li>',
-            tag_link(),
-            tag_name());
+    if (has_tags()) {
+        $output = '<ul class="tag">';
+
+        foreach (get_tags() as $tag) {
+            $output .= sprintf('<li><a class="tag" href="%s">%s</a></li>', $tag->link(), $tag->name());
+        }
+        
+        $output .= '</ul>';
+
+        return $output;  
     }
-    $output .= '</ul>';
-    return $output;
 }
 
 function tag_name() {

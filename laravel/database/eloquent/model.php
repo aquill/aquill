@@ -504,9 +504,9 @@ abstract class Model {
 		// load it and return the results of the relationship query.
 		elseif (method_exists($this, $key))
 		{
-			$query = $this->$key();
+			return $this->$key();
 
-			return $this->ignore[$key] = (in_array($this->relating, array('has_one', 'belongs_to'))) ? $query->first() : $query->get();
+		//	return $this->ignore[$key] = (in_array($this->relating, array('has_one', 'belongs_to'))) ? $query->first() : $query->get();
 		}
 	}
 

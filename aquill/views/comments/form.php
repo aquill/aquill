@@ -40,7 +40,7 @@
 
                 <div class="controls">
                     <textarea placeholder="Comment" name="text" rows="10"
-                              cols="50"><?php echo $comment->text; ?></textarea>
+                              cols="50"><?php echo $comment->content; ?></textarea>
                 </div>
             </div>
             <div class="form-actions">

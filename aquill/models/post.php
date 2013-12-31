@@ -23,6 +23,11 @@ class Post extends Eloquent
                     ->order_by('created_at', 'DESC');
     }
 
+    public function id()
+    {
+        return $this->id;
+    }
+
     public function title()
     {
         return $this->title;

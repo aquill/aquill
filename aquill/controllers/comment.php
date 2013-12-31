@@ -6,7 +6,7 @@ class CommentController extends AdminController
     public function index($id = null) {
         $vars['messages'] = Notify::read();
 
-        $vars['comments'] = Comment::order_by('date', 'DESC')->paginate(10);
+        $vars['comments'] = Comment::order_by('created_at', 'DESC')->paginate(10);
 
         if ($id = Input::get('id', 0)) {
             $data['comment'] = Comment::find($id);
@@ -28,7 +28,7 @@ class CommentController extends AdminController
             return;
         }
 
-        $vars['comments'] = Comment::order_by('date', 'DESC')->paginate(20);
+        $vars['comments'] = Comment::order_by('created_at', 'DESC')->paginate(20);
 
         return View::make('comments/comments', $vars);
     }

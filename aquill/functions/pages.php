@@ -13,7 +13,7 @@ function page_link() {
 }
 
 function page_content() {
-    return Registry::prop('page', 'content');
+    return apply_filters('page_content', Registry::prop('page', 'content'));
 }
 
 function page_title() {

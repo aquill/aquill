@@ -4,7 +4,7 @@ class PostController extends AdminController
 {
     public function index($id = null) {
         $vars['messages'] = Notify::read();
-        $vars['posts'] = Post::order_by('created', 'DESC')->paginate(10);
+        $vars['posts'] = Post::order_by('created_at', 'DESC')->paginate(10);
 
         $data['statuses'] = array(
             'published' => __('published'),
@@ -27,14 +27,14 @@ class PostController extends AdminController
         if (Input::get('page') > Post::count() / 10) {
             return;
         }
-        $vars['posts'] = Post::order_by('created', 'DESC')->paginate(10);
+        $vars['posts'] = Post::order_by('created_at', 'DESC')->paginate(10);
 
         return View::make('posts/posts', $vars);
     }
 
     public function compose($id = null) {
         $start = microtime(true);
-        $input = Input::only(array('title', 'slug', 'created',
+        $input = Input::only(array('title', 'slug', 'created_at',
             'html', 'category', 'status'));
 
         $input['comments'] = Input::get('comments', 0);
