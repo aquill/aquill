@@ -62,6 +62,9 @@
 
 .selecter .selecter-selected i {
     font-style: normal;
+    line-height: inherit;
+    margin-top: 0;
+    font-size: inherit;
 }
 
 .selecter-wrapper .selecter-item {

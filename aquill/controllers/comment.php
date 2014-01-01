@@ -15,9 +15,9 @@ class CommentController extends AdminController
         }
 
         $data['statuses'] = array(
-            'approved' => __('Approved'),
-            'pending' => __('Pending'),
-            'spam' => __('Spam')
+            'approved' => __('comment.Approved'),
+            'pending' => __('comment.Pending'),
+            'spam' => __('comment.Spam')
         );
 
         return View::make('comments/index', $vars)->nest('formdata', 'comments/form', $data);

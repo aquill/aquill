@@ -5,4 +5,5 @@ return array(
     'edit' => '编辑',
     'delete' => '删除',
     'preview' => '预览',
+    'update' => '更新',
 );
