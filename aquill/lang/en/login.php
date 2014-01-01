@@ -1,6 +1,7 @@
 <?php 
 
 return array(
+
     'username' => 'Username',
     'password' => 'Password',
     'remember' => 'Remember me',
@@ -10,4 +11,5 @@ return array(
     'administrator' => 'Administrator',
     'editor' => 'Editor',
     'user' => 'Author',
+
 );

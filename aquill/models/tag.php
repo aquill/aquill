@@ -22,6 +22,11 @@ class Tag extends Eloquent
         return $this->name;
     }
 
+    public function slug()
+    {
+        return urldecode($this->slug);
+    }
+
     public function posts()
     {
         return $this->has_many_and_belongs_to('Post', 'relationships', 'term_id', 'post_id')

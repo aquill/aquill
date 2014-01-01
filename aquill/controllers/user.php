@@ -57,15 +57,13 @@ class UserController extends AdminController
             $data['user'] = new User;
         }
 
-        $data['statuses'] = array(
-            'inactive' => __('Inactive'),
-            'active' => __('Active')
-        );
-
         $data['roles'] = array(
             'administrator' => __('user.administrator'),
             'editor' => __('user.editor'),
-            'user' => __('user.author')
+            'author' => __('user.author'),
+            'contributor' => __('user.contributor'),
+            'subscriber' => __('user.subscriber'),
+            'pending' => __('user.pending'),
         );
 
         return View::make('users/index', $vars)->nest('formdata', 'users/form', $data);

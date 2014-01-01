@@ -6,6 +6,7 @@ code {
 }
 .sidebar {
     width: 30%;
+    left: 0;
 }
 .container {
     margin-left: 30%;

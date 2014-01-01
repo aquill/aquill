@@ -1,6 +1,6 @@
 <div id="sidebar" class="sidebar">
 
-    <?php admin_include('search'); ?>
+    <?php partial('partials/search', array('type' => 'post')); ?>
 
     <aside id="postlist" class="widget widget-list">
         <h3 class="widget-title">Extend</h3>

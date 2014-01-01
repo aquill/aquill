@@ -33,6 +33,11 @@ class Post extends Eloquent
         return $this->title;
     }
 
+    public function slug()
+    {
+        return urldecode($this->slug);
+    }
+
     public function link()
     {
         $permalink['year'] = date('Y', strtotime($this->created_at));

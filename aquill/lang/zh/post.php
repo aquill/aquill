@@ -1,6 +1,9 @@
 <?php 
 
 return array(
+
+    'search_placeholder' => '搜索文章',
+
     'publish' => '发布',
     'draft' => '草稿',
     'load_more' => '加载更多文章...',
@@ -20,4 +23,5 @@ return array(
     'title_placeholder' => '在这里输入标题',
     'more_settings' => '更多设置',
     'content_placeholder' => '写点什么吧...',
+
 );

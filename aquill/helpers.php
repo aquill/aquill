@@ -18,6 +18,18 @@ function admin_include($filename) {
     }
 }
 
+function partial($view, $data = array()) {
+    if($path = realpath(APP . "views/{$view}" . EXT)) {
+        ob_start();
+
+        extract($data, EXTR_SKIP);
+
+        require $path;
+
+        echo ob_get_clean();
+    }
+}
+
 function aquill_include($filename, $bundle = DEFAULT_BUNDLE ) {
     if (is_readable($path = Bundle::path($bundle) . 'views/partials/' . $filename . EXT)) {
         return require $path;

@@ -6,6 +6,7 @@ class PostController extends AdminController
     public function index($id = null) {
         $vars['messages'] = Notify::read();
         $vars['posts'] = Post::where_in('status', array('publish', 'draft'))
+                            ->where('type', '=', 'post')
                             ->order_by('created_at', 'DESC')
                             ->paginate(10);
 

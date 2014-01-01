@@ -1,3 +1,3 @@
-<?php admin_include('header'); ?>
+<?php partial('partials/header'); ?>
 
-<?php admin_include('footer'); ?>
+<?php partial('partials/footer'); ?>

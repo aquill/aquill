@@ -1,37 +1,27 @@
-<?php admin_include('header'); ?>
+<?php partial('partials/header'); ?>
 
-    <div id="sidebar" class="sidebar">
-        <?php admin_include('search'); ?>
-        <aside id="postlist" class="widget widget-list">
-            <h3 class="widget-title">All posts</h3>
-            <ul class="list">
-                <?php foreach ($posts->results as $post) : ?>
-                    <li class="post" id="post-<?php echo $post->id(); ?>">
-                        <a class="<?php echo Input::get('id', 0) == $post->id() ? 'active item' : 'item'; ?>"
-                            href="<?php echo url('admin/posts/' . $post->id()); ?>">
-                            <strong><?php echo $post->title(); ?></strong>
-                            <time><?php echo $post->date(); ?></time>
-                        </a>
-                        <em class="status"><?php echo __('post.'.$post->status); ?></em>
-                        <ul class="statuses">
-                            <li><?php echo __('post.publish'); ?></li>
-                            <li><?php echo __('post.draft'); ?></li>
-                            <li><a class="delete" href="<?php echo url('admin/post/'. $post->id()); ?>"><?php echo __('global.delete'); ?></a></li>
-                        </ul>
-                    </li>
-                <?php endforeach; ?>
+<div id="sidebar" class="sidebar">
 
-                <?php if (Post::count() > 10): ?>
-                    <li class="load-more" type="posts" page-num="2"><span><?php echo __('post.load_more'); ?></span></li>
-                <?php endif; ?>
-            </ul>
-            <?php //echo $posts->links(); ?>
-        </aside>
-    </div>
+    <?php partial('partials/search', array('type' => 'post')); ?>
 
-    <div id="main" class="container">
-        <?php echo $messages; ?>
-        <?php echo $formdata; ?>
-    </div>
+    <aside id="postlist" class="widget widget-list">
+        <h3 class="widget-title">All posts</h3>
+        <ul class="list">
+            <?php partial('posts/posts', array('posts' => $posts)); ?>
 
-<?php admin_include('footer'); ?>
+            <?php if ($posts->total > 10): ?>
+                <li class="load-more" type="posts" page-num="2">
+                    <span><?php echo __('post.load_more'); ?></span>
+                </li>
+            <?php endif; ?>
+        </ul>
+        <?php //echo $posts->links(); ?>
+    </aside>
+</div>
+
+<div id="main" class="container">
+    <?php echo $messages; ?>
+    <?php echo $formdata; ?>
+</div>
+
+<?php partial('partials/footer'); ?>

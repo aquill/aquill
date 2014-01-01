@@ -19,12 +19,13 @@
             <button class="btn green" type="submit"><span class="icon-login"></span></button>
             <label class="icon-checkbox-checked"><input type="checkbox" name="remember" value="remember">
                 <?php echo __('login.remember'); ?></label>
-                <a href="<?php echo url('amnesia'); ?>"><?php echo __('login.amnesia'); ?></a>
+            <a href="<?php echo url('amnesia'); ?>"><?php echo __('login.amnesia'); ?></a>
         </div>
     </fieldset>
 </form>
 <div id="footer">
-    <?php echo exec_time(); echo memory_usage(); ?> 
+    <?php echo exec_time();
+    echo memory_usage(); ?>
 </div>
 </body>
 </html>

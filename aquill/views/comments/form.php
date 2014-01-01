@@ -11,21 +11,24 @@
                 <label for="name" class="control-label"><?php echo __('comment.name'); ?></label>
 
                 <div class="controls">
-                    <input placeholder="<?php echo __('comment.name_placeholder'); ?>" type="text" name="name" value="<?php echo $comment->name; ?>">
+                    <input placeholder="<?php echo __('comment.name_placeholder'); ?>" type="text" name="name"
+                           value="<?php echo $comment->name; ?>">
                 </div>
             </div>
             <div class="control-group">
                 <label for="email" class="control-label"><?php echo __('comment.email'); ?></label>
 
                 <div class="controls">
-                    <input placeholder="<?php echo __('comment.email_placeholder'); ?>" type="text" name="email" value="<?php echo $comment->email; ?>">
+                    <input placeholder="<?php echo __('comment.email_placeholder'); ?>" type="text" name="email"
+                           value="<?php echo $comment->email; ?>">
                 </div>
             </div>
             <div class="control-group">
                 <label for="url" class="control-label"><?php echo __('comment.url'); ?></label>
 
                 <div class="controls">
-                    <input placeholder="<?php echo __('comment.url_placeholder'); ?>" type="text" name="url" value="<?php echo $comment->url; ?>">
+                    <input placeholder="<?php echo __('comment.url_placeholder'); ?>" type="text" name="url"
+                           value="<?php echo $comment->url; ?>">
                 </div>
             </div>
             <div class="control-group">
@@ -45,7 +48,8 @@
             </div>
             <div class="form-actions">
                 <button type="submit" class="btn green"><?php echo __('global.update'); ?></button>
-                <a class="btn red" href="<?php echo url('admin/comment/delete/' . $comment->id); ?>"><?php echo __('global.delete'); ?></a>
+                <a class="btn red"
+                   href="<?php echo url('admin/comment/delete/' . $comment->id); ?>"><?php echo __('global.delete'); ?></a>
             </div>
         </fieldset>
     </form>

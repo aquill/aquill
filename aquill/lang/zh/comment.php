@@ -1,6 +1,9 @@
 <?php
 
 return array(
+
+    'search_placeholder' => '搜索评论作者或内容',
+
     'approved' => '批准',
     'pending' => '待审核',
     'spam' => '垃圾评论',
@@ -13,4 +16,5 @@ return array(
     'url' => '个人主页',
     'status' => '状态',
     'comment' => '评论内容',
+
 );

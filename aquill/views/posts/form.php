@@ -1,6 +1,6 @@
-<form id="postform-<?php echo $post->id; ?>" class="postform" method="POST" 
-    action="<?php echo $post->id ? url("admin/posts/edit/{$post->id}") : url("admin/posts/new"); ?>"
-    accept-charset="UTF-8">
+<form id="postform-<?php echo $post->id; ?>" class="postform" method="POST"
+      action="<?php echo $post->id ? url("admin/posts/edit/{$post->id}") : url("admin/posts/new"); ?>"
+      accept-charset="UTF-8">
 
     <fieldset class="meta split">
         <div class="wrap">
@@ -9,7 +9,7 @@
 
                 <div class="controls">
                     <input placeholder="<?php echo __('post.slug_placeholder'); ?>" type="text" name="slug"
-                           value="<?php echo urldecode($post->slug); ?>" id="slug"/>
+                           value="<?php echo urldecode($post->slug()); ?>" id="slug"/>
                     <i><?php echo __('post.slug_description'); ?></i>
                 </div>
             </div>
@@ -18,7 +18,7 @@
 
                 <div class="controls">
                     <input type="text" name="created" id="created"
-                           value="<?php echo urldecode($post->created_at); ?>"/>
+                           value="<?php echo $post->date(); ?>"/>
                     <i><?php echo __('post.date_description'); ?></i>
                 </div>
             </div>
@@ -60,7 +60,8 @@
     <fieldset class="header">
         <div class="wrap">
             <div class="controls">
-                <input placeholder="<?php echo __('post.title_placeholder'); ?>" type="text" name="title" value="<?php echo $post->title; ?>">
+                <input placeholder="<?php echo __('post.title_placeholder'); ?>" type="text" name="title"
+                       value="<?php echo $post->title; ?>">
             </div>
             <aside class="buttons">
                 <button class="btn blue toggle" toggle-object="meta" type="button">
@@ -77,7 +78,8 @@
 
     <fieldset class="editor">
         <div class="wrap">
-            <textarea placeholder="<?php echo __('post.content_placeholder'); ?>" id="markdown-input" class="textarea-resize"
+            <textarea placeholder="<?php echo __('post.content_placeholder'); ?>" id="markdown-input"
+                      class="textarea-resize"
                       data-markdown-preview="#markdown-preview" name="html" rows="10" cols="50"
                 ><?php echo $post->content; ?></textarea>
         </div>

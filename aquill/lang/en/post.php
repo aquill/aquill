@@ -1,6 +1,9 @@
 <?php 
 
 return array(
+
+    'search_placeholder' => 'To search, type and hit enter…',
+    
     'publish' => 'Publish',
     'draft' => 'Draft',
     'load_more' => 'Load more posts.'

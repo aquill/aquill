@@ -1,6 +1,7 @@
 <?php 
 
 return array(
+
     'username' => '用户名',
     'password' => '密码',
     'email' => '邮箱',
@@ -11,4 +12,5 @@ return array(
     'administrator' => '管理员',
     'editor' => '编辑者',
     'user' => '作者',
+
 );

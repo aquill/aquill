@@ -1,6 +1,6 @@
-<?php admin_include('header'); ?>
+<?php partial('partials/header'); ?>
 
-<?php require 'sidebar.php'; ?>
+<?php partial('extend/sidebar'); ?>
 
     <div class="container">
         <div class="wrap">
@@ -87,4 +87,4 @@
         </div>
     </div>
 
-<?php admin_include('footer'); ?>
+<?php partial('partials/footer'); ?>
