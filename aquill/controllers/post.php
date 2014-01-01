@@ -2,14 +2,16 @@
 
 class PostController extends AdminController
 {
+    
     public function index($id = null) {
         $vars['messages'] = Notify::read();
-        $vars['posts'] = Post::order_by('created_at', 'DESC')->paginate(10);
+        $vars['posts'] = Post::where_in('status', array('publish', 'draft'))
+                            ->order_by('created_at', 'DESC')
+                            ->paginate(10);
 
         $data['statuses'] = array(
-            'published' => __('published'),
-            'draft' => __('draft'),
-            'archived' => __('archived')
+            'published' => __('post.publish'),
+            'draft' => __('post.draft')
         );
         
         $data['categories'] = Category::titles();
@@ -27,7 +29,10 @@ class PostController extends AdminController
         if (Input::get('page') > Post::count() / 10) {
             return;
         }
-        $vars['posts'] = Post::order_by('created_at', 'DESC')->paginate(10);
+        $vars['posts'] = Post::where('status', '=', 'publish')
+                            ->or_where('status', '=', 'draft')
+                            ->order_by('created_at', 'DESC')
+                            ->paginate(10);
 
         return View::make('posts/posts', $vars);
     }

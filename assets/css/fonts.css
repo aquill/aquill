@@ -4,17 +4,18 @@
     font-weight: 400;
     src: local('Ruda'), url('../fonts/ruda.woff') format('woff');
 }
-
 @font-face {
     font-family: 'icomoon';
-    src: url('../fonts/icomoon.eot');
-    src: url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'), url('../fonts/icomoon.ttf') format('truetype'), url('../fonts/icomoon.woff') format('woff'), url('../fonts/icomoon.svg#icomoon') format('svg');
+    src:url('../fonts/icomoon.eot');
+    src:url('../fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.woff') format('woff'),
+        url('../fonts/icomoon.ttf') format('truetype'),
+        url('../fonts/icomoon.svg#icomoon') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
-[class^="icon-"]:before,
-[class*=" icon-"]:before {
+[class^="icon-"]:before, [class*=" icon-"]:before {
     font-family: 'icomoon';
     speak: none;
     font-style: normal;
@@ -28,50 +29,64 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-home:before {
+.icon-login:before {
     content: "\e600";
 }
-
-.icon-posts:before {
+.icon-undo:before {
     content: "\e601";
 }
-
-.icon-comments:before {
+.icon-pen:before {
     content: "\e602";
 }
-
-.icon-users:before {
-    content: "\e604";
-}
-
-.icon-logout:before {
-    content: "\e605";
-}
-
-.icon-categories:before {
-    content: "\e606";
-}
-
 .icon-extend:before {
-    content: "\e607";
-}
-
-.icon-undo:before {
     content: "\e603";
 }
-
-.icon-select:before {
+.icon-feed:before {
+    content: "\e604";
+}
+.icon-checkbox-checked:before {
+    content: "\e605";
+}
+.icon-checkbox-unchecked:before {
+    content: "\e606";
+}
+.icon-radio-checked:before {
+    content: "\e607";
+}
+.icon-radio-unchecked:before {
     content: "\e608";
 }
-
-.icon-off:before {
+.icon-tags:before {
     content: "\e609";
 }
-
-.icon-on:before {
+.icon-users:before {
     content: "\e60a";
 }
-
-.icon-anchor:before {
+.icon-logout:before {
     content: "\e60b";
 }
+.icon-comments:before {
+    content: "\e60c";
+}
+.icon-archive:before {
+    content: "\e60d";
+}
+.icon-images:before {
+    content: "\e60e";
+}
+.icon-search:before {
+    content: "\e60f";
+}
+.icon-preview:before {
+    content: "\e610";
+}
+.icon-remove:before {
+    content: "\e611";
+}
+.icon-save:before {
+    content: "\e612";
+}
+.icon-posts:before {
+    content: "\e613";
+}
+

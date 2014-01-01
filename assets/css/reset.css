@@ -29,7 +29,6 @@
 }
 
 ::-webkit-scrollbar-track-piece {
-    background: #f2f4f8;
     background: none;
 }
 
@@ -40,7 +39,7 @@
 
 ::-webkit-scrollbar-thumb:vertical {
     height: 25px;
-    background-color: #3B7548;
+    background-color: #666;
     border-radius: 3px;
 }
 

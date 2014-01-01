@@ -1,7 +1,7 @@
 <?php
 
 function get_pages() {
-    return Registry::get('pages');
+    return Registry::get('pages', array());
 }
 
 function page_id() {

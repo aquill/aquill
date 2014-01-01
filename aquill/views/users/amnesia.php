@@ -12,12 +12,8 @@
     <fieldset class="split">
         <?php echo $messages; ?>
         <div class="control-group">
-            <label for="username"><?php echo __('login.username'); ?></label>
-            <input placeholder="<?php echo __('login.username'); ?>" type="text" name="username">
-        </div>
-        <div class="control-group">
-            <label for="password"><?php echo __('login.password'); ?></label>
-            <input id="password" placeholder="<?php echo __('login.password'); ?>" type="password" name="password">
+            <label for="email"><?php echo __('login.email'); ?></label>
+            <input id="email" placeholder="<?php echo __('login.email'); ?>" type="email" name="email">
         </div>
         <div class="form-actions">
             <button class="btn green" type="submit"><span class="icon-login"></span></button>

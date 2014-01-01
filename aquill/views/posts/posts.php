@@ -3,7 +3,7 @@
         <a <?php echo Input::get('id', 0) == $post->id ? 'class="active"' : ''; ?>
             href="<?php echo url('admin/posts/' . $post->id); ?>">
             <strong><?php echo $post->title; ?></strong>
-            <time><?php echo $post->created; ?></time>
+            <time><?php echo $post->date(); ?></time>
         </a>
         <em class="status"><?php echo $post->status; ?></em>
         <ul class="statuses">

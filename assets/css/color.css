@@ -33,7 +33,7 @@
 }
 
 .widget li a {
-    background: rgba(0, 0, 0, 0.03);
+    background: none;
 }
 
 .widget li:nth-child(odd) a {

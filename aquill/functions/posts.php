@@ -1,7 +1,7 @@
 <?php
 
 function get_posts() {
-    return Registry::get('posts');
+    return Registry::get('posts', array());
 }
 
 function has_posts() {

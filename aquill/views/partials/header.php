@@ -14,13 +14,13 @@
             <a class="icon-undo" title="Visit your site" target="_blank" href="<?php echo url('/') ?>"></a>
         </li>
         <li <?php echo uri_has('posts') ? 'class="active" ' : ' '; ?>>
-            <a class="icon-posts" href="<?php echo url('admin/posts'); ?>" title="Posts.posts"></a>
+            <a class="icon-pen" href="<?php echo url('admin/posts'); ?>" title="Posts.posts"></a>
         </li>
         <li <?php echo uri_has('comments') ? 'class="active" ' : ' '; ?>>
             <a class="icon-comments" href="<?php echo url('admin/comments'); ?>" title="Comments.comments"></a>
         </li>
         <li <?php echo uri_has('categories') ? 'class="active" ' : ' '; ?>>
-            <a class="icon-categories" href="<?php echo url('admin/categories'); ?>" title="Categories.categories"></a>
+            <a class="icon-tags" href="<?php echo url('admin/categories'); ?>" title="Categories.categories"></a>
         </li>
         <li <?php echo uri_has('users') ? 'class="active" ' : ' '; ?>>
             <a class="icon-users" href="<?php echo url('admin/users'); ?>" title="Users.users"></a>

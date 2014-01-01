@@ -3,7 +3,7 @@
 // --------------------------------------------------------------
 // Site Routes
 // --------------------------------------------------------------
-Route::get('schema', function () {
+Route::get('wp2aquill', function () {
 
     Create::all();
 
@@ -97,6 +97,7 @@ Route::post('admin/comments/new, admin/comments/edit/(:num)', 'comment@update');
 Route::get('login', 'user@login');
 Route::post('login', 'user@check');
 Route::get('logout', 'user@logout');
+Route::get('amnesia', 'user@amnesia');
 
 Route::get('admin/users, admin/users/(:num)', 'user@index');
 Route::post('admin/users', 'user@paginate');

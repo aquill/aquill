@@ -3,39 +3,112 @@
     top: 30%;
     width: 100%;
 }
+::-webkit-input-placeholder {
+    line-height: 1.3em;
+    color: #aaa;
+}
+
+::-moz-placeholder {
+    line-height: 1.3em;
+    color: #aaa;
+}
 
 .loginform {
     max-width: 360px;
     margin: 0 auto;
     background: #fff;
-    padding: .8em;
+    padding: 2em;
     border-radius: 6px;
+    position: relative;
 }
 
-.loginform label {
+.loginform .notifications {
+    margin-bottom: 0;
+}
+
+.loginform .notifications .notice, 
+.loginform .notifications .error, 
+.loginform .notifications .success {
+    background: none;
+    padding: 0;
+    color: #d34937;
+}
+
+.loginform .control-group {
+    margin-bottom: 0;
+    height: 3em;
+    line-height: 0;
+}
+.loginform .control-group label {
     display: none;
 }
 
-.loginform input {
+.loginform .control-group input {
     width: 100%;
-    background: #edf0ef;
-    border-radius: 3px;
+    background: #fff;
+    border-radius: 0;
+    border-bottom: 1px solid #ddd;
+    height: 3em;
+    line-height: 0;
+    padding: .6em 2em .3em 0;
 }
 
 .loginform .form-actions {
     line-height: 2em;
     margin: 0;
+    position: relative;
 }
 
 .loginform .form-actions button {
     display: inline-block;
-    line-height: 2em;
+    line-height: 1.2em;
+    position: absolute;
+    right: 0;
+    bottom: 2.3em;
+    background: none;
+    color: #aaa;
+    padding: 0;
+    width: 1em;
+    height: 1.2em;
+    font-size: 1.5em;
+}
+.loginform .form-actions button {
+    background: none;
+    color: #999;  
+}
+.loginform .form-actions button:hover {
+    background: none;
+    color: #3B7548;
 }
 
+.loginform .form-actions label:before,
+.loginform .form-actions label:before {
+    color: #3B7548;
+}
+.loginform .form-actions label {
+    color: #888;
+    line-height: 3em;
+}
+
+.loginform .form-actions input {
+    opacity: 0;
+    position: absolute;
+    left: -9999px;
+}
 .loginform .form-actions a {
     float: right;
+    line-height: 3em;
+    color: #bbb;
 }
 
-.loginform .notifications {
-    margin-bottom: .8em
+
+#footer {
+    max-width: 360px;
+    margin: 0 auto;
+    padding: .5em 0;
+}
+#footer i {
+    color: #777;
+    display: inline-block;
+    padding-right: .5em;
 }

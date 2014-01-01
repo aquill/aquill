@@ -5,15 +5,15 @@
     <fieldset class="meta split">
         <div class="wrap">
             <div class="control-group width-60">
-                <label class="control-label" for="slug">Slug</label>
+                <label class="control-label" for="slug"><?php echo __('post.slug'); ?></label>
 
                 <div class="controls">
-                    <input placeholder="Slug" type="text" name="slug"
+                    <input placeholder="<?php echo __('post.slug_placeholder'); ?>" type="text" name="slug"
                            value="<?php echo urldecode($post->slug); ?>" id="slug"/>
                 </div>
             </div>
             <div class="control-group width-50">
-                <label class="control-label" for="created">Date</label>
+                <label class="control-label" for="created"><?php echo __('post.date'); ?></label>
 
                 <div class="controls">
                     <input type="text" name="created" id="created"
@@ -21,29 +21,31 @@
                 </div>
             </div>
             <div class="control-group width-50">
-                <label class="control-label" for="status">Statuses</label>
+                <label class="control-label" for="status"><?php echo __('post.statuses'); ?></label>
 
                 <div class="controls">
                     <?php echo Form::select('status', $statuses, $post->status); ?>
                 </div>
             </div>
             <div class="control-group width-40">
-                <label class="control-label" for="category">Category</label>
+                <label class="control-label" for="category"><?php echo __('post.categories'); ?></label>
 
                 <div class="controls">
                     <?php //echo Form::select('category', $categories, $post->category); ?>
                 </div>
             </div>
             <div class="control-group width-60">
-                <label class="control-label" for="comments">Comment</label>
+                <label class="control-label" for="comments"><?php echo __('post.comment_status'); ?></label>
 
                 <div class="controls">
-                    <label><?php echo Form::checkbox('comments', 1, $post->comment_status); ?>Comment for
-                        the post.</label>
+                    <label>
+                        <?php echo Form::checkbox('comments', 1, $post->comment_status); ?>
+                        <?php echo __('post.comment_status_label'); ?>
+                    </label>
                 </div>
             </div>
             <div class="control-group width-80">
-                <label class="control-label" for="desc">Description</label>
+                <label class="control-label" for="desc"><?php echo __('post.excerpt'); ?></label>
 
                 <div class="controls">
                     <textarea name="desc"><?php echo $post->excerpt; ?></textarea>
@@ -54,12 +56,15 @@
     <fieldset class="header">
         <div class="wrap">
             <div class="controls">
-                <input placeholder="Enter title here" type="text" name="title" value="<?php echo $post->title; ?>">
+                <input placeholder="<?php echo __('post.title_placeholder'); ?>" type="text" name="title" value="<?php echo $post->title; ?>">
             </div>
             <aside class="buttons">
-                <button class="btn blue toggle" toggle-object="meta" type="button">More Settings</button>
-                <button class="btn green" type="submit">Save</button>
-                <button class="btn red toggle" toggle-object="meta" type="button">Preview</button>
+                <button class="btn blue toggle" toggle-object="meta" type="button">
+                    <?php echo __('post.more_settings'); ?></button>
+                <button class="btn green" type="submit">
+                    <?php echo __('global.save'); ?></button>
+                <button class="btn red toggle" toggle-object="meta" type="button">
+                    <?php echo __('global.preview'); ?></button>
             </aside>
         </div>
     </fieldset>
@@ -68,7 +73,7 @@
 
     <fieldset class="editor">
         <div class="wrap">
-            <textarea placeholder="Write something..." id="markdown-input" class="textarea-resize"
+            <textarea placeholder="<?php echo __('post.content_placeholder'); ?>" id="markdown-input" class="textarea-resize"
                       data-markdown-preview="#markdown-preview" name="html" rows="10" cols="50"
                 ><?php echo $post->content; ?></textarea>
         </div>

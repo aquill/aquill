@@ -25,19 +25,25 @@ class UserController extends AdminController
             if (Auth::attempt($credentials)) {
                 return Redirect::to('admin/posts');
             } else {
-                $credentials['messages'] = 'login failed.';
+                Notify::error(__('login.error'));
             }
         }
 
-        return Response::view('users/login', $credentials);
+        return Redirect::to('login');
     }
 
     public function logout() {
-        Auth::logout();
+        if (Auth::check()) Auth::logout();
 
-        Notify::success('logout success.');
+        Notify::success(__('login.logout'));
 
         return Redirect::to('login');
+    }
+
+    public function amnesia() {
+        $vars['messages'] = Notify::read();
+
+        return View::make('users/amnesia', $vars);
     }
 
     public function index($id = null) {
@@ -57,9 +63,9 @@ class UserController extends AdminController
         );
 
         $data['roles'] = array(
-            'administrator' => __('Administrator'),
-            'editor' => __('Editor'),
-            'user' => __('User')
+            'administrator' => __('user.administrator'),
+            'editor' => __('user.editor'),
+            'user' => __('user.author')
         );
 
         return View::make('users/index', $vars)->nest('formdata', 'users/form', $data);
