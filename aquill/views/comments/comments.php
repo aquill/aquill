@@ -5,13 +5,13 @@
             <strong><?php echo $comment->name; ?></strong>
             <time><?php echo $comment->date(); ?></time>
         </a>
-        <em class="status"><?php echo __('comment.' . $comment->status); ?></em>
+        <em class="status"><?php _e('comment.' . $comment->status); ?></em>
         <ul class="statuses">
-            <li><?php echo __('comment.approved'); ?></li>
-            <li><?php echo __('comment.pending'); ?></li>
-            <li><?php echo __('comment.spam'); ?></li>
+            <li><?php _e('comment.approved'); ?></li>
+            <li><?php _e('comment.pending'); ?></li>
+            <li><?php _e('comment.spam'); ?></li>
             <li>
-                <a class="delete" href="<?php echo url('admin/comment/' . $comment->id); ?>"><?php echo __('comment.delete'); ?></a>
+                <a class="delete" href="<?php echo url('admin/comment/' . $comment->id); ?>"><?php _e('comment.delete'); ?></a>
             </li>
         </ul>
     </li>

@@ -11,7 +11,7 @@
 
             <?php if ($posts->total > 10): ?>
                 <li class="load-more" type="posts" page-num="2">
-                    <span><?php echo __('post.load_more'); ?></span>
+                    <span><?php _e('post.load_more'); ?></span>
                 </li>
             <?php endif; ?>
         </ul>

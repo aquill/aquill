@@ -1,14 +1,22 @@
 <?php
 
-function install_include($filename)
-{
-    if (is_readable($path = __DIR__ . '/views/partials/' . $filename . EXT)) {
-        return require $path;
+function _i($key, $replacements = array()) {
+    if ($i18n = Session::get('install.i18n')) {
+        $language = $i18n['language'];
     }
+
+    return __($key, $replacements, $language);
 }
 
-function timezones()
-{
+function _ei($key, $replacements = array()) {
+    if ($i18n = Session::get('install.i18n')) {
+        $language = $i18n['language'];
+    }
+
+    _e($key, $replacements, $language);
+}
+
+function timezones() {
     $list = DateTimeZone::listAbbreviations();
     $idents = DateTimeZone::listIdentifiers();
 
@@ -48,7 +56,10 @@ function timezones()
     return $timezones;
 }
 
-function current_timezone()
-{
+function languages() {
+    return require 'aquill/config/languages.php';
+}
+
+function current_timezone() {
     return Cookie::get('aquill-install-timezone', 0) * 3600;
 }

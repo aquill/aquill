@@ -1,6 +1,6 @@
-<?php aquill_include('header'); ?>
+<?php partial('header'); ?>
 
-<?php aquill_include('sidebar', 'migrations'); ?>
+<?php partial('extend/sidebar'); ?>
 
     <div id="main" class="container">
         <div class="wrap">
@@ -118,4 +118,4 @@
         </div>
     </div>
 
-<?php aquill_include('footer'); ?>
+<?php partial('footer'); ?>

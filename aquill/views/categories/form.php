@@ -9,7 +9,7 @@
 
         <fieldset class="split">
             <div class="control-group">
-                <label class="control-label" for="name"><?php echo __('category.name'); ?></label>
+                <label class="control-label" for="name"><?php _e('category.name'); ?></label>
 
                 <div class="controls">
                     <input placeholder="Name" name="name" id="name" type="text"
@@ -18,7 +18,7 @@
             </div>
 
             <div class="control-group">
-                <label class="control-label" for="slug"><?php echo __('category.slug'); ?></label>
+                <label class="control-label" for="slug"><?php _e('category.slug'); ?></label>
 
                 <div class="controls">
                     <input placeholder="Slug" name="slug" id="slug" type="text"
@@ -27,7 +27,7 @@
             </div>
 
             <div class="control-group">
-                <label for="description" class="control-label"><?php echo __('category.description'); ?></label>
+                <label for="description" class="control-label"><?php _e('category.description'); ?></label>
 
                 <div class="controls">
                     <textarea placeholder="Description" name="description" rows="3"
@@ -36,9 +36,9 @@
             </div>
 
             <div class="form-actions">
-                <button type="submit" class="btn green"><?php echo __('global.update'); ?></button>
+                <button type="submit" class="btn green"><?php _e('global.update'); ?></button>
                 <a class="btn red delete"
-                   href="<?php echo url("admin/categories/delete/{$category->id}"); ?>"><?php echo __('global.delete'); ?></a>
+                   href="<?php echo url("admin/categories/delete/{$category->id}"); ?>"><?php _e('global.delete'); ?></a>
             </div>
         </fieldset>
 

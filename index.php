@@ -32,7 +32,7 @@ define('PATH', dirname(__FILE__) . DS);
 // The basic application.
 // --------------------------------------------------------------
 
-if (!is_readable(PATH . 'install')) {
+if (is_readable(PATH . 'install')) {
     define('DEFAULT_BUNDLE', 'install');
 } else {
     define('DEFAULT_BUNDLE', 'aquill');

@@ -12,18 +12,6 @@ function csrf_token_input() {
     return '<input type="hidden" name="csrf_token" value="'.csrf_token().'">';
 }
 
-function admin_include($filename) {
-    if (is_readable($path = APP . 'views/partials/' . $filename . EXT)) {
-        return require $path;
-    }
-}
-
-function aquill_include($filename, $bundle = DEFAULT_BUNDLE ) {
-    if (is_readable($path = Bundle::path($bundle) . 'views/partials/' . $filename . EXT)) {
-        return require $path;
-    }
-}
-
 function body_class($classes = '') {
     $classes .= str_replace('/', ' ', URI::current());
 

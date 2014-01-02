@@ -12,14 +12,14 @@
     <fieldset class="split">
         <?php echo $messages; ?>
         <div class="control-group">
-            <label for="email"><?php echo __('login.email'); ?></label>
-            <input id="email" placeholder="<?php echo __('login.email'); ?>" type="email" name="email">
+            <label for="email"><?php _e('login.email'); ?></label>
+            <input id="email" placeholder="<?php _e('login.email'); ?>" type="email" name="email">
         </div>
         <div class="form-actions">
             <button class="btn green" type="submit"><span class="icon-login"></span></button>
             <label class="icon-checkbox-checked"><input type="checkbox" name="remember" value="remember">
-                <?php echo __('login.remember'); ?></label>
-            <a href="<?php echo url('amnesia'); ?>"><?php echo __('login.amnesia'); ?></a>
+                <?php _e('login.remember'); ?></label>
+            <a href="<?php echo url('amnesia'); ?>"><?php _e('login.amnesia'); ?></a>
         </div>
     </fieldset>
 </form>

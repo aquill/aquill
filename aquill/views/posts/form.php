@@ -5,52 +5,52 @@
     <fieldset class="meta split">
         <div class="wrap">
             <div class="control-group">
-                <label class="control-label" for="slug"><?php echo __('post.slug'); ?></label>
+                <label class="control-label" for="slug"><?php _e('post.slug'); ?></label>
 
                 <div class="controls">
-                    <input placeholder="<?php echo __('post.slug_placeholder'); ?>" type="text" name="slug"
+                    <input placeholder="<?php _e('post.slug_placeholder'); ?>" type="text" name="slug"
                            value="<?php echo urldecode($post->slug()); ?>" id="slug"/>
-                    <i class="info"><?php echo __('post.slug_description'); ?></i>
+                    <i class="info"><?php _e('post.slug_description'); ?></i>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="created"><?php echo __('post.date'); ?></label>
+                <label class="control-label" for="created"><?php _e('post.date'); ?></label>
 
                 <div class="controls">
                     <input type="text" name="created" id="created"
                            value="<?php echo $post->date(); ?>"/>
-                    <i class="info"><?php echo __('post.date_description'); ?></i>
+                    <i class="info"><?php _e('post.date_description'); ?></i>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="status"><?php echo __('post.statuses'); ?></label>
+                <label class="control-label" for="status"><?php _e('post.statuses'); ?></label>
 
                 <div class="controls">
                     <?php echo Form::select('status', $statuses, $post->status); ?>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="category"><?php echo __('post.categories'); ?></label>
+                <label class="control-label" for="category"><?php _e('post.categories'); ?></label>
 
                 <div class="controls">
                     <?php echo Form::select('category', $categories, $post->category); ?>
-                    <i class="info"><?php echo __('post.categories_description'); ?></i>
+                    <i class="info"><?php _e('post.categories_description'); ?></i>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="excerpt"><?php echo __('post.excerpt'); ?></label>
+                <label class="control-label" for="excerpt"><?php _e('post.excerpt'); ?></label>
 
                 <div class="controls" style="line-height:0">
-                    <textarea placeholder="<?php echo __('post.excerpt_description'); ?>" name="excerpt"><?php echo $post->excerpt; ?></textarea>
+                    <textarea placeholder="<?php _e('post.excerpt_description'); ?>" name="excerpt"><?php echo $post->excerpt; ?></textarea>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="comments"><?php echo __('post.comment_status'); ?></label>
+                <label class="control-label" for="comments"><?php _e('post.comment_status'); ?></label>
 
                 <div class="controls">
                     <label>
                         <?php echo Form::checkbox('comments', 1, $post->comment_status); ?>
-                        <?php echo __('post.comment_status_label'); ?>
+                        <?php _e('post.comment_status_label'); ?>
                     </label>
                 </div>
             </div>
@@ -59,16 +59,16 @@
     <fieldset class="header">
         <div class="wrap">
             <div class="controls">
-                <input placeholder="<?php echo __('post.title_placeholder'); ?>" type="text" name="title"
+                <input placeholder="<?php _e('post.title_placeholder'); ?>" type="text" name="title"
                        value="<?php echo $post->title; ?>">
             </div>
             <aside class="buttons">
                 <button class="btn blue toggle" toggle-object="meta" type="button">
-                    <?php echo __('post.more_settings'); ?></button>
+                    <?php _e('post.more_settings'); ?></button>
                 <button class="btn green" type="submit">
-                    <?php echo __('global.save'); ?></button>
+                    <?php _e('global.save'); ?></button>
                 <button class="btn red toggle" toggle-object="meta" type="button">
-                    <?php echo __('global.preview'); ?></button>
+                    <?php _e('global.preview'); ?></button>
             </aside>
         </div>
     </fieldset>
@@ -77,7 +77,7 @@
 
     <fieldset class="editor">
         <div class="wrap">
-            <textarea placeholder="<?php echo __('post.content_placeholder'); ?>" id="markdown-input"
+            <textarea placeholder="<?php _e('post.content_placeholder'); ?>" id="markdown-input"
                       class="textarea-resize"
                       data-markdown-preview="#markdown-preview" name="html" rows="10" cols="50"
                 ><?php echo $post->content; ?></textarea>

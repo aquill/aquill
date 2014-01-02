@@ -21,7 +21,19 @@ function e($value) {
  * @return string
  */
 function __($key, $replacements = array(), $language = null) {
-    return Laravel\Lang::line($key, $replacements, $language)->get();
+    return Laravel\Lang::line($key, $replacements, $language);
+}
+
+/**
+ * Retrieve a language line.
+ *
+ * @param string  $key
+ * @param array   $replacements
+ * @param string  $language
+ * @return string
+ */
+function _e($key, $replacements = array(), $language = null) {
+    echo Laravel\Lang::line($key, $replacements, $language);
 }
 
 /**

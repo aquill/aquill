@@ -3,9 +3,9 @@
 <section class="content">
 
     <article>
-        <h1><?php echo __('account.title'); ?></h1>
+        <h1><?php _ei('account.title'); ?></h1>
 
-        <p><?php echo __('account.description'); ?></p>
+        <p><?php _ei('account.description'); ?></p>
     </article>
 
     <form method="post" action="<?php echo url('account'); ?>" autocomplete="off">
@@ -13,36 +13,36 @@
         <?php echo Form::token(); ?>
         <fieldset>
             <div class="control-group">
-                <label for="username" class="control-label"><?php echo __('account.username'); ?></label>
+                <label for="username" class="control-label"><?php _ei('account.username'); ?></label>
 
                 <div class="controls">
                     <input tabindex="1" id="username" name="username" value="<?php echo $username; ?>">
-                    <i class="info"><?php echo __('account.username_description'); ?></i>
+                    <i class="info"><?php _ei('account.username_description'); ?></i>
                 </div>
             </div>
 
             <div class="control-group">
-                <label for="email" class="control-label"><?php echo __('account.email'); ?></label>
+                <label for="email" class="control-label"><?php _ei('account.email'); ?></label>
 
                 <div class="controls">
                     <input tabindex="2" id="email" type="email" name="email" value="<?php echo $email; ?>">
-                    <i class="info"><?php echo __('account.email_description'); ?></i>
+                    <i class="info"><?php _ei('account.email_description'); ?></i>
                 </div>
             </div>
 
             <div class="control-group">
-                <label for="password" class="control-label"><?php echo __('account.password'); ?></label>
+                <label for="password" class="control-label"><?php _ei('account.password'); ?></label>
 
                 <div class="controls">
                     <input tabindex="3" id="password" name="password" type="password" value="<?php echo $password; ?>">
-                    <i class="info"><?php echo __('account.password_description'); ?></i>
+                    <i class="info"><?php _ei('account.password_description'); ?></i>
                 </div>
             </div>
         </fieldset>
 
         <section class="form-actions">
-            <a href="<?php echo url('rewrite'); ?>" class="btn quiet"><?php echo __('install.back'); ?></a>
-            <button type="submit" class="btn"><?php echo __('install.complete'); ?></button>
+            <a href="<?php echo url('rewrite'); ?>" class="btn quiet"><?php _ei('install.back'); ?></a>
+            <button type="submit" class="btn"><?php _ei('install.complete'); ?></button>
         </section>
     </form>
 </section>

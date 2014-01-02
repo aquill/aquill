@@ -5,14 +5,14 @@
             <strong><?php echo $user->nicename; ?></strong>
             <time><?php echo 'Username:' . $user->username; ?></time>
         </a>
-        <em class="status"><?php echo __('user.' . $user->role); ?></em>
+        <em class="status"><?php _e('user.' . $user->role); ?></em>
         <ul class="statuses">
-            <li><?php echo __('user.administrator'); ?></li>
-            <li><?php echo __('user.editor'); ?></li>
-            <li><?php echo __('user.author'); ?></li>
-            <li><?php echo __('user.pending'); ?></li>
+            <li><?php _e('user.administrator'); ?></li>
+            <li><?php _e('user.editor'); ?></li>
+            <li><?php _e('user.author'); ?></li>
+            <li><?php _e('user.pending'); ?></li>
             <li><a class="delete"
-                   href="<?php echo url('admin/user/' . $user->id); ?>"><?php echo __('user.delete'); ?></a></li>
+                   href="<?php echo url('admin/user/' . $user->id); ?>"><?php _e('user.delete'); ?></a></li>
         </ul>
     </li>
 <?php endforeach; ?>

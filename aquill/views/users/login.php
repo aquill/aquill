@@ -12,18 +12,18 @@
     <fieldset class="split">
         <?php echo $messages; ?>
         <div class="control-group">
-            <label for="username"><?php echo __('login.username'); ?></label>
-            <input placeholder="<?php echo __('login.username'); ?>" type="text" name="username">
+            <label for="username"><?php _e('login.username'); ?></label>
+            <input placeholder="<?php _e('login.username'); ?>" type="text" name="username">
         </div>
         <div class="control-group">
-            <label for="password"><?php echo __('login.password'); ?></label>
-            <input id="password" placeholder="<?php echo __('login.password'); ?>" type="password" name="password">
+            <label for="password"><?php _e('login.password'); ?></label>
+            <input id="password" placeholder="<?php _e('login.password'); ?>" type="password" name="password">
         </div>
         <div class="form-actions">
             <button class="btn green" type="submit"><span class="icon-login"></span></button>
             <label class="icon-checkbox-checked"><input type="checkbox" name="remember" value="remember">
-                <?php echo __('login.remember'); ?></label>
-            <a href="<?php echo url('amnesia'); ?>"><?php echo __('login.amnesia'); ?></a>
+                <?php _e('login.remember'); ?></label>
+            <a href="<?php echo url('amnesia'); ?>"><?php _e('login.amnesia'); ?></a>
         </div>
     </fieldset>
 </form>

@@ -5,12 +5,12 @@
             <strong><?php echo $post->title(); ?></strong>
             <time><?php echo $post->date(); ?></time>
         </a>
-        <em class="status"><?php echo __('post.' . $post->status); ?></em>
+        <em class="status"><?php _e('post.' . $post->status); ?></em>
         <ul class="statuses">
-            <li><?php echo __('post.publish'); ?></li>
-            <li><?php echo __('post.draft'); ?></li>
+            <li><?php _e('post.publish'); ?></li>
+            <li><?php _e('post.draft'); ?></li>
             <li><a class="delete"
-                   href="<?php echo url('admin/post/' . $post->id()); ?>"><?php echo __('global.delete'); ?></a></li>
+                   href="<?php echo url('admin/post/' . $post->id()); ?>"><?php _e('global.delete'); ?></a></li>
         </ul>
     </li>
 <?php endforeach; ?>
