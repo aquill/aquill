@@ -8,7 +8,11 @@
 
 Route::group(array('before' => 'check'), function() {
 
-    Route::get('/, start', function () {
+    Route::get('/', function () {
+        return View::make('halt');
+    });
+
+    Route::get('start', function () {
         $vars['messages'] = Notify::read();
         $vars['languages'] = array('en', 'zh');
         $vars['timezones'] = timezones();

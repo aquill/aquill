@@ -29,9 +29,19 @@ define('DS', DIRECTORY_SEPARATOR);
 define('PATH', dirname(__FILE__) . DS);
 
 // --------------------------------------------------------------
+// The basic application.
+// --------------------------------------------------------------
+
+if (!is_readable(PATH . 'install')) {
+    define('DEFAULT_BUNDLE', 'install');
+} else {
+    define('DEFAULT_BUNDLE', 'aquill');
+}
+
+// --------------------------------------------------------------
 // The path to the application directory.
 // --------------------------------------------------------------
-define('APP', PATH . 'aquill' . DS);
+define('APP', PATH . DEFAULT_BUNDLE . DS);
 
 // --------------------------------------------------------------
 // The path to the Laravel directory.
@@ -47,11 +57,6 @@ define('BUNDLE', PATH . 'bundles' . DS);
 // The path to the storage directory.
 // --------------------------------------------------------------
 define('STORAGE', APP . 'storage' . DS);
-
-// --------------------------------------------------------------
-// The basic application.
-// --------------------------------------------------------------
-define('DEFAULT_BUNDLE', 'aquill');
 
 // --------------------------------------------------------------
 // The basic application.

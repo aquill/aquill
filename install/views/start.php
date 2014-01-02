@@ -1,4 +1,4 @@
-<?php install_include('header'); ?>
+<?php partial('partials/header'); ?>
 
     <section class="content">
         <article>
@@ -19,7 +19,7 @@
                                 <option<?php echo $selected; ?>><?php echo $lang; ?></option>
                             <?php endforeach; ?>
                         </select>
-                        <i><?php echo __('start.lang_desc'); ?></i>
+                        <i class="info"><?php echo __('start.lang_desc'); ?></i>
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@
                                 <?php if ($selected) $set = true; ?>
                             <?php endforeach; ?>
                         </select>
-                        <i><?php echo __('start.timezone_description'); ?></i>
+                        <i class="info"><?php echo __('start.timezone_description'); ?></i>
                     </div>
                 </div>
             </fieldset>
@@ -48,4 +48,4 @@
         </form>
     </section>
 
-<?php install_include('footer'); ?>
+<?php partial('partials/footer'); ?>

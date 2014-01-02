@@ -52,7 +52,7 @@
 
 body {
     color: #333;
-    background: #edf0ef;
+    background: #fff;
 }
 
 a {
@@ -67,7 +67,7 @@ pre {
 
 input, textarea, button, select {
     color: #333;
-    background: #fff;
+    background: none;
 }
 
 input[disabled],
@@ -92,6 +92,10 @@ input[type=radio] {
 button, .button, .btn {
     background: #3B7548;
     color: #fff;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-top: 0;
+    border-left: 0;
+    font-size: .9em;
 }
 
 .button:hover

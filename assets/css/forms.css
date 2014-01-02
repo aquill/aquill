@@ -28,7 +28,7 @@ input, textarea {
     border-bottom: 0;
     background: #fff;
     border-radius: 3px;
-    border: 1px solid #ddd;
+    border: 0;
     border-bottom: 0;
     border-right: 0;
 }
@@ -77,7 +77,8 @@ label {
     margin-bottom: .8em;
     line-height: 2.4em;
     min-height: 2.4em;
-    border-radius: 4px;
+    border-radius: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
 .control-group:after {
@@ -94,13 +95,15 @@ label {
     text-align: left;
     -webkit-user-select: none;
     border-radius: 0;
-    width: 150px;
-    font-weight: bold;
+    width: 6em;
+    font-weight: normal;
+    background: none;
+    color: #666;
 }
 
 .controls {
     width: auto;
-    margin-left: 150px;
+    margin-left: 6em;
     line-height: inherit;
     background: none;
     min-height: 2.4em;
@@ -110,17 +113,27 @@ label {
 
 .controls label {
     padding-right: .5em;
+    color: #666;
 }
 
-.controls i {
+.controls .info {
     font-style: normal;
     font-size: 1em;
-    color: #888;
+    color: rgba(0,0,0,0.3);
     display: block;
     line-height: 1.6em;
     margin-top: .5em;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 0.9em;
 }
-
+.controls .info2 {
+    color: rgba(0,0,0,0.3);
+    display: block;
+    font-style: normal;
+    font-size: 1em;
+}
 .controls label:first-child {
     margin-left: 0;
 }
@@ -188,5 +201,5 @@ input.hidden {
 }
 
 .form-actions {
-    margin: 1.5em 0 3em 150px;
+    margin: 1em 0 3em 7em;
 }

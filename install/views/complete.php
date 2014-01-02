@@ -1,4 +1,4 @@
-<?php install_include('header'); ?>
+<?php partial('partials/header'); ?>
 
     <section class="content small">
         <article>
@@ -14,4 +14,4 @@
         </article>
     </section>
 
-<?php install_include('footer'); ?>
+<?php partial('partials/footer'); ?>

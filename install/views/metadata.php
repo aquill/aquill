@@ -1,4 +1,4 @@
-<?php install_include('header'); ?>
+<?php partial('partials/header'); ?>
 
 <section class="content">
     <article>
@@ -15,7 +15,7 @@
 
                 <div class="controls">
                     <input id="title" name="title" value="<?php echo $title; ?>">
-                    <i><?php echo __('metadata.site_title_description'); ?></i>
+                    <i class="info"><?php echo __('metadata.site_title_description'); ?></i>
                 </div>
             </div>
 
@@ -24,7 +24,7 @@
 
                 <div class="controls" style="line-height:0;">
                     <textarea id="description" name="description"><?php echo $description; ?></textarea>
-                    <i><?php echo __('metadata.site_description_description'); ?></i>
+                    <i class="info"><?php echo __('metadata.site_description_description'); ?></i>
                 </div>
             </div>
 
@@ -33,7 +33,7 @@
 
                 <div class="controls">
                     <input id="url" name="url" value="<?php echo $url; ?>">
-                    <i><?php echo __('metadata.site_url_description'); ?></i>
+                    <i class="info"><?php echo __('metadata.site_url_description'); ?></i>
                 </div>
             </div>
 
@@ -42,7 +42,7 @@
 
                 <div class="controls">
                     <input id="index" name="index" value="<?php echo $index; ?>">
-                    <i><?php echo __('metadata.site_index_description'); ?></i>
+                    <i class="info"><?php echo __('metadata.site_index_description'); ?></i>
                 </div>
             </div>
         </fieldset>
@@ -54,4 +54,4 @@
     </form>
 </section>
 
-<?php install_include('footer'); ?>
+<?php partial('partials/footer'); ?>

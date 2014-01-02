@@ -1,4 +1,4 @@
-<?php install_include('header'); ?>
+<?php partial('partials/header'); ?>
 
 <section class="content">
 
@@ -17,7 +17,7 @@
 
                 <div class="controls">
                     <input tabindex="1" id="username" name="username" value="<?php echo $username; ?>">
-                    <i><?php echo __('account.username_description'); ?></i>
+                    <i class="info"><?php echo __('account.username_description'); ?></i>
                 </div>
             </div>
 
@@ -26,7 +26,7 @@
 
                 <div class="controls">
                     <input tabindex="2" id="email" type="email" name="email" value="<?php echo $email; ?>">
-                    <i><?php echo __('account.email_description'); ?></i>
+                    <i class="info"><?php echo __('account.email_description'); ?></i>
                 </div>
             </div>
 
@@ -35,7 +35,7 @@
 
                 <div class="controls">
                     <input tabindex="3" id="password" name="password" type="password" value="<?php echo $password; ?>">
-                    <i><?php echo __('account.password_description'); ?></i>
+                    <i class="info"><?php echo __('account.password_description'); ?></i>
                 </div>
             </div>
         </fieldset>
@@ -47,4 +47,4 @@
     </form>
 </section>
 
-<?php install_include('footer'); ?>
+<?php partial('partials/footer'); ?>

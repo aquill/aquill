@@ -29,6 +29,7 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+
 .icon-login:before {
     content: "\e600";
 }
@@ -83,10 +84,15 @@
 .icon-remove:before {
     content: "\e611";
 }
-.icon-save:before {
+.icon-storage:before {
     content: "\e612";
 }
 .icon-posts:before {
     content: "\e613";
 }
-
+.icon-checkmark:before {
+    content: "\e614";
+}
+.icon-select:before {
+    content: "\e615";
+}

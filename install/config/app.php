@@ -92,6 +92,24 @@ return array(
 
     /*
     |--------------------------------------------------------------------------
+    | XSS Clean
+    |--------------------------------------------------------------------------
+    |
+    | The filter, as mentioned above is very strict. It defaults to a high 
+    | level of protection, and users who want to be more permissive with their 
+    | input should be savvy enough to filter that input accordingly before 
+    | rendering the content on the front end.
+    |
+    | The filter disallows the following HTML elements: meta, link, style, 
+    | script, embed, object, iframe, frame, frameset, title, and a few other 
+    | more obscure ones.
+    |
+    */
+
+    'xss' => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Timezone
     |--------------------------------------------------------------------------
     |

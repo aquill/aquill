@@ -1,4 +1,4 @@
-<?php install_include('header'); ?>
+<?php partial('partials/header'); ?>
 
     <section class="content">
         <article>
@@ -20,7 +20,7 @@
                             <option value="sqlite">Sqlite</option>
                             <option value="pgsql">Pgsql</option>
                         </select>
-                        <i><?php echo __('database.driver_description'); ?></i>
+                        <i class="info"><?php echo __('database.driver_description'); ?></i>
                     </div>
                 </div>
 
@@ -30,7 +30,7 @@
                     <div class="controls">
                         <input id="host" name="host" value="<?php echo $host; ?>">
 
-                        <i><?php echo __('database.host_description'); ?></i>
+                        <i class="info"><?php echo __('database.host_description'); ?></i>
                     </div>
                 </div>
 
@@ -40,7 +40,7 @@
                     <div class="controls">
                         <input id="port" name="port" value="<?php echo $port; ?>">
 
-                        <i><?php echo __('database.port_description'); ?></i>
+                        <i class="info"><?php echo __('database.port_description'); ?></i>
                     </div>
                 </div>
 
@@ -50,7 +50,7 @@
                     <div class="controls">
                         <input id="username" name="username" value="<?php echo $username; ?>">
 
-                        <i><?php echo __('database.username_description'); ?></i>
+                        <i class="info"><?php echo __('database.username_description'); ?></i>
                     </div>
                 </div>
 
@@ -59,7 +59,7 @@
 
                     <div class="controls">
                         <input id="password" name="password" value="<?php echo $password; ?>">
-                        <i><?php echo __('database.password_description'); ?></i>
+                        <i class="info"><?php echo __('database.password_description'); ?></i>
                     </div>
                 </div>
 
@@ -68,7 +68,7 @@
 
                     <div class="controls">
                         <input id="database" name="database" value="<?php echo $database; ?>">
-                        <i><?php echo __('database.database_description'); ?></i>
+                        <i class="info"><?php echo __('database.database_description'); ?></i>
                     </div>
                 </div>
 
@@ -77,7 +77,7 @@
 
                     <div class="controls">
                         <input id="prefix" name="prefix" value="<?php echo $prefix; ?>">
-                        <i><?php echo __('database.prefix_description'); ?></i>
+                        <i class="info"><?php echo __('database.prefix_description'); ?></i>
                     </div>
                 </div>
 
@@ -93,7 +93,7 @@
                                 </option>
                             <?php endforeach; ?>
                         </select>
-                        <i><?php echo __('database.collation_description'); ?></i>
+                        <i class="info"><?php echo __('database.collation_description'); ?></i>
                     </div>
                 </div>
             </fieldset>
@@ -105,4 +105,4 @@
         </form>
     </section>
 
-<?php install_include('footer'); ?>
+<?php partial('partials/footer'); ?>

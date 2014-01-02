@@ -442,3 +442,16 @@ function has_php($version) {
 function redirect($url, $status = 302, $https = false) {
     Redirect::to($url, $status, $https);
 }
+
+function partial($view, $data = array()) {
+    if($path = realpath(PATH . DEFAULT_BUNDLE . "/views/{$view}" . EXT)) {
+        ob_start();
+
+        extract($data, EXTR_SKIP);
+
+        require $path;
+
+        echo ob_get_clean();
+    }
+}
+

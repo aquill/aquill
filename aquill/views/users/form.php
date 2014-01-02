@@ -11,7 +11,7 @@
 
                 <div class="controls">
                     <input placeholder="username" type="text" name="username" value="<?php echo $user->username; ?>">
-                    <i><?php echo __('user.username_description'); ?></i>
+                    <i class="info"><?php echo __('user.username_description'); ?></i>
                 </div>
             </div>
             <div class="control-group">
@@ -19,7 +19,7 @@
 
                 <div class="controls" style="line-height:0">
                     <textarea name="bio" rows="3" cols="50"><?php echo $user->bio; ?></textarea>
-                    <i><?php echo __('user.bio_description'); ?></i>
+                    <i class="info"><?php echo __('user.bio_description'); ?></i>
                 </div>
             </div>
             <div class="control-group">
@@ -35,7 +35,7 @@
                 <div class="controls">
                     <input placeholder="nicename" type="text" name="nicename"
                            value="<?php echo $user->nicename; ?>">
-                    <i><?php echo __('user.nicename_description'); ?></i>
+                    <i class="info"><?php echo __('user.nicename_description'); ?></i>
                 </div>
             </div>
             <div class="control-group">
@@ -43,7 +43,7 @@
 
                 <div class="controls">
                     <input type="password" name="password">
-                    <i><?php echo __('user.password_description'); ?></i>
+                    <i class="info"><?php echo __('user.password_description'); ?></i>
                 </div>
             </div>
             <div class="control-group">
@@ -51,7 +51,7 @@
 
                 <div class="controls">
                     <input type="password" name="confirm">
-                    <i><?php echo __('user.confirm_description'); ?></i>
+                    <i class="info"><?php echo __('user.confirm_description'); ?></i>
                 </div>
             </div>
             <div class="control-group">
@@ -59,7 +59,7 @@
 
                 <div class="controls">
                     <input placeholder="Email" type="text" name="email" value="<?php echo $user->email; ?>">
-                    <i><?php echo __('user.email_description'); ?></i>
+                    <i class="info"><?php echo __('user.email_description'); ?></i>
                 </div>
             </div>
             <div class="form-actions">

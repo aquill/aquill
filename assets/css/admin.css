@@ -289,17 +289,18 @@ fieldset.header .buttons {
 }
 
 fieldset.meta {
-    padding: 1.8em 0 1em;
+    padding: 2.8em 0 3em;
     display: none;
 }
-
+fieldset.meta:after {
+    left: 8em;
+    
+}
 fieldset.meta .control-group {
-    border-bottom: 0;
     padding: 0 0%;
 }
 
 fieldset.meta .control-label {
-    width: 150px;
 }
 
 /*
@@ -351,8 +352,7 @@ fieldset.editor textarea {
 }
 
 .userform .control-label {
-    width: 150px;
-    background: none;
+    width: 6em;
 }
 .searchform {
     background: #eff1f0;
@@ -382,6 +382,7 @@ fieldset.editor textarea {
     padding: 0;
     color: #999;
     line-height: 1em;
+    border: 0;
 }
 .widget-tags {
     border-top: 1px solid rgba(0,0,0,0.06);
@@ -425,4 +426,19 @@ fieldset.editor textarea {
     border: 1px solid rgba(0, 0, 0, .08);
     border-top: 0;
     border-left: 0;
+}
+.split {
+    display: block;
+    position: relative;
+}
+.split:after {
+    display: block;
+    border-left: 1px solid rgba(0, 0, 0, .08);
+    content: ' ';
+    height: 100%;
+    position: absolute;
+    width: 1px;
+    top: 0;
+    left: 6em;
+    display: none;
 }

@@ -10,7 +10,7 @@
                 <div class="controls">
                     <input placeholder="<?php echo __('post.slug_placeholder'); ?>" type="text" name="slug"
                            value="<?php echo urldecode($post->slug()); ?>" id="slug"/>
-                    <i><?php echo __('post.slug_description'); ?></i>
+                    <i class="info"><?php echo __('post.slug_description'); ?></i>
                 </div>
             </div>
             <div class="control-group">
@@ -19,7 +19,7 @@
                 <div class="controls">
                     <input type="text" name="created" id="created"
                            value="<?php echo $post->date(); ?>"/>
-                    <i><?php echo __('post.date_description'); ?></i>
+                    <i class="info"><?php echo __('post.date_description'); ?></i>
                 </div>
             </div>
             <div class="control-group">
@@ -34,15 +34,14 @@
 
                 <div class="controls">
                     <?php echo Form::select('category', $categories, $post->category); ?>
-                    <i><?php echo __('post.categories_description'); ?></i>
+                    <i class="info"><?php echo __('post.categories_description'); ?></i>
                 </div>
             </div>
             <div class="control-group">
-                <label class="control-label" for="desc"><?php echo __('post.excerpt'); ?></label>
+                <label class="control-label" for="excerpt"><?php echo __('post.excerpt'); ?></label>
 
                 <div class="controls" style="line-height:0">
-                    <textarea name="desc"><?php echo $post->excerpt; ?></textarea>
-                    <i><?php echo __('post.excerpt_description'); ?></i>
+                    <textarea placeholder="<?php echo __('post.excerpt_description'); ?>" name="excerpt"><?php echo $post->excerpt; ?></textarea>
                 </div>
             </div>
             <div class="control-group">

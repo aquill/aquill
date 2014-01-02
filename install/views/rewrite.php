@@ -1,4 +1,4 @@
-<?php install_include('header'); ?>
+<?php partial('partials/header'); ?>
 
 <section class="content">
     <article>
@@ -32,7 +32,7 @@
                             <code><?php echo $value; ?></code>
                         </label><br>
                     <?php endforeach; ?>
-                    <i><?php echo __('rewrite.post_rewrite_description'); ?></i>
+                    <i class="info2"><?php echo __('rewrite.post_rewrite_description'); ?></i>
                 </div>
             </div>
 
@@ -41,7 +41,7 @@
 
                 <div class="controls">
                     <input id="custom" type="text" name="page_rewrite" value="<?php echo $page_rewrite; ?>">
-                    <i><?php echo __('rewrite.page_rewrite_description'); ?></i>
+                    <i class="info"><?php echo __('rewrite.page_rewrite_description'); ?></i>
                 </div>
             </div>
 
@@ -50,7 +50,7 @@
 
                 <div class="controls">
                     <input id="custom" type="text" name="category_rewrite" value="<?php echo $category_rewrite; ?>">
-                    <i><?php echo __('rewrite.category_rewrite_description'); ?></i>
+                    <i class="info"><?php echo __('rewrite.category_rewrite_description'); ?></i>
                 </div>
             </div>
 
@@ -59,7 +59,7 @@
 
                 <div class="controls">
                     <input id="custom" type="text" name="tag_rewrite" value="<?php echo $tag_rewrite; ?>">
-                    <i><?php echo __('rewrite.tag_rewrite_description'); ?></i>
+                    <i class="info"><?php echo __('rewrite.tag_rewrite_description'); ?></i>
                 </div>
             </div>
         </fieldset>
@@ -71,4 +71,4 @@
     </form>
 </section>
 
-<?php install_include('footer'); ?>
+<?php partial('partials/footer'); ?>
