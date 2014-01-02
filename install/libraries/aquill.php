@@ -191,7 +191,10 @@ class Aquill
             'nicename' => $account['username'],
             'password' => Hash::make($account['password']),
             'email' => $account['email'],
+            'url' => '',
             'registered' => date('Y-m-d H:i:s'),
+            'activation_key' => '',
+            'status' => 0,
             'role' => 'administrator',
         ));
 
@@ -200,6 +203,8 @@ class Aquill
             'slug' => 'uncategorised',
             'taxonomy' => 'category',
             'description' => 'Ain\'t no category here.',
+            'parent' => 0,
+            'count' => 1,
         ));
 
         DB::table('relationships')->insert(array(
@@ -212,11 +217,18 @@ class Aquill
             'title' => 'Hello World',
             'slug' => 'hello-world',
             'content' => "Hello World!\r\n\r\nThis is the first post.",
+            'excerpt' => '',
             'status' => 'publish', 
             'type' => 'post',
+            'password' => '',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
+            'parent' => 0,
+            'guid' => '',
+            'mime' => '',
+            'menu_order' => 0,
             'comment_status' => 1,
+            'comment_count' => 1,
         ));
 
         DB::table('posts')->insert(array(
@@ -224,20 +236,32 @@ class Aquill
             'title' => 'Sample Page',
             'slug' => 'sample-page',
             'content' => "This is an example page.",
-            'status' => 'publish',
+            'excerpt' => '',
+            'status' => 'publish', 
             'type' => 'page',
+            'password' => '',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
+            'parent' => 0,
+            'guid' => '',
+            'mime' => '',
+            'menu_order' => 0,
             'comment_status' => 1,
+            'comment_count' => 1,
         ));
 
         DB::table('comments')->insert(array(
             'post_id'=> 1,
             'name' => 'My Aquill',
             'email' => $account['email'],
+            'url' => '',
+            'ip' => '',
             'created_at' => date('Y-m-d H:i:s'),
             'content' => 'Hi, this is a comment.',
+            'karma' => 0,
             'status' => 'approved',
+            'agent' => '',
+            'parent' => 0,
             'uesr_id' => 0,
         ));
 

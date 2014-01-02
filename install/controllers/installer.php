@@ -264,11 +264,10 @@ class InstallerController extends Controller
         }
 
         try {
-            Aquill::setup();
-
+            DB::query($sql);
             return View::make('complete', $vars);
         } catch (Exception $e) {
-
+            dd($e->getMessage());
         }
     }
 }
