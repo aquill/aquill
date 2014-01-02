@@ -6,10 +6,10 @@ class ExtendController extends AdminController
 
         $vars['messages'] = Notify::read();
 
-        $meta = DB::table('meta')->get();
+        $options = DB::table('options')->get();
 
-        foreach ($meta as $m) {
-            $vars[$m->key] = $m->value;
+        foreach ($options as $option) {
+            $vars[$option->key] = $option->value;
         }
 
         return View::make('extend/settings', $vars);
@@ -18,10 +18,10 @@ class ExtendController extends AdminController
     public function themes() {
         $vars['messages'] = Notify::read();
 
-        $meta = DB::table('meta')->get();
+        $options = DB::table('options')->get();
 
-        foreach ($meta as $m) {
-            $vars[$m->key] = $m->value;
+        foreach ($options as $option) {
+            $vars[$option->key] = $option->value;
         }
 
         return View::make('extend/settings', $vars);
@@ -30,10 +30,10 @@ class ExtendController extends AdminController
     public function bundles() {
         $vars['messages'] = Notify::read();
 
-        $meta = DB::table('meta')->get();
+        $options = DB::table('options')->get();
 
-        foreach ($meta as $m) {
-            $vars[$m->key] = $m->value;
+        foreach ($options as $option) {
+            $vars[$option->key] = $option->value;
         }
 
         return View::make('extend/settings', $vars);

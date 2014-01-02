@@ -3,10 +3,12 @@
 return array(
 
     'search_placeholder' => 'To search, type and hit enter…',
+
+    'menu_title' => 'All Posts',
     
     'publish' => 'Publish',
     'draft' => 'Draft',
-    'load_more' => 'Load more posts.'
+    'load_more' => 'Load more posts.',
 
     'slug' => 'Slug',
     'slug_placeholder' => '',
@@ -18,5 +20,5 @@ return array(
     'excerpt' => 'Excerpt',
     'title_placeholder' => 'Enter title here',
     'more_settings' => 'More settings',
-    'content_placeholder' => '缩略名',
+    'content_placeholder' => 'Writting something...',
 );

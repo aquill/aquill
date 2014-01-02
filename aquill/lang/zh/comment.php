@@ -3,6 +3,7 @@
 return array(
 
     'search_placeholder' => '搜索评论作者或内容',
+    'menu_title' => '所有评论',
 
     'approved' => '批准',
     'pending' => '待审核',

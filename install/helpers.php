@@ -1,21 +1,5 @@
 <?php
 
-function _i($key, $replacements = array()) {
-    if ($i18n = Session::get('install.i18n')) {
-        $language = $i18n['language'];
-    }
-
-    return __($key, $replacements, $language);
-}
-
-function _ei($key, $replacements = array()) {
-    if ($i18n = Session::get('install.i18n')) {
-        $language = $i18n['language'];
-    }
-
-    _e($key, $replacements, $language);
-}
-
 function timezones() {
     $list = DateTimeZone::listAbbreviations();
     $idents = DateTimeZone::listIdentifiers();

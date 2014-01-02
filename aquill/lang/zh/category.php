@@ -3,6 +3,7 @@
 return array(
 
     'search_placeholder' => '搜索分类和标签',
+    'menu_title' => '所有分类',
 
     'add' => '添加分类',
     'edit' => '正在编辑 :name 分类',

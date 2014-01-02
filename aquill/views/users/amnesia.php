@@ -6,7 +6,7 @@
     <?php echo HTML::style('assets/css/global.css'); ?>
     <?php echo HTML::style('assets/css/login.css'); ?>
 </head>
-<body class="login">
+<body class="login amnesia">
 
 <form class="loginform" method="POST" action="<?php echo url('login'); ?>" accept-charset="UTF-8">
     <fieldset class="split">
@@ -17,9 +17,6 @@
         </div>
         <div class="form-actions">
             <button class="btn green" type="submit"><span class="icon-login"></span></button>
-            <label class="icon-checkbox-checked"><input type="checkbox" name="remember" value="remember">
-                <?php _e('login.remember'); ?></label>
-            <a href="<?php echo url('amnesia'); ?>"><?php _e('login.amnesia'); ?></a>
         </div>
     </fieldset>
 </form>

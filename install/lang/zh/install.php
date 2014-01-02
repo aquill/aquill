@@ -1,6 +1,7 @@
 <?php
 
 return array(
+
     'title' => '安装 Aquill',
 
     'start' => '语言和时区',

@@ -4,7 +4,8 @@ require 'helpers.php';
 
 Autoloader::map(array(
     'Notify' => PATH . 'aquill/libraries/notify.php',
-    'Braces' => APP . 'libraries/braces.php'
+    'Braces' => APP . 'libraries/braces.php',
+    'Aquill' => APP . 'libraries/aquill.php',
 ));
 
 Asset::container('header')->add('global', 'assets/css/global.css');

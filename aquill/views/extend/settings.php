@@ -12,24 +12,24 @@
 
                 <fieldset class="split">
 
-                    <div class="control-group width-60">
+                    <div class="control-group">
                         <label for="sitename" class="control-label">Site name</label>
 
                         <div class="controls">
-                            <input type="text" name="sitename" value="Chen Lin"></p>
+                            <input type="text" name="sitename" value="<?php echo $site_title; ?>"></p>
                         </div>
                     </div>
 
-                    <div class="control-group width-80">
+                    <div class="control-group">
                         <label for="" class="control-label">Site description</label>
 
                         <div class="controls">
-                            <textarea name="description" rows="10" cols="50">Time is money.</textarea>
+                            <textarea name="description" rows="3" cols="50"><?php echo $site_description; ?></textarea>
                         </div>
                     </div>
 
 
-                    <div class="control-group width-50">
+                    <div class="control-group">
                         <label for="home_page" class="control-label">Home Page</label>
 
                         <div class="controls">
@@ -39,7 +39,7 @@
                         </div>
                     </div>
 
-                    <div class="control-group width-30">
+                    <div class="control-group">
                         <label for="posts_per_page" class="control-label">Posts per page</label>
 
                         <div class="controls">
@@ -52,7 +52,7 @@
                 <fieldset class="split">
                     <legend>Comments</legend>
 
-                    <div class="control-group width-80">
+                    <div class="control-group">
                         <label for="allow" class="control-label">Allow comments</label>
 
                         <div class="controls">
@@ -62,7 +62,7 @@
                         </div>
                     </div>
 
-                    <div class="control-group width-70">
+                    <div class="control-group">
                         <label for="comment_notifications" class="control-label">Email notification</label>
 
                         <div class="controls">
@@ -71,11 +71,11 @@
                         </div>
                     </div>
 
-                    <div class="control-group width-80">
+                    <div class="control-group">
                         <label for="comment_moderation_keys" class="control-label">Spam keywords</label>
 
                         <div class="controls">
-                            <textarea name="comment_moderation_keys" rows="10" cols="50"></textarea>
+                            <textarea name="comment_moderation_keys" rows="3" cols="50"></textarea>
                         </div>
                     </div>
 

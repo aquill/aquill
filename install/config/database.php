@@ -58,7 +58,7 @@ return array(
         'mysql' => array(
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'aquill',
+            'database' => 'blog',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',

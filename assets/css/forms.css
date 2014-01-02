@@ -95,7 +95,7 @@ label {
     text-align: left;
     -webkit-user-select: none;
     border-radius: 0;
-    width: 6em;
+    width: 8em;
     font-weight: normal;
     background: none;
     color: #666;
@@ -103,7 +103,7 @@ label {
 
 .controls {
     width: auto;
-    margin-left: 6em;
+    margin-left: 8em;
     line-height: inherit;
     background: none;
     min-height: 2.4em;
@@ -132,7 +132,8 @@ label {
     color: rgba(0,0,0,0.3);
     display: block;
     font-style: normal;
-    font-size: 1em;
+    font-size: .9em;
+    line-height: 1.6em;
 }
 .controls label:first-child {
     margin-left: 0;

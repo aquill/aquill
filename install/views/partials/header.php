@@ -2,7 +2,7 @@
 <html lang="en-gb">
 <head>
     <meta charset="utf-8">
-    <title><?php _ei('install.title'); ?></title>
+    <title><?php _et('install.title'); ?></title>
     <meta name="robots" content="noindex, nofollow">
     <?php echo Asset::container('header')->styles(); ?>
     <script type="text/javascript">var base = "<?php echo url('admin') . '/'; ?>";</script>
@@ -13,12 +13,12 @@
 
     <nav>
         <ul>
-            <li class="start database metadata rewrite account complete"><?php _ei('install.start'); ?></li>
-            <li class="database metadata rewrite account complete"><?php _ei('install.database'); ?></li>
-            <li class="metadata rewrite account complete"><?php _ei('install.metadata'); ?></li>
-            <li class="rewrite account complete"><?php _ei('install.rewrite'); ?></li>
-            <li class="account complete"><?php _ei('install.account'); ?></li>
-            <li class="complete"><?php _ei('install.all_done'); ?></li>
+            <li class="start database metadata rewrite account complete"><?php _et('install.start'); ?></li>
+            <li class="database metadata rewrite account complete"><?php _et('install.database'); ?></li>
+            <li class="metadata rewrite account complete"><?php _et('install.metadata'); ?></li>
+            <li class="rewrite account complete"><?php _et('install.rewrite'); ?></li>
+            <li class="account complete"><?php _et('install.account'); ?></li>
+            <li class="complete"><?php _et('install.all_done'); ?></li>
         </ul>
     </nav>
 </div>

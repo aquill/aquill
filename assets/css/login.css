@@ -75,16 +75,21 @@
 .loginform .form-actions button {
     background: none;
     color: #999;  
+    border: 0;
 }
 .loginform .form-actions button:hover {
     background: none;
     color: #3B7548;
 }
-
+.amnesia .loginform .form-actions button {
+    bottom: .3em;
+    
+}
 .loginform .form-actions label:before,
 .loginform .form-actions label:before {
     color: #3B7548;
 }
+
 .loginform .form-actions label {
     color: #888;
     line-height: 3em;
@@ -100,7 +105,6 @@
     line-height: 3em;
     color: #bbb;
 }
-
 
 #footer {
     max-width: 360px;

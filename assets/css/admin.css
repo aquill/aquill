@@ -10,14 +10,21 @@
 ::placeholder {
     line-height: 1.3em;
 }
-
+.widget-list {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    padding-left: 60px;
+    top: 5.6em;
+    bottom: 0;
+}
 .widget-list .widget-title {
     display: none;
 }
 
 .list {
-    position: absolute;
-    top: 5.6em;
+    position: relative;
+    top: 0;
     bottom: 0;
     width: 100%;
     overflow: auto;

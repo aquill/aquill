@@ -51,14 +51,15 @@ return array(
 
         'sqlite' => array(
             'driver' => 'sqlite',
-            'database' => 'blog',
-            'prefix' => 'aq_',
+            'database' => 'aquill',
+            'prefix' => 'aquill_',
         ),
 
         'mysql' => array(
             'driver' => 'mysql',
             'host' => 'localhost',
-            'database' => 'blog',
+            'port' => '3306',
+            'database' => 'aquill',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
@@ -68,11 +69,12 @@ return array(
         'pgsql' => array(
             'driver' => 'pgsql',
             'host' => 'localhost',
-            'database' => 'blog',
+            'port' => '3306',
+            'database' => 'aquill',
             'username' => 'root',
             'password' => '',
             'charset' => 'utf8',
-            'prefix' => 'aq_',
+            'prefix' => 'aquill_',
         ),
     ),
 

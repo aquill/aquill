@@ -18,8 +18,9 @@ class SiteController extends Controller
         $homepage = Config::get('rewrite.home');
 
         $posts = Post::published()->paginate(10);
+
         Registry::set('posts', $posts);
-        
+
         if (is_null($homepage)) {
 
             return new Theme('index');            
@@ -30,6 +31,8 @@ class SiteController extends Controller
 
     public function feed($uri) {
         $posts = Post::published()->take(20)->get();
+
+        if (empty($posts)) return;
 
         $feed = new Feed();
 
@@ -60,11 +63,13 @@ class SiteController extends Controller
         if (!in_array($suffix, $suffixes))
             return Theme::error(404);
 
+        $posts = Post::published()->get();
+        
+        if (empty($posts)) return;
+
         $sitemap = new Sitemap();
 
         $sitemap->title = 'Aquill';
-
-        $posts = Post::published()->get();
 
         $lastmod = current($posts)->date('Y-m-d\TH:i:sP');
 

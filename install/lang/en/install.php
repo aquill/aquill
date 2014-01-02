@@ -1,11 +1,13 @@
 <?php
 
 return array(
+
     'title' => 'Installing Aquill',
 
-    'start' => 'Personalization',
+    'start' => 'Language & timezone',
     'database' => 'Database setup',
     'metadata' => 'Site metadata',
+    'rewrite' => 'Clean URLs',
     'account' => 'Your account',
     'complete' => 'All done!',
 

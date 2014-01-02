@@ -49,6 +49,7 @@ Route::get('wp2aquill', function () {
     echo exec_time();
 });
 
+
 Route::get('/, home', 'site@home');
 Route::get('robots.txt', 'site@robots');
 Route::get('(feed|rss|atom)', 'site@feed');
@@ -94,10 +95,10 @@ Route::post('admin/comments/new, admin/comments/edit/(:num)', 'comment@update');
 // User Routes
 // --------------------------------------------------------------
 
-Route::get('login', 'user@login');
-Route::post('login', 'user@check');
-Route::get('logout', 'user@logout');
-Route::get('amnesia', 'user@amnesia');
+Route::get('login', 'auth@login');
+Route::post('login', 'auth@check');
+Route::get('logout', 'auth@logout');
+Route::get('amnesia', 'auth@amnesia');
 
 Route::get('admin/users, admin/users/(:num)', 'user@index');
 Route::post('admin/users', 'user@paginate');

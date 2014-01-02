@@ -7,5 +7,5 @@
 </aside>
 
 <aside id="tags" class="widget widget-tags">
-    <h3>All Categories</h3>
+    <h3><?php _e($type.'.menu_title'); ?></h3>
 </aside>

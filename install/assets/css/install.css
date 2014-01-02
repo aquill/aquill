@@ -56,3 +56,24 @@ article p {
     font-size: inherit;
     font-style: normal;
 }
+.halt {
+    text-align: center;
+    padding-top: 10%;
+}
+.halt article h1 {
+    margin-bottom: .6em;
+}
+.halt article p {
+    text-align: left;
+}
+.halt p {
+    margin: 0 auto 3em;
+    width: 50%;
+}
+.halt p .selecter {
+    width: 100%;
+    min-width: auto;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+.halt p .selecter .selecter-selected {
+}

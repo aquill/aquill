@@ -4,9 +4,12 @@ class InstallerController extends Controller
 {
     public $restful = true;
 
-    public function getHome()
+    public function __construct()
     {
-        return View::make('halt');
+        if ($database = Session::get('install.database')) {
+            Config::set('database.default', $database['driver']);
+            Config::set('database.connections.' . $database['driver'], $database);
+        }
     }
 
     public function getStart()
@@ -14,18 +17,15 @@ class InstallerController extends Controller
         $vars['messages'] = Notify::read();
         $vars['languages'] = languages();
         $vars['timezones'] = timezones();
-        $i18n = array(
-            'language' => 'zh',
-            'timezone' => current_timezone()
-        );
 
-        if ($temp = Session::get('install.i18n')) {
-            $vars = array_merge($vars, $temp);
-        } else {
-            $vars = array_merge($vars, $i18n);
-        }
+        return View::make('welcome', $vars);
+    }
 
-        return View::make('start', $vars);
+    public function postLanguage()
+    {
+        Session::put('current.language', Input::get('language', 'en'));
+
+        return Redirect::to('start');
     }
 
     public function postStart()
@@ -39,10 +39,11 @@ class InstallerController extends Controller
         $validation = Validator::make($i18n, $rules);
 
         if ($validation->invalid()) {
-            Notify::error(_i('install.language_error'));
+            Notify::error(_t('install.language_error'));
             return Redirect::to('start');
         }
 
+        Session::put('current.language', Input::get('language', 'en'));
         Session::put('install.i18n', $i18n);
 
         return Redirect::to('database');
@@ -146,14 +147,14 @@ class InstallerController extends Controller
         $metadata = Input::only(array('title', 'description', 'url', 'index'));
 
         $rules = array(
-            'url' => 'required',
-            'index' => 'required'
+            'title' => 'required',
+            'description' => 'required'
         );
 
         $validation = Validator::make($metadata, $rules);
 
         if ($validation->invalid()) {
-            Notify::error(_i('install.language_error'));
+            Notify::error(_t('install.language_error'));
             return Redirect::to('metadata');
         }
 
@@ -170,7 +171,7 @@ class InstallerController extends Controller
 
         $vars['messages'] = Notify::read();
 
-        $vars['post_rewrites'] = array(
+        $vars['posts'] = array(
             'numeric' => '/archives/{id}',
             'name' => '/archives/{name}',
             'month_name' => '/{year}/{month}/{name}',
@@ -179,10 +180,12 @@ class InstallerController extends Controller
         );
 
         $rewrites = array(
-            'post_rewrite' => '/archives/{id}.html',
-            'page_rewrite' => '/{name}.html',
-            'category_rewrite' => '/category/{name}',
-            'tag_rewrite' => '/tag/{name}',
+            'home' => 'custom',
+            'post' => '/archives/{id}.html',
+            'page' => '/{name}.html',
+            'category' => '/category/{name}',
+            'tag' => '/tag/{name}',
+            'author' => '/author/{name}'
         );
 
         if ($temp = Session::get('install.rewrites')) {
@@ -195,15 +198,14 @@ class InstallerController extends Controller
     }
 
     public function postRewrite() {
-        $rewrites = Input::only(array('post_rewrite',
-            'page_rewrite', 'category_rewrite', 'tag_rewrite'));
+        $rewrites = Input::only(array('home', 'post', 'page', 'category', 'tag', 'author'));
 
-        $custom = Input::get('post_rewrite_custom');
+        $custom = Input::get('post_custom');
 
-        if (empty($rewrites['post_rewrite'])) {
-            $rewrites['post_rewrite'] = $custom;
-        } else if (empty($rewrites['post_rewrite'])) {
-            $rewrites['post_rewrite'] = '/archives/{id}';
+        if (empty($rewrites['post'])) {
+            $rewrites['post'] = $custom;
+        } else if (empty($rewrites['post'])) {
+            $rewrites['post'] = '/archives/{id}';
         }
 
         Session::put('install.rewrites', $rewrites);
@@ -246,7 +248,7 @@ class InstallerController extends Controller
         $validation = Validator::make($account, $rules);
 
         if ($validation->invalid()) {
-            Notify::error(_i('install.account_error'));
+            Notify::error(_t('install.account_error'));
             return Redirect::to('account');
         }
 
@@ -257,62 +259,16 @@ class InstallerController extends Controller
 
     public function getComplete() {
         if (!Session::get('install.account')) {
-            Notify::error(_i('install.account_error'));
+            Notify::error(_t('install.account_error'));
             return Redirect::to('account');
         }
-
-        $vars['messages'] = Notify::read();
-
-        $settings = Session::get('install');
-
-        $config['app'] = Braces::compile(APP . 'storage/app.php', array(
-                'url' => $settings['metadata']['url'],
-                'index' => $settings['metadata']['index'],
-                'key' => Str::random(32),
-                'language' => $settings['i18n']['language'],
-                'timezone' => $settings['i18n']['timezone']
-            ));
-
-        $database = $settings['database'];
-
-        Config::set('database.default', $database['driver']);
-        Config::set('database.connections.' . $database['driver'], $database);
-
-        $config['database'] = Braces::compile(APP . 'storage/database.php', array(
-                'driver' => $database['driver'],
-                'host' => $database['host'],
-                'port' => $database['port'],
-                'username' => $database['username'],
-                'password' => $database['password'],
-                'database' => $database['database'],
-                'charset' => $database['charset'],
-                'prefix' => $database['prefix']
-            ));
-
-        $rewrites = $settings['rewrites'];
-
-        $config['rewrite'] = Braces::compile(APP . 'storage/rewrite.php', array(
-                'post' => $rewrites['post_rewrite'],
-                'page' => $rewrites['page_rewrite'],
-                'category' => $rewrites['category_rewrite'],
-                'tag' => $rewrites['tag_rewrite'],
-            ));
-        
-        $htaccess = file_get_contents(STORAGE . 'htaccess');
 
         try {
-            file_put_contents(PATH . 'aquill/config/local/app.php', $config['app']);
-            file_put_contents(PATH . 'aquill/config/local/database.php', $config['database']);
-            file_put_contents(PATH . 'aquill/config/rewrite.php', $config['rewrite']);
-            file_put_contents(PATH . '.htaccess', $htaccess);
+            Aquill::setup();
+
+            return View::make('complete', $vars);
         } catch (Exception $e) {
-            return Redirect::to('account');
+
         }
-
-        $vars['site_url'] = $settings['metadata']['url'];
-        $vars['admin_url'] = $vars['site_url'] . '/admin';
-        $vars['htaccess'] = $htaccess;
-
-        return View::make('complete', $vars);
     }
 }

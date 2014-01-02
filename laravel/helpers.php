@@ -21,7 +21,7 @@ function e($value) {
  * @return string
  */
 function __($key, $replacements = array(), $language = null) {
-    return Laravel\Lang::line($key, $replacements, $language);
+    return Laravel\Lang::line($key, $replacements, $language)->get($language);
 }
 
 /**
@@ -33,7 +33,29 @@ function __($key, $replacements = array(), $language = null) {
  * @return string
  */
 function _e($key, $replacements = array(), $language = null) {
-    echo Laravel\Lang::line($key, $replacements, $language);
+    echo __($key, $replacements, $language);
+}
+
+/**
+ * Retrieve a language line.
+ *
+ * @param string  $key
+ * @param array   $replacements
+ * @return string
+ */
+function _t($key, $replacements = array()) {
+    return __($key, $replacements, Session::get('current.language', 'en'));
+}
+
+/**
+ * Retrieve a language line.
+ *
+ * @param string  $key
+ * @param array   $replacements
+ * @return string
+ */
+function _et($key, $replacements = array()) {
+    echo _t($key, $replacements = array());
 }
 
 /**

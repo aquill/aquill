@@ -4,14 +4,14 @@
 // Install Routes
 // --------------------------------------------------------------
 
-Route::get('/', 'installer@home');
-Route::get('start', 'installer@start');
+Route::get('/, start', 'installer@start');
 Route::get('database', 'installer@database');
 Route::get('metadata', 'installer@metadata');
 Route::get('rewrite', 'installer@rewrite');
 Route::get('account', 'installer@account');
 Route::get('complete', 'installer@complete');
 
+Route::post('language', 'installer@language');
 Route::post('start', 'installer@start');
 Route::post('database', 'installer@database');
 Route::post('metadata', 'installer@metadata');
@@ -40,7 +40,7 @@ Route::filter('csrf', function () {
 
 Route::filter('check', function () {
     if (!is_writable(PATH . 'aquill/config')) {
-        $vars['messages'] = _i('install.not_writeable');
+        $vars['messages'] = _t('install.not_writeable');
         return Response::view('halt', $vars);
     }
 });

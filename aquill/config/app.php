@@ -13,7 +13,7 @@ return array(
     |
     */
 
-    'url' => '',
+    'url' => 'http://chen.local/aquill/aq',
 
     /*
     |--------------------------------------------------------------------------
@@ -44,7 +44,7 @@ return array(
     |
     */
 
-    'key' => 'Dc2kDVWq6YXZeSC5IQfO3vWRmY7li7SZ',
+    'key' => 'IZunmyBUyyWFAJkNoRGkgjgAz2lhBTlE',
 
     'auto_key' => true,
 
@@ -119,6 +119,6 @@ return array(
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'utc',
 
 );

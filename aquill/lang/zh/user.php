@@ -2,6 +2,10 @@
 
 return array(
 
+    'search_placeholder' => '搜索用户...',
+
+    'menu_title' => '所有用户',
+
     'add' => '添加用户',
     'edit' => '正在编辑 :username 的用户信息',
 

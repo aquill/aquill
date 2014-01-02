@@ -52,6 +52,10 @@ class Post extends Eloquent
 
     public function date($format = 'Y-m-d H:i:s')
     {
+        if (is_null($this->created_at)) {
+            return date($format);
+        }
+
         return date($format, strtotime($this->created_at));
     }
 
@@ -73,14 +77,14 @@ class Post extends Eloquent
     public function comments()
     {
         return $this->has_many('Comment' , 'post_id')
-                    ->where('approved', '=', 1)
+                    ->where('status', '=', 'approved')
                     ->paginate(10);
     }
 
     public function tags()
     {
         return $this->has_many_and_belongs_to('Tag', 'relationships', 'post_id', 'term_id')
-                    ->where('taxonomy', '=','post_tag')
+                    ->where('taxonomy', '=','tag')
                     ->get();
     }
 
