@@ -31,12 +31,7 @@ define('PATH', dirname(__FILE__) . DS);
 // --------------------------------------------------------------
 // The basic application.
 // --------------------------------------------------------------
-
-if (!is_readable(PATH . 'aquill/config/database.php')) {
-    define('DEFAULT_BUNDLE', 'aquill');
-} else {
-    define('DEFAULT_BUNDLE', 'install');
-}
+define('DEFAULT_BUNDLE', 'aquill');
 
 // --------------------------------------------------------------
 // The path to the application directory.

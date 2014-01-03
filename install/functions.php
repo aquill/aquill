@@ -41,7 +41,7 @@ function timezones() {
 }
 
 function languages() {
-    return require 'aquill/config/languages.php';
+    return require PATH . 'aquill/config/languages.php';
 }
 
 function current_timezone() {
