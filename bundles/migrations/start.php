@@ -67,3 +67,75 @@ Route::get('admin/migrations/wordpress', function () {
     var_dump(Session::get('migrations'));
 });
 
+Route::get('wp2aquill', function () {
+
+    $database1 = 'aquill';
+    $prefix1 = 'aquill_';
+    $database2 = 'arain';
+    $prefix2 = 'wp_';
+
+    dd(Hash::make('admin123'));
+
+    $sql_posts = "
+        INSERT INTO `{$database1}`.`{$prefix1}posts`(`id`, `author`, `title`, `slug`, `content`, `excerpt`, `status`, `password`, `created_at`, `updated_at`, `parent`, `guid`, `mime`, `type`, `menu_order`, `comment_status`, `comment_count`) 
+        SELECT `ID`, `post_author`, `post_title`, `post_name`, `post_content`, `post_excerpt`, 
+        CASE 
+        WHEN `post_status` = 'auto-draft' THEN 'auto' 
+        ELSE `post_status` 
+        END AS `post_status`, `post_password`, `post_date`, `post_modified`, `post_parent`, `guid`, `post_mime_type`, 
+        CASE 
+        WHEN `post_type` = 'nav_menu_item' THEN 'menu' 
+        ELSE `post_type` 
+        END AS `type`, `menu_order`, `comment_status`, `comment_count` 
+        FROM `{$database2}`.`{$prefix2}posts`
+    ";
+
+    $sql_terms = "
+        INSERT INTO `{$database1}`.`{$prefix1}terms`(`id`, `name`, `slug`, `taxonomy`, `description`, `parent`, `count`)
+        SELECT `{$prefix2}terms`.`term_id`, `name`, `slug`, 
+        CASE 
+        WHEN  `taxonomy` =  'post_tag' THEN  'tag'
+        WHEN  `taxonomy` =  'link_category' THEN  'link'
+        ELSE  `taxonomy` 
+        END AS `taxonomy`, `description`, `parent`, `count` 
+        FROM `{$database2}`.`{$prefix2}terms` 
+        JOIN `{$database2}`.`{$prefix2}term_taxonomy` 
+        ON `{$database2}`.`{$prefix2}terms`.`term_id` = `{$database2}`.`{$prefix2}term_taxonomy`.`term_id` 
+        GROUP BY `{$database2}`.`{$prefix2}terms`.`term_id`
+    ";
+
+    $sql_relationships = "
+        INSERT INTO `{$database1}`.`{$prefix1}relationships`(`post_id`, `term_id`) 
+        SELECT `object_id`, `term_taxonomy_id` 
+        FROM `{$database2}`.`{$prefix2}term_relationships`
+    ";
+
+    $sql_comments = "
+        INSERT INTO `{$database1}`.`{$prefix1}comments`(`id`, `post_id`, `name`, `email`, `url`, `ip`, `created_at`, `content`, `karma`, `status`, `agent`, `parent`, `uesr_id`)
+        SELECT `comment_ID`, `comment_post_ID`, `comment_author`, `comment_author_email`, `comment_author_url`, `comment_author_IP`, `comment_date`, `comment_content`, `comment_karma`, 
+        CASE 
+        WHEN  `comment_approved` =  '1' THEN  'approved'
+        ELSE  `comment_approved` 
+        END AS `comment_approved`, `comment_agent`, `comment_parent`, `user_id` 
+        FROM `{$database2}`.`{$prefix2}comments`
+    ";
+
+    $sql_users = "
+        INSERT INTO `{$database1}`.`{$prefix1}users`(`id`, `username`, `password`, `nicename`, `email`, `url`, `registered`, `activation_key`, `status`, `role`)
+        SELECT `ID`, `user_login`, `user_pass`, `user_nicename`, `user_email`, `user_url`, `user_registered`, `user_activation_key`, `user_status`, 'administrator' 
+        FROM `{$database2}`.`{$prefix2}users`
+    ";
+
+    DB::connection()->query("TRUNCATE TABLE  `{$prefix1}comments`");
+    DB::connection()->query("TRUNCATE TABLE  `{$prefix1}terms`");
+    DB::connection()->query("TRUNCATE TABLE  `{$prefix1}relationships`");
+    DB::connection()->query("TRUNCATE TABLE  `{$prefix1}posts`");
+
+    DB::connection()->query($sql_posts);
+    DB::connection()->query($sql_terms);
+    DB::connection()->query($sql_relationships);
+    DB::connection()->query($sql_comments);
+
+    echo exec_time();
+});
+

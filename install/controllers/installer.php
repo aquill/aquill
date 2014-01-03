@@ -130,6 +130,8 @@ class InstallerController extends Controller
         $metadata = array(
             'title' => 'My Awesome Blog',
             'description' => 'It&rsquo;s not just any blog. It&rsquo;s an Aquill blog.',
+            'theme' => 'theme',
+            'bundles' => 'migrations',
             'url' => rtrim(URL::base(), '/'),
             'index' => 'index.php',
         );
@@ -144,7 +146,7 @@ class InstallerController extends Controller
     }
 
     public function postMetadata() {
-        $metadata = Input::only(array('title', 'description', 'url', 'index'));
+        $metadata = Input::only(array('title', 'description', 'theme', 'bundles', 'url', 'index'));
 
         $rules = array(
             'title' => 'required',

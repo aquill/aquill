@@ -46,7 +46,7 @@ return array(
     |
     */
 
-    'database' => array('table' => 'laravel_cache'),
+    'database' => array('table' => 'aquill_cache'),
 
     /*
     |--------------------------------------------------------------------------

@@ -10,25 +10,24 @@ class Theme extends View
      */
     protected function path($view)
     {
-        $view = str_replace('.', '/', $view);
+        $root = PATH . 'themes' . DS . get_option('site_theme', 'default') . DS;
 
-        $root = PATH . 'themes/default/';
-
-        // Views may have the normal PHP extension or the Blade PHP extension, so
-        // we need to check if either of them exist in the base views directory
-        // for the bundle and return the first one we find.
-        foreach (array(EXT, BLADE_EXT) as $extension) {
-            if (file_exists($path = $root . $view . $extension)) {
-                return $path;
+        if ($view == 'category' or $view == 'tag' or $view == 'search') {
+            if (!file_exists($path = $root . $view . EXT)) {
+                $view = 'index';
             }
+        }
+
+        if (file_exists($path = $root . $view . EXT)) {
+            return $path;
         }
 
         throw new \Exception("View [$path] does not exist.");
     }
 
-    public static function error($stauts)
+    public static function notFound()
     {
-        return Response::make(static::make('404'), $stauts);
+        return Response::make(static::make('404'), 404);
     }
 
 }

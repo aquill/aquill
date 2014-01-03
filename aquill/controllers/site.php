@@ -61,7 +61,7 @@ class SiteController extends Controller
         $suffixes = array('xml', 'html', 'ror.rdf', 'ror.rss', 'txt');
 
         if (!in_array($suffix, $suffixes))
-            return Theme::error(404);
+            return Theme::notFound();
 
         $posts = Post::published()->get();
         
@@ -101,7 +101,7 @@ class SiteController extends Controller
         }
 
         if (is_null($post))
-            return Theme::error(404);
+            return Theme::notFound();
 
         Registry::set('post', $post);
 
@@ -117,7 +117,7 @@ class SiteController extends Controller
         }
 
         if (is_null($page))
-            return Theme::error(404);
+            return Theme::notFound();
         
         Registry::set('page', $page);
 
@@ -132,7 +132,7 @@ class SiteController extends Controller
         }
 
         if (is_null($category))
-            return Theme::error(404);
+            return Theme::notFound();
 
         $posts = $category->posts();
 
@@ -150,7 +150,7 @@ class SiteController extends Controller
         }
 
         if (is_null($tag))
-            return Theme::error(404);
+            return Theme::notFound();
 
         $posts = $tag->posts();
 
@@ -168,7 +168,7 @@ class SiteController extends Controller
         }
 
         if (is_null($author))
-            return Theme::error(404);
+            return Theme::notFound();
 
         $posts = $author->posts();
 

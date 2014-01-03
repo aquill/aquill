@@ -36,7 +36,8 @@
                     <i class="info"><?php _et('metadata.site_url_description'); ?></i>
                 </div>
             </div>
-
+            <input type="hidden" name="theme" value="default">
+            <input type="hidden" name="bundles" value="migrations">
             <div class="control-group">
                 <label for="index" class="control-label"><?php _et('metadata.site_index'); ?></label>
 

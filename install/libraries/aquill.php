@@ -296,7 +296,7 @@ class Aquill
             ));
 
         $rewrites = $options['rewrites'];
-
+/*
         $config['rewrite'] = Braces::compile(APP . 'storage/rewrite.php', array(
                 'home' => $rewrites['home'],
                 'post' => $rewrites['post'],
@@ -305,16 +305,16 @@ class Aquill
                 'tag' => $rewrites['tag'],
                 'author' => $rewrites['author'],
             ));
-
+*/
         $htaccess = file_get_contents(STORAGE . 'htaccess');
 
         try {
             file_put_contents(PATH . 'aquill/config/app.php', $config['app']);
             file_put_contents(PATH . 'aquill/config/database.php', $config['database']);
-            file_put_contents(PATH . 'aquill/config/rewrite.php', $config['rewrite']);
+            //file_put_contents(PATH . 'aquill/config/rewrite.php', $config['rewrite']);
             file_put_contents(PATH . '.htaccess', $htaccess);
         } catch (Exception $e) {
-            return '$e->messages()';
+            return $e->message();
         }
 
         return true;

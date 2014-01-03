@@ -84,11 +84,52 @@ function autop($pee, $br = true) {
     return $pee;
 }
 
-function _autop_newline_preservation_helper($matches) {
-    return str_replace("\n", "<PreserveNewline />", $matches[0]);
+function body_class($classes = '') {
+    $classes .= str_replace('/', ' ', URI::current());
+
+    return 'class="' . $classes . '"';
+}
+
+function csrf_token() {
+    return Session::token();
+}
+
+function csrf_token_input() {
+    return '<input type="hidden" name="csrf_token" value="'.csrf_token().'">';
 }
 
 function get_avatar() {}
+
+function get_by_id($type = 'post') {
+    $rewrite = get_option('rewrite_'.strtolower($type));
+
+    if (strpos($rewrite, '{id}') !== false) {
+        return true;
+    }
+
+    return false;
+}
+
+function get_option($key, $default = null) {
+    if (is_null(Registry::get('options'))) {
+        $options = array();
+        $data = DB::table('options')->get();
+
+        foreach ($data as $option) {
+            $options[$option->key] = $option->value;
+        }
+
+        Registry::set('options', $options);
+    }
+
+    $options = Registry::get('options');
+
+    if (isset($options[$key])) {
+        return $options[$key];
+    }
+
+    return $default;
+}
 
 function is_admin() {}
 
@@ -97,6 +138,49 @@ function is_home() {}
 function is_page() {}
 
 function is_post() {}
+
+function is_url($string) {
+    if (strpos($string, 'http://') !== false) {
+        return true;
+    } elseif (strpos($string, 'https://') !== false) {
+        return true;
+    }
+
+    return false;
+}
+
+function pattern($type = 'post') {
+    $type = strtolower($type);
+
+    if ($type == 'post') {
+        $patterns['year'] = '[0-9]+';
+        $patterns['month'] = '[0-9]+';
+        $patterns['day'] = '[0-9]+';
+        $patterns['category'] = '.*';        
+    }
+
+    if (get_by_id($type)) {
+        $patterns['id'] = '(:num)';
+        $patterns['name'] = '.*';
+    } else {
+        $patterns['id'] = '[0-9]+';
+        $patterns['name'] = '(.*)';
+    }
+
+    return trim(rewrite($patterns, $type), '/');
+}
+
+function rewrite($arr ,$type = 'post') {
+    $rewrite = get_option('rewrite_'.strtolower($type));
+
+    foreach ($arr as $key => $value) {
+        if (strpos($rewrite, '{' . $key . '}') !== false) {
+            $rewrite = str_replace('{' . $key . '}', $value, $rewrite);
+        }
+    }
+
+    return $rewrite;
+}
 
 function theme_asset() {}
 
@@ -142,11 +226,11 @@ function site_head_title() {
 }
 
 function site_title() {
-    return 'Site Title';
+    return get_option('site_title');
 }
 
 function site_description() {
-    return 'Site Description';
+    return get_option('site_description');
 }
 
 function site_menu_list() {
@@ -154,4 +238,12 @@ function site_menu_list() {
     foreach ($menus as $menu) {
         printf('<li><a href="%s">%s</a></li>', $menu->link(), $menu->title());
     }
+}
+
+function uri_has($page = 'admin') {
+    return strpos(URL::current(), $page) !== false;
+}
+
+function _autop_newline_preservation_helper($matches) {
+    return str_replace("\n", "<PreserveNewline />", $matches[0]);
 }

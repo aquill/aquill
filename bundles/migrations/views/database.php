@@ -1,4 +1,4 @@
-<?php partial('header'); ?>
+<?php partial('partials/header'); ?>
 
 <?php partial('extend/sidebar'); ?>
 
@@ -118,4 +118,4 @@
         </div>
     </div>
 
-<?php partial('footer'); ?>
+<?php partial('partials/footer'); ?>
