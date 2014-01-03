@@ -4,6 +4,10 @@ function add_theme_script() {}
 
 function add_theme_style() {}
 
+function add_theme_asset($container = 'header', $name, $source, $dependencies = array(), $attributes = array()) {
+    return Asset::container('theme_'.$container)->add($name, $source, $dependencies, $attributes);
+}
+
 function autop($pee, $br = true) {
     $pre_tags = array();
 
@@ -102,13 +106,26 @@ function theme_include($filename) {
     }
 }
 
-function theme_scripts() {}
+function theme_scripts($container = 'header') {
+    return Asset::container('theme_'.$container)->scripts();
+}
 
-function theme_styles() {}
+function theme_styles($container = 'header') {
+    return Asset::container('theme_'.$container)->styles();
+}
 
-function site_title() {}
+function site_head_title() {
+    $title = site_title() . ' - ' . site_description();
+    return apply_filters('site_head_title', $title);
+}
 
-function site_description() {}
+function site_title() {
+    return 'Site Title';
+}
+
+function site_description() {
+    return 'Site Description';
+}
 
 function site_menu_list() {
     $menus = Registry::get('menus', array());

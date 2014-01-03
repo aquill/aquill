@@ -138,6 +138,8 @@ class Connection
     {
         list($statement, $result) = $this->execute($sql, $bindings);
 
+        //dd(stripos('select from', 'select'));
+
         // The result we return depends on the type of query executed against the
         // database. On SELECT clauses, we will return the result set, for update
         // and deletes we will return the affected row count. And for all other

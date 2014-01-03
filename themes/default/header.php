@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title><?php echo site_title(); ?> - <?php echo site_description(); ?></title>
+    <title><?php echo site_head_title(); ?></title>
     <?php echo theme_styles(); ?>
 </head>
 

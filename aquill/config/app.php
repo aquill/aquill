@@ -13,7 +13,7 @@ return array(
     |
     */
 
-    'url' => '',
+    'url' => 'http://chen.local/aquill/aq',
 
     /*
     |--------------------------------------------------------------------------
@@ -44,7 +44,7 @@ return array(
     |
     */
 
-    'key' => 'tSER2WjXhIWqQ8wIYT1pBAZJQiIrSvOu',
+    'key' => 'q2kKWMgLN55HmzDX3HVIgL9E94D0ryi1',
 
     'auto_key' => true,
 
@@ -71,7 +71,7 @@ return array(
     |
     */
 
-    'language' => 'en',
+    'language' => 'zh',
 
     /*
     |--------------------------------------------------------------------------
