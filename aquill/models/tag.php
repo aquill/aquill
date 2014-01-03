@@ -22,6 +22,11 @@ class Tag extends Eloquent
         return $this->name;
     }
 
+    public function title()
+    {
+        return $this->name;
+    }
+
     public function slug()
     {
         return urldecode($this->slug);

@@ -1,4 +1,4 @@
-<article id="post-<?php echo post_id(); ?>" class="post">
+<article id="post-<?php echo post_id(); ?>" class="post entry">
     <div class="entry-header">
         <h1 class="entry-title">
             <a href="<?php echo post_link(); ?>" rel="bookmark"><?php echo post_title(); ?></a>

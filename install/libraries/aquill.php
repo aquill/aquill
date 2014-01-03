@@ -174,96 +174,17 @@ class Aquill
 
     public static function insert()
     {
-        $options = static::$options;
+        $data = Config::get('data');
 
-        foreach ($options['metadata'] as $key => $value) {
-            DB::table('options')->insert(array('key' => 'site_'.$key, 'value' => $value));
+        foreach ($data as $table => $row) {
+            foreach ($row as $r) {
+                if (!is_array($r)){
+                    DB::table($table)->insert($row);
+                    break;
+                }
+                DB::table($table)->insert($r);
+            }
         }
-
-        foreach ($options['rewrites'] as $key => $value) {
-            DB::table('options')->insert(array('key' => 'rewrite_'.$key, 'value' => $value));
-        }
-        
-        $account = $options['account'];
-
-        DB::table('users')->insert(array(
-            'username' => $account['username'],
-            'nicename' => $account['username'],
-            'password' => Hash::make($account['password']),
-            'email' => $account['email'],
-            'url' => '',
-            'registered' => date('Y-m-d H:i:s'),
-            'activation_key' => '',
-            'status' => 0,
-            'role' => 'administrator',
-        ));
-
-        DB::table('terms')->insert(array(
-            'name' => 'Uncategorised',
-            'slug' => 'uncategorised',
-            'taxonomy' => 'category',
-            'description' => 'Ain\'t no category here.',
-            'parent' => 0,
-            'count' => 1,
-        ));
-
-        DB::table('relationships')->insert(array(
-            'post_id' => 1,
-            'term_id' => 1,
-        ));
-
-        DB::table('posts')->insert(array(
-            'author'=> 1,
-            'title' => 'Hello World',
-            'slug' => 'hello-world',
-            'content' => "Hello World!\r\n\r\nThis is the first post.",
-            'excerpt' => '',
-            'status' => 'publish', 
-            'type' => 'post',
-            'password' => '',
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-            'parent' => 0,
-            'guid' => '',
-            'mime' => '',
-            'menu_order' => 0,
-            'comment_status' => 1,
-            'comment_count' => 1,
-        ));
-
-        DB::table('posts')->insert(array(
-            'author'=> 1,
-            'title' => 'Sample Page',
-            'slug' => 'sample-page',
-            'content' => "This is an example page.",
-            'excerpt' => '',
-            'status' => 'publish', 
-            'type' => 'page',
-            'password' => '',
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-            'parent' => 0,
-            'guid' => '',
-            'mime' => '',
-            'menu_order' => 0,
-            'comment_status' => 1,
-            'comment_count' => 1,
-        ));
-
-        DB::table('comments')->insert(array(
-            'post_id'=> 1,
-            'name' => 'My Aquill',
-            'email' => $account['email'],
-            'url' => '',
-            'ip' => '',
-            'created_at' => date('Y-m-d H:i:s'),
-            'content' => 'Hi, this is a comment.',
-            'karma' => 0,
-            'status' => 'approved',
-            'agent' => '',
-            'parent' => 0,
-            'uesr_id' => 0,
-        ));
 
         return true;
     }
@@ -294,9 +215,9 @@ class Aquill
                 'charset' => $database['charset'],
                 'prefix' => $database['prefix'],
             ));
-
-        $rewrites = $options['rewrites'];
 /*
+        $rewrites = $options['rewrites'];
+
         $config['rewrite'] = Braces::compile(APP . 'storage/rewrite.php', array(
                 'home' => $rewrites['home'],
                 'post' => $rewrites['post'],

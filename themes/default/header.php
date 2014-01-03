@@ -8,13 +8,13 @@
 
 <body <?php echo body_class(); ?>>
     
-    <div id="header" class="col toolbar">
+    <div id="sidebar" class="sidebar">
         <hgroup>
-            <h1 class="site-title"><?php echo site_title(); ?></h1>
-            <h2 class="site-description"><?php echo site_description(); ?></h2>
+            <h1 id="site-title"><a href="<?php echo url(); ?>"><?php echo site_title(); ?></a></h1>
+            <h2 id="site-description"><?php echo site_description(); ?></h2>
         </hgroup>
 
-        <ul class="site-menu">
+        <ul id="site-menu">
             <?php echo site_menu_list(); ?>
         </ul>
     </div>

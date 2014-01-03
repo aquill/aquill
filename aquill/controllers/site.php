@@ -15,7 +15,7 @@ class SiteController extends Controller
     }
 
     public function home() {
-        $homepage = Config::get('rewrite.home');
+        $homepage = get_option('rewrite_home');
 
         $posts = Post::published()->paginate(10);
 

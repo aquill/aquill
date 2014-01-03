@@ -4,6 +4,8 @@ class Menu extends Eloquent
 {
     public static $table = 'posts';
 
+    public static $menu = null;
+
     public static function site()
     {
         return static::where('status', '=', 'publish')
@@ -13,17 +15,25 @@ class Menu extends Eloquent
 
     public function link()
     {
-        if ($this->guid) {
+        if (is_null($this->slug)) {
             return is_url($this->guid) ? $this->guid : url($this->guid);
         }
 
-        if (is_numeric($this->slug)) {
-            $page = Page::find($this->slug);
+        if (!is_null($this->menu)) {
+            return $this->menu->link();
+        }
+
+        if (stripos($this->slug, 'page-') === 0) {
+            $id = ltrim($this->slug, 'page-');
+            $page = Page::find($id);
+            $this->menu = $page;
             return $page->link();
         }
 
-        if (is_string($this->slug)) {
-            $category = Category::find_by_slug($this->slug);
+        if (stripos($this->slug, 'category-') === 0) {
+            $id = ltrim($this->slug, 'category-');
+            $category = Category::find($id);
+            $this->menu = $category;
             return $category->link();
         }
     }
@@ -34,14 +44,22 @@ class Menu extends Eloquent
             return $this->title;
         }
 
-        if (is_numeric($this->slug)) {
-            $page = Page::find($this->slug);
-            return $page->title;
+        if (!is_null($this->menu)) {
+            return $this->menu->title();
         }
 
-        if (is_string($this->slug)) {
-            $category = Category::find_by_slug($this->slug);
-            return $category->name;
+        if (stripos($this->slug, 'page-') === 0) {
+            $id = ltrim($this->slug, 'page-');
+            $page = Page::find($id);
+            $this->menu = $page;
+            return $page->title();
+        }
+
+        if (stripos($this->slug, 'category-') === 0) {
+            $id = ltrim($this->slug, 'category-');
+            $category = Category::find($id);
+            $this->menu = $category;
+            return $category->title();
         }
     }
 }

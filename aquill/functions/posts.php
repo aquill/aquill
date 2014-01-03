@@ -30,7 +30,7 @@ function post_title() {
 }
 
 function post_date($format = 'Y-m-d H:i:s') {
-    return apply_filters('post_content', Registry::prop('post', 'date', $format));
+    return sprintf('<time class="post-date">%s</time>', Registry::prop('post', 'date', $format));
 }
 
 function post_content() {

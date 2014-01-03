@@ -1,4 +1,4 @@
-<div class="comments">
+<div id="comments">
 
     <?php if (has_comments()) : ?>
 
@@ -9,9 +9,9 @@
             <?php while (get_comments()) : the_comment(); ?>
 
                 <li class="li-comment">
-                    <article>
+                    <article class="comment">
                         <h3><?php echo comment_author(); ?></h3>
-                        <time><?php echo comment_date(); ?></time>
+                        <time class="comment-date"><?php echo comment_date(); ?></time>
                         <div class="comment-content">
                             <?php echo comment_content(); ?>
                         </div>
@@ -27,7 +27,7 @@
     <?php endif; ?>
 
     <?php if (comments_open()) : ?>
-        <div class="response">
+        <div id="response">
             <form method="post" action="<?php echo url('comment') ?>" class="response">
 
                 <?php echo comment_message(); ?>
