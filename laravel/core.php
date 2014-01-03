@@ -19,6 +19,7 @@ require SYS . 'event' . EXT;
 require SYS . 'bundle' . EXT;
 require SYS . 'config' . EXT;
 require SYS . 'helpers' . EXT;
+require SYS . 'plugin' . EXT;
 require SYS . 'autoloader' . EXT;
 
 /**

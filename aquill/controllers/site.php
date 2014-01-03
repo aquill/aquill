@@ -136,6 +136,7 @@ class SiteController extends Controller
 
         $posts = $category->posts();
 
+        Registry::set('category', $category);
         Registry::set('posts', $posts);
 
         return new Theme('index');
@@ -153,6 +154,7 @@ class SiteController extends Controller
 
         $posts = $tag->posts();
 
+        Registry::set('tag', $tag);
         Registry::set('posts', $posts);
 
         return new Theme('index');
@@ -170,6 +172,7 @@ class SiteController extends Controller
 
         $posts = $author->posts();
 
+        Registry::set('author', $author);
         Registry::set('posts', $posts);
 
         return new Theme('index');

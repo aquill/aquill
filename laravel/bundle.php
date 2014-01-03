@@ -93,6 +93,9 @@ class Bundle
             throw new \Exception("Bundle [$bundle] has not been installed.");
         }
 
+        // Each bundle may also have "functions" files.
+        static::functions($bundle);
+
         // Each bundle may have a start script which is responsible for preparing
         // the bundle for use by the application. The start script may register
         // any classes the bundle uses with the auto-loader, etc.
@@ -104,9 +107,6 @@ class Bundle
         // registering the bundle's routes. This is kept separate from the
         // start script for reverse routing efficiency purposes.
         static::routes($bundle);
-
-        // Each bundle may also have "functions" files.
-        static::functions($bundle);
 
         Event::fire("laravel.started: {$bundle}");
 

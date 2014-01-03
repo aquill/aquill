@@ -1,8 +1,12 @@
 <?php
 
-function add_theme_script() {}
+function add_theme_script($container = 'header', $name, $source, $dependencies = array(), $attributes = array()) {
+    return Asset::container('theme_'.$container)->script($name, $source, $dependencies, $attributes);
+}
 
-function add_theme_style() {}
+function add_theme_style($container = 'header', $name, $source, $dependencies = array(), $attributes = array()) {
+    return Asset::container('theme_'.$container)->style($name, $source, $dependencies, $attributes);
+}
 
 function add_theme_asset($container = 'header', $name, $source, $dependencies = array(), $attributes = array()) {
     return Asset::container('theme_'.$container)->add($name, $source, $dependencies, $attributes);
@@ -115,8 +119,26 @@ function theme_styles($container = 'header') {
 }
 
 function site_head_title() {
-    $title = site_title() . ' - ' . site_description();
-    return apply_filters('site_head_title', $title);
+    $description = site_title();
+    $title = site_title();
+
+    if (!is_null($post = Registry::get('post'))) {
+        $title = $post->title;
+    } elseif (!is_null($page = Registry::get('page'))) {
+        $title = $page->title;
+    } elseif (!is_null($category = Registry::get('category'))) {
+        $title = $category->name;
+    } elseif (!is_null($tag = Registry::get('tag'))) {
+        $title = $tag->name;
+    } elseif (!is_null($author = Registry::get('author'))) {
+        $title = $author->nicename;
+    } else {
+        $description = site_description();
+    }
+
+    $head_title = $title . ' - ' . $description;
+
+    return apply_filters('site_head_title', $head_title);
 }
 
 function site_title() {

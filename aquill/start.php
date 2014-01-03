@@ -16,7 +16,6 @@
 */
 
 require 'helpers.php';
-require 'plugin.php';
 require PATH . 'themes/default/functions.php';
 
 /*
