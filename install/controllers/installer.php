@@ -128,8 +128,8 @@ class InstallerController extends Controller
         $vars['messages'] = Notify::read();
 
         $metadata = array(
-            'title' => 'My Awesome Blog',
-            'description' => 'It&rsquo;s not just any blog. It&rsquo;s an Aquill blog.',
+            'title' => _t('data.site_title'),
+            'description' => _t('data.site_description'),
             'theme' => 'theme',
             'bundles' => 'migrations',
             'url' => rtrim(URL::base(), '/'),
@@ -225,7 +225,7 @@ class InstallerController extends Controller
 
         $account = array(
             'username' => 'admin',
-            'email' => 'youremail@damail.com',
+            'email' => 'youremail@domain',
             'password' => ''
         );
 

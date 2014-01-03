@@ -58,7 +58,7 @@ article p {
 }
 .halt {
     text-align: center;
-    padding-top: 10%;
+    padding-top: 5%;
 }
 .halt article h1 {
     margin-bottom: .6em;
@@ -67,7 +67,7 @@ article p {
     text-align: left;
 }
 .halt p {
-    margin: 0 auto 3em;
+    margin: 0 auto 2em;
     width: 50%;
 }
 .halt p .selecter {
@@ -76,4 +76,25 @@ article p {
     border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 .halt p .selecter .selecter-selected {
+}
+.color {
+    display: inline-block;
+    height: 2em;
+    width: 2em;
+    cursor: pointer;
+}
+.green {
+    background: #3B7548;
+}
+.black {
+    background: #111;
+}
+.blue {
+    background: #34495E;
+}
+.purple {
+    background: #669;
+}
+.cyan {
+    background: #28998F;
 }

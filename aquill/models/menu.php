@@ -27,6 +27,7 @@ class Menu extends Eloquent
             $id = ltrim($this->slug, 'page-');
             $page = Page::find($id);
             $this->menu = $page;
+
             return $page->link();
         }
 
@@ -34,6 +35,7 @@ class Menu extends Eloquent
             $id = ltrim($this->slug, 'category-');
             $category = Category::find($id);
             $this->menu = $category;
+
             return $category->link();
         }
     }
@@ -52,6 +54,7 @@ class Menu extends Eloquent
             $id = ltrim($this->slug, 'page-');
             $page = Page::find($id);
             $this->menu = $page;
+
             return $page->title();
         }
 
@@ -59,6 +62,7 @@ class Menu extends Eloquent
             $id = ltrim($this->slug, 'category-');
             $category = Category::find($id);
             $this->menu = $category;
+
             return $category->title();
         }
     }

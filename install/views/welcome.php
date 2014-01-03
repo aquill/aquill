@@ -33,6 +33,13 @@
                 </select>
             </p>
             <p>
+                <span class="black color"></span>
+                <span class="green color"></span>
+                <span class="blue color"></span>
+                <span class="purple color"></span>
+                <span class="cyan color"></span>
+            </p>
+            <p>
                 <button class="btn" type="submit"><?php _et('start.start'); ?></button>
             </p>
             

@@ -16,7 +16,7 @@ define('LARAVEL_START', microtime(true));
 // --------------------------------------------------------------
 // Aquill's version.
 // --------------------------------------------------------------
-define('AQUILL_VERSION', '0.0.1 alpha');
+define('AQUILL_VERSION', '0.1.1 alpha');
 
 // --------------------------------------------------------------
 // Define the directory separator for the environment.
@@ -32,7 +32,7 @@ define('PATH', dirname(__FILE__) . DS);
 // The basic application.
 // --------------------------------------------------------------
 
-if (is_readable(PATH . 'aquill/config/database.php')) {
+if (!is_readable(PATH . 'aquill/config/database.php')) {
     define('DEFAULT_BUNDLE', 'aquill');
 } else {
     define('DEFAULT_BUNDLE', 'install');

@@ -4,7 +4,7 @@ return array(
 
     'username' => '用户名',
     'password' => '密码',
-    'email' => '邮箱',
+    'email' => '输入您的帐号邮箱',
     'remember' => '记住我的登录状态',
     'amnesia' => '忘记密码？',
     'error' => '登录失败，你可能输错密码了',

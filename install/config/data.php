@@ -3,11 +3,11 @@
 $options = array();
 
 foreach (Session::get('install.metadata') as $key => $value) {
-    $options[] = array('key' => 'site_'.$key, 'value' => $value);
+    $options[] = array('key' => 'site_' . $key, 'value' => $value);
 }
 
 foreach (Session::get('install.rewrites') as $key => $value) {
-    $options[] = array('key' => 'rewrite_'.$key, 'value' => $value);
+    $options[] = array('key' => 'rewrite_' . $key, 'value' => $value);
 }
 
 return array(
@@ -15,55 +15,55 @@ return array(
     'options' => $options,
 
     'users' => array(
-            'username' => Session::get('install.account.username', 'admin'),
-            'nicename' => Session::get('install.account.username', 'Admin'),
-            'password' => Hash::make(Session::get('install.account.password', 'admin123')),
-            'email' => Session::get('install.account.email', ''),
-            'url' => '',
-            'registered' => date('Y-m-d H:i:s'),
-            'activation_key' => '',
-            'status' => 0,
-            'role' => 'administrator',
-        ),
+        'username' => Session::get('install.account.username', 'admin'),
+        'nicename' => Session::get('install.account.username', 'Admin'),
+        'password' => Hash::make(Session::get('install.account.password', 'admin123')),
+        'email' => Session::get('install.account.email', ''),
+        'url' => '',
+        'registered' => date('Y-m-d H:i:s'),
+        'activation_key' => '',
+        'status' => 0,
+        'role' => 'administrator',
+    ),
 
     'terms' => array(
-            'name' => 'Uncategorised',
-            'slug' => 'uncategorised',
-            'taxonomy' => 'category',
-            'description' => 'Ain\'t no category here.',
-            'parent' => 0,
-            'count' => 1,
-        ),
+        'name' => _t('data.category_name'),
+        'slug' => 'uncategorised',
+        'taxonomy' => 'category',
+        'description' => _t('data.category_description'),
+        'parent' => 0,
+        'count' => 1,
+    ),
 
     'relationships' => array(
-            'post_id' => 1,
-            'term_id' => 1,
-        ),
+        'post_id' => 1,
+        'term_id' => 1,
+    ),
 
     'comments' => array(
-            'post_id'=> 1,
-            'name' => 'My Aquill',
-            'email' => Session::get('install.account.email', ''),
-            'url' => '',
-            'ip' => '',
-            'created_at' => date('Y-m-d H:i:s'),
-            'content' => 'Hi, this is a comment.',
-            'karma' => 0,
-            'status' => 'approved',
-            'agent' => '',
-            'parent' => 0,
-            'uesr_id' => 0,
-        ),
+        'post_id' => 1,
+        'name' => _t('data.comment_name'),
+        'email' => Session::get('install.account.email', ''),
+        'url' => 'http://aquill.org/',
+        'ip' => '',
+        'created_at' => date('Y-m-d H:i:s'),
+        'content' => _t('data.comment_content'),
+        'karma' => 0,
+        'status' => 'approved',
+        'agent' => '',
+        'parent' => 0,
+        'uesr_id' => 0,
+    ),
 
     'posts' => array(
 
         'post' => array(
-            'author'=> 1,
-            'title' => 'Hello World',
-            'slug' => 'hello-world',
-            'content' => "Hello World!\r\n\r\nThis is the first post.",
+            'author' => 1,
+            'title' => _t('data.post_title'),
+            'slug' => _t('data.post_slug'),
+            'content' => _t('data.post_content'),
             'excerpt' => '',
-            'status' => 'publish', 
+            'status' => 'publish',
             'type' => 'post',
             'password' => '',
             'created_at' => date('Y-m-d H:i:s'),
@@ -77,12 +77,12 @@ return array(
         ),
 
         'page' => array(
-            'author'=> 1,
-            'title' => 'Sample Page',
-            'slug' => 'sample-page',
-            'content' => "This is an example page.",
+            'author' => 1,
+            'title' => _t('data.page_title'),
+            'slug' => _t('data.page_slug'),
+            'content' => _t('data.page_content'),
             'excerpt' => '',
-            'status' => 'publish', 
+            'status' => 'publish',
             'type' => 'page',
             'password' => '',
             'created_at' => date('Y-m-d H:i:s'),
@@ -96,12 +96,12 @@ return array(
         ),
 
         'menu1' => array(
-            'author'=> 1,
-            'title' => 'Home',
+            'author' => 1,
+            'title' => _t('data.menu_home'),
             'slug' => '',
             'content' => '',
             'excerpt' => '',
-            'status' => 'publish', 
+            'status' => 'publish',
             'type' => 'menu',
             'password' => '',
             'created_at' => date('Y-m-d H:i:s'),
@@ -115,12 +115,12 @@ return array(
         ),
 
         'menu2' => array(
-            'author'=> 1,
+            'author' => 1,
             'title' => '',
             'slug' => 'page-2',
             'content' => '',
             'excerpt' => '',
-            'status' => 'publish', 
+            'status' => 'publish',
             'type' => 'menu',
             'password' => '',
             'created_at' => date('Y-m-d H:i:s'),
@@ -134,12 +134,12 @@ return array(
         ),
 
         'menu3' => array(
-            'author'=> 1,
+            'author' => 1,
             'title' => '',
             'slug' => 'category-1',
             'content' => '',
             'excerpt' => '',
-            'status' => 'publish', 
+            'status' => 'publish',
             'type' => 'menu',
             'password' => '',
             'created_at' => date('Y-m-d H:i:s'),

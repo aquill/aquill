@@ -11,7 +11,8 @@
 }
 
 .toolbar {
-    background: #3B7548;
+    border-right: 3px solid #669;
+    background: #669;
 }
 
 .toolbar a {
@@ -29,8 +30,8 @@
 }
 
 .sidebar {
-    background: #dfe1e0;
-    border-right: 1px solid rgba(0,0,0,0.05);
+    background: #E3E3F1;
+    border-right: 1px solid #ccc;
 }
 
 .widget li a {
@@ -52,7 +53,7 @@
 
 body {
     color: #333;
-    background: #edf0ef;
+    background: #fff;
 }
 
 a {
@@ -161,7 +162,7 @@ fieldset.header {
 }
 
 fieldset.meta {
-    background: #edf0ef;
+    background: #f2f2f2;
     border-bottom: 1px solid #ededed;
 }
 
