@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'title' => 'Hello. Willkommen. Bonjour. Croeso.',
+    'title' => 'nín hăo. Hello. Willkommen. Bonjour. Croeso.',
     'description' => 'If you were looking for a truly lightweight blogging experience, you&rsquo;ve
                 found the right place. Simply fill in the details below, and you&rsquo;ll have your
                 new blog set up in no time.',

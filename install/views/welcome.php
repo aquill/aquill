@@ -8,7 +8,7 @@
     <script type="text/javascript">var base = "<?php echo url('admin') . '/'; ?>";</script>
     <?php echo Asset::container('header')->scripts(); ?></head>
     
-<body class="halt">
+<body class="halt <?php echo session::get('current.color', 'purple'); ?>">
 
     <section class="content">
         <article>
@@ -16,7 +16,7 @@
             <p><?php _et('start.description'); ?></p>
         </article>
         <form method="post" action="<?php echo url('start'); ?>">
-            <p>
+            <p class="control-group">
                 <select id="lang" name="language">
                     <option value="en"><?php _et('start.language'); ?></option>
                     <?php foreach ($languages as $key => $lang): ?>
@@ -24,11 +24,11 @@
                     <?php endforeach; ?>
                 </select>
             </p>
-            <p>
+            <p class="control-group">
                 <select id="timezone" name="timezone">
                     <option value="utc"><?php _et('start.timezone'); ?></option>
-                    <?php foreach ($timezones as $zone): ?>
-                        <option value="<?php echo $zone['timezone_id']; ?>"><?php echo $zone['label']; ?></option>
+                    <?php foreach ($timezones as $value => $option): ?>
+                        <option value="<?php echo $value; ?>"><?php echo $option; ?></option>
                     <?php endforeach; ?>
                 </select>
             </p>
@@ -46,7 +46,7 @@
         </form>
     </section>
     <footer>
-    <?php echo 'Aquill '.AQUILL_VERSION.'.'; ?>
+    <?php echo 'Aquill '.AQUILL_VERSION.'.'; ?><br>
     <?php echo exec_time(); ?> <?php echo memory_usage(); ?>      
     </footer>
 

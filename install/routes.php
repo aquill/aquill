@@ -39,6 +39,10 @@ Route::filter('csrf', function () {
 });
 
 Route::filter('check', function () {
+    if (!is_readable(PATH . 'aquill/config/database.php')) {
+        $vars['messages'] = _t('install.installed');
+        return Response::view('halt', $vars);
+    }
     if (!is_writable(PATH . 'aquill/config')) {
         $vars['messages'] = _t('install.not_writeable');
         return Response::view('halt', $vars);

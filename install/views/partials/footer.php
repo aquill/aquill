@@ -1,5 +1,5 @@
             <div class="footer">
-                <?php echo 'Aquill '.AQUILL_VERSION.'.'; ?>
+                <?php echo 'Aquill '.AQUILL_VERSION.'.'; ?><br>
                 <?php echo exec_time(); ?> <?php echo memory_usage(); ?>
             </div> 
         </div>

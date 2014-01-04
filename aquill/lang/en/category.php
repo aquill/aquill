@@ -8,6 +8,7 @@ return array(
 
     'add' => 'Add category',
     'edit' => 'Editing :name category',
+
     'name' => 'Name',
     'slug' => 'Slug',
     'description' =>'Description',

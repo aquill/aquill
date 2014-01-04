@@ -11,7 +11,7 @@ return array(
     'load_more' => '加载更多文章...',
 
     'slug' => '缩略名',
-    'slug_placeholder' => '',
+    'slug_placeholder' => '缩略名',
     'slug_description' => '你可以给文章起个简洁漂亮的别名',
     'date' => '日期',
     'date_description' => '如果输入的时间在当前时刻之后，我会帮你定时发布',

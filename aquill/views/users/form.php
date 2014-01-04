@@ -18,8 +18,7 @@
                 <label for="bio" class="control-label"><?php _e('user.bio'); ?></label>
 
                 <div class="controls" style="line-height:0">
-                    <textarea name="bio" rows="3" cols="50"><?php echo $user->bio; ?></textarea>
-                    <i class="info"><?php _e('user.bio_description'); ?></i>
+                    <textarea name="bio" rows="3" cols="50" placeholder="<?php _e('user.bio_description'); ?>"><?php echo $user->bio; ?></textarea>
                 </div>
             </div>
             <div class="control-group">
@@ -42,16 +41,14 @@
                 <label for="password" class="control-label"><?php _e('user.password'); ?></label>
 
                 <div class="controls">
-                    <input type="password" name="password">
-                    <i class="info"><?php _e('user.password_description'); ?></i>
+                    <input type="password" name="password" placeholder="<?php _e('user.password_description'); ?>">
                 </div>
             </div>
             <div class="control-group">
                 <label for="confirm" class="control-label"><?php _e('user.confirm'); ?></label>
 
                 <div class="controls">
-                    <input type="password" name="confirm">
-                    <i class="info"><?php _e('user.confirm_description'); ?></i>
+                    <input type="password" name="confirm" placeholder="<?php _e('user.confirm_description'); ?>">
                 </div>
             </div>
             <div class="control-group">

@@ -6,6 +6,6 @@
     </form>
 </aside>
 
-<aside id="tags" class="widget widget-tags">
-    <h3><?php _e($type.'.menu_title'); ?></h3>
+<aside id="statuses" class="widget widget-statuses">
+    <h3 class="icon-select"><?php _e($type.'.menu_title'); ?></h3>
 </aside>

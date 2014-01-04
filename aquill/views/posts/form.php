@@ -38,7 +38,7 @@
                 <label class="control-label" for="excerpt"><?php _e('post.excerpt'); ?></label>
 
                 <div class="controls" style="line-height:0">
-                    <textarea placeholder="" name="excerpt"><?php echo $post->excerpt; ?></textarea>
+                    <textarea placeholder="<?php _e('post.excerpt_description'); ?>" name="excerpt"><?php echo $post->excerpt; ?></textarea>
                 </div>
             </div>
             <div class="control-group">

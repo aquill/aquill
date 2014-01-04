@@ -45,16 +45,22 @@
 .icon-feed:before {
     content: "\e604";
 }
-.icon-checkbox-checked:before {
+.icon-checkbox.checked:before {
     content: "\e605";
 }
 .icon-checkbox-unchecked:before {
     content: "\e606";
 }
-.icon-radio-checked:before {
+.icon-checkbox:before {
+    content: "\e606";
+}
+.icon-radio.checked:before {
     content: "\e607";
 }
 .icon-radio-unchecked:before {
+    content: "\e608";
+}
+.icon-radio:before {
     content: "\e608";
 }
 .icon-tags:before {

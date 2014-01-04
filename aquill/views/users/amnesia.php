@@ -6,7 +6,7 @@
     <?php echo HTML::style('assets/css/global.css'); ?>
     <?php echo HTML::style('assets/css/login.css'); ?>
 </head>
-<body class="login amnesia">
+<body <?php echo admin_body_class('login amnesia'); ?>>
 
 <form class="loginform" method="POST" action="<?php echo url('login'); ?>" accept-charset="UTF-8">
     <fieldset class="split">

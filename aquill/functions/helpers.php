@@ -12,6 +12,29 @@ function add_theme_asset($container = 'header', $name, $source, $dependencies = 
     return Asset::container('theme_'.$container)->add($name, $source, $dependencies, $attributes);
 }
 
+function admin_body_class($classes = array())
+{
+    if (is_string($classes)) {
+        $classes = explode(' ', $classes);
+    }
+
+    if (uri_has('posts')) 
+        $classes[] = 'posts';
+
+    if (uri_has('comments')) 
+        $classes[] = 'comments';
+
+    if (uri_has('categories')) 
+        $classes[] = 'categories';
+
+    if (uri_has('users')) 
+        $classes[] = 'users';
+
+    $classes[] = get_option('site_color');
+
+    return 'class="' . implode(' ', $classes) . '"';
+}
+
 function autop($pee, $br = true) {
     $pre_tags = array();
 
@@ -84,10 +107,22 @@ function autop($pee, $br = true) {
     return $pee;
 }
 
-function body_class($classes = '') {
-    $classes .= str_replace('/', ' ', URI::current());
+function body_class($classes = array()) {
+    if (is_post()) {
+        $classes[] = 'post';
+    } elseif (is_page()) {
+        $classes[] = 'page';
+    } elseif (is_category()) {
+        $classes[] = 'category';
+    } elseif (is_tag()) {
+        $classes[] = 'tag';
+    } elseif (is_author()) {
+        $classes[] = 'author';
+    } else {
+        $classes[] = 'home archive';
+    }
 
-    return 'class="' . $classes . '"';
+    return 'class="' . implode(' ', $classes) . '"';
 }
 
 function csrf_token() {
@@ -131,13 +166,35 @@ function get_option($key, $default = null) {
     return $default;
 }
 
-function is_admin() {}
+function is_admin() {
+    //Auth::check()
+}
 
-function is_home() {}
+function is_author() {
+    if (preg_match('#'.pattern('author').'#i', URI::current())) {
+        return true;
+    }
+    return false;
+}
 
-function is_page() {}
+function is_home() {
+    return current_url() == url();
+}
 
-function is_post() {}
+function is_category() {
+    return preg_match('#'.pattern('category').'#i', URI::current());
+}
+function is_page() {
+    return preg_match('#'.pattern('page').'#i', URI::current());
+}
+
+function is_post() {
+    return preg_match('#'.pattern('post').'#i', URI::current());
+}
+
+function is_tag() {
+    return preg_match('#'.pattern('tag').'#i', URI::current());
+}
 
 function is_url($string) {
     if (strpos($string, 'http://') !== false) {
@@ -234,7 +291,7 @@ function site_description() {
 }
 
 function site_menu_list() {
-    $menus = Registry::get('menus', array());
+    $menus = apply_filters('site_menu_list', Registry::get('menus', array()));
     foreach ($menus as $menu) {
         printf('<li><a href="%s">%s</a></li>', $menu->link(), $menu->title());
     }

@@ -18,8 +18,7 @@ input, textarea {
     padding: 0 .6em;
     font-size: inherit;
     line-height: 1em;
-    width: auto;
-    min-width: 60%;
+    width: 100%;
     font-family: inherit;
     border: none;
     border-radius: 0;
@@ -34,8 +33,7 @@ input, textarea {
 }
 
 textarea {
-    width: auto;
-    min-width: 80%;
+    width: 100%;
     font-family: inherit;
     min-height: 6em;
     padding: 0.6em;
@@ -103,7 +101,7 @@ label {
 
 .controls {
     width: auto;
-    margin-left: 8em;
+    margin-left: 10em;
     line-height: inherit;
     background: none;
     min-height: 2.4em;
@@ -144,63 +142,12 @@ input.hidden {
     position: absolute;
     left: -9999em;
 }
-
-.input-radio, .input-checkbox {
+.checker {
     display: inline-block;
-    height: 1em;
-    width: 1em;
-    border: 1px solid #aaa;
-    margin-right: .5em;
-    vertical-align: middle;
 }
-
-.input-radio {
-    border-radius: 2em;
+.checker:before {
+    
 }
-
-.input-radio.hover, .input-checkbox.hover {
-    border-width: 2px;
-    border-style: solid;
-}
-
-.input-radio.checked, .input-checkbox.checked {
-    border: 0;
-}
-
-.input-radio.disabled, .input-checkbox.disabled {
-    border-width: 1px !important;
-}
-
-.input-radio.disabled.checked, .input-checkbox.disabled.checked {
-    border: 0 !important;
-}
-
-.input-radio.hover, .input-checkbox.hover {
-    border-color: #3B7548;
-}
-
-.input-radio.checked, .input-checkbox.checked {
-    background: #3B7548;
-}
-
-.input-radio.disabled, .input-checkbox.disabled {
-    border-color: #CDD1D0 !important;
-    background: #E1E4E3 !important;
-    cursor: not-allowed;
-}
-
-.input-radio.disabled.checked, .input-checkbox.disabled.checked {
-    background: #CDD1D0 !important;
-}
-
-.checkable.icon-on:before {
-    font-size: 12px;
-    line-height: 16px;
-    width: 16px;
-    text-align: center;
-    display: block;
-}
-
 .form-actions {
     margin: 1em 0 3em 7em;
 }

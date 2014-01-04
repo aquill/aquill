@@ -1,0 +1,172 @@
+body.purple ::selection {
+    background: #E3E3F1;
+    color: #666;
+}
+
+/** placeholder **/
+
+body.purple ::-webkit-input-placeholder {
+    line-height: 1.3em;
+    color: #B1B1C5;
+}
+
+body.purple ::-moz-placeholder {
+    line-height: 1.3em;
+    color: #B1B1C5;
+}
+
+/** global **/
+
+body.purple {
+    background: #fff;
+    color: #333;
+}
+
+body.purple a {
+    color: #669;
+}
+
+/** button **/
+
+body.purple .btn,
+body.purple button,
+body.purple .button {
+    background: #669;
+    color: #fff;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-top: 0;
+    border-left: 0;
+}
+
+/** sidebar **/
+
+body.purple .sidebar {
+    background: #E3E3F1;
+    border-right:1px solid rgba(0,0,0,0.09);
+}
+
+body.purple .sidebar li {
+    color: #444;
+}
+body.purple .sidebar li a {
+    color: #669;
+}
+
+/** form controls **/
+
+body.purple .control-group {
+    border-bottom: 1px solid #DDDDE7;
+}
+
+body.purple .control-label {
+    color: #6D6D8B;
+}
+
+body.purple input, 
+body.purple textarea {
+}
+
+body.purple .controls .info,
+body.purple .controls .info2 {
+    color: #B1B1C5;
+}
+
+/** selecter **/
+
+body.purple .selecter.open .selecter-selected {
+    box-shadow: 0px 0px 6px #c8c8c8;
+    background: #f2f2f2;
+}
+body.purple .selecter-wrapper .selecter-item:hover i, 
+body.purple .selecter-wrapper .selecter-item.selected i {
+    background: #669;
+    color: #fff;
+}
+
+/** checker **/
+
+body.purple .checker:before {
+    color: #B2B2C2;
+}
+
+body.purple .checker.checked:before,
+body.purple .checker.hover:before {
+    color: #669;
+}
+
+body.purple .datepicker_header,
+body.purple .datepicker_timelist {
+    background: #EEEEF3;
+}
+
+body.purple .datepicker .today, 
+body.purple .datepicker .active, 
+body.purple .datepicker .hover {
+    color: #669;
+    background: #EEEEF3;
+}
+body.purple .datepicker_timelist .active,
+body.purple .datepicker_timelist .hover {
+
+}
+/** login **/
+
+body.login.purple {
+    background: #669;
+    color: #669;
+}
+
+body.login.purple form {
+    background: #E3E3F1;
+    border: 1px solid #4C4C66;
+    border-top: 0;
+    border-left: 0;
+}
+
+body.login.purple .form-actions button {
+    color: #85859E;
+}
+body.login.purple .form-actions button:hover {
+    background: none;
+    color: #669;
+}
+body.login.purple .form-actions label {
+    color: #85859E;
+}
+
+body.login.purple .form-actions a {
+    color: #B1B1C5;
+}
+
+/** toolbar **/
+body.purple .toolbar li a {
+    border-bottom: 0;
+}
+
+body.purple .toolbar a {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+body.purple .toolbar .active a,
+body.purple .toolbar a:hover {
+    color: #669;
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 0;
+}
+
+/** sidebar **/
+body.purple .searchform button {
+    border: 0;
+    color: #9494A8;
+    background: none;
+}
+
+/** admin psots **/
+
+body.purple .widget-statuses {
+    background: rgba(0,0,0,0.06);
+}
+body.purple fieldset.meta {
+    background: #EEEEF3;
+    border-bottom: 1px solid #ededed;
+}

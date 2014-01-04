@@ -2,4 +2,51 @@
  * Checker
  * Copyright (c) 2013, Aquill Team. (MIT Licensed)
  */
-(function(a){a.fn.checker=function(){a(this).each(function(){var e=this.checked?" checked icon-on":"",d=this.disabled?" disabled":"",c=this.type,b=this.name;var f='<div class="checkable input-$1$2$3" id="name-$4"/>';f=f.replace("$1",c).replace("$2",d).replace("$3",e).replace("$4",b);a(this).wrap(f).after("<i>").addClass("hidden")})};a("input[type=radio]").on("change",function(){a("input[name="+this.name+"]").parent().removeClass("checked");a("input[name="+this.name+"]").parent().removeClass("icon-on");if(this.checked){a(this).parent().addClass("checked");a(this).parent().addClass("icon-on")}});a("input[type=checkbox]").on("change",function(){if(this.checked){a(this).parent().addClass("checked");a(this).parent().addClass("icon-on")}else{a(this).parent().removeClass("checked");a(this).parent().removeClass("icon-on")}});a("input[type=radio], input[type=checkbox]").parents("label").mouseover(function(){a(this).find("div").addClass("hover")});a("input[type=radio], input[type=checkbox]").parents("label").mouseout(function(){a(this).find("div").removeClass("hover")});a("input[type=radio], input[type=checkbox]").checker()})(typeof jQuery!=="undefined"?jQuery:Zepto);
+(function ($) {
+    $.fn.easyCheckRadio = function () {
+        $(this).each(function () {
+            var checked = this.checked ? ' checked icon-'+this.type : ' icon-'+this.type,
+                disabled = this.disabled ? ' disabled' : '',
+                type = this.type,
+                name = this.name;
+
+            var wrapper = '<div class="checker input-$1$2$3" id="name-$4"/>';
+
+            wrapper = wrapper.replace('$1', type)
+                .replace('$2', disabled)
+                .replace('$3', checked)
+                .replace('$4', name);
+
+            $(this).wrap(wrapper).after('<i>').addClass('hidden');
+        });
+    };
+
+    $('input[type=radio]').on('change', function () {
+        $('input[name=' + this.name + ']').parent().removeClass('checked');
+
+        if (this.checked) {
+            $(this).parent().addClass('checked');
+        }
+    });
+
+    $('input[type=checkbox]').on('change', function () {
+        if (this.checked) {
+            $(this).parent().addClass('checked');
+        } else {
+            $(this).parent().removeClass('checked')
+        }
+    });
+
+    $('input[type=radio], input[type=checkbox]').parents('label').mouseover(function() {
+        $(this).find('div').addClass('hover');
+    });
+
+    $('input[type=radio], input[type=checkbox]').parents('label').mouseout(function() {
+        $(this).find('div').removeClass('hover');
+    });
+
+    $('input[type=radio], input[type=checkbox]').easyCheckRadio();
+
+    $("select").selecter();
+
+})(typeof jQuery !== 'undefined' ? jQuery : Zepto);

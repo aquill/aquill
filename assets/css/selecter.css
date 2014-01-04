@@ -11,8 +11,8 @@
     border-radius: 0;
     height: 2.4em;
     line-height: 2.4em;
-    min-width: 60%;
-    width: auto;
+    width: 100%;
+    width: 100%;
     display: inline-block;
 }
 
@@ -31,8 +31,6 @@
     width: 100%;
     border-radius: 0px;
     background: #fff;
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
 }
 
 .selecter.multiple .selecter-wrapper {

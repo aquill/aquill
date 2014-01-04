@@ -8,13 +8,12 @@
     <script type="text/javascript">var base = "<?php echo url('admin') . '/'; ?>";</script>
     <?php echo Asset::container('header')->scripts(); ?></head>
     
-<body class="halt">
+<body class="halt <?php echo session::get('current.color', 'purple'); ?>">
 
     <section class="content">
         <article>
             <h1><?php _et('install.halt'); ?></h1>
             <p><?php echo $messages; ?></p>
-            <p>Please <a href="<?php echo urlencode('start'); ?>"><?php _et('install.again'); ?></a></p>
         </article>
     </section>
     <footer>

@@ -6,6 +6,8 @@ class InstallerController extends Controller
 
     public function __construct()
     {
+        $this->filter('before', 'check');
+
         if ($database = Session::get('install.database')) {
             Config::set('database.default', $database['driver']);
             Config::set('database.connections.' . $database['driver'], $database);
@@ -16,7 +18,7 @@ class InstallerController extends Controller
     {
         $vars['messages'] = Notify::read();
         $vars['languages'] = languages();
-        $vars['timezones'] = timezones();
+        $vars['timezones'] = Config::get('timezones');
 
         return View::make('welcome', $vars);
     }

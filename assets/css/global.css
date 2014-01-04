@@ -6,6 +6,7 @@
 @import url(notifications.css);
 @import url(layout.css);
 @import url(color.css);
+@import url(colors/purple.css);
 
 .toolbar,
 .sidebar {

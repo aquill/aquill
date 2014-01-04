@@ -7,7 +7,7 @@
     <script type="text/javascript">var base = "<?php echo url('admin') . '/'; ?>";</script>
     <?php echo Asset::container('header')->scripts(); ?>
 </head>
-<body <?php echo body_class(); ?>>
+<body <?php echo admin_body_class('admin'); ?>>
 <div id="header" class="col toolbar">
     <ul class="site-navigation">
         <li>

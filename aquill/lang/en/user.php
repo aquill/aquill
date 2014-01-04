@@ -18,6 +18,7 @@ return array(
 
     'username' => 'username', 
     'bio' => 'Biographical',
+    'bio_description' => 'Biographical',
     'role' => 'role',
     'nicename' => 'nicename',
     'password' => 'password',

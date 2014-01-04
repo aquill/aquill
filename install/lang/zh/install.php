@@ -17,8 +17,11 @@ return array(
 
     'language_error' => '请选择一种语言。',
     'account_error' => '帐号输入错误。',
-    'not_writeable' => '<code>aquill/config</code> 目录不可写。',
+    'not_writeable' => '<code>aquill/config</code> 目录不可写，如果你设置好了那就 <a href="'.url('start').'">再试一次</a> 吧。',
 
     'halt' => '糟糕！',
-    'again' => '再试一次'
+    'again' => '再试一次',
+
+    'installed' => '配置文件 <code>aquill/config/database.php</code> 已存在。 
+                    如果你需要重新安装，请删除它，如果你准备好了，可以 <a href="'.url('start').'">重试一次</a>。',
 );
