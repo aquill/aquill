@@ -53,6 +53,7 @@
 
 .widget {
     clear: both;
+    position: relative;
 }
 
 .widget li a {

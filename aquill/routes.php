@@ -25,7 +25,7 @@ Route::get('admin/posts, admin/posts/(:num)', 'post@index');
 
 Route::post('admin/posts', 'post@paginate');
 Route::post('admin/posts/new, admin/posts/edit/(:num)', 'post@compose');
-Route::post('admin/posts/delete/(:num)', 'post@delete');
+Route::get('admin/posts/delete/(:num)', 'post@delete');
 
 // --------------------------------------------------------------
 // Category Routes
@@ -71,7 +71,7 @@ Route::get('admin/bundles', 'extend@bundles');
 // Application 404 & 500 Error Handlers
 // --------------------------------------------------------------
 
-Route::get('admin/(:all)', function ($id) {
+Route::any('admin/(:all)', function ($id) {
     return Response::error(404);
 });
 

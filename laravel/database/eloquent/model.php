@@ -225,6 +225,10 @@ abstract class Model {
 	 */
 	public static function find($id, $columns = array('*'))
 	{
+        if (is_array($id)) {
+			return static::query(get_called_class())->where(key($id), '=', current($id))->first($columns);
+        }
+
 		return static::query(get_called_class())->where(static::$primary_key, '=', $id)->first($columns);
 	}
 
@@ -390,7 +394,7 @@ abstract class Model {
                              	$prefix.static::table($model).'.*', 
                              	$prefix.$this->relating_table.'.'.$this->relating_key))
                              ->join($this->relating_table, 
-                             	$prefix.static::table($model).'.'.static::pk($model), 
+                             	static::table($model).'.'.static::pk($model), 
                              	'=', 
                              	$prefix.$this->relating_table.'.'.$associated_key)
                              ->where($prefix.$this->relating_table.'.'.$this->relating_key, 
@@ -421,7 +425,7 @@ abstract class Model {
 	 *
 	 * @return bool
 	 */
-	public function save()
+/*	public function save()
 	{
 		// If the model does not have any dirty attributes, there is no reason
 		// to save it to the database.
@@ -453,7 +457,7 @@ abstract class Model {
 
 		return $success;
 	}
-
+*/
 	/**
 	 * Set the creation and update timestamps on the model.
 	 *
@@ -472,7 +476,7 @@ abstract class Model {
 	 * @param  int  $id
 	 * @return int
 	 */
-	public function delete($id = null)
+/*	public function delete($id = null)
 	{
 		// If the delete method is being called on an existing model, we only want to delete
 		// that model. If it is being called from an Eloquent query model, it is probably
@@ -484,7 +488,7 @@ abstract class Model {
 
 		return DB::connection(static::$connection)->table($table)->delete($this->{static::$primary_key});
 	}
-
+*/
 	/**
 	 * Magic method for retrieving model attributes.
 	 */

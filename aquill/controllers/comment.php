@@ -14,7 +14,7 @@ class CommentController extends AdminController
             $data['comment'] = new Comment;
         }
 
-        $data['statuses'] = array(
+        $vars['statuses'] = $data['statuses'] = array(
             'approved' => __('comment.Approved'),
             'pending' => __('comment.Pending'),
             'spam' => __('comment.Spam')

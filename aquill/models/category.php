@@ -3,14 +3,21 @@
 class Category extends Tag
 {
 
+    public static $titles = null;
+
     public static function titles()
     {
-        $titles = array();
-        $categories = static::order_by('name', 'ASC')->get();
-        foreach ($categories as $category) {
-            $titles[$category->id] = $category->name;
+        if (is_null(static::$titles)) {
+            $terms = static::order_by('name', 'ASC')
+                            ->where('taxonomy', '=', 'category')
+                            ->get();
+
+            foreach ($terms as $term) {
+                static::$titles[$term->id] = $term->name;
+            }
         }
-        return $titles;
+        
+        return static::$titles;
     }
 
     public function link()

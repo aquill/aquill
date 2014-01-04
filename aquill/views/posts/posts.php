@@ -10,7 +10,7 @@
             <li><?php _e('post.publish'); ?></li>
             <li><?php _e('post.draft'); ?></li>
             <li><a class="delete"
-                   href="<?php echo url('admin/post/' . $post->id()); ?>"><?php _e('global.delete'); ?></a></li>
+                   href="<?php echo url('admin/posts/delete/' . $post->id()); ?>"><?php _e('global.delete'); ?></a></li>
         </ul>
     </li>
 <?php endforeach; ?>

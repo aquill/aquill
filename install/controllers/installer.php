@@ -20,6 +20,18 @@ class InstallerController extends Controller
         $vars['languages'] = languages();
         $vars['timezones'] = Config::get('timezones');
 
+        $i18n = array(
+            'language' => 'en',
+            'timezone' => 'utc',
+            'color' => 'purple'
+        );
+        
+        if ($temp = Session::get('install.i18n')) {
+            $vars = array_merge($vars, $temp);
+        } else {
+            $vars = array_merge($vars, $i18n);
+        }
+
         return View::make('welcome', $vars);
     }
 
@@ -32,7 +44,7 @@ class InstallerController extends Controller
 
     public function postStart()
     {
-        $i18n = Input::only(array('language', 'timezone'));
+        $i18n = Input::only(array('language', 'timezone', 'color'));
         $rules = array(
             'language' => 'required',
             'timezone' => 'required'
@@ -45,6 +57,7 @@ class InstallerController extends Controller
             return Redirect::to('start');
         }
 
+        Session::put('current.color', Input::get('color', 'purple'));
         Session::put('current.language', Input::get('language', 'en'));
         Session::put('install.i18n', $i18n);
 

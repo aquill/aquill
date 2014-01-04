@@ -4,7 +4,8 @@ return array(
 
     'search_placeholder' => 'To search, type and hit enter…',
 
-    'menu_title' => 'All Posts',
+    'posts' => 'All Posts',
+    'pages' => 'All Pages',
     
     'publish' => 'Publish',
     'draft' => 'Draft',

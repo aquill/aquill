@@ -4,6 +4,16 @@
 
     <?php partial('partials/search', array('type' => 'post')); ?>
 
+    <aside id="statuses" class="widget widget-statuses">
+        <h3 class="icon-select"><?php _e('post.posts'); ?></h3>
+        <ul>
+            <li><?php _e('post.pages'); ?></li>
+            <?php foreach ($categories as $id => $name) : ?>
+                <li><?php echo $name; ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </aside>
+
     <aside id="postlist" class="widget widget-list">
         <h3 class="widget-title">All posts</h3>
         <ul class="list">

@@ -7,11 +7,6 @@ class User extends Eloquent
     
     public static $timestamps = false;
 
-    public static function find_by_username($username = null)
-    {
-        return static::where('username', '=', urlencode(urldecode($username)))->first();
-    }
-
     public function link()
     {
         $patterns['id'] = $this->id;
@@ -21,11 +16,11 @@ class User extends Eloquent
 
     public function posts()
     {
-        return $this->has_many('Post' , 'author')
-                    ->where('status', '=', 'publish')
-                    ->where('type', '=', 'post')
-                    ->order_by('created_at', 'DESC')
-                    ->paginate(10);
+        return Post::where('author', '=', $this->id)
+            ->where('status', '=', 'publish')
+            ->where('type', '=', 'post')
+            ->order_by('created_at', 'DESC')
+            ->paginate(10);
     }
 
 }

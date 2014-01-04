@@ -4,6 +4,16 @@
 
         <?php partial('partials/search', array('type' => 'user')); ?>
 
+        <aside id="statuses" class="widget widget-statuses">
+            <h3 class="icon-select"><?php _e('user.users'); ?></h3>
+            <ul>
+                
+                <?php foreach ($roles as $key => $role) : ?>
+                    <li><?php echo $role; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </aside>
+
         <aside id="userlist" class="widget widget-list">
             <h3 class="widget-title">All Users</h3>
             <ul class="list">

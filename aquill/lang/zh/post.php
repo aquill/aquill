@@ -4,7 +4,8 @@ return array(
 
     'search_placeholder' => '搜索文章',
 
-    'menu_title' => '所有文章',
+    'posts' => '所有文章',
+    'pages' => '所有页面',
 
     'publish' => '发布',
     'draft' => '草稿',

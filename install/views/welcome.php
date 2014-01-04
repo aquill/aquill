@@ -33,11 +33,12 @@
                 </select>
             </p>
             <p>
-                <span class="black color"></span>
-                <span class="green color"></span>
-                <span class="blue color"></span>
-                <span class="purple color"></span>
-                <span class="cyan color"></span>
+                <?php $colors = array('black', 'green', 'blue', 'purple', 'cyan'); ?>
+                <?php foreach ($colors as $c) : ?>
+                    <label class="<?php echo $c; ?> color">
+                        <input <?php echo $c == $color ? 'checked' : ''; ?> type="radio" name="color" value="<?php echo $c; ?>">
+                    </label>
+                <?php endforeach; ?>
             </p>
             <p>
                 <button class="btn" type="submit"><?php _et('start.start'); ?></button>

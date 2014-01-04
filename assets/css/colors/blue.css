@@ -1,0 +1,172 @@
+body.blue ::selection {
+    background: #E3E3F1;
+    color: #666;
+}
+
+/** placeholder **/
+
+body.blue ::-webkit-input-placeholder {
+    line-height: 1.3em;
+    color: #B1B1C5;
+}
+
+body.blue ::-moz-placeholder {
+    line-height: 1.3em;
+    color: #B1B1C5;
+}
+
+/** global **/
+
+body.blue {
+    background: #fff;
+    color: #333;
+}
+
+body.blue a {
+    color: #669;
+}
+
+/** button **/
+
+body.blue .btn,
+body.blue button,
+body.blue .button {
+    background: #669;
+    color: #fff;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-top: 0;
+    border-left: 0;
+}
+
+/** sidebar **/
+
+body.blue .sidebar {
+    background: #E3E3F1;
+    border-right:1px solid rgba(0,0,0,0.09);
+}
+
+body.blue .sidebar li {
+    color: #444;
+}
+body.blue .sidebar li a {
+    color: #669;
+}
+
+/** form controls **/
+
+body.blue .control-group {
+    border-bottom: 1px solid #DDDDE7;
+}
+
+body.blue .control-label {
+    color: #6D6D8B;
+}
+
+body.blue input, 
+body.blue textarea {
+}
+
+body.blue .controls .info,
+body.blue .controls .info2 {
+    color: #B1B1C5;
+}
+
+/** selecter **/
+
+body.blue .selecter.open .selecter-selected {
+    box-shadow: 0px 0px 6px #c8c8c8;
+    background: #f2f2f2;
+}
+body.blue .selecter-wrapper .selecter-item:hover i, 
+body.blue .selecter-wrapper .selecter-item.selected i {
+    background: #669;
+    color: #fff;
+}
+
+/** checker **/
+
+body.blue .checker:before {
+    color: #B2B2C2;
+}
+
+body.blue .checker.checked:before,
+body.blue .checker.hover:before {
+    color: #669;
+}
+
+body.blue .datepicker_header,
+body.blue .datepicker_timelist {
+    background: #EEEEF3;
+}
+
+body.blue .datepicker .today, 
+body.blue .datepicker .active, 
+body.blue .datepicker .hover {
+    color: #669;
+    background: #EEEEF3;
+}
+body.blue .datepicker_timelist .active,
+body.blue .datepicker_timelist .hover {
+
+}
+/** login **/
+
+body.login.purple {
+    background: #669;
+    color: #669;
+}
+
+body.login.purple form {
+    background: #E3E3F1;
+    border: 1px solid #4C4C66;
+    border-top: 0;
+    border-left: 0;
+}
+
+body.login.purple .form-actions button {
+    color: #85859E;
+}
+body.login.purple .form-actions button:hover {
+    background: none;
+    color: #669;
+}
+body.login.purple .form-actions label {
+    color: #85859E;
+}
+
+body.login.purple .form-actions a {
+    color: #B1B1C5;
+}
+
+/** toolbar **/
+body.blue .toolbar li a {
+    border-bottom: 0;
+}
+
+body.blue .toolbar a {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+body.blue .toolbar .active a,
+body.blue .toolbar a:hover {
+    color: #669;
+    background: rgba(255, 255, 255, 0.3);
+    border-bottom: 0;
+}
+
+/** sidebar **/
+body.blue .searchform button {
+    border: 0;
+    color: #9494A8;
+    background: none;
+}
+
+/** admin psots **/
+
+body.blue .widget-statuses {
+    background: rgba(0,0,0,0.06);
+}
+body.blue fieldset.meta {
+    background: #EEEEF3;
+    border-bottom: 1px solid #ededed;
+}

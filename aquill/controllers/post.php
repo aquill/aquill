@@ -11,11 +11,11 @@ class PostController extends AdminController
                             ->paginate(10);
 
         $data['statuses'] = array(
-            'published' => __('post.publish'),
+            'publish' => __('post.publish'),
             'draft' => __('post.draft')
         );
         
-        $data['categories'] = Category::titles();
+        $vars['categories'] = $data['categories'] = Category::titles();
 
         if ($id != null) {
             $data['post'] = Post::find($id);
@@ -41,9 +41,9 @@ class PostController extends AdminController
     public function compose($id = null) {
         $start = microtime(true);
         $input = Input::only(array('title', 'slug', 'created_at',
-            'html', 'category', 'status'));
+            'content', 'status', 'expect'));
 
-        $input['comments'] = Input::get('comments', 0);
+        $input['comment_status'] = Input::get('comment_status', 0);
 
         if (empty($input['slug'])) {
             $input['slug'] = urlencode($input['title']);
@@ -53,25 +53,18 @@ class PostController extends AdminController
 
         $rules = array(
             'title' => 'required',
+            'slug' => 'required',
         );
 
         $validation = Validator::make($input, $rules);
 
         if ($validation->valid()) {
-
-            if (is_null($id)) {
-                $new = Post::create($input);
-                $time = number_format((microtime(true) - $start) * 1000, 2);
-                Notify::success('post created time: ' . $time);
-                $id = $new->id;
-            } else {
-                Post::update($id, $input);
-                $time = number_format((microtime(true) - $start) * 1000, 2);
-                Notify::success('post updated time: ' . $time);
-            }
+            $id = Post::save($input);
+            $time = number_format((microtime(true) - $start) * 1000, 2);
+            Notify::success('post created time: ' . $time);
         }
 
-        return Redirect::to('admin/posts' . $id);
+        return Redirect::to('admin/posts/' . $id);
     }
 
     public function delete($id) {

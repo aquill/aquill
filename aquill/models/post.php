@@ -4,11 +4,6 @@ class Post extends Eloquent
 {
     public static $table = 'posts';
 
-    public static function find_by_slug($slug = null)
-    {
-        return static::where('slug', '=', urlencode(urldecode($slug)))->first();
-    }
-
     public static function published()
     {
         return static::where('status', '=', 'publish')
@@ -21,6 +16,31 @@ class Post extends Eloquent
         return static::where('status', '=', 'draft')
                     ->where('type', '=', __CLASS__)
                     ->order_by('created_at', 'DESC');
+    }
+
+    public static function delete($id) {
+        DB::table('posts')->delete($id);
+        DB::table('relationships')->delete(array('post_id' => $id));
+        DB::table('comments')->delete(array('post_id' => $id));
+    }
+
+    public static function save($input)
+    {
+        $author = Input::get('author', Auth::user()->id);
+        $cids = Input::get('category');
+
+        if ($id = Input::get('id', 0)) {
+            static::where('id', '=', $id)->update($input);
+            DB::table('relationships')->delete(array('post_id' => $id));
+        } else {
+            $id = DB::table('posts')->insert_get_id($input);
+        }
+
+        foreach ($cids as $cid) {
+            DB::table('relationships')->insert(array('post_id' => $id, 'term_id' => $cid));
+        }
+
+        return $id;
     }
 
     public function id()
@@ -76,23 +96,34 @@ class Post extends Eloquent
 
     public function comments()
     {
-        return $this->has_many('Comment' , 'post_id')
-                    ->where('status', '=', 'approved')
-                    ->paginate(10);
+        return Comment::where('post_id', '=', $this->id)
+            ->where('status', '=','approved')
+            ->paginate(10);
     }
 
     public function tags()
     {
-        return $this->has_many_and_belongs_to('Tag', 'relationships', 'post_id', 'term_id')
-                    ->where('taxonomy', '=','tag')
-                    ->get();
+        return Tag::join('relationships', 'terms.id', '=', 'relationships.term_id')
+            ->where('relationships.post_id', '=', $this->id)
+            ->where('taxonomy', '=','tag')
+            ->get();
     }
 
     public function categories()
     {
-        return $this->has_many_and_belongs_to('Category', 'relationships', 'post_id', 'term_id')
-                    ->where('taxonomy', '=','category')
-                    ->get();
+        return Category::join('relationships', 'terms.id', '=', 'relationships.term_id')
+            ->where('relationships.post_id', '=', $this->id)
+            ->where('taxonomy', '=','category')
+            ->get();
+    }
+
+    public function cids()
+    {
+        $keys = array_keys($this->categories());
+
+        if (empty($keys)) return 1;
+
+        return $keys;
     }
 
 }

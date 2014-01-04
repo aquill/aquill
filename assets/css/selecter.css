@@ -37,6 +37,7 @@
     position: relative;
     z-index: 1;
     box-shadow: none;
+    background: none;
 }
 
 .selecter.open .selecter-wrapper {

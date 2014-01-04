@@ -9,6 +9,8 @@ Autoloader::map(array(
 Asset::container('header')->add('global', '../assets/css/global.css');
 Asset::container('header')->add('install', 'assets/css/install.css');
 
+Asset::container('header')->add('color', '../assets/css/colors/'.Session::get('current.color').'.css');
+
 Asset::container('header')->add('jquery', '../assets/js/jquery.js');
 Asset::container('header')->add('autosize', '../assets/js/autosize.js');
 Asset::container('header')->add('app', '../assets/js/app.js');

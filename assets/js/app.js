@@ -1,6 +1,6 @@
 $(function () {
 
-    $('input[name="created"]').appendDtpicker();
+    $('.datetime').appendDtpicker();
 
     $('textarea').autosize();
 
@@ -19,25 +19,41 @@ $(function () {
         });
         return false
     });
-    /*
-    $(document).on('click','.item',function(){
-        $this = $(this);
-        var url = $this.attr('href');
+    var $list = $('.widget-list');
+    var top = $list.offset().top;
+    var window_height = $(window).height();
 
-        $form = $('.postform')
+    $list.height(window_height-top);
 
-        $.post(url, function(data) {
-            $('.container').prepend(data);
-            $('textarea[name=html]').autosize();
-            $form.remove();
-        });
+    function resize() {
+        var top = $list.offset().top;
+        var window_height = $(window).height();
+        $list.height(window_height-top);
+    }
+    
 
-        return false;
+    $(window).resize(function() {
+        window_height = $(window).height();
+        $list.height(window_height-top);
     });
-*/
+
     $(document).on('click','.status',function(){
         $('.statuses').hide();
         $(this).next('.statuses').show();
+    });
+
+    var up = true;
+    $('.widget-statuses h3').on('click', function() {
+        $this = $(this);
+        h = $this.next().height();
+        $this.next().slideToggle();
+        if (up) {
+            up = false;
+            $list.animate({height:'-='+h+'px'});
+        } else {
+            up = true;
+            $list.animate({height:'+='+h+'px'});
+        }
     });
 
     $('.statuses').mouseout(function(){

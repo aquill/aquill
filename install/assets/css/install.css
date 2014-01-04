@@ -73,6 +73,10 @@ footer i {
     height: 2em;
     width: 2em;
     cursor: pointer;
+    line-height: 2.2em;
+}
+.color .checker:before {
+    color: #fff !important;
 }
 .green.color {
     background: #3B7548;

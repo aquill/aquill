@@ -5,7 +5,3 @@
         <button class="btn" type="submit"><span class="icon-search"></span></button>
     </form>
 </aside>
-
-<aside id="statuses" class="widget widget-statuses">
-    <h3 class="icon-select"><?php _e($type.'.menu_title'); ?></h3>
-</aside>

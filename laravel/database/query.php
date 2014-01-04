@@ -525,6 +525,9 @@ class Query
      */
     public function find($id, $columns = array('*'))
     {
+        if (is_array($id)) {
+            return $this->where(key($id), '=', current($id))->first($columns);
+        }
         return $this->where('id', '=', $id)->first($columns);
     }
 
@@ -799,7 +802,9 @@ class Query
         // If an ID is given to the method, we'll set the where clause
         // to match on the value of the ID. This allows the developer
         // to quickly delete a row by its primary key value.
-        if (!is_null($id)) {
+        if (is_array($id)) {
+            $this->where(key($id), '=', current($id));
+        } elseif (!is_null($id)) {
             $this->where('id', '=', $id);
         }
 

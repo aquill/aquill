@@ -5,9 +5,21 @@ class Tag extends Eloquent
 
     public static $timestamps = false;
 
-    public static function find_by_slug($slug = null)
+    public static $titles = null;
+
+    public static function titles()
     {
-        return static::where('slug', '=', urlencode(urldecode($slug)))->first();
+        if (is_null(static::$titles)) {
+            $terms = static::order_by('name', 'ASC')
+                            ->where('taxonomy', '=', 'tag')
+                            ->get();
+
+            foreach ($terms as $term) {
+                static::$titles[$term->id] = $term->name;
+            }
+        }
+        
+        return static::$titles;
     }
 
     public function link()
@@ -34,10 +46,11 @@ class Tag extends Eloquent
 
     public function posts()
     {
-        return $this->has_many_and_belongs_to('Post', 'relationships', 'term_id', 'post_id')
-                    ->where('status', '=', 'publish')
-                    ->where('type', '=', 'post')
-                    ->order_by('created_at', 'DESC')
-                    ->paginate(10);
+        return Post::join('relationships', 'posts.id', '=', 'relationships.post_id')
+            ->where('relationships.term_id', '=', $this->id)
+            ->where('status', '=', 'publish')
+            ->where('type', '=', 'post')
+            ->order_by('created_at', 'DESC')
+            ->paginate(10);
     }
 }

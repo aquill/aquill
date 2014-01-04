@@ -15,6 +15,9 @@ class SiteController extends Controller
     }
 
     public function home() {
+
+        //$b = Base::find(array('slug' => 'hello-world'));
+
         $homepage = get_option('rewrite_home');
 
         $posts = Post::published()->paginate(10);
@@ -97,7 +100,7 @@ class SiteController extends Controller
         if (get_by_id()) {
             $post = Post::find($id);
         } else {
-            $post = Post::find_by_slug($id);
+            $post = Post::find(array('slug' => $id));
         }
 
         if (is_null($post))
@@ -113,7 +116,7 @@ class SiteController extends Controller
         if (get_by_id('page')) {
             $page = Page::find($id);
         } else {
-            $page = Page::find_by_slug($id);
+            $page = Page::find(array('slug' => $id));
         }
 
         if (is_null($page))
@@ -128,7 +131,7 @@ class SiteController extends Controller
         if (get_by_id('category')) {
             $category = Category::find($id);
         } else {
-            $category = Category::find_by_slug($id);
+            $category = Category::find(array('slug' => $id));
         }
 
         if (is_null($category))
@@ -146,7 +149,7 @@ class SiteController extends Controller
         if (get_by_id('tag')) {
             $tag = Tag::find($id);
         } else {
-            $tag = Tag::find_by_slug($id);
+            $tag = Tag::find(array('slug' => $id));
         }
 
         if (is_null($tag))
@@ -164,7 +167,7 @@ class SiteController extends Controller
         if (get_by_id('author')) {
             $author = User::find($id);
         } else {
-            $author = User::find_by_username($id);
+            $author = User::find(array('username' => $id));
         }
 
         if (is_null($author))

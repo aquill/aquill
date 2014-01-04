@@ -4,7 +4,7 @@ return array(
 
     'search_placeholder' => 'To search, type and hit enter…',
 
-    'menu_title' => 'All Comments',
+    'comments' => 'All Comments',
 
     'approved' => 'Approved',
     'pending' => 'Pending',

@@ -123,6 +123,10 @@ body.login.purple form {
     border-left: 0;
 }
 
+body.login.purple .control-group {
+    border-bottom: 1px solid #BFBFD3;
+}
+
 body.login.purple .form-actions button {
     color: #85859E;
 }
@@ -159,6 +163,11 @@ body.purple .searchform button {
     border: 0;
     color: #9494A8;
     background: none;
+}
+
+body.purple .statuses li:hover {
+    background: #EEEEF3;
+    color: #669;
 }
 
 /** admin psots **/

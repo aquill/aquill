@@ -13,7 +13,7 @@ class UserController extends AdminController
             $data['user'] = new User;
         }
 
-        $data['roles'] = array(
+        $vars['roles'] = $data['roles'] = array(
             'administrator' => __('user.administrator'),
             'editor' => __('user.editor'),
             'author' => __('user.author'),

@@ -4,7 +4,7 @@ return array(
 
     'search_placeholder' => 'To search, type and hit enter…',
 
-    'menu_title' => 'All Users',
+    'users' => 'All Users',
 
     'add' => 'Add User',
     'edit' => 'Editing :name\'s Profile',
