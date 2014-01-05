@@ -15,11 +15,31 @@
 
 ::-moz-placeholder {
     color: #bec8d4;
+    line-height: 2.4em !important;
 }
 
 ::placeholder {
     color: #bec8d4;
-    line-height: 1.3em;
+}
+
+textarea::-webkit-placeholder {
+    line-height: 1.3em !important;
+}
+textarea::-moz-placeholder {
+    line-height: 1.3em !important;
+}
+textarea::placeholder {
+    line-height: 1.3em !important;
+}
+
+.searchform input::-webkit-placeholder {
+    line-height: 3em !important;
+}
+.searchform input::-moz-placeholder {
+    line-height: 3em !important;
+}
+.searchform input::placeholder {
+    line-height: 3em !important;
 }
 
 /* scrollbar */

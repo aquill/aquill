@@ -271,6 +271,7 @@ fieldset.header .wrap {
 fieldset.header h1 {
     display: inline-block;
     font-size: inherit;
+    padding-left: 1.5em;
 }
 
 aside.buttons {
@@ -365,10 +366,10 @@ fieldset.editor textarea {
 }
 .searchform input {
     width: 75%;
-
     height: inherit;
     background: none;
     padding-left: 1em;
+    line-height: 1em;
 }
 
 .searchform button {
@@ -407,6 +408,7 @@ fieldset.editor textarea {
 }
 .widget-statuses ul {
     display: none;
+    list-style-type: none;
 }
 .admin.posts {
     background: #fff;

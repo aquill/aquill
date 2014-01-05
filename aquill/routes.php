@@ -4,32 +4,6 @@
 // Site Routes
 // --------------------------------------------------------------
 
-Route::get('test', function() {
-            if (Schema::hasTable('posts4'))
-            Schema::drop('posts4');
-
-        Schema::create('posts4', function ($table) {
-            $table->charset = 'utf8';
-            $table->engine = 'InnoDB';
-            $table->increments('id');
-            $table->integer('author')->default(1);
-            $table->string('title');
-            $table->string('slug')->default('');
-            $table->text('content');
-            $table->text('excerpt')->default('');
-            $table->enum('status', array('publish', 'draft', 'inherit'))->default('publish');
-            $table->enum('type', array('post', 'page', 'revision', 'menu', 'attachment'))->default('post');
-            $table->string('password')->default('');
-            $table->timestamps();
-            $table->integer('parent')->default(0);
-            $table->string('guid')->default('');
-            $table->string('mime')->default('');
-            $table->integer('menu_order')->default(0);
-            $table->boolean('comment_status')->default(0);
-            $table->integer('comment_count')->default(0);
-        });
-    });
-
 Route::get('/, home', 'site@home');
 Route::get('robots.txt', 'site@robots');
 Route::get('(feed|rss|atom)', 'site@feed');
