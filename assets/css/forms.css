@@ -154,4 +154,5 @@ input.hidden {
     position: absolute;
     right: 0;
     background: none !important;
+    border: 0 !important;
 }

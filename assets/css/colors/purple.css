@@ -58,6 +58,7 @@ body.purple .btn.red:hover {
 
 body.purple aside.buttons {
     background: #f2f2f2;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 body.purple aside.buttons button,
 body.purple aside.buttons .button {
@@ -70,9 +71,13 @@ body.purple aside.buttons button:hover,
 body.purple aside.buttons .button:hover {
     background: none;
 }
-body.purple fieldset.header{
+body.purple fieldset.header {
     background: #f2f2f2;
-    border-bottom: 1px solid rgba(0,0,0,0.12);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+body.posts.purple fieldset.header {
+    border-bottom: 0;
 }
 
 /** sidebar **/

@@ -72,13 +72,32 @@
                 <button class="btn blue toggle" toggle-object="meta" type="button">
                     <span class="icon-preview"></span>
                     <?php //_e('global.preview'); ?></button>
-                <button class="btn blue toggle settings" toggle-object="meta" type="button">
+                <button class="btn blue toggle settings" toggle-object="editorbar" type="button">
                     <span class="icon-font"></span>
                     <?php //_e('post.more_settings'); ?></button>
                 <button class="btn blue toggle settings" toggle-object="meta" type="button">
                     <span class="icon-settings"></span>
                     <?php //_e('post.more_settings'); ?></button>
             </div>
+        </aside>
+        <aside class="editorbar">
+            <ul>
+                <li class="icon-editor-bold"></li>
+                <li class="icon-editor-underline"></li>
+                <li class="icon-editor-italic"></li>
+                <li class="vertical"></li>
+                <li class="icon-editor-ordered-list"></li>
+                <li class="icon-editor-unordered-list"></li>
+                <li class="vertical"></li>
+                <li class="icon-editor-quote"></li>
+                <li class="icon-editor-code"></li>
+                <li class="vertical"></li>
+                <li class="icon-editor-link"></li>
+                <li class="icon-editor-unlink"></li>
+                <li class="vertical"></li>
+                <li class="icon-editor-nextpage"></li>
+                <li class="icon-editor-more"></li>
+            </ul>
         </aside>
     </fieldset>
 

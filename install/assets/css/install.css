@@ -28,6 +28,11 @@ code {
 .container .wrap {
     padding: 0 5%;
 }
+.form-actions {
+    display: block;
+    position: relative;
+    margin: 2em 0 3em;
+}
 article h1 {
     font-size: 1.8em;
     padding-top: 1em;

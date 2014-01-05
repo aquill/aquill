@@ -33,10 +33,10 @@
 .icon-login:before {
     content: "\e600";
 }
-.icon-radio-checked:before {
+.icon-radio.checked:before {
     content: "\e607";
 }
-.icon-radio-unchecked:before {
+.icon-radio:before {
     content: "\e608";
 }
 .icon-auth:before {
@@ -48,10 +48,10 @@
 .icon-font:before {
     content: "\e618";
 }
-.icon-checkbox-unchecked:before {
+.icon-checkbox:before {
     content: "\e623";
 }
-.icon-checkbox-checked:before {
+.icon-checkbox.checked:before {
     content: "\e624";
 }
 .icon-preview:before {

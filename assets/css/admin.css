@@ -265,7 +265,9 @@ fieldset.header {
     z-index: 99;
     line-height: 3em;
 }
-
+fieldset.header .wrap {
+    padding: 0 .5em;
+}
 fieldset.header h1 {
     display: inline-block;
     font-size: inherit;
@@ -335,7 +337,7 @@ fieldset.preview {
 }
 
 fieldset.editor {
-    padding-top: 1em;
+    padding-top: .5em;
     background: #fff;
 }
 

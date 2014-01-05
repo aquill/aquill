@@ -30,7 +30,13 @@ $(function () {
         var window_height = $(window).height();
         $list.height(window_height-top);
     }
-    
+
+    $('input[name=title]').on('keydown', function(e) {
+        if(e.keyCode == 13) {
+            $('textarea[name=content]').focus();
+            return false;
+        }
+    });
 
     $(window).resize(function() {
         window_height = $(window).height();
@@ -59,14 +65,10 @@ $(function () {
     $('.statuses').mouseout(function(){
         //$(this).hide();
     });
-    //$object.css('margin-top','-'+$object.outerHeight()+'px');
-    //alert($object.outerHeight());
-    //$object.show();
 
     $(document).on('click','.toggle',function(){
-        $('.meta').slideToggle();
-        //$object.show();
-        //$object.blindUpToggle('slow');
+        var object = $(this).attr('toggle-object');
+        $('.'+object).slideToggle();
         return false;
     });
 
