@@ -1,12 +1,27 @@
-<div class="wrap">
-    <hgroup>
-        <h1><?php echo $comment->id ? __('comment.edit', array('name' => $comment->name)) : __('comment.add'); ?></h1>
-    </hgroup>
-    <form class="commentform" method="POST"
-          action="<?php echo $comment->id ? url("admin/comments/edit/{$comment->id}") : url("admin/comments/new"); ?>"
-          accept-charset="UTF-8">
+<form class="commentform" method="POST"
+      action="<?php echo $comment->id ? url("admin/comments/edit/{$comment->id}") : url("admin/comments/new"); ?>"
+      accept-charset="UTF-8">
 
-        <fieldset class="split">
+    <input type="hidden" name="csrf_token" value="<?php echo csrf_token(); ?>">
+    <input type="hidden" name="id" value="<?php echo $comment->id; ?>">
+
+    <fieldset class="header">
+        <div class="wrap">
+            <h1><?php echo $comment->id ? __('comment.edit', array('name' => $comment->name)) : __('comment.add'); ?></h1>
+            <aside class="form-actions buttons">
+                <button type="submit" class="btn green">
+                    <span class="icon-save"></span>
+                    <?php //_e('global.update'); ?></button>
+                <a class="button red"
+                   href="<?php echo url('admin/comments/delete/' . $comment->id); ?>">
+                   <span class="icon-delete"></span>
+                   <?php //_e('global.delete'); ?></a>
+            </aside>
+        </div>
+    </fieldset>
+
+    <fieldset class="split">
+        <div class="wrap">
             <div class="control-group">
                 <label for="name" class="control-label"><?php _e('comment.name'); ?></label>
 
@@ -42,17 +57,13 @@
                 <label for="text" class="control-label"><?php _e('comment.comment'); ?></label>
 
                 <div class="controls">
-                    <textarea placeholder="<?php _e('comment.comment_placeholder'); ?>" name="text" rows="3"
+                    <textarea placeholder="<?php _e('comment.comment_placeholder'); ?>" name="content" rows="3"
                               cols="60"><?php echo $comment->content; ?></textarea>
                 </div>
             </div>
-            <div class="form-actions">
-                <button type="submit" class="btn green"><?php _e('global.update'); ?></button>
-                <a class="btn red"
-                   href="<?php echo url('admin/comment/delete/' . $comment->id); ?>"><?php _e('global.delete'); ?></a>
-            </div>
-        </fieldset>
-    </form>
-</div>
+        </div>
+    </fieldset>
+</form>
+
 
 <?php echo Form::close(); ?>

@@ -29,19 +29,17 @@ class CategoryController extends AdminController
 
         $start = microtime(true);
 
-        if (is_null($id)) return Redirect::to('admin/categories');
-
-        $input = Input::only(array('title', 'slug', 'description'));
+        $input = Input::only(array('name', 'slug', 'description'));
 
         $rules = array(
-            'title' => 'required',
+            'name' => 'required',
             'slug' => 'required'
         );
 
         $validation = Validator::make($input, $rules);
 
         if ($validation->valid()) {
-            Category::update($id, $input);
+            Category::push($input);
             $time = number_format((microtime(true) - $start) * 1000, 2);
             Notify::success('category updated time: ' . $time);
         }

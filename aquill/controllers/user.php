@@ -37,11 +37,19 @@ class UserController extends AdminController
 
     public function update($id = null) {
         $start = microtime(true);
-        $input = Input::only(array('real_name', 'bio', 'status', 'role',
-            'username', 'password', 'email'));
+        $input = Input::only(array('nicename', 'bio', 'status', 'role',
+            'username', 'url', 'password', 'email'));
+
+        $password = Input::get('password');
+        $confirm = Input::get('confirm');
+
+        if (!is_null($password) and $password == $confirm) {
+            $input['password'] = $password;
+        }
+
+        $input['activation_key'] = '';
 
         $rules = array(
-            'real_name' => 'required',
             'username' => 'required',
             'email' => 'required|email'
         );
@@ -49,7 +57,7 @@ class UserController extends AdminController
         $validation = Validator::make($input, $rules);
 
         if ($validation->valid()) {
-            User::update($id, $input);
+            User::push($input);
             $time = number_format((microtime(true) - $start) * 1000, 2);
             Notify::success('user updated time: ' . $time);
         }

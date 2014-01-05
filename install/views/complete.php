@@ -8,8 +8,8 @@
                 <p><textarea id="htaccess"><?php echo $htaccess; ?></textarea></p>
         <?php endif; ?>
          <p class="options">
-            <a href="<?php echo url('admin'); ?>" class="btn"><?php _et('complete.visit_admin'); ?></a>
-            <a href="<?php echo url('/'); ?>" class="btn"><?php _et('complete.visit_site'); ?></a>
+            <a href="<?php echo $admin_url; ?>" class="btn"><?php _et('complete.visit_admin'); ?></a>
+            <a href="<?php echo $site_url; ?>" class="btn"><?php _et('complete.visit_site'); ?></a>
         </p>
         </article>
     </section>

@@ -1,6 +1,6 @@
 <?php foreach ($comments->results as $comment) : ?>
     <li class="post" id="post-<?php echo $comment->id; ?>">
-        <a <?php echo Input::get('id', 0) == $comment->id ? 'class="active"' : ''; ?>
+        <a <?php //echo Input::get('id', 0) == $comment->id ? 'class="active"' : ''; ?>
             href="<?php echo url('admin/comments?id=' . $comment->id); ?>">
             <strong><?php echo $comment->name; ?></strong>
             <time><?php echo $comment->date(); ?></time>

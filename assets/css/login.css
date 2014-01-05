@@ -59,6 +59,7 @@
     line-height: 2em;
     margin: 0;
     position: relative;
+    display: block;
 }
 
 .loginform .form-actions button {

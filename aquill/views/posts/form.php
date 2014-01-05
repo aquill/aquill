@@ -1,9 +1,9 @@
 <form id="postform-<?php echo $post->id; ?>" class="postform" method="POST"
       action="<?php echo $post->id ? url("admin/posts/edit/{$post->id}") : url("admin/posts/new"); ?>"
       accept-charset="UTF-8">
-      <input type="hidden" name="csrf_token" value="<?php echo csrf_token(); ?>">
-      <input type="hidden" name="id" value="<?php echo $post->id; ?>">
-      <input type="hidden" name="author" value="<?php echo $post->author; ?>">
+    <input type="hidden" name="csrf_token" value="<?php echo csrf_token(); ?>">
+    <input type="hidden" name="id" value="<?php echo $post->id; ?>">
+    <input type="hidden" name="author" value="<?php echo $post->author; ?>">
 
     <fieldset class="meta split">
         <div class="wrap">
@@ -12,7 +12,7 @@
 
                 <div class="controls">
                     <input type="text" name="slug" value="<?php echo urldecode($post->slug()); ?>"
-                         id="slug" placeholder="<?php _e('post.slug_placeholder'); ?>" />
+                           id="slug" placeholder="<?php _e('post.slug_placeholder'); ?>"/>
                 </div>
             </div>
             <div class="control-group">
@@ -41,7 +41,8 @@
                 <label class="control-label" for="excerpt"><?php _e('post.excerpt'); ?></label>
 
                 <div class="controls" style="line-height:0">
-                    <textarea name="excerpt" id="excerpt" placeholder="<?php _e('post.excerpt_description'); ?>"><?php echo $post->excerpt; ?></textarea>
+                    <textarea name="excerpt" id="excerpt"
+                              placeholder="<?php _e('post.excerpt_description'); ?>"><?php echo $post->excerpt; ?></textarea>
                 </div>
             </div>
             <div class="control-group">
@@ -56,27 +57,37 @@
             </div>
         </div>
     </fieldset>
+
+    <?php echo $messages; ?>
+
     <fieldset class="header">
-        <div class="wrap">
-            <div class="controls">
-                <input placeholder="<?php _e('post.title_placeholder'); ?>" type="text" name="title"
-                       value="<?php echo $post->title; ?>">
-            </div>
-            <aside class="buttons">
-                <button class="btn blue toggle" toggle-object="meta" type="button">
-                    <?php _e('post.more_settings'); ?></button>
+        <aside class="buttons">
+            <div class="wrap">
                 <button class="btn green" type="submit">
-                    <?php _e('global.save'); ?></button>
+                    <span class="icon-save"></span>
+                    <?php //_e('global.save'); ?></button>
                 <button class="btn red toggle" toggle-object="meta" type="button">
-                    <?php _e('global.preview'); ?></button>
-            </aside>
-        </div>
+                    <span class="icon-trash"></span>
+                    <?php //_e('post.more_settings'); ?></button>
+                <button class="btn blue toggle" toggle-object="meta" type="button">
+                    <span class="icon-preview"></span>
+                    <?php //_e('global.preview'); ?></button>
+                <button class="btn blue toggle settings" toggle-object="meta" type="button">
+                    <span class="icon-font"></span>
+                    <?php //_e('post.more_settings'); ?></button>
+                <button class="btn blue toggle settings" toggle-object="meta" type="button">
+                    <span class="icon-settings"></span>
+                    <?php //_e('post.more_settings'); ?></button>
+            </div>
+        </aside>
     </fieldset>
 
     <fieldset class="preview html" id="markdown-preview"></fieldset>
 
     <fieldset class="editor">
         <div class="wrap">
+            <input placeholder="<?php _e('post.title_placeholder'); ?>" type="text" name="title"
+                   value="<?php echo $post->title; ?>">
             <textarea placeholder="<?php _e('post.content_placeholder'); ?>" id="markdown-input"
                       class="textarea-resize"
                       data-markdown-preview="#markdown-preview" name="content" rows="10" cols="50"

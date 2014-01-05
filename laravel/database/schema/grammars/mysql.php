@@ -21,7 +21,7 @@ class MySQL extends Grammar
      */
     public function exists(Table $table)
     {
-        return 'SHOW TABLES LIKE \'%'.trim($this->wrap($table), '`').'%\'';
+        return 'SHOW TABLES LIKE \''.trim($this->wrap($table), '`').'\'';
     }
 
     /**

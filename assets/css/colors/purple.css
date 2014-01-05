@@ -38,11 +38,48 @@ body.purple .button {
     border-left: 0;
 }
 
+body.purple .btn:hover,
+body.purple button:hover,
+body.purple .button:hover {
+    background: #484858;
+}
+
+body.purple button.red,
+body.purple .button.red, 
+body.purple .btn.red {
+    color: #AF3333;
+}
+
+body.purple button.red:hover,
+body.purple .button.red:hover, 
+body.purple .btn.red:hover {
+    color: #633F3F;
+}
+
+body.purple aside.buttons {
+    background: #f2f2f2;
+}
+body.purple aside.buttons button,
+body.purple aside.buttons .button {
+    background: none;
+    border: 0;
+    color: #669;
+}
+
+body.purple aside.buttons button:hover,
+body.purple aside.buttons .button:hover {
+    background: none;
+}
+body.purple fieldset.header{
+    background: #f2f2f2;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
 /** sidebar **/
 
 body.purple .sidebar {
     background: #E3E3F1;
-    border-right:1px solid rgba(0,0,0,0.09);
+    border-right: 1px solid rgba(0,0,0,0.09);
 }
 
 body.purple .sidebar li {
@@ -109,6 +146,26 @@ body.purple .datepicker_timelist .active,
 body.purple .datepicker_timelist .hover {
 
 }
+
+/** notifications **/
+body.purple .notifications {
+    border-bottom: 1px solid #669;
+}
+body.purple .notifications .success {
+    color: #fff;
+    background: #669;
+}
+
+body.purple .notifications .notice {
+    color: #fff;
+    background: #578cd9;
+}
+
+body.purple .notifications .error {
+    color: #fff;
+    background: #d34937;
+}
+
 /** login **/
 
 body.login.purple {
@@ -143,6 +200,11 @@ body.login.purple .form-actions a {
 }
 
 /** toolbar **/
+
+body.purple .toolbar {
+    background: #669;
+}
+
 body.purple .toolbar li a {
     border-bottom: 0;
 }
@@ -176,6 +238,6 @@ body.purple .widget-statuses {
     background: rgba(0,0,0,0.06);
 }
 body.purple fieldset.meta {
-    background: #EEEEF3;
-    border-bottom: 1px solid #ededed;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
 }

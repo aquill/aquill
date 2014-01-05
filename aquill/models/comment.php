@@ -9,9 +9,16 @@ class Comment extends Eloquent
 
     public static $rules = array(
         'name' => 'required',
-        'email' => 'required|email',
-        'text' => 'required'
+        'email' => 'email',
+        'content' => 'required',
     );
+
+    public static function push($input)
+    {
+        if ($id = Input::get('id', 0)) {
+            static::where('id', '=', $id)->update($input);
+        }
+    }
 
     public function date($format = 'Y-m-d H:i:s')
     {

@@ -147,7 +147,7 @@ class InstallerController extends Controller
             'description' => _t('data.site_description'),
             'theme' => 'theme',
             'bundles' => 'migrations',
-            'url' => rtrim(URL::base(), '/'),
+            'url' => rtrim(URL::base(), 'install/'),
             'index' => 'index.php',
         );
 
@@ -240,7 +240,7 @@ class InstallerController extends Controller
 
         $account = array(
             'username' => 'admin',
-            'email' => 'youremail@domain',
+            'email' => 'youremail@domain.com',
             'password' => ''
         );
 
@@ -281,7 +281,11 @@ class InstallerController extends Controller
         }
 
         try {
+            $vars['site_url'] = Session::get('install.metadata.url');
+            $vars['admin_url'] = $vars['site_url'] . '/admin';
+
             Aquill::setup();
+
             return View::make('complete', $vars);
         } catch (Exception $e) {
             dd($e->getMessage());

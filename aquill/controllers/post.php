@@ -3,12 +3,14 @@
 class PostController extends AdminController
 {
     
-    public function index($id = null) {
-        $vars['messages'] = Notify::read();
+    public function index($id = null)
+    {
         $vars['posts'] = Post::where_in('status', array('publish', 'draft'))
                             ->where('type', '=', 'post')
                             ->order_by('created_at', 'DESC')
                             ->paginate(10);
+
+        $data['messages'] = Notify::read();
 
         $data['statuses'] = array(
             'publish' => __('post.publish'),
@@ -40,7 +42,7 @@ class PostController extends AdminController
 
     public function compose($id = null) {
         $start = microtime(true);
-        $input = Input::only(array('title', 'slug', 'created_at',
+        $input = Input::only(array('id', 'title', 'slug', 'created_at',
             'content', 'status', 'expect'));
 
         $input['comment_status'] = Input::get('comment_status', 0);
@@ -59,7 +61,7 @@ class PostController extends AdminController
         $validation = Validator::make($input, $rules);
 
         if ($validation->valid()) {
-            $id = Post::save($input);
+            $id = Post::push($input);
             $time = number_format((microtime(true) - $start) * 1000, 2);
             Notify::success('post created time: ' . $time);
         }

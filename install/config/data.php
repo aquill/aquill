@@ -2,12 +2,12 @@
 
 $options = array();
 
-foreach (Session::get('install.metadata') as $key => $value) {
-    $options[] = array('key' => 'site_' . $key, 'value' => $value);
+foreach (Session::get('install.metadata') as $name => $value) {
+    $options[] = array('name' => 'site_' . $name, 'value' => $value);
 }
 
-foreach (Session::get('install.rewrites') as $key => $value) {
-    $options[] = array('key' => 'rewrite_' . $key, 'value' => $value);
+foreach (Session::get('install.rewrites') as $name => $value) {
+    $options[] = array('name' => 'rewrite_' . $name, 'value' => $value);
 }
 
 return array(
@@ -20,9 +20,9 @@ return array(
         'password' => Hash::make(Session::get('install.account.password', 'admin123')),
         'email' => Session::get('install.account.email', ''),
         'url' => '',
+        'bio' => '',
         'registered' => date('Y-m-d H:i:s'),
         'activation_key' => '',
-        'status' => 0,
         'role' => 'administrator',
     ),
 

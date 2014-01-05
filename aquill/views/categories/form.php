@@ -1,13 +1,27 @@
-<div class="wrap">
-    <hgroup>
-        <h1><?php echo $category->id ? __('category.edit', array('name' => $category->name)) : __('category.add'); ?></h1>
-    </hgroup>
+<form class="categoryform" method="POST"
+      action="<?php echo $category->id ? url("admin/categories/edit/{$category->id}") : url("admin/categories/new"); ?>"
+      accept-charset="UTF-8">
 
-    <form class="categoryform" method="POST"
-          action="<?php echo $category->id ? url("admin/categories/edit/{$category->id}") : url("admin/categories/new"); ?>"
-          accept-charset="UTF-8">
+    <input type="hidden" name="csrf_token" value="<?php echo csrf_token(); ?>">
+    <input type="hidden" name="id" value="<?php echo $category->id; ?>">
 
-        <fieldset class="split">
+    <fieldset class="header">
+        <div class="wrap">
+            <h1><?php echo $category->id ? __('category.edit', array('name' => $category->name)) : __('category.add'); ?></h1>
+            <aside class="form-actions buttons">
+                <button type="submit" class="btn green">
+                    <span class="icon-save"></span>
+                    <?php //_e('global.update'); ?></button>
+                <a class="button red"
+                   href="<?php echo url('admin/categories/delete/' . $category->id); ?>">
+                   <span class="icon-delete"></span>
+                   <?php //_e('global.delete'); ?></a>
+            </aside>
+        </div>
+    </fieldset>
+
+    <fieldset class="split">
+        <div class="wrap">
             <div class="control-group">
                 <label class="control-label" for="name"><?php _e('category.name'); ?></label>
 
@@ -34,13 +48,7 @@
                               cols="50"><?php echo $category->description; ?></textarea>
                 </div>
             </div>
+        </div>
+    </fieldset>
 
-            <div class="form-actions">
-                <button type="submit" class="btn green"><?php _e('global.update'); ?></button>
-                <a class="btn red delete"
-                   href="<?php echo url("admin/categories/delete/{$category->id}"); ?>"><?php _e('global.delete'); ?></a>
-            </div>
-        </fieldset>
-
-    </form>
-</div>
+</form>

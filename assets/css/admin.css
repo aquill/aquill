@@ -263,37 +263,36 @@ fieldset.header {
     border-bottom: 0;
     background: #fff;
     z-index: 99;
+    line-height: 3em;
 }
 
-fieldset.header .controls {
-    margin: 0;
-
-    border-bottom: 0;
-    background: none;
+fieldset.header h1 {
+    display: inline-block;
+    font-size: inherit;
 }
 
-fieldset.header input[name="title"] {
-    padding-top: 1em;
-    padding: 1em 0 0;
-    line-height: 1.4em;
-    height: auto;
-    font-size: 2em;
-    font-weight: lighter;
-    width: 80%;
-    background: none;
-    color: #333;
-    border: 0;
+aside.buttons {
+    line-height: 0;
+}
+aside.buttons button,
+aside.buttons .button {
+    font-size: 1.5em;
+    padding: 0;
+    width: 2em;
+    height: 2em; 
+}
+aside.buttons button:hover {
+    
 }
 
-fieldset.header .buttons {
-    position: absolute;
-    right: 2em;
-    top: 2em;
+aside.buttons button.settings {
+    float: right;
 }
 
 fieldset.meta {
-    padding: 2.8em 0 3em;
+    padding: 3em 0;
     display: none;
+    margin: 0;
 }
 fieldset.meta:after {
     left: 8em;
@@ -340,11 +339,10 @@ fieldset.editor {
     background: #fff;
 }
 
-fieldset.editor .control-group {
-    background: none;
-
+fieldset.editor input[name="title"] {
+    line-height: 1.3em;
+    font-size: 2em;
 }
-
 fieldset.editor textarea {
     background: none;
     width: 100%;
@@ -368,6 +366,7 @@ fieldset.editor textarea {
 
     height: inherit;
     background: none;
+    padding-left: 1em;
 }
 
 .searchform button {
@@ -402,8 +401,7 @@ fieldset.editor textarea {
 }
 .widget-statuses .icon-select:before {
     position: relative;
-    right: 0;
-    font-size: 1.2em; color: #666; position: absolute; right: 1em; height: inherit; line-height: inherit;
+    right: 0;  position: absolute; right: 1em; height: inherit; line-height: inherit;
 }
 .widget-statuses ul {
     display: none;
@@ -442,6 +440,7 @@ fieldset.editor textarea {
 .split {
     display: block;
     position: relative;
+    margin: 3em 0;
 }
 .split:after {
     display: block;

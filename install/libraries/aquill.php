@@ -79,8 +79,9 @@ class Aquill
         Schema::create('options', function ($table) {
             $table->charset = 'utf8';
             $table->engine = 'InnoDB';
-            $table->string('key');
+            $table->string('name');
             $table->string('value');
+            $table->primary(array('name', 'value'));
         });
     }
 
@@ -90,21 +91,21 @@ class Aquill
             $table->charset = 'utf8';
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('author');
+            $table->integer('author')->default(1);
             $table->string('title');
-            $table->string('slug');
+            $table->string('slug')->default('');
             $table->text('content');
-            $table->text('excerpt');
-            $table->enum('status', array('publish', 'draft', 'inherit'));
-            $table->enum('type', array('post', 'page', 'revision', 'menu', 'attachment'));
-            $table->string('password');
+            $table->text('excerpt')->default('');
+            $table->enum('status', array('publish', 'draft', 'inherit'))->default('publish');
+            $table->enum('type', array('post', 'page', 'revision', 'menu', 'attachment'))->default('post');
+            $table->string('password')->default('');
             $table->timestamps();
-            $table->integer('parent');
-            $table->string('guid');
-            $table->string('mime');
-            $table->integer('menu_order');
-            $table->boolean('comment_status');
-            $table->integer('comment_count');
+            $table->integer('parent')->default(0);
+            $table->string('guid')->default('');
+            $table->string('mime')->default('');
+            $table->integer('menu_order')->default(0);
+            $table->boolean('comment_status')->default(1);
+            $table->integer('comment_count')->default(0);
         });
     }
 
@@ -117,9 +118,9 @@ class Aquill
             $table->string('name');
             $table->string('slug');
             $table->enum('taxonomy', array('tag', 'category', 'link'));
-            $table->text('description');
-            $table->integer('parent');
-            $table->integer('count');
+            $table->text('description')->default('');
+            $table->integer('parent')->default(0);
+            $table->integer('count')->default(0);
         });
     }
 
@@ -130,6 +131,7 @@ class Aquill
             $table->engine = 'InnoDB';
             $table->integer('post_id');
             $table->integer('term_id');
+            $table->primary(array('post_id', 'term_id'));
         });
     }
 
@@ -142,15 +144,15 @@ class Aquill
             $table->integer('post_id');
             $table->string('name');
             $table->string('email');
-            $table->string('url');
-            $table->string('ip');
+            $table->string('url')->default('');
+            $table->string('ip')->default('');
             $table->date('created_at');
             $table->text('content');
-            $table->integer('karma');
-            $table->enum('status', array('approved', 'pending', 'spam'));
-            $table->string('agent');
-            $table->integer('parent');
-            $table->integer('uesr_id');
+            $table->integer('karma')->default(0);
+            $table->enum('status', array('approved', 'pending', 'spam'))->default('pending');
+            $table->string('agent')->default('');
+            $table->integer('parent')->default(0);
+            $table->integer('uesr_id')->default(0);
         });
     }
 
@@ -164,11 +166,11 @@ class Aquill
             $table->string('password');
             $table->string('nicename');
             $table->string('email');
-            $table->string('url');
+            $table->string('url')->default('');
+            $table->text('bio');
             $table->date('registered');
-            $table->string('activation_key');
-            $table->boolean('status');
-            $table->enum('role', array('administrator', 'editor', 'author', 'contributor', 'subscriber', 'pending'));
+            $table->string('activation_key')->default('');
+            $table->enum('role', array('administrator', 'editor', 'author', 'contributor', 'subscriber', 'pending'))->default('pending');
         });
     }
 

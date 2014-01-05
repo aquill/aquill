@@ -20,6 +20,18 @@ class Category extends Tag
         return static::$titles;
     }
 
+    public static function push($input)
+    {
+        if ($id = Input::get('id', 0)) {
+            static::where('id', '=', $id)->update($input);
+        } else {
+            $input['taxonomy'] = 'category';
+            $id = static::insert_get_id($input);
+        }
+
+        return $id;
+    }
+
     public function link()
     {
         $patterns['id'] = $this->id;

@@ -24,7 +24,7 @@ class Post extends Eloquent
         DB::table('comments')->delete(array('post_id' => $id));
     }
 
-    public static function save($input)
+    public static function push($input)
     {
         $author = Input::get('author', Auth::user()->id);
         $cids = Input::get('category');

@@ -23,6 +23,8 @@ return array(
     'role' => '角色',
     'nicename' => '昵称',
     'nicename_description' => '昵称可以是中文、英文和数字的组合',
+    'url' => '个人主页',
+    'url_description' => '',    
     'password' => '密码',
     'password_description' => '如果你想更改密码，在这里输入新的密码，否则请留空',
     'confirm' => '确认密码',

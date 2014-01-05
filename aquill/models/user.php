@@ -7,6 +7,19 @@ class User extends Eloquent
     
     public static $timestamps = false;
 
+    public static function push($input)
+    {
+        if ($id = Input::get('id', 0)) {
+            $passwords = Input::only(array());
+            static::where('id', '=', $id)->update($input);
+        } else {
+            $input['registered'] = date('Y-m-d H:i:s');
+            $id = static::insert_get_id($input);
+        }
+
+        return $id;
+    }
+
     public function link()
     {
         $patterns['id'] = $this->id;

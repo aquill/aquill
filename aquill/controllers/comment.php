@@ -38,12 +38,12 @@ class CommentController extends AdminController
 
         if (is_null($id)) return Redirect::to('admin/comments');
 
-        $input = Input::only(array('name', 'email', 'url', 'text', 'status'));
+        $input = Input::only(array('name', 'email', 'url', 'content', 'status'));
 
         $validation = Validator::make($input, Comment::$rules);
 
         if ($validation->valid()) {
-            Comment::update($id, $input);
+            Comment::push($input);
             $time = number_format((microtime(true) - $start) * 1000, 2);
             Notify::success('comment updated time: ' . $time);
         }

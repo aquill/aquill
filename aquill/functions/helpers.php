@@ -30,7 +30,7 @@ function admin_body_class($classes = array())
     if (uri_has('users')) 
         $classes[] = 'users';
 
-    $classes[] = get_option('site_color');
+    $classes[] = get_option('site_color', 'purple');
 
     return 'class="' . implode(' ', $classes) . '"';
 }
@@ -151,7 +151,7 @@ function get_option($key, $default = null) {
         $data = DB::table('options')->get();
 
         foreach ($data as $option) {
-            $options[$option->key] = $option->value;
+            $options[$option->name] = $option->value;
         }
 
         Registry::set('options', $options);

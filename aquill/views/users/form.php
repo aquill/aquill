@@ -1,11 +1,27 @@
-<div class="wrap">
-    <hgroup>
-        <h1><?php echo $user->id ? __('user.edit', array('username' => $user->username)) : __('user.add'); ?></h1>
-    </hgroup>
-    <form class="userform" method="POST"
-          action="<?php echo $post->id ? url("admin/users/edit/{$user->id}") : url("admin/users/new"); ?>"
-          accept-charset="UTF-8">
-        <fieldset class="split">
+<form class="userform" method="POST"
+      action="<?php echo $post->id ? url("admin/users/edit/{$user->id}") : url("admin/users/new"); ?>"
+      accept-charset="UTF-8">
+
+    <input type="hidden" name="csrf_token" value="<?php echo csrf_token(); ?>">
+    <input type="hidden" name="id" value="<?php echo $user->id; ?>">
+
+    <fieldset class="header">
+        <div class="wrap">
+            <h1><?php echo $user->id ? __('user.edit', array('name' => $user->username)) : __('user.add'); ?></h1>
+            <aside class="form-actions buttons">
+                <button type="submit" class="btn green">
+                    <span class="icon-save"></span>
+                    <?php //_e('global.update'); ?></button>
+                <a class="button red"
+                   href="<?php echo url('admin/users/delete/' . $user->id); ?>">
+                   <span class="icon-delete"></span>
+                   <?php //_e('global.delete'); ?></a>
+            </aside>
+        </div>
+    </fieldset>
+
+    <fieldset class="split">
+        <div class="wrap">
             <div class="control-group">
                 <label for="username" class="control-label"><?php _e('user.username'); ?></label>
 
@@ -18,7 +34,8 @@
                 <label for="bio" class="control-label"><?php _e('user.bio'); ?></label>
 
                 <div class="controls" style="line-height:0">
-                    <textarea name="bio" rows="3" cols="50" placeholder="<?php _e('user.bio_description'); ?>"><?php echo $user->bio; ?></textarea>
+                    <textarea name="bio" rows="3" cols="50"
+                              placeholder="<?php _e('user.bio_description'); ?>"><?php echo $user->bio; ?></textarea>
                 </div>
             </div>
             <div class="control-group">
@@ -35,6 +52,14 @@
                     <input placeholder="nicename" type="text" name="nicename"
                            value="<?php echo $user->nicename; ?>">
                     <i class="info"><?php _e('user.nicename_description'); ?></i>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="url" class="control-label"><?php _e('user.url'); ?></label>
+
+                <div class="controls">
+                    <input placeholder="<?php _e('user.url_description'); ?>" type="text" name="url"
+                           value="<?php echo $user->url; ?>">
                 </div>
             </div>
             <div class="control-group">
@@ -59,9 +84,6 @@
                     <i class="info"><?php _e('user.email_description'); ?></i>
                 </div>
             </div>
-            <div class="form-actions">
-                <button class="btn" type="submit"><?php _e('global.save'); ?></button>
-            </div>
-        </fieldset>
-    </form>
-</div>
+        </div>
+    </fieldset>
+</form>

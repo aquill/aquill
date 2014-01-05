@@ -33,72 +33,82 @@
 .icon-login:before {
     content: "\e600";
 }
-.icon-undo:before {
-    content: "\e601";
-}
-.icon-pen:before {
-    content: "\e602";
-}
-.icon-extend:before {
-    content: "\e603";
-}
-.icon-feed:before {
-    content: "\e604";
-}
-.icon-checkbox.checked:before {
-    content: "\e605";
-}
-.icon-checkbox-unchecked:before {
-    content: "\e606";
-}
-.icon-checkbox:before {
-    content: "\e606";
-}
-.icon-radio.checked:before {
+.icon-radio-checked:before {
     content: "\e607";
 }
 .icon-radio-unchecked:before {
     content: "\e608";
 }
-.icon-radio:before {
-    content: "\e608";
-}
-.icon-tags:before {
-    content: "\e609";
-}
-.icon-users:before {
-    content: "\e60a";
-}
-.icon-logout:before {
-    content: "\e60b";
-}
-.icon-comments:before {
-    content: "\e60c";
-}
-.icon-archive:before {
-    content: "\e60d";
-}
-.icon-images:before {
-    content: "\e60e";
-}
-.icon-search:before {
-    content: "\e60f";
-}
-.icon-preview:before {
-    content: "\e610";
-}
-.icon-remove:before {
-    content: "\e611";
-}
-.icon-storage:before {
+.icon-auth:before {
     content: "\e612";
 }
-.icon-posts:before {
-    content: "\e613";
+.icon-apache:before {
+    content: "\e601";
 }
-.icon-checkmark:before {
-    content: "\e614";
+.icon-font:before {
+    content: "\e618";
+}
+.icon-checkbox-unchecked:before {
+    content: "\e623";
+}
+.icon-checkbox-checked:before {
+    content: "\e624";
+}
+.icon-preview:before {
+    content: "\e61a";
+}
+.icon-trash:before {
+    content: "\e61f";
 }
 .icon-select:before {
-    content: "\e615";
+    content: "\e604";
+    font-size: 1.2em;
+}
+.icon-pictures:before {
+    content: "\e628";
+}
+.icon-save:before {
+    content: "\e629";
+}
+.icon-delete:before {
+    content: "\e62a";
+}
+.icon-extend:before {
+    content: "\e62c";
+}
+.icon-search:before {
+    content: "\e62d";
+}
+.icon-logout:before {
+    content: "\e62e";
+}
+.icon-pen:before {
+    content: "\e62f";
+}
+.icon-comments:before {
+    content: "\e630";
+}
+.icon-cogs:before {
+    content: "\e631";
+}
+.icon-settings:before {
+    content: "\e632";
+}
+.icon-tag:before {
+    content: "\e635";
+}
+.icon-tags:before {
+    content: "\e636";
+}
+.icon-undo:before {
+    content: "\e637";
+}
+.icon-posts:before {
+    content: "\e627";
+}
+.icon-users:before {
+    content: "\e602";
+}
+.icon-user:before {
+    content: "\e603";
 }
