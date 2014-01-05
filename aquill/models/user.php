@@ -14,7 +14,7 @@ class User extends Eloquent
             static::where('id', '=', $id)->update($input);
         } else {
             $input['registered'] = date('Y-m-d H:i:s');
-            $id = static::insert_get_id($input);
+            $id = DB::table('users')->insert_get_id($input);
         }
 
         return $id;

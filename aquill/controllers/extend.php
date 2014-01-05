@@ -9,7 +9,7 @@ class ExtendController extends AdminController
         $options = DB::table('options')->get();
 
         foreach ($options as $option) {
-            $vars[$option->key] = $option->value;
+            $vars[$option->name] = $option->value;
         }
 
         return View::make('extend/settings', $vars);

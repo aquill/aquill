@@ -12,13 +12,15 @@
                 <button type="submit" class="btn green">
                     <span class="icon-save"></span>
                     <?php //_e('global.update'); ?></button>
-                <a class="button red"
+                <a class="button delete red"
                    href="<?php echo url('admin/categories/delete/' . $category->id); ?>">
                    <span class="icon-delete"></span>
                    <?php //_e('global.delete'); ?></a>
             </aside>
         </div>
     </fieldset>
+
+    <?php echo $messages; ?>
 
     <fieldset class="split">
         <div class="wrap">

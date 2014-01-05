@@ -4,7 +4,7 @@ class CategoryController extends AdminController
 {
 
     public function index($id = null) {
-        $vars['messages'] = Notify::read();
+        $data['messages'] = Notify::read();
 
         $vars['categories'] = Category::order_by('name', 'ASC')->paginate(6);
 
@@ -33,17 +33,21 @@ class CategoryController extends AdminController
 
         $rules = array(
             'name' => 'required',
-            'slug' => 'required'
+            'slug' => 'required',
+            'description' => 'required',
         );
 
         $validation = Validator::make($input, $rules);
 
-        if ($validation->valid()) {
-            Category::push($input);
-            $time = number_format((microtime(true) - $start) * 1000, 2);
-            Notify::success('category updated time: ' . $time);
+        if ($validation->invalid()) {
+            Notify::error('error.');
+            return Redirect::to('admin/categories?id=' . $id);
         }
 
+        $id = Category::push($input);
+        $time = number_format((microtime(true) - $start) * 1000, 2);
+        Notify::success('category updated time: ' . $time);
+        
         return Redirect::to('admin/categories?id=' . $id);
     }
 

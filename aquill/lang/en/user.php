@@ -7,7 +7,7 @@ return array(
     'users' => 'All Users',
 
     'add' => 'Add User',
-    'edit' => 'Editing :name\'s Profile',
+    'edit' => 'Editing :username\'s Profile',
 
     'administrator' => 'Administrator',
     'editor' => 'Editor',

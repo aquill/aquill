@@ -1,4 +1,9 @@
 <div id="sidebar" class="sidebar">
+    
+        <aside id="statuses" class="widget widget-statuses">
+            <h3 class="icon-select"><?php _e('comment.comments'); ?></h3>
+        </aside>
+
     <aside id="postlist" class="widget widget-list">
         <h3 class="widget-title">Extend</h3>
         <ul class="list">

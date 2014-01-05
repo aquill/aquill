@@ -1,5 +1,5 @@
 <form class="userform" method="POST"
-      action="<?php echo $post->id ? url("admin/users/edit/{$user->id}") : url("admin/users/new"); ?>"
+      action="<?php echo $user->id ? url("admin/users/edit/{$user->id}") : url("admin/users/new"); ?>"
       accept-charset="UTF-8">
 
     <input type="hidden" name="csrf_token" value="<?php echo csrf_token(); ?>">
@@ -7,7 +7,7 @@
 
     <fieldset class="header">
         <div class="wrap">
-            <h1><?php echo $user->id ? __('user.edit', array('name' => $user->username)) : __('user.add'); ?></h1>
+            <h1><?php echo $user->id ? __('user.edit', array('username' => $user->username)) : __('user.add'); ?></h1>
             <aside class="form-actions buttons">
                 <button type="submit" class="btn green">
                     <span class="icon-save"></span>
@@ -20,13 +20,15 @@
         </div>
     </fieldset>
 
+    <?php echo $messages; ?>
+
     <fieldset class="split">
         <div class="wrap">
             <div class="control-group">
                 <label for="username" class="control-label"><?php _e('user.username'); ?></label>
 
                 <div class="controls">
-                    <input placeholder="username" type="text" name="username" value="<?php echo $user->username; ?>">
+                    <input <?php echo $user->id ? 'readonly="readonly"' : '' ; ?> placeholder="username" type="text" name="username" value="<?php echo $user->username; ?>">
                     <i class="info"><?php _e('user.username_description'); ?></i>
                 </div>
             </div>

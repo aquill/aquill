@@ -4,9 +4,9 @@ class CommentController extends AdminController
 {
 
     public function index($id = null) {
-        $vars['messages'] = Notify::read();
-
         $vars['comments'] = Comment::order_by('created_at', 'DESC')->paginate(10);
+
+        $data['messages'] = Notify::read();
 
         if ($id = Input::get('id', 0)) {
             $data['comment'] = Comment::find($id);
@@ -42,11 +42,14 @@ class CommentController extends AdminController
 
         $validation = Validator::make($input, Comment::$rules);
 
-        if ($validation->valid()) {
-            Comment::push($input);
-            $time = number_format((microtime(true) - $start) * 1000, 2);
-            Notify::success('comment updated time: ' . $time);
+        if ($validation->invalid()) {
+            Notify::success('error.');
+            return Redirect::to("admin/comments?id={$id}");
         }
+
+        Comment::push($input);
+        $time = number_format((microtime(true) - $start) * 1000, 2);
+        Notify::success('comment updated time: ' . $time);
 
         return Redirect::to("admin/comments?id={$id}");
     }

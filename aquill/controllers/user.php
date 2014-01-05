@@ -3,7 +3,7 @@
 class UserController extends AdminController
 {
     public function index($id = null) {
-        $vars['messages'] = Notify::read();
+        $data['messages'] = Notify::read();
 
         $vars['users'] = User::paginate(6);
 
@@ -47,8 +47,6 @@ class UserController extends AdminController
             $input['password'] = $password;
         }
 
-        $input['activation_key'] = '';
-
         $rules = array(
             'username' => 'required',
             'email' => 'required|email'
@@ -57,7 +55,7 @@ class UserController extends AdminController
         $validation = Validator::make($input, $rules);
 
         if ($validation->valid()) {
-            User::push($input);
+            $id = User::push($input);
             $time = number_format((microtime(true) - $start) * 1000, 2);
             Notify::success('user updated time: ' . $time);
         }

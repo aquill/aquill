@@ -21,7 +21,7 @@
         </div>
         <div class="form-actions">
             <button class="btn green" type="submit"><span class="icon-login"></span></button>
-            <label class="icon-checkbox-checked"><input type="checkbox" name="remember" value="remember">
+            <label class="icon-checkbox checked"><input type="checkbox" name="remember" value="remember">
                 <?php _e('login.remember'); ?></label>
             <a href="<?php echo url('amnesia'); ?>"><?php _e('login.amnesia'); ?></a>
         </div>

@@ -457,3 +457,31 @@ fieldset.editor textarea {
     left: 6em;
     display: none;
 }
+
+.color {
+    display: inline-block;
+    height: 2em;
+    width: 2em;
+    cursor: pointer;
+    line-height: 2.2em;
+    padding: 0 !important;
+    text-align: center !important;
+}
+.color .checker:before {
+    color: #fff !important;
+}
+.green.color {
+    background: #3B7548;
+}
+.black.color {
+    background: #111;
+}
+.blue.color {
+    background: #34495E;
+}
+.purple.color {
+    background: #669;
+}
+.cyan.color {
+    background: #28998F;
+}

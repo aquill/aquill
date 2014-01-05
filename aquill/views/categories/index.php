@@ -26,7 +26,6 @@
     </div>
 
     <div id="main" class="container">
-        <?php echo $messages; ?>
         <?php echo $formdata; ?>
     </div>
 

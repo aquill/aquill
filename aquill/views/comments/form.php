@@ -20,6 +20,8 @@
         </div>
     </fieldset>
 
+    <?php echo $messages; ?>
+
     <fieldset class="split">
         <div class="wrap">
             <div class="control-group">

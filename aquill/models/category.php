@@ -26,7 +26,7 @@ class Category extends Tag
             static::where('id', '=', $id)->update($input);
         } else {
             $input['taxonomy'] = 'category';
-            $id = static::insert_get_id($input);
+            $id = DB::table('terms')->insert_get_id($input);
         }
 
         return $id;

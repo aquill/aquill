@@ -35,7 +35,7 @@ Route::get('admin/categories, admin/categories/(:num)', 'category@index');
 
 Route::post('admin/categories', 'category@paginate');
 Route::post('admin/categories/new, admin/categories/edit/(:num)', 'category@compose');
-Route::post('admin/categories/delete/(:num)', 'category@delete');
+Route::get('admin/categories/delete/(:num)', 'category@delete');
 
 // --------------------------------------------------------------
 // Comment Routes

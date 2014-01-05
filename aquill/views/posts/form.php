@@ -58,8 +58,6 @@
         </div>
     </fieldset>
 
-    <?php echo $messages; ?>
-
     <fieldset class="header">
         <aside class="buttons">
             <div class="wrap">
@@ -100,6 +98,8 @@
             </ul>
         </aside>
     </fieldset>
+
+    <?php echo $messages; ?>
 
     <fieldset class="preview html" id="markdown-preview"></fieldset>
 
