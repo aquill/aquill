@@ -30,4 +30,7 @@ return array(
     'confirm_description' => 'Type your new password again.',
     'email' => 'email',
 
+    'error' => 'error',
+    'password_error' => 'Your new passwords did not match.',
+
 );

@@ -14,9 +14,8 @@ class SiteController extends Controller
         Registry::set('pages', $pages);
     }
 
-    public function home() {
-
-        //$b = Base::find(array('slug' => 'hello-world'));
+    public function home()
+    {
 
         $homepage = get_option('rewrite_home');
 
@@ -26,13 +25,14 @@ class SiteController extends Controller
 
         if (is_null($homepage)) {
 
-            return new Theme('index');            
+            return Theme::view('index');
         }
 
-        return new Theme($homepage);
+        return Theme::view($homepage);
     }
 
-    public function feed($uri) {
+    public function feed($uri)
+    {
         $posts = Post::published()->take(20)->get();
 
         if (empty($posts)) return;
@@ -59,7 +59,8 @@ class SiteController extends Controller
         return $feed->render($uri);
     }
 
-    public function sitemap($suffix = 'xml') {
+    public function sitemap($suffix = 'xml')
+    {
 
         $suffixes = array('xml', 'html', 'ror.rdf', 'ror.rss', 'txt');
 
@@ -67,7 +68,7 @@ class SiteController extends Controller
             return Theme::notFound();
 
         $posts = Post::published()->get();
-        
+
         if (empty($posts)) return;
 
         $sitemap = new Sitemap();
@@ -85,7 +86,8 @@ class SiteController extends Controller
         return $sitemap->render($suffix);
     }
 
-    public function robots() {
+    public function robots()
+    {
         $vars['site_url'] = URL::base();
 
         $content = View::make('robots', $vars);
@@ -95,7 +97,8 @@ class SiteController extends Controller
         return Response::make($content, $status, $headers);
     }
 
-    public function post($id) {
+    public function post($id)
+    {
 
         if (get_by_id()) {
             $post = Post::find($id);
@@ -108,10 +111,11 @@ class SiteController extends Controller
 
         Registry::set('post', $post);
 
-        return new Theme('post');
+        return Theme::view('post');
     }
 
-    public function page($id) {
+    public function page($id)
+    {
 
         if (get_by_id('page')) {
             $page = Page::find($id);
@@ -121,13 +125,14 @@ class SiteController extends Controller
 
         if (is_null($page))
             return Theme::notFound();
-        
+
         Registry::set('page', $page);
 
-        return new Theme('page');
+        return Theme::view('page');
     }
 
-    public function category($id) {
+    public function category($id)
+    {
         if (get_by_id('category')) {
             $category = Category::find($id);
         } else {
@@ -142,10 +147,11 @@ class SiteController extends Controller
         Registry::set('category', $category);
         Registry::set('posts', $posts);
 
-        return new Theme('index');
+        return Theme::view('index');
     }
 
-    public function tag($id) {
+    public function tag($id)
+    {
         if (get_by_id('tag')) {
             $tag = Tag::find($id);
         } else {
@@ -160,10 +166,11 @@ class SiteController extends Controller
         Registry::set('tag', $tag);
         Registry::set('posts', $posts);
 
-        return new Theme('index');
+        return Theme::view('index');
     }
 
-    public function author($id) {
+    public function author($id)
+    {
         if (get_by_id('author')) {
             $author = User::find($id);
         } else {
@@ -178,10 +185,11 @@ class SiteController extends Controller
         Registry::set('author', $author);
         Registry::set('posts', $posts);
 
-        return new Theme('index');
+        return Theme::view('index');
     }
 
-    public function comment() {
+    public function comment()
+    {
         $comment = Input::only(array('post_id', 'name', 'email', 'url', 'content'));
         $post = Post::find($comment['post_id']);
 
@@ -193,7 +201,7 @@ class SiteController extends Controller
             Notify::error('Publish comment error.');
             return Redirect::to($post->link() . '#response');
         }
-        
+
         if (!Cookie::get('comment')) {
             Cookie::forever('comment', $comment);
         }

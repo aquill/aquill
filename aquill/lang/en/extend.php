@@ -5,6 +5,8 @@ return array(
     'settings' => 'Settings',
     'site_title' => 'Site title',
     'site_description' => 'Site description',
+    'timezone' => 'Timezone',
+    'language' => 'Language',
     'site_color' => 'Site color',
     'per_page' => 'Posts pre page',
     'comment_status' => 'Comment status',
@@ -13,4 +15,6 @@ return array(
     'email_notification_desc' => 'Email notification for new comments',
     'spam_keywords' => 'Spam keywords',
 
+    'success' => 'success',
+    'error' => 'error',
 );

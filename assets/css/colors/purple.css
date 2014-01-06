@@ -208,12 +208,17 @@ body.login.purple .form-actions a {
 
 body.purple .toolbar {
     background: #669;
+    border-right: 1px solid #CCCCDF;
 }
 
 body.purple .toolbar li a {
-    border-bottom: 0;
+    border-bottom: 1px solid #505075;
+    border-top: 1px solid #7D7DAC;
 }
-
+body.purple .toolbar li.bottom {
+    border-top: 1px solid #4C4C6F;
+    background: #669;
+}
 body.purple .toolbar a {
     color: rgba(255, 255, 255, 0.6);
 }
@@ -222,7 +227,7 @@ body.purple .toolbar .active a,
 body.purple .toolbar a:hover {
     color: #669;
     background: rgba(255, 255, 255, 0.3);
-    border-bottom: 0;
+    border-bottom: 1px solid #6A6A7E;
 }
 
 /** sidebar **/

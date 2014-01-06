@@ -39,16 +39,14 @@
 
 .container .wrap {
     padding: 0 2em;
-    max-width: 60em;
     margin: 0;
     position: relative;
 }
 
 .footer {
     position: fixed;
-    left: 0;
-    bottom: 1em;
-    width: 60px;
+    right: 0;
+    bottom: .5em;
     text-align: center;
     z-index: 9999;
 }
@@ -128,8 +126,10 @@ pre {
 }
 
 .elapsed, .usage {
-    display: block;
-    color: #fff;
+    display: inline-block;
+    color: #666;
     font-size: 12px;
     line-height: 1.2em;
+    margin-right: .5em;
+    font-style: normal;
 }

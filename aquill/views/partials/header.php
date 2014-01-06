@@ -10,25 +10,16 @@
 <body <?php echo admin_body_class('admin'); ?>>
 <div id="header" class="col toolbar">
     <ul class="site-navigation">
+        <?php $menu = array('dashboard', 'posts', 'comments', 'tags', 'users', 'themes');
+        foreach ($menu as $item) : ?>
+            <li <?php echo uri_has($item) ? 'class="active" ' : ' '; ?>>
+                <a class="icon-<?php echo $item; ?>" title="<?php _e('dashboard.'.$item); ?>" href="<?php echo url('admin/'.$item); ?>"></a>
+            </li>
+        <?php endforeach; ?>        
         <li>
             <a class="icon-undo" title="Visit your site" target="_blank" href="<?php echo url('/') ?>"></a>
         </li>
-        <li <?php echo uri_has('posts') ? 'class="active" ' : ' '; ?>>
-            <a class="icon-pen" href="<?php echo url('admin/posts'); ?>" title="Posts.posts"></a>
-        </li>
-        <li <?php echo uri_has('comments') ? 'class="active" ' : ' '; ?>>
-            <a class="icon-comments" href="<?php echo url('admin/comments'); ?>" title="Comments.comments"></a>
-        </li>
-        <li <?php echo uri_has('categories') ? 'class="active" ' : ' '; ?>>
-            <a class="icon-tags" href="<?php echo url('admin/categories'); ?>" title="Categories.categories"></a>
-        </li>
-        <li <?php echo uri_has('users') ? 'class="active" ' : ' '; ?>>
-            <a class="icon-users" href="<?php echo url('admin/users'); ?>" title="Users.users"></a>
-        </li>
-        <li <?php echo uri_has('settings') ? 'class="active" ' : ' '; ?>>
-            <a class="icon-extend" href="<?php echo url('admin/settings'); ?>" title="Extend.extend"></a>
-        </li>
-        <li>
+        <li class="bottom">
             <a class="icon-logout" title="Logout" href="<?php echo url('logout'); ?>"></a>
         </li>
     </ul>

@@ -27,4 +27,6 @@ return array(
     'more_settings' => '更多设置',
     'content_placeholder' => '写点什么吧...',
 
+    'error' => '输入信息有误',
+    'success' => '文章发表成功',
 );

@@ -32,4 +32,7 @@ return array(
     'email' => '电子邮箱',
     'email_description' => '可以用来找回密码',
 
+    'error' => '信息输入有误',
+    'password_error' => '您两次输入的新密码不匹配',
+
 );

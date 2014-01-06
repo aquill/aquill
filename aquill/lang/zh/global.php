@@ -6,4 +6,5 @@ return array(
     'delete' => '删除',
     'preview' => '预览',
     'update' => '更新',
+
 );

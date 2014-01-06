@@ -457,6 +457,44 @@ fieldset.editor textarea {
     left: 6em;
     display: none;
 }
+.theme-screenshot {
+    float: left;
+    width: 60%;
+    position: relative;
+    padding-right: 2em;
+}
+.theme-screenshot img {
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.08) 
+}
+.theme-info {
+    width: 40%;
+    float: left;
+}
+.theme-name {
+    line-height: 1.3em;
+    margin-top: .5em;
+}
+.theme-version {
+    font-size: 16px;
+    margin-bottom: .5em;
+}
+.theme-button {
+    margin-top: .5em;
+}
+.container .theme {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    border-bottom: 1px solid rgba(0,0,0,0.08) 
+}
+
+.themeform:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;  
+}
 
 .color {
     display: inline-block;
@@ -484,4 +522,46 @@ fieldset.editor textarea {
 }
 .cyan.color {
     background: #28998F;
+}
+.container.extend {
+    margin-left: 60px;
+    width: auto;
+}
+.dashboard {
+    margin-left: 60px;
+    width: auto;
+}
+.dashboard .wrap {
+    max-width: inherit;
+}
+.dashboard dt {
+    font-size: 2em;
+    line-height: 3em;
+    clear: both;
+    color: #555;
+}
+.dashboard dd {
+    background: #669;
+    border: 1px solid #669;
+    color: #fff !important;
+    display: block;
+    float: left;
+    line-height: 4em;
+    padding: 0 1em;
+    margin: .5em;
+}
+.dashboard dd a{
+    color: #fff;
+    display: block;
+}
+.dashboard [class^="icon-"]:before,
+.dashboard [class*=" icon-"]:before {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 3em;
+    line-height: 2em;
+    padding-right: 6px;
+}
+.bottom {
+    position: absolute;
+    bottom: 0;
 }

@@ -1,0 +1,25 @@
+; Gleez Fluid Theme
+;
+; Author:     Aqiull Team
+; Copyright:  (c) 2013 Aqiull Team
+; License:    http://aquill.org/license
+;
+; This file format fully consistent with the ini-file
+; Empty strings and strings beginning with ; symbols ignored
+; For more information see http://php.net/manual/en/function.parse-ini-file.php
+;
+
+;
+; Theme info
+;
+name        = "notebook"
+title       = "Fluid Theme"
+description = "A crisp and distinctive, tableless, fluid width administration theme"
+version     = 1.0.1
+license     = http://gleezcms.org/license
+themeURL    = https://github.com/gleez/cms/tree/master/themes/fluid
+depends     =
+author      = "Gleez Team"
+authorURL   = http://www.gleeztech.com/
+site        = 1
+admin       = 0

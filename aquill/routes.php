@@ -24,18 +24,18 @@ Route::post('comment', 'site@comment');
 Route::get('admin/posts, admin/posts/(:num)', 'post@index');
 
 Route::post('admin/posts', 'post@paginate');
-Route::post('admin/posts/new, admin/posts/edit/(:num)', 'post@compose');
+Route::post('admin/posts/new, admin/posts/edit/(:num)', 'post@push');
 Route::get('admin/posts/delete/(:num)', 'post@delete');
 
 // --------------------------------------------------------------
-// Category Routes
+// Tag Routes
 // --------------------------------------------------------------
 
-Route::get('admin/categories, admin/categories/(:num)', 'category@index');
+Route::get('admin/tags, admin/tags/(:num)', 'category@index');
 
-Route::post('admin/categories', 'category@paginate');
-Route::post('admin/categories/new, admin/categories/edit/(:num)', 'category@compose');
-Route::get('admin/categories/delete/(:num)', 'category@delete');
+Route::post('admin/tags', 'category@paginate');
+Route::post('admin/tags/new, admin/tags/edit/(:num)', 'category@compose');
+Route::get('admin/tags/delete/(:num)', 'category@delete');
 
 // --------------------------------------------------------------
 // Comment Routes
@@ -60,12 +60,29 @@ Route::post('admin/users/new, admin/users/edit/(:num)', 'user@update');
 Route::post('admin/users/delete/(:num)', 'user@delete');
 
 // --------------------------------------------------------------
+// Media Routes
+// --------------------------------------------------------------
+
+Route::get('admin/media', 'media@index');
+
+// --------------------------------------------------------------
 // Extend Routes
 // --------------------------------------------------------------
 
-Route::get('admin/settings', 'extend@settings');
+Route::get('admin', 'admin@index');
+Route::get('admin/dashboard', 'admin@dashboard');
+
+Route::get('admin/general', 'extend@general');
+Route::get('admin/urls', 'extend@urls');
+Route::get('admin/mailer', 'extend@mailer');
 Route::get('admin/themes', 'extend@themes');
 Route::get('admin/bundles', 'extend@bundles');
+
+Route::post('admin/general', 'extend@general');
+Route::post('admin/urls', 'extend@urls');
+Route::post('admin/mailer', 'extend@mailer');
+Route::post('admin/themes/(:any)', 'extend@themes');
+Route::post('admin/bundles', 'extend@bundles');
 
 // --------------------------------------------------------------
 // Application 404 & 500 Error Handlers

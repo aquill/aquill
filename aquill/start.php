@@ -11,6 +11,9 @@ Aquill::bundles($bundles);
 
 Aquill::theme($theme);
 
+Config::set('app.index', get_option('site_index'));
+Config::set('app.language', get_option('language'));
+Config::set('app.timezone', get_option('timezone'));
 
 Asset::container('header')->add('global', 'assets/css/global.css');
 Asset::container('header')->add('admin', 'assets/css/admin.css');

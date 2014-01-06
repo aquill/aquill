@@ -23,4 +23,7 @@ return array(
     'title_placeholder' => 'Enter title here',
     'more_settings' => 'More settings',
     'content_placeholder' => 'Writting something...',
+
+    'error' => 'Error',
+    'success' => 'Success',
 );

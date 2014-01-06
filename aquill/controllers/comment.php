@@ -3,7 +3,8 @@
 class CommentController extends AdminController
 {
 
-    public function index($id = null) {
+    public function index($id = null)
+    {
         $vars['comments'] = Comment::order_by('created_at', 'DESC')->paginate(10);
 
         $data['messages'] = Notify::read();
@@ -23,7 +24,8 @@ class CommentController extends AdminController
         return View::make('comments/index', $vars)->nest('formdata', 'comments/form', $data);
     }
 
-    public function paginate() {
+    public function paginate()
+    {
         if (Input::get('page') > Comment::count() / 20) {
             return;
         }
@@ -33,7 +35,8 @@ class CommentController extends AdminController
         return View::make('comments/comments', $vars);
     }
 
-    public function update($id = null) {
+    public function update($id = null)
+    {
         $start = microtime(true);
 
         if (is_null($id)) return Redirect::to('admin/comments');

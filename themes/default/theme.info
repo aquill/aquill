@@ -1,6 +1,30 @@
-Bundle name :   Default
-Description :   This is the default, shiny theme for Aquill.
-Version     :   1.0
-Author name :   Aquill Team
-Author site :   http://aquill.org
-License     :   http://aquill.org/license.txt
+; Aquill Default Theme
+;
+; Author:     Aqiull Team
+; Copyright:  (c) 2013 Aqiull Team
+; License:    http://aquill.org/license
+;
+; This file format fully consistent with the ini-file
+; Empty strings and strings beginning with ; symbols ignored
+; For more information see http://php.net/manual/en/function.parse-ini-file.php
+;
+
+;
+; Theme info
+;
+name  = "Default"
+url   = https://github.com/aquill/themes/default
+
+author      = "Aquill Team"
+author_url  = http://www.aquill.org/
+
+version     = 0.1.1
+license     = http://aquill.org/license
+
+description = "Default theme for Aquill"
+tags        = "one-column"
+
+site        = 1
+admin       = 0
+
+;bundles     =

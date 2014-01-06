@@ -1,5 +1,5 @@
 <form class="categoryform" method="POST"
-      action="<?php echo $category->id ? url("admin/categories/edit/{$category->id}") : url("admin/categories/new"); ?>"
+      action="<?php echo $category->id ? url("admin/tags/edit/{$category->id}") : url("admin/tags/new"); ?>"
       accept-charset="UTF-8">
 
     <input type="hidden" name="csrf_token" value="<?php echo csrf_token(); ?>">
@@ -13,7 +13,7 @@
                     <span class="icon-save"></span>
                     <?php //_e('global.update'); ?></button>
                 <a class="button delete red"
-                   href="<?php echo url('admin/categories/delete/' . $category->id); ?>">
+                   href="<?php echo url('admin/tags/delete/' . $category->id); ?>">
                    <span class="icon-delete"></span>
                    <?php //_e('global.delete'); ?></a>
             </aside>

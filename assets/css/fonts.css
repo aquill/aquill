@@ -33,26 +33,20 @@
 .icon-login:before {
     content: "\e600";
 }
-.icon-radio.checked:before {
+.icon-users:before {
+    content: "\e602";
+}
+.icon-select:before {
+    content: "\e604";
+}
+.icon-raido.checked:before {
     content: "\e607";
 }
 .icon-radio:before {
     content: "\e608";
 }
-.icon-auth:before {
-    content: "\e612";
-}
-.icon-apache:before {
-    content: "\e601";
-}
 .icon-font:before {
     content: "\e618";
-}
-.icon-checkbox:before {
-    content: "\e623";
-}
-.icon-checkbox.checked:before {
-    content: "\e624";
 }
 .icon-preview:before {
     content: "\e61a";
@@ -60,18 +54,26 @@
 .icon-trash:before {
     content: "\e61f";
 }
-.icon-select:before {
-    content: "\e604";
-    font-size: 1.2em;
+.icon-checkbox:before {
+    content: "\e623";
 }
-.icon-pictures:before {
+.icon-checkbox.checked:before {
+    content: "\e624";
+}
+.icon-media:before {
     content: "\e628";
+}
+.icon-uniE627:before {
+    content: "\e627";
 }
 .icon-save:before {
     content: "\e629";
 }
 .icon-delete:before {
     content: "\e62a";
+}
+.icon-bundles:before {
+    content: "\e62c";
 }
 .icon-extend:before {
     content: "\e62c";
@@ -85,14 +87,20 @@
 .icon-pen:before {
     content: "\e62f";
 }
+.icon-posts:before {
+    content: "\e62f";
+}
 .icon-comments:before {
     content: "\e630";
 }
-.icon-cogs:before {
+.icon-settings:before {
     content: "\e631";
 }
-.icon-settings:before {
+.icon-setting:before {
     content: "\e632";
+}
+.icon-general:before {
+    content: "\e631";
 }
 .icon-tag:before {
     content: "\e635";
@@ -103,12 +111,26 @@
 .icon-undo:before {
     content: "\e637";
 }
-.icon-posts:before {
-    content: "\e627";
-}
-.icon-users:before {
-    content: "\e602";
+.icon-aquill:before {
+    content: "\e601";
 }
 .icon-user:before {
+    content: "\f110";
+}
+.icon-auth:before {
+    content: "\f112";
+}
+.icon-themes:before {
     content: "\e603";
+}
+.icon-mailer:before {
+    content: "\e605";
+}
+.icon-urls:before {
+    content: "\e611";
+}
+.icon-dashboard:before {
+    content: "\e609";
+    font-size: 1.5em;
+    line-height: 1.5em;
 }
