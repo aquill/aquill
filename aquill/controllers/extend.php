@@ -50,23 +50,6 @@ class ExtendController extends AdminController
         return Redirect::to('admin/general');
     }
 
-    public function getThemes()
-    {
-        $vars['messages'] = Notify::read();
-
-        $vars['themes'] = Info::themes();
-
-        return View::make('extend/themes', $vars);
-    }
-
-    public function postThemes()
-    {
-        Input::only(array('site_title', 'site_description', 'site_color'));
-        $input = Input::get();
-
-        dd($input);
-    }
-
     public function getUrls()
     {
         $vars['messages'] = Notify::read();
@@ -143,18 +126,65 @@ class ExtendController extends AdminController
 
     }
 
+    public function getThemes()
+    {
+        $vars['messages'] = Notify::read();
+
+        $vars['themes'] = Info::themes();
+
+        return View::make('extend/themes', $vars);
+    }
+
+    public function postThemes()
+    {
+        $theme['name'] = Input::get('site_theme');
+
+        DB::table('options')->where('name', '=', 'site_theme')->update($theme);
+
+        Notify::success(__('extend.success'));
+
+        return Redirect::to('admin/themes');
+    }
+
     public function getBundles()
     {
         $vars['messages'] = Notify::read();
 
         $vars['bundles'] = Info::bundles();
 
+        $options = DB::table('options')->where('name', '=', 'site_bundles')->first();
+
+        $vars['activation'] = explode(',', $options->value);
+
         return View::make('extend/bundles', $vars);
     }
 
     public function postBundles()
     {
+        $bundle = Input::get('bundle');
 
+        $options = DB::table('options')->where('name', '=', 'site_bundles')->first();
+
+        $activation = explode(',', $options->value);
+
+        if (in_array($bundle, $activation)) {
+            foreach ($activation as $key => $value) {
+                if ($value == $bundle) {
+                    unset($activation[$key]);
+                    break;
+                }
+            }
+        } else {
+            $activation[] = $bundle;
+        }
+
+        $bundles['value'] = implode(',', $activation);
+
+        DB::table('options')->where('name', '=', 'site_bundles')->update($bundles);
+
+        Notify::success(__('extend.success'));
+
+        return Redirect::to('admin/bundles');
     }
 
 }

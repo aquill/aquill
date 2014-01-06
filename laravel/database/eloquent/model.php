@@ -425,7 +425,7 @@ abstract class Model {
 	 *
 	 * @return bool
 	 */
-/*	public function save()
+	public function save()
 	{
 		// If the model does not have any dirty attributes, there is no reason
 		// to save it to the database.
@@ -457,7 +457,7 @@ abstract class Model {
 
 		return $success;
 	}
-*/
+
 	/**
 	 * Set the creation and update timestamps on the model.
 	 *

@@ -516,6 +516,16 @@ fieldset.editor textarea {
 .bundle-button {
     margin: 1em 0;
 }
+article h1 {
+    font-size: 1.8em;
+    padding-top: 1em;
+    padding-bottom: .5em;
+    line-height: 1.6em;
+    font-weight: normal;
+    color: #555;
+    border-bottom: 0;
+    padding: 1em .5em .5em;
+}
 .color {
     display: inline-block;
     height: 2em;
@@ -580,6 +590,9 @@ fieldset.editor textarea {
     font-size: 3em;
     line-height: 2em;
     padding-right: 6px;
+    width: 1em;
+    height: 2em;
+    display: inline-block;
 }
 .bottom {
     position: absolute;
