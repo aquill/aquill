@@ -148,11 +148,12 @@ input.hidden {
 .checker:before {
     
 }
-.form-actions {
+fieldset.header .form-actions {
     margin: 0;
     display: inline-block;
     position: absolute;
     right: 0;
+    top: 0;
     background: none !important;
     border: 0 !important;
 }

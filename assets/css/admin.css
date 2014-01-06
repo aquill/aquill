@@ -496,6 +496,26 @@ fieldset.editor textarea {
     visibility: hidden;  
 }
 
+.bundle {
+    background: #669;
+    display: block;
+    float: left;
+    margin: 1em;
+    padding: 1em 2em;
+    color: rgba(255,255,255,0.6);
+}
+
+.bundle a {
+    color: rgba(255,255,255,0.6) !important;
+}
+
+.bundle-name {
+    color: #fff;
+    line-height: 2em;
+}
+.bundle-button {
+    margin: 1em 0;
+}
 .color {
     display: inline-block;
     height: 2em;
@@ -523,7 +543,7 @@ fieldset.editor textarea {
 .cyan.color {
     background: #28998F;
 }
-.container.extend {
+.container.one-column {
     margin-left: 60px;
     width: auto;
 }

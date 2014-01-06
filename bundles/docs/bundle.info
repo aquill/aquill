@@ -1,0 +1,30 @@
+; Aquill Default Theme
+;
+; Author:     Aqiull Team
+; Copyright:  (c) 2013 Aqiull Team
+; License:    http://aquill.org/license
+;
+; This file format fully consistent with the ini-file
+; Empty strings and strings beginning with ; symbols ignored
+; For more information see http://php.net/manual/en/function.parse-ini-file.php
+;
+
+;
+; Bundle info
+;
+name  = "Document"
+url   = https://github.com/aquill/bundles/docs
+
+author      = "Aquill Team"
+author_url  = http://www.aquill.org/
+
+version     = 0.1.1
+license     = http://aquill.org/license
+
+description = "Document for Aquill"
+;tags        = "one-column"
+
+;site        = 1
+;admin       = 0
+
+;bundles     =

@@ -80,6 +80,4 @@ class Theme
         return Template::make($view, $data);
     }
 
-
-
 }

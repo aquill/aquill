@@ -37,7 +37,7 @@ class ExtendController extends AdminController
 
         if ($validation->invalid()) {
             Notify::error(__('extend.error'));
-            return Redirect::to('admin/settings');
+            return Redirect::to('admin/general');
         }
         
         foreach ($options as $name => $option) {
@@ -54,9 +54,7 @@ class ExtendController extends AdminController
     {
         $vars['messages'] = Notify::read();
 
-        $options = DB::table('options')->get();
-
-        $vars['themes'] = Theme::all();
+        $vars['themes'] = Info::themes();
 
         return View::make('extend/themes', $vars);
     }
@@ -73,18 +71,58 @@ class ExtendController extends AdminController
     {
         $vars['messages'] = Notify::read();
 
-        $options = DB::table('options')->get();
+        $options = DB::table('options')->where('name', 'like', 'rewrite_%')->get();
 
         foreach ($options as $option) {
             $vars[$option->name] = $option->value;
         }
 
-        return View::make('extend/bundles', $vars);
+        $vars['posts'] = array(
+            'numeric' => '/archives/{id}',
+            'name' => '/archives/{name}',
+            'month_name' => '/{year}/{month}/{name}',
+            'day_name' => '/{year}/{month}/{day}/{name}',
+            'custom' => '',
+        );
+
+        return View::make('extend/urls', $vars);
     }
 
     public function postUrls()
     {
+        $urls = Input::only(array('rewrite_home', 'rewrite_page', 'rewrite_category', 
+            'rewrite_tag', 'rewrite_author'));
 
+        $post = Input::get('rewrite_post');
+        $custom = Input::get('rewrite_post_custom', '/archives/{id}');
+
+        $urls['rewrite_post'] = Input::get('rewrite_post', '') == '' ? $custom : $post;
+
+
+        $rules = array(
+            'rewrite_home' => 'required',
+            'rewrite_post' => 'required',
+            'rewrite_page' => 'required',
+            'rewrite_category' => 'required',
+            'rewrite_tag' => 'required',
+            'rewrite_author' => 'required',
+        );
+
+        $validation = Validator::make($urls, $rules);
+
+        if ($validation->invalid()) {
+            Notify::error(__('extend.error'));
+            return Redirect::to('admin/urls');
+        }
+
+        foreach ($urls as $name => $option) {
+            $temp['value'] = $option;
+            DB::table('options')->where('name', '=', $name)->update($temp);
+        }
+
+        Notify::success(__('extend.success'));
+
+        return Redirect::to('admin/urls');
     }
 
     public function getMailer()
@@ -109,11 +147,7 @@ class ExtendController extends AdminController
     {
         $vars['messages'] = Notify::read();
 
-        $options = DB::table('options')->get();
-
-        foreach ($options as $option) {
-            $vars[$option->name] = $option->value;
-        }
+        $vars['bundles'] = Info::bundles();
 
         return View::make('extend/bundles', $vars);
     }

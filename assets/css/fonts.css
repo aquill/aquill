@@ -39,7 +39,7 @@
 .icon-select:before {
     content: "\e604";
 }
-.icon-raido.checked:before {
+.icon-radio.checked:before {
     content: "\e607";
 }
 .icon-radio:before {

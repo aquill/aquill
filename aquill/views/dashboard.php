@@ -1,5 +1,6 @@
 <?php partial('partials/header'); ?>
-<div class="container dashboard">
+
+<div class="container dashboard one-column">
     <div class="wrap">
         <?php $variable = array(
             'blog' => array('posts', 'tags', 'comments', 'users', 'media'),
@@ -16,4 +17,5 @@
         <?php endforeach; ?>
     </div>
 </div>
+
 <?php partial('partials/footer'); ?>

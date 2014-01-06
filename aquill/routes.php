@@ -82,7 +82,7 @@ Route::post('admin/general', 'extend@general');
 Route::post('admin/urls', 'extend@urls');
 Route::post('admin/mailer', 'extend@mailer');
 Route::post('admin/themes/(:any)', 'extend@themes');
-Route::post('admin/bundles', 'extend@bundles');
+Route::post('admin/bundles/(:any)', 'extend@bundles');
 
 // --------------------------------------------------------------
 // Application 404 & 500 Error Handlers

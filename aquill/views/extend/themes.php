@@ -1,6 +1,6 @@
 <?php partial('partials/header'); ?>
 <?php //partial('extend/sidebar'); ?>
-<div class="container extend">
+<div class="container one-column">
     <?php foreach ($themes as $theme) : ?>
     <div class="wrap theme">
         <form class="themeform" method="post" action="<?php echo url('admin/themes/'.$theme->view) ; ?>">
