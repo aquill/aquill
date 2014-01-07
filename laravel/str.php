@@ -307,6 +307,9 @@ class Str
             case 'alnum':
                 return '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
+            case 'digital':
+                return '0123456789';
+
             default:
                 throw new \Exception("Invalid random string type [$type].");
         }

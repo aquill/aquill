@@ -134,6 +134,8 @@ class File
     {
         $mimes = Config::get('mimes');
 
+        $extension = strtolower($extension);
+
         if (!array_key_exists($extension, $mimes)) return $default;
 
         return (is_array($mimes[$extension])) ? $mimes[$extension][0] : $mimes[$extension];

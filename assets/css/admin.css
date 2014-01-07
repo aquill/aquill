@@ -618,3 +618,37 @@ label.custom input {
 .attachment {
     margin-right: 1em;
 }
+.dfiles {
+    background: #C8C8DA;
+    position: relative;
+    font-size: 2em;
+    line-height: 7em;
+    text-align: center;
+}
+.dfiles img {
+    opacity: 0;
+}
+.dfiles h3 {
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.Caption_Content {
+    color: #f1f1f1;
+    padding: 1em;
+}
+.upload {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin-left: 60px;
+    text-align: center;
+    padding-bottom: 1em;
+}
+.upload input[type=file] {
+    visibility: hidden;
+}
+.upload button {
+    font-size: 1.2em;
+}

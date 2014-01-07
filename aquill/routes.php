@@ -4,6 +4,38 @@
 // Site Routes
 // --------------------------------------------------------------
 
+Route::get('test', function() {
+    return View::make('test');
+});
+
+Route::post('test', function() {
+    //var_dump($_FILES);
+    //$file = Input::file('test');
+
+    $extension = strtolower(File::extension(Input::file("test.name")));
+
+    $uri = 'aquill/storage/media/'.date('Y/m/');
+
+    $path = PATH . $uri;
+
+    if (!is_dir($path)) {
+        @mkdir($path, 0777, true);
+    }
+
+    $mime = File::mime($extension);
+    $uri = $uri . Str::random(20, 'digital') . '.' . $extension;
+    $path = $path . '.' . $extension;
+
+    Input::upload('test', $path);
+    //dd($uri);
+    //return Redirect::to('test');
+        $content = "{index: 'index', date: 'date', src: 'src'}";
+        $headers = array('Content-Type' => 'application/json');
+
+        return Response::make($content, 200, $headers);
+
+});
+
 Route::get('/, home', 'site@home');
 Route::get('robots.txt', 'site@robots');
 Route::get('(feed|rss|atom)', 'site@feed');
@@ -64,6 +96,7 @@ Route::post('admin/users/delete/(:num)', 'user@delete');
 // --------------------------------------------------------------
 
 Route::get('admin/media', 'media@index');
+Route::post('admin/media/upload', 'media@upload');
 
 // --------------------------------------------------------------
 // Extend Routes

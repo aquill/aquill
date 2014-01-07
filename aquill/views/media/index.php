@@ -3,7 +3,8 @@
     <script src="<?php echo asset('assets/js/jquery.collagePlus.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/extras/jquery.removeWhitespace.js'); ?>"></script>
     <script src="<?php echo asset('assets/js/extras/jquery.collageCaption.js'); ?>"></script>
-  
+    <script src="<?php echo asset('assets/js/multiupload.js'); ?>"></script>
+
     <script type="text/javascript">
 
     // All images need to be loaded for this plugin to work so
@@ -36,20 +37,49 @@
         // set a timer to re-apply the plugin
         if (resizeTimer) clearTimeout(resizeTimer);
         resizeTimer = setTimeout(collage, 200);
+        //collage();
+        //$('.media').collageCaption();
+    });
+
+    var config = {
+        support : "image/jpg,image/png,image/bmp,image/jpeg,image/gif",     // Valid file formats
+        form: "demoFiler",                  // Form ID
+        dragArea: "dragAndDropFiles",       // Upload Area ID
+        uploadUrl: "<?php echo url('admin/media/upload'); ?>",             // Server side upload url
+    }
+
+    $(document).ready(function(){
+        initMultiUploader(config);
+
+        $('.openfile').on('click', function() {
+            $('#multiUpload').click();
+        });
+
+        //alert($('input[name=csrf_token]').val());
     });
 
     </script>
 
 <div class="container one-column">
-    <div class="media">
-            <?php foreach ($media->results as $media) : ?>
-            <div class="attachment" data-caption="<?php echo $media->title; ?>">
-                <a>
-                    <?php echo $media->image(); ?>
-                </a>
-            </div>
-            <?php endforeach; ?>
-    </div>
+    <form name="demoFiler" id="demoFiler" enctype="multipart/form-data">
+        <div id="dragAndDropFiles" class="media">
+            
+                <?php foreach ($media->results as $media) : ?>
+                <div class="attachment" data-caption="<?php echo $media->date(); ?>">
+                    <a>
+                        <?php echo $media->image(); ?>
+                    </a>
+                </div>
+                <?php endforeach; ?>
+        </div>
+
+        <div class="upload">
+            <input type="hidden" name="csrf_token" value="<?php echo csrf_token(); ?>">
+            <input type="file" name="multiUpload" id="multiUpload" multiple />
+            <button class="openfile" type="button">File</button>
+            <button type="submit">Upload</button>
+        </div>
+    </form>
 </div>
 
 <?php partial('partials/footer'); ?>
