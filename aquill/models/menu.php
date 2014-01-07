@@ -16,7 +16,7 @@ class Menu extends Eloquent
     public function link()
     {
         if (is_null($this->slug)) {
-            return is_url($this->guid) ? $this->guid : url($this->guid);
+            return is_url($this->uri) ? $this->uri : url($this->uri);
         }
 
         if (!is_null($this->menu)) {

@@ -101,7 +101,7 @@ class Aquill
             $table->string('password')->default('');
             $table->timestamps();
             $table->integer('parent')->default(0);
-            $table->string('guid')->default('');
+            $table->string('uri')->default('');
             $table->string('mime')->default('');
             $table->integer('menu_order')->default(0);
             $table->boolean('comment_status')->default(1);

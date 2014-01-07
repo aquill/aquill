@@ -121,12 +121,13 @@
                         </div>
                     </div>
 
+                    <section class="form-actions">
+                        <button type="submit" class="btn"><?php _et('global.save'); ?></button>
+                    </section>
                 </div>
             </fieldset>
 
-            <section class="form-actions">
-                <button type="submit" class="btn"><?php _et('global.save'); ?></button>
-            </section>
+            
         </form>
     </div>
 

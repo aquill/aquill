@@ -113,7 +113,14 @@ label {
     padding-right: .5em;
     color: #666;
 }
-
+.control-label .info {
+    font-style: normal;
+    font-size: small;
+    line-height: 1.3em;
+    display: block;
+    word-break: break-word;
+    color: #B1B1C5;
+}
 .controls .info {
     font-style: normal;
     font-size: 1em;

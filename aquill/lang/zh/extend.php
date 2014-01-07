@@ -18,4 +18,6 @@ return array(
     'success' => '更新成功',
     'error' => '信息输入有误',
 
+    'null' => '空',
+
 );

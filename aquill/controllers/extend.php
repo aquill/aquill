@@ -2,6 +2,7 @@
 
 class ExtendController extends AdminController
 {
+
     public $restful = true;
 
     public function getGeneral()
@@ -112,18 +113,37 @@ class ExtendController extends AdminController
     {
         $vars['messages'] = Notify::read();
 
-        $options = DB::table('options')->get();
+        $vars['secures'] = array(
+            'null' => __('extend.null'),
+            'ssl' => 'ssl',
+            'tls' => 'tls',
+        );
+
+        $options = DB::table('options')->where('name', 'like', 'smtp_%')->get();
 
         foreach ($options as $option) {
             $vars[$option->name] = $option->value;
         }
 
-        return View::make('extend/bundles', $vars);
+        return View::make('extend/mailer', $vars);
     }
 
     public function postMailer()
     {
+        $smtp = Input::only(array('smtp_debug', 'smtp_host', 'smtp_port', 'smtp_secure', 
+        'smtp_auth', 'smtp_user', 'smtp_pass', 'smtp_localhost'));
+        $smtp['smtp_debug'] = Input::get('smtp_debug', 0);
+        $smtp['smtp_secure'] = Input::get('smtp_secure', 0);
+        $smtp['smtp_auth'] = Input::get('smtp_auth', 0);
 
+        foreach ($smtp as $name => $value) {
+            $option['value'] = $value;
+            DB::table('options')->where('name', '=', $name)->update($option);
+        }
+
+        Notify::success(__('extend.success'));
+
+        return Redirect::to('admin/mailer');
     }
 
     public function getThemes()
@@ -132,12 +152,16 @@ class ExtendController extends AdminController
 
         $vars['themes'] = Info::themes();
 
+        $option = DB::table('options')->where('name', '=', 'site_theme')->first();
+
+        $vars['current_theme'] = $option->value;
+
         return View::make('extend/themes', $vars);
     }
 
     public function postThemes()
     {
-        $theme['name'] = Input::get('site_theme');
+        $theme['value'] = Input::get('site_theme');
 
         DB::table('options')->where('name', '=', 'site_theme')->update($theme);
 
@@ -164,8 +188,12 @@ class ExtendController extends AdminController
         $bundle = Input::get('bundle');
 
         $options = DB::table('options')->where('name', '=', 'site_bundles')->first();
-
-        $activation = explode(',', $options->value);
+        
+        if (empty($options->value)) {
+            $activation = array();
+        } else {
+            $activation = explode(',', $options->value);
+        }
 
         if (in_array($bundle, $activation)) {
             foreach ($activation as $key => $value) {

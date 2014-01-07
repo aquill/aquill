@@ -77,7 +77,7 @@ Route::get('wp2aquill', function () {
     dd(Hash::make('admin123'));
 
     $sql_posts = "
-        INSERT INTO `{$database1}`.`{$prefix1}posts`(`id`, `author`, `title`, `slug`, `content`, `excerpt`, `status`, `password`, `created_at`, `updated_at`, `parent`, `guid`, `mime`, `type`, `menu_order`, `comment_status`, `comment_count`) 
+        INSERT INTO `{$database1}`.`{$prefix1}posts`(`id`, `author`, `title`, `slug`, `content`, `excerpt`, `status`, `password`, `created_at`, `updated_at`, `parent`, `uri`, `mime`, `type`, `menu_order`, `comment_status`, `comment_count`) 
         SELECT `ID`, `post_author`, `post_title`, `post_name`, `post_content`, `post_excerpt`, 
         CASE 
         WHEN `post_status` = 'auto-draft' THEN 'auto' 

@@ -11,7 +11,10 @@
 
             <div class="theme-screenshot"><img width="60%" src="<?php echo $theme->screenshot ; ?>"></div>
             <div class="theme-info">
-                <h1 class="theme-name"><?php echo $theme->name ; ?></h1>
+                <h1 class="theme-name">
+                    <span><?php echo $theme->name ; ?></span>
+                    
+                </h1>
                 <p class="theme-author">By <?php echo $theme->author(); ?></p>
                 <p class="theme-version">Version: <?php echo $theme->version; ?></p>
                 <?php if ($theme->description) : ?>
@@ -19,7 +22,11 @@
                 <?php endif; if ($theme->tags) : ?>
                 <p class="theme-tags">Tags: <?php echo $theme->tags ; ?></p>
                 <?php endif; ?>
+                <?php if ($current_theme != $theme->view) : ?>
                 <p class="theme-button"><button>Activate</button></p>
+                <?php else : ?>
+                <p class="theme-button"><small class="theme-current button">Current theme</small></p>
+                <?php endif; ?>
             </div>
         </form>
     </div>

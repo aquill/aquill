@@ -21,7 +21,7 @@
                     <?php endif; if ($bundle->tags) : ?>
                     <p class="bundle-tags">Tags: <?php echo $bundle->tags ; ?></p>
                     <?php endif; ?>
-                    <p><button class="bundle-button">Activate</button></p>
+                    <p><button class="bundle-button"><?php in_array($bundle->view, $activation) ? _e('global.deactivate') : _e('global.activate') ;?></button></p>
                 </div>
             </form>
         </div>

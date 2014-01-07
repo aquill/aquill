@@ -25,7 +25,7 @@ class AuthController extends Controller
 
         if ($validation->valid()) {
             if (Auth::attempt($credentials)) {
-                return Redirect::to('admin/posts');
+                return Redirect::to('admin');
             } else {
                 Notify::error(__('login.error'));
             }

@@ -11,7 +11,7 @@ add_theme_asset('header', 'style', 'themes/default/style.css');
 function rss_menu($menus) {
     $menu = new Menu;
     $menu->title = 'Rss';
-    $menu->guid = url('feed');
+    $menu->uri = url('feed');
     $menus[] = $menu;
 
     return $menus;

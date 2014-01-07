@@ -15,6 +15,7 @@ class Aquill
 
     public static function theme($theme = 'default')
     {
-        require PATH . "themes/{$theme}/functions.php";
+        if (is_readable($p = PATH . "themes/{$theme}/functions.php"))
+            require $p;
     }
 }

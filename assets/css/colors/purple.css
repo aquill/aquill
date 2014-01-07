@@ -252,10 +252,23 @@ body.purple fieldset.meta {
     border-bottom: 1px solid rgba(0,0,0,0.12);
 }
 
+/** .dashboard **/
 
+body.purple .dashboard dd a {
+    color: #fff;
+}
+
+body.purple .dashboard dd {
+    background: #669;
+    border: 1px solid #669;
+    color: #fff !important;
+}
 
 /* themes */
 
+body.purple .theme-current {
+    background: #484858;
+}
 
 /** bundles **/
 

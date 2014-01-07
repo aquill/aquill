@@ -1,6 +1,9 @@
 <?php partial('partials/header'); ?>
 
 <section class="content container one-column">
+    
+    <?php echo $messages; ?>
+
     <div class="wrap">
         <article>
             <h1><?php _e('urls.title'); ?></h1>
@@ -9,8 +12,9 @@
         </article>
 
         <form method="post" action="<?php echo url('admin/urls'); ?>" autocomplete="off">
-            <?php echo $messages; ?>
+            
             <input type="hidden" name="csrf_token" value="<?php echo csrf_token(); ?>">
+            
             <fieldset>
                 <div class="control-group">
                     <label for="permalink" class="control-label"><?php _e('urls.tag'); ?></label>
@@ -22,13 +26,16 @@
                 </div>
 
                 <div class="control-group">
-                    <label for="permalink" class="control-label"><?php _e('urls.post'); ?></label>
+                    <label for="permalink" class="control-label">
+                        <span><?php _e('urls.post'); ?></span>
+                        <i class="info"><?php _e('urls.post_description'); ?></i>
+                    </label>
 
                     <div class="controls">
                         <?php $checked = null;
                         foreach ($posts as $key => $value) : ?>
                             <?php if ($key == 'custom') : ?>
-                                <label>
+                                <label class="custom">
                                     <input type="radio" name="rewrite_post" value=""
                                         <?php if (is_null($checked)) echo 'checked'; ?>>
                                     <span><?php _e('urls.post_' . $key); ?></span>
@@ -44,7 +51,6 @@
                                 <code><?php echo $value; ?></code>
                             </label><br>
                         <?php endforeach; ?>
-                        <i class="info2"><?php _e('urls.post_description'); ?></i>
                     </div>
                 </div>
 

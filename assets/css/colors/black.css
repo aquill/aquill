@@ -1,0 +1,304 @@
+body.black ::selection {
+    background: #E3E3F1;
+    color: #666;
+}
+
+/** placeholder **/
+
+body.black ::-webkit-input-placeholder {
+    line-height: 1.3em;
+    color: #B1B1C5;
+}
+
+body.black ::-moz-placeholder {
+    line-height: 1.3em;
+    color: #B1B1C5;
+}
+
+/** global **/
+
+body.black {
+    background: #fff;
+    color: #111;
+}
+
+body.black a {
+    color: #9E4444;
+}
+body.black .container {
+    background: #fff
+}
+
+/** button **/
+
+body.black .btn,
+body.black button,
+body.black .button {
+    background: #669;
+    color: #fff;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-top: 0;
+    border-left: 0;
+}
+
+body.black .btn:hover,
+body.black button:hover,
+body.black .button:hover {
+    background: #484858;
+}
+
+body.black button.red,
+body.black .button.red, 
+body.black .btn.red {
+    color: #AF3333;
+}
+
+body.black button.red:hover,
+body.black .button.red:hover, 
+body.black .btn.red:hover {
+    color: #633F3F;
+}
+
+body.black aside.buttons {
+    background: #f2f2f2;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+body.black aside.buttons button,
+body.black aside.buttons .button {
+    background: none;
+    border: 0;
+    color: #669;
+}
+
+body.black aside.buttons button:hover,
+body.black aside.buttons .button:hover {
+    background: none;
+}
+body.black fieldset.header {
+    background: #f2f2f2;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+body.posts.purple fieldset.header {
+    border-bottom: 0;
+}
+
+/** sidebar **/
+
+body.black .sidebar {
+    background: #f1f1f1;
+    border-right: 1px solid rgba(0,0,0,0.05);
+}
+
+body.black .sidebar li {
+    color: #444;
+}
+body.black .sidebar li a {
+    color: #9E4444;
+}
+
+/** form controls **/
+
+body.black .control-group {
+    border-bottom: 1px solid #DDDDE7;
+}
+
+body.black .control-label {
+    color: #6D6D8B;
+}
+
+body.black input, 
+body.black textarea {
+}
+
+body.black .controls .info,
+body.black .controls .info2 {
+    color: #B1B1C5;
+}
+
+/** selecter **/
+
+body.black .selecter.open .selecter-selected {
+    box-shadow: 0px 0px 6px #c8c8c8;
+    background: #f2f2f2;
+}
+body.black .selecter-wrapper .selecter-item:hover i, 
+body.black .selecter-wrapper .selecter-item.selected i {
+    background: #669;
+    color: #fff;
+}
+
+/** checker **/
+
+body.black .checker:before {
+    color: #B2B2C2;
+}
+
+body.black .checker.checked:before,
+body.black .checker.hover:before {
+    color: #669;
+}
+
+body.black .datepicker_header,
+body.black .datepicker_timelist {
+    background: #EEEEF3;
+}
+
+body.black .datepicker .today, 
+body.black .datepicker .active, 
+body.black .datepicker .hover {
+    color: #669;
+    background: #EEEEF3;
+}
+body.black .datepicker_timelist .active,
+body.black .datepicker_timelist .hover {
+
+}
+
+/** notifications **/
+body.black .notifications {
+    border-bottom: 1px solid #669;
+}
+body.black .notifications .success {
+    color: #fff;
+    background: #669;
+}
+
+body.black .notifications .notice {
+    color: #fff;
+    background: #578cd9;
+}
+
+body.black .notifications .error {
+    color: #fff;
+    background: #d34937;
+}
+
+/** login **/
+
+body.login.purple {
+    background: #f2f2f2;
+    color: #669;
+}
+
+body.login.purple form {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: 0;
+    border-left: 0;
+}
+
+body.login.purple .control-group {
+    border-bottom: 1px solid #BFBFD3;
+}
+
+body.login.purple .form-actions button {
+    color: #85859E;
+}
+body.login.purple .form-actions button:hover {
+    background: none;
+    color: #669;
+}
+body.login.purple .form-actions label {
+    color: #85859E;
+}
+
+body.login.purple .form-actions a {
+    color: #B1B1C5;
+}
+
+/** toolbar **/
+
+body.black .toolbar {
+    background: #222;
+    border-right: 0;
+}
+
+body.black .toolbar li a {
+    border-bottom: 0;
+    border-top: 0;
+}
+body.black .toolbar li.bottom {
+    border-top: 1px solid #333;
+    background: #222;
+}
+body.black .toolbar a {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+body.black .toolbar .active a,
+body.black .toolbar a:hover {
+    color: #f1f1f1;
+    background: rgba(255, 255, 255, 0.1);
+    border-bottom: 0;
+}
+
+/** sidebar **/
+body.black .searchform button {
+    border: 0;
+    color: #9494A8;
+    background: none;
+}
+
+body.black .statuses li:hover {
+    background: #EEEEF3;
+    color: #669;
+}
+
+/** admin psots **/
+
+body.black .widget-statuses {
+    background: rgba(0,0,0,0.06);
+}
+body.black fieldset.meta {
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.12);
+}
+
+/** .dashboard **/
+
+.dashboard dt {
+   color: #222; 
+}
+
+body.black .dashboard dd a {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+body.black .dashboard dd {
+    background: #333;
+    border: 1px solid #222;
+    color: #fff !important;
+}
+
+body.black .dashboard [class^="icon-"]:before,
+body.black .dashboard [class*=" icon-"]:before {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* themes */
+
+body.black .theme-current {
+    background: #484858;
+}
+
+/** bundles **/
+
+body.black .bundle {
+    background: #669;
+    color: rgba(255,255,255,0.6);
+}
+body.black .bundle .checker:before {
+    color: #B2B2C2 !important;
+}
+body.black .bundle-name {
+    color: #fff;
+}
+body.black .bundle-button {
+    background: rgba(255,255,255,0.6);
+    color: #669;
+    border-color: rgba(0,0,0,0.4);
+}
+body.black .bundle-button:hover {
+    color: #fff;
+}

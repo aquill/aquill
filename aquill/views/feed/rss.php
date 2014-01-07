@@ -11,7 +11,7 @@
             <title><![CDATA[<?php echo $item->title; ?>]]></title>
             <author><?php echo $item->author; ?></author>
             <link><?php echo $item->link; ?></link>
-            <guid isPermaLink="true"><?php echo $item->link; ?></guid>
+            <guid><?php echo $item->link; ?></guid>
             <description><![CDATA[<?php echo $item->description; ?>]]></description>
             <content:encoded><![CDATA[<?php echo $item->content; ?>]]></content:encoded>
             <pubDate><?php echo $item->pubdate; ?></pubDate>

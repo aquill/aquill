@@ -1,6 +1,7 @@
 <?php
 
-class Page extends Post {
+class Page extends Post
+{
 
     public function link()
     {

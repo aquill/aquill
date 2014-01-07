@@ -6,7 +6,7 @@ class SMTP
     protected $connection;
     protected $localhost;
     protected $timeout = 30;
-    protected $debug_mode = false;
+    protected $debug = false;
 
     // auth
     protected $host;
@@ -48,7 +48,7 @@ class SMTP
         $this->pass = $connection['pass'];
 
         // set debug mode
-        $this->debug_mode = Config::get('smtp.debug_mode');
+        $this->debug = Config::get('smtp.debug');
 
         // set localhost
         $this->localhost = Config::get('smtp.default');
@@ -470,7 +470,7 @@ class SMTP
     protected function request($string)
     {
         // report
-        if ($this->debug_mode) echo '<code><strong>' . $string . '</strong></code><br/>';
+        if ($this->debug) echo '<code><strong>' . $string . '</strong></code><br/>';
 
         // send
         fputs($this->connection, $string);
@@ -486,7 +486,7 @@ class SMTP
         }
 
         // report
-        if ($this->debug_mode) echo '<code>' . $response . '</code><br/>';
+        if ($this->debug) echo '<code>' . $response . '</code><br/>';
 
         // return
         return $response;
