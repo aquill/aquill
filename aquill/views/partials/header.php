@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Admin Panel</title>
+    <title><?php echo admin_site_head(); ?></title>
     <?php echo Asset::container('header')->styles(); ?>
     <script type="text/javascript">var base = "<?php echo url('admin') . '/'; ?>";</script>
     <?php echo Asset::container('header')->scripts(); ?>

@@ -12,6 +12,11 @@ function add_theme_asset($container = 'header', $name, $source, $dependencies = 
     return Asset::container('theme_'.$container)->add($name, $source, $dependencies, $attributes);
 }
 
+function admin_site_head() {
+
+    return '管理面板';
+}
+
 function admin_body_class($classes = array())
 {
     if (is_string($classes)) {

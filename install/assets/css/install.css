@@ -21,6 +21,7 @@ code {
     font-size: 1.2em;
     text-align: right;
     padding-right: 10%;
+    display: block;
 }
 .sidebar li.elapsed {
     color: #3B7548;
