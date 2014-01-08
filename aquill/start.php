@@ -11,9 +11,9 @@ Autoloader::directories(array(APP . 'models', APP . 'libraries',));
 // Configure Application Settings
 // --------------------------------------------------------------
 
-Config::set('app.index', get_option('site_index'));
-Config::set('app.language', get_option('language'));
-Config::set('app.timezone', get_option('timezone'));
+Config::set('app.index', get_option('site_index', ''));
+Config::set('app.language', get_option('language', 'en'));
+Config::set('app.timezone', get_option('timezone', 'UTC'));
 
 // --------------------------------------------------------------
 // Configure SMTP Settings

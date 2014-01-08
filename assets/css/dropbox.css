@@ -3,7 +3,7 @@
 --------------------------*/
 
 #dropbox{
-    background: #f2f2f2;
+    background: none;
     
     border-radius:3px;
     position: relative;
@@ -12,6 +12,7 @@
     
     
     min-height: 30em;
+    padding: 10px;
 }
 
 #dropbox .message{
@@ -55,14 +56,16 @@
 
 #dropbox .uploaded{
     position: absolute;
-    top:0;
+    top: 0;
     left:0;
     height:100%;
     width:100%;
-    background: rgba(255,255,255,0.5);
+    background: rgba(255,255,255,0.4);
     display: none;
-    line-height: 2.7em;
+    line-height: 0;
     font-size: 4em;
+    padding-top: 27%;
+    color: rgba(0,0,0,0.6);
 }
 
 #dropbox .preview.done .uploaded{
@@ -77,23 +80,21 @@
 
 #dropbox .progressHolder{
     position: absolute;
-    background-color:#252f38;
     height:12px;
     width:100%;
     left:0;
     bottom: 0;
     
-    box-shadow:0 0 2px #000;
+    box-shadow: none;
 }
 
 #dropbox .progress{
-    background-color:#2586d0;
+    background-color: rgba(0,0,0,0.6);
     position: absolute;
     height:100%;
     left:0;
     width:0;
     
-    box-shadow: 0 0 1px rgba(255, 255, 255, 0.4) inset;
     
     -moz-transition:0.25s;
     -webkit-transition:0.25s;

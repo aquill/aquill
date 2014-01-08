@@ -1,7 +1,7 @@
 $(function(){
 	
-	var dropbox = $('#dropbox'),
-		message = $('.message', dropbox);
+	var dropbox = $('#dropbox');
+		//message = $('.message', dropbox);
 	
 	dropbox.filedrop({
 		// The name of the $_FILES entry:
@@ -64,7 +64,7 @@ $(function(){
 	var template = '<div class="preview">'+
 						'<span class="imageHolder">'+
 							'<img />'+
-							'<span class="uploaded"></span>'+
+							'<span class="icon-save uploaded"></span>'+
 						'</span>'+
 						'<div class="progressHolder">'+
 							'<div class="progress"></div>'+
@@ -93,17 +93,17 @@ $(function(){
 		// this will trigger the onload function above:
 		reader.readAsDataURL(file);
 		
-		message.hide();
-		preview.appendTo(dropbox);
+		//message.hide();
+		preview.prependTo(dropbox);
 		
 		// Associating a preview container
 		// with the file, using jQuery's $.data():
-		
+
 		$.data(file,preview);
 	}
 
 	function showMessage(msg){
-		message.html(msg);
+		//message.html(msg);
 	}
 
 });

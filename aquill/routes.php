@@ -5,42 +5,11 @@
 // --------------------------------------------------------------
 
 Route::get('test', function() {
-    return View::make('test');
-});
+    $vars['media'] = Media::inherits()
+                ->order_by('created_at', 'DESC')
+                ->paginate(50);
 
-Route::post('test', function() {
-    //var_dump($_FILES);
-    $file = Input::file('test.tmp_name');
-
-    $str = file_get_contents($file[0]);
-
-    $data = base64_encode($str);
-    echo'<img src="data:image/jpeg;base64,'.$data.'"/>';
-
-/*
-    $extension = strtolower(File::extension(Input::file("test.name")));
-
-    $uri = 'aquill/storage/media/'.date('Y/m/');
-
-    $path = PATH . $uri;
-
-    if (!is_dir($path)) {
-        @mkdir($path, 0777, true);
-    }
-
-    $mime = File::mime($extension);
-    $uri = $uri . Str::random(20, 'digital') . '.' . $extension;
-    $path = $path . '.' . $extension;
-
-    Input::upload('test', $path);
-    */
-    //dd($uri);
-    //return Redirect::to('test');
-        $content = "{index: 'index', date: 'date', src: 'src'}";
-        $headers = array('Content-Type' => 'application/json');
-
-        //return Response::make($content, 200, $headers);
-
+    return View::make('test', $vars);
 });
 
 Route::get('/, home', 'site@home');

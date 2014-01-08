@@ -95,7 +95,7 @@ class Aquill
             $table->string('title');
             $table->string('slug')->default('');
             $table->text('content');
-            $table->text('excerpt')->default('');
+            $table->text('excerpt');
             $table->enum('status', array('publish', 'draft', 'inherit'))->default('publish');
             $table->enum('type', array('post', 'page', 'revision', 'menu', 'attachment'))->default('post');
             $table->string('password')->default('');
@@ -118,7 +118,7 @@ class Aquill
             $table->string('name');
             $table->string('slug');
             $table->enum('taxonomy', array('tag', 'category', 'link'));
-            $table->text('description')->default('');
+            $table->text('description');
             $table->integer('parent')->default(0);
             $table->integer('count')->default(0);
         });

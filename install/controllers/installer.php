@@ -147,7 +147,7 @@ class InstallerController extends Controller
             'description' => _t('data.site_description'),
             'theme' => 'theme',
             'bundles' => 'migrations',
-            'url' => rtrim(URL::base(), 'install/'),
+            'url' => str_replace('/install', '', URL::base()),
             'index' => 'index.php',
         );
 

@@ -10,6 +10,67 @@ foreach (Session::get('install.rewrites') as $name => $value) {
     $options[] = array('name' => 'rewrite_' . $name, 'value' => $value);
 }
 
+$options[] = array(
+        'name'=>'site_color',
+        'value'=> Session::get('install.i18n.color', 'purple'),
+    );
+$options[] = array(
+        'name'=>'language',
+        'value'=> Session::get('install.i18n.language'),
+    );
+$options[] = array(
+        'name'=>'timezone',
+        'value'=> Session::get('install.i18n.timezone'),
+    );
+$options[] = array(
+        'name'=>'spam_keywords',
+        'value'=> '',
+    );
+$options[] = array(
+        'name'=>'per_page',
+        'value'=> 20,
+    );
+$options[] = array(
+        'name'=>'comment_status',
+        'value'=> 1,
+    );
+$options[] = array(
+        'name'=>'email_notification',
+        'value'=> 1,
+    );
+$options[] = array(
+        'name'=>'smtp_debug',
+        'value'=> 1,
+    );
+$options[] = array(
+        'name'=>'smtp_host',
+        'value'=> '',
+    );
+$options[] = array(
+        'name'=>'smtp_port',
+        'value'=> '',
+    );
+$options[] = array(
+        'name'=>'smtp_secure',
+        'value'=> '',
+    );
+$options[] = array(
+        'name'=>'smtp_auth',
+        'value'=> 1,
+    );
+$options[] = array(
+        'name'=>'smtp_user',
+        'value'=> '',
+    );
+$options[] = array(
+        'name'=>'smtp_pass',
+        'value'=> '',
+    );
+$options[] = array(
+        'name'=>'smtp_localhost',
+        'value'=> 1,
+    );
+
 return array(
 
     'options' => $options,
