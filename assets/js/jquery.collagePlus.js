@@ -13,12 +13,7 @@
  *
  */
 
-
-
-
-
 ;(function( $ ) {
-
 
     $.fn.collagePlus = function( options ) {
 
@@ -62,8 +57,6 @@
                      */
                     var $this = $(this),
                         $img  = ($this.is("img")) ? $this : $(this).find("img");
-
-
 
                     /*
                      *

@@ -26,7 +26,6 @@ class MediaController extends AdminController
         $mime = File::mime($extension);
         $uri = $uri . Str::random(20, 'digital') . '.' . $extension;
         $path = PATH . $uri;
-        
 
         $input['mime'] = $mime;
         $input['uri'] = $uri;
@@ -38,21 +37,7 @@ class MediaController extends AdminController
         Media::push($input);
         Input::upload('file', $path);
 
-        //$content = "{index: '{$index}', date: '{$date}', src: '{$src}'}";
-        //$headers = array('Content-Type' => 'application/json');
-
-        $content = '<div class="attachment" data-caption="'.$date.'">
-            <a>
-                <img src="'.$src.'">
-            </a>
-            <div class="Caption">
-                <div class="Caption_Background"></div>
-                <div class="Caption_Content">'.$date.'</div>
-            </div>
-        </div>';
-
-        return $content;
-        //return Response::make($content, 200, $headers);
+        return;
     }
 
 }

@@ -10,8 +10,14 @@ Route::get('test', function() {
 
 Route::post('test', function() {
     //var_dump($_FILES);
-    //$file = Input::file('test');
+    $file = Input::file('test.tmp_name');
 
+    $str = file_get_contents($file[0]);
+
+    $data = base64_encode($str);
+    echo'<img src="data:image/jpeg;base64,'.$data.'"/>';
+
+/*
     $extension = strtolower(File::extension(Input::file("test.name")));
 
     $uri = 'aquill/storage/media/'.date('Y/m/');
@@ -27,12 +33,13 @@ Route::post('test', function() {
     $path = $path . '.' . $extension;
 
     Input::upload('test', $path);
+    */
     //dd($uri);
     //return Redirect::to('test');
         $content = "{index: 'index', date: 'date', src: 'src'}";
         $headers = array('Content-Type' => 'application/json');
 
-        return Response::make($content, 200, $headers);
+        //return Response::make($content, 200, $headers);
 
 });
 

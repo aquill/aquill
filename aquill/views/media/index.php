@@ -66,9 +66,9 @@
             
                 <?php foreach ($media->results as $media) : ?>
                 <div class="attachment" data-caption="<?php echo $media->date(); ?>">
-                    <a>
+                    
                         <?php echo $media->image(); ?>
-                    </a>
+                    
                 </div>
                 <?php endforeach; ?>
         </div>

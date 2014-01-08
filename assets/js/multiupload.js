@@ -25,12 +25,21 @@ function multiUploader(config){
 	}
 	multiUploader.prototype._preview = function(data){
 		this.items = data;
+		console.log(this.items.length);
 		if(this.items.length > 0){
 			var html = "";		
 			var uId = "";
  			for(var i = 0; i<this.items.length; i++){
 				uId = this.items[i].name._unique();
+				console.log(uId);
+
 				var sampleIcon = '<img src="http://chen.local/aquill/aq/aquill/storage/media/2014/01/image_1.jpg" />';
+				var reader = new FileReader();
+				reader.onload = function(e){
+					console.log(uId);
+					sampleIcon = '<img src="http://chen.local/aquill/aq/aquill/storage/media/2014/01/image_1.jpg" data="'+e.target.result+'" />';
+				};
+				//var sampleIcon = '<img src="http://chen.local/aquill/aq/aquill/storage/media/2014/01/image_1.jpg" />';
 				var errorClass = "";
 				if(typeof this.items[i] != undefined){
 					if(self._validate(this.items[i].type) <= 0) {
@@ -49,11 +58,14 @@ function multiUploader(config){
 			        // set a timer to re-apply the plugin
 			        if (resizeTimer) clearTimeout(resizeTimer);
 			        resizeTimer = setTimeout(collage, 200);
-					}
+			        //collage();
+            //$('.media').collageCaption();
+		}
 	}
 
 	multiUploader.prototype._read = function(evt){
 		if(evt.target.files){
+			//console.log(evt.target.result);
 			self._preview(evt.target.files);
 			self.all.push(evt.target.files);
 		} else 
@@ -93,6 +105,8 @@ function multiUploader(config){
 						//if($(fle).attr("rel") == rponse){
 							$(fle).remove();//find('img').attr('src', rponse);
 							$('#dragAndDropFiles').prepend(rponse);
+							if (resizeTimer) clearTimeout(resizeTimer);
+			        		resizeTimer = setTimeout(collage, 200);
 							//$(fle).slideUp("normal", function(){ $(this).remove(); });
 						//}
 					});
