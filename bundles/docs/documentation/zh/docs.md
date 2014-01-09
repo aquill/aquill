@@ -90,11 +90,11 @@ Apache就容易多了，需要支持apache支持mod_rewrite，直接在Aquill的
 <a name="aquill-name"></a>
 ## 插件包信息
 
-插件包信息存放在插件包目录下的bundle.info里。文件结构和ini相似，一个完整的插件包信息：
+插件包信息存放在插件包目录下的bundle.info里。文件结构和[ini](http://cn2.php.net/parse_ini_file)相似，一个完整的插件包信息：
 
-    ; Document for Aquill
+    ; Aquill Documentation
     ;
-    ; Author:     Aqiull Team
+    ; Author:     Aqiull Team <aquill.team@gmail.com>
     ; Copyright:  (c) 2013-2014 Aqiull Team
     ; License:    http://aquill.org/license
     ;
@@ -106,7 +106,7 @@ Apache就容易多了，需要支持apache支持mod_rewrite，直接在Aquill的
     ;
     ; Bundle info
     ;
-    name        = "Document"
+    name        = "Documentation"
     url         = https://github.com/aquill/bundles/docs
 
     author      = "Aquill Team"
@@ -118,7 +118,33 @@ Apache就容易多了，需要支持apache支持mod_rewrite，直接在Aquill的
     description = "Document for Aquill"
     ;tags       = "one-column"
 
+# 主题
 
+    ; Aquill Default Theme
+    ;
+    ; Author:     Aqiull Team <aquill.team@gmail.com>
+    ; Copyright:  (c) 2013 Aqiull Team
+    ; License:    http://aquill.org/license
+    ;
+    ; This file format fully consistent with the ini-file
+    ; Empty strings and strings beginning with ; symbols ignored
+    ; For more information see http://php.net/manual/en/function.parse-ini-file.php
+    ;
+
+    ;
+    ; Theme info
+    ;
+    name  = "Default"
+    url   = https://github.com/aquill/themes/default
+
+    author      = "Aquill Team"
+    author_url  = http://www.aquill.org/
+
+    version     = 0.1.1
+    license     = http://aquill.org/license
+
+    description = "Default theme for Aquill"
+    tags        = "one-column"
 
 # 主题参考函数
 
@@ -132,6 +158,55 @@ Apache就容易多了，需要支持apache支持mod_rewrite，直接在Aquill的
 
 ## 全局
 
+`add_theme_script`
+
+`add_theme_style`
+
+`add_theme_asset`
+
+`autop($pee, $br = true)`
+
+`body_class($classes = array())`
+
+`csrf_token()`
+
+`csrf_token_input()`
+
+`get_avatar()`
+
+`is_admin()`
+
+`is_author()`
+
+`is_home()`
+
+`is_category()`
+
+`is_page()`
+
+`is_post()`
+
+`is_tag()`
+
+`theme_asset()`
+
+`theme_footer()`
+
+`theme_header()`
+
+`theme_include($filename)`
+
+`theme_scripts($container = 'header')`
+
+`theme_styles($container = 'header')`
+
+`site_head_title()`
+
+`site_title()`
+
+`site_description()`
+
+`site_menu_list()`
 
 ## 文章
 

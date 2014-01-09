@@ -56,7 +56,7 @@ Route::get('docs', function()
 {
     return View::make('docs::index')
             ->with('ui', document('ui'))
-            ->with('introduction', document('introduction'));
+            ->with('docs', document('docs'));
 });
 
 /**

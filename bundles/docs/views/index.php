@@ -20,10 +20,14 @@
         <div class="wrapper">
             <?php echo $ui; ?>
         </div>
+        <div class="buttons">
+            <a class="button" href="<?php echo asset('download') ?>">下载</a>
+            <a class="button" href="<?php echo asset('docs') ?>">文档</a>
+        </div>
     </div>
     <div id="introduction">
         <div class="wrapper">
-            <?php echo $introduction; ?>
+            <?php echo $docs; ?>
         </div>
     </div>
 </body>

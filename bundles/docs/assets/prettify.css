@@ -264,7 +264,6 @@ code
 {
 	background-color: #ededed;
 	font-size:0.8em;
-	display:inline-block;
 	padding:0.2em 0.4em;
 	text-shadow:1px 1px 0 #fff;
 }
@@ -404,7 +403,18 @@ code
 	color: #fff;
 	margin-bottom: 3em;
 }
-
+.buttons {
+	text-align: center;
+}
+.button {
+	display: inline-block !important;
+	background: #669 !important;
+	color: #fff !important;
+	height: 2em;
+	padding: 0 1.5em;
+	line-height: 2em;
+	border-radius: 20px;
+}
 #introduction {
 	background: #fff;
 	padding: 3em 0;
