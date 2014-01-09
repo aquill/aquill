@@ -2,6 +2,7 @@
 
 Asset::bundle('docs')->add('prettify', 'assets/prettify.js');
 Asset::bundle('docs')->add('prettify', 'assets/prettify.css');
+Asset::add('fonts', '../../assets/css/fonts.css');
 
 /**
  * Load the Markdown library.
@@ -53,7 +54,9 @@ View::composer('docs::template', function($view)
  */
 Route::get('docs', function()
 {
-    return View::make('docs::index')->with('content', document('home'));
+    return View::make('docs::index')
+            ->with('ui', document('ui'))
+            ->with('introduction', document('introduction'));
 });
 
 /**

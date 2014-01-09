@@ -1,0 +1,53 @@
+
+## Aquill介绍
+
+Aquill目前全由我一人开发，项目代码托管在Guihub[@aquill](https://github.com/aquill/aquill)上，欢迎大家一起踊跃参与。
+
+### 名称的来由
+
+Aquill读音[ækwil]，是a + quill的组合，取quill的意思，一根羽毛，一支鹅毛笔，羽毛很轻，鹅毛笔是最初识的书写工具，符合博客的形象，Logo的设计也由此而来。
+
+## 环境要求
+
+- Apache, Nginx，以后会考虑支持SAE等平台
+- PHP 5.3.6+
+- MySQL 5.2+, （SQLite 3, PostgreSQL还没来得及测试）。
+
+如果大家还在用5.3之前的版本，可以考虑换个配置高一点的服务器。）
+
+提前做好准备工作，用nginx的朋友可能还需要配置一下vhost文件，怎么配置呢？接着往下看吧。
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;    # ?$args 这段参数不要忘了
+    }
+
+如果你放在某个子目录下面你需要这么写
+
+    location /blog/ {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+Apache就容易多了，需要支持apache支持mod_rewrite，直接在Aquill的目录下添加`.htaccess`文件即可，内容如下：
+
+    <IfModule mod_rewrite.c>
+        RewriteEngine on
+
+        RewriteCond %{REQUEST_FILENAME} !-f
+        RewriteCond %{REQUEST_FILENAME} !-d
+
+        RewriteRule ^(.*)$ index.php/$1 [L]
+    </IfModule>
+
+## 安装
+
+1. 把Aquill代码上传并解压到服务器，设置目录`aquill/config`和`aquill/storage`权限为`0777`。这一点很关键，安装过程中需要在文件夹内写入一些必要的配置信息。
+2. 为Aquill创建一个数据库，如果你没有权限，和其他数据表放在一起时，需要区分表前缀。
+3. 打开网址，如果你是首次安装，你应该看到安装界面了，根据系统向导进行安装就可以了。
+4. 安装成功之后，最好把`aquill/config`目录权限更改回来`0774`。
+
+## 诸多待解决的问题
+
+- 浏览器兼容性。目前只在最新版的Safari，Chrome，Firefox下测试通过，其他的带测试。（IE是个大问题，目前只考虑支持到IE9，IE8部分支持，其他的滚蛋吧）
+- 控件。为了更友好的UI，重写了checkbox，radio，select，datetime控件，js还有bug，待完善。
+- 相册拖拽上传。拖拽上传使用了HTML5的新特性，对于IE的兼容性有些差，目前还在测试中。
+

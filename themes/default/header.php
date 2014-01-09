@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title><?php echo site_head_title(); ?></title>
     <?php echo theme_styles(); ?>
+    <link rel="icon" href="<?php echo asset('assets/favicon.png'); ?>" sizes="32x32" type="image/png">
 </head>
 
 <body <?php echo body_class(); ?>>

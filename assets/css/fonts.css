@@ -29,7 +29,6 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-
 .icon-login:before {
     content: "\e600";
 }
@@ -84,9 +83,6 @@
 .icon-logout:before {
     content: "\e62e";
 }
-.icon-pen:before {
-    content: "\e62f";
-}
 .icon-posts:before {
     content: "\e62f";
 }
@@ -96,11 +92,8 @@
 .icon-settings:before {
     content: "\e631";
 }
-.icon-setting:before {
-    content: "\e632";
-}
 .icon-general:before {
-    content: "\e631";
+    content: "\e632";
 }
 .icon-tag:before {
     content: "\e635";
@@ -111,26 +104,28 @@
 .icon-undo:before {
     content: "\e637";
 }
-.icon-aquill:before {
-    content: "\e601";
-}
 .icon-user:before {
     content: "\f110";
 }
 .icon-auth:before {
     content: "\f112";
 }
+.icon-aquill:before {
+    content: "\e601";
+}
 .icon-themes:before {
     content: "\e603";
 }
-.icon-mailer:before {
-    content: "\e605";
+.icon-write:before {
+    content: "\e60a";
 }
 .icon-urls:before {
     content: "\e611";
 }
 .icon-dashboard:before {
     content: "\e609";
-    font-size: 1.5em;
-    line-height: 1.5em;
 }
+.icon-mailer:before {
+    content: "\e60b";
+}
+
