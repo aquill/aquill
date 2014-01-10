@@ -47,18 +47,18 @@ class Info
 
     public static function themes()
     {
-        $paths = glob(PATH . 'themes/*/');
+        $paths = glob(PATH . 'themes/*/', GLOB_ONLYDIR);
 
         foreach ($paths as $path) {
             $themes[] = new static('theme::'.basename($path));
         }
 
         return $themes;
-    }   
+    }
 
     public static function bundles()
     {
-        $paths = glob(PATH . 'bundles/*/');
+        $paths = glob(PATH . 'bundles/*/', GLOB_ONLYDIR);
 
         foreach ($paths as $path) {
             $bundles[] = new static('bundle::'.basename($path));

@@ -152,6 +152,8 @@ class ExtendController extends AdminController
 
         $vars['themes'] = Info::themes();
 
+        dd($vars['themes']);
+
         $option = DB::table('options')->where('name', '=', 'site_theme')->first();
 
         $vars['current_theme'] = $option->value;
