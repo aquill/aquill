@@ -48,13 +48,13 @@ Aquill目前全由Github@[chenos](https://github.com/aquill/chenos)一人开发�
 提前做好准备工作，用nginx的朋友可能还需要配置一下vhost文件，怎么配置呢？接着往下看吧。
 
     location / {
-        try_files $uri $uri/ /index.php?$args;    # ?$args 这段参数不要忘了
+        try_files $uri $uri/ /index.php?$args;     # ?$args 这段参数不要忘了
     }
 
 如果你放在某个子目录下面你需要这么写
 
     location /blog/ {
-        try_files $uri $uri/ /index.php?$args;
+        try_files $uri $uri/ /blog/index.php?$args;     # ?$args 这段参数不要忘了
     }
 
 Apache就容易多了，需要支持apache支持mod_rewrite，直接在Aquill的目录下添加`.htaccess`文件即可，内容如下：

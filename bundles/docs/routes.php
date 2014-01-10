@@ -54,8 +54,8 @@ View::composer('docs::template', function($view)
  */
 Route::get('docs', function()
 {
-    return View::make('docs::index')
-            ->with('ui', document('ui'))
+    return View::make('docs::docs')
+            //->with('ui', document('ui'))
             ->with('docs', document('docs'));
 });
 

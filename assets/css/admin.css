@@ -345,6 +345,7 @@ fieldset.editor {
 fieldset.editor input[name="title"] {
     line-height: 1.3em;
     font-size: 2em;
+    padding: 0;
 }
 fieldset.editor textarea {
     background: none;
@@ -611,7 +612,7 @@ label.custom input {
 .media {
     position: relative;
     padding: 0;
-    padding-right: 5px;
+    padding-right: 0;
     padding-bottom: 0;
     margin-bottom: -3em;
 }

@@ -477,6 +477,10 @@ function redirect($url, $status = 302, $https = false) {
     Redirect::to($url, $status, $https);
 }
 
+function render($view, $data = array()) {
+    return new View($view, $data);
+}
+
 function partial($view, $data = array()) {
     if($path = realpath(PATH . DEFAULT_BUNDLE . "/views/{$view}" . EXT)) {
         ob_start();

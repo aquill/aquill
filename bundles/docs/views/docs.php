@@ -16,16 +16,10 @@
         <h1>Aquill <sup>alpha</sup></h1>
         <h2>一款优雅的超轻量级博客引擎</h2>
     </div>
-    <div id="ui">
+    <div id="introduction">
         <div class="wrapper">
-            <?php echo $ui; ?>
+            <?php echo $docs; ?>
         </div>
-        <div class="buttons">
-                <a class="button" href="<?php echo asset('docs') ?>">文档</a>
-                <p>Aquill目前还在测试和完善中，暂不提供下载。<br>
-                发烧友可以前往<a href="https://github.com/aquill/aquill">Github@aquill</a>下载，
-                还可以<a href="https://github.com/aquill/aquill">查看DEMO预览</a></p>
-            </div>
     </div>
 </body>
 </html>

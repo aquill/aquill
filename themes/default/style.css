@@ -24,7 +24,7 @@ body {
     background: #fff;
 }
 a {
-    color: #3B7548;
+    color: #669;
     text-decoration: none;
 }
 ul,ol {
@@ -36,7 +36,7 @@ ul,ol {
     height: 100%;
     top: 0;
     left: 0;
-    background: #dfe1e0;
+    background: #f2f2f2;
     border-right: 1px solid rgba(0,0,0,0.05);
     padding: 2em 3%;
 }
@@ -52,9 +52,9 @@ ul,ol {
 #site-description {
     font-size: 1em;
     font-weight: normal;
-    color: #666;
+    color: #9494AA;
     line-height: 2em;
-    border-top: 1px solid rgba(0,0,0,0.3);
+    border-top: 1px solid #B8B8CF;
     margin-bottom: 1em;
     text-align: center;
 }
@@ -66,17 +66,16 @@ ul,ol {
     margin-left: 1em;
 }
 #site-menu li a {
-    color: #555;
+    color: #9494AA;
     display: block;
     line-height: 2em;
 }
 #site-menu li a:hover {
-    color: #3B7548;
+    color: #669;
 }
 .entry {
     padding: 2em 3em;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    border-top: 1px solid rgba(255,255,255,0.8);
+    border-bottom: 1px solid #ededed;
 }
 .entry:first-child {
     /*background: rgba(255,255,255,0.9);
@@ -136,8 +135,7 @@ ul,ol {
 }
 .comment {
     padding: 2em 3em;
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    border-top: 1px solid rgba(255,255,255,0.8);
+    border-bottom: 1px solid #ededed;
 }
 .comment-author {
     font-weight: normal;
@@ -147,10 +145,10 @@ ul,ol {
     font-size: 0.9em;
 }
 #response {
-    border-bottom: 1px solid rgba(0,0,0,0.08);
-    border-top: 1px solid rgba(255,255,255,0.8);
+    border-bottom: 0;
+    border-top: 0;
     padding: 2em 3em;
-    background: #edf0ef;
+    background: none;
 }
 #response p {
 }
@@ -162,14 +160,14 @@ ul,ol {
 }
 #response input, 
 #response textarea {
-    background: #fff;
+    background: #f2f2f2;
     border: 0;
     line-height: 1em;
     height: 2.4em;
     min-width: 40%;
     padding: .5em;
     font-size: inherit;
-    border: 1px solid #ddd;
+    border: 0;
     border-bottom: 0;
     border-right: 0;
     border-radius: 3px;
@@ -185,7 +183,7 @@ ul,ol {
     padding: 0 1em;
     font-size: inherit;
     color: #fff;
-    background: #3B7548;
+    background: #669;
     border-radius: 2em;
     border: 1px solid rgba(0,0,0,0.2);
     border-top: 0;
@@ -194,11 +192,11 @@ ul,ol {
 }
 
 #response button:hover {
-    background: #3560A0;
+    background: #484863;
 }
 
 #footer {
-    border-top: 1px solid rgba(255,255,255,0.8);
+    border-top: 1px solid #ededed;
     padding: 1em 3em;
     font-size: .9em;
     color: #666;

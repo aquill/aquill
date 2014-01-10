@@ -394,6 +394,10 @@ code
 	font-size: 15em;
 	margin-bottom: 0;
 }
+#logo img {
+	box-shadow: none;
+	width: 450px;
+}
 #ui {
 	padding: 2em 0;
 	background: #f2f2f2;

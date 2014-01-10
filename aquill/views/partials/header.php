@@ -6,6 +6,7 @@
     <?php echo Asset::container('header')->styles(); ?>
     <script type="text/javascript">var base = "<?php echo url('admin') . '/'; ?>";</script>
     <?php echo Asset::container('header')->scripts(); ?>
+    <link rel="icon" href="<?php echo asset('assets/favicon.png'); ?>" sizes="32x32" type="image/png">
 </head>
 <body <?php echo admin_body_class('admin'); ?>>
 <div id="header" class="col toolbar">

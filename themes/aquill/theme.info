@@ -12,9 +12,8 @@
 ;
 ; Theme info
 ;
-name        = "notebook"
-title       = "Fluid Theme"
-description = "A crisp and distinctive, tableless, fluid width administration theme"
+name        = "Aquill Official"
+description = "The theme for Aquill official site "
 version     = 1.0.1
 license     = http://gleezcms.org/license
 themeURL    = https://github.com/gleez/cms/tree/master/themes/fluid
