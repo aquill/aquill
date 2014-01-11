@@ -14,12 +14,12 @@
                 <div class="bundle-info">
                     <h1 class="bundle-name"><?php echo $bundle->name; ?>
                         <label><input <?php echo in_array($bundle->view, $activation) ? 'checked' : ''; ?> type="checkbox" name="bundles" value="<?php echo $bundle->view; ?>"></label></h1>
-                    <p class="bundle-author">By <?php echo $bundle->author(); ?></p>
-                    <p class="bundle-version">Version: <?php echo $bundle->version; ?></p>
+                    <p class="bundle-author"><?php _e('global.bundle_author', array('author' => $bundle->author())); ?></p>
+                    <p class="bundle-version"><?php _e('global.bundle_version'); ?><?php echo $bundle->version; ?></p>
                     <?php if ($bundle->description) : ?>
-                    <p class="bundle-description">Description: <?php echo $bundle->description ; ?></p>
+                    <p class="bundle-description"><?php _e('global.bundle_description'); ?><?php echo $bundle->description ; ?></p>
                     <?php endif; if ($bundle->tags) : ?>
-                    <p class="bundle-tags">Tags: <?php echo $bundle->tags ; ?></p>
+                    <p class="bundle-tags"><?php _e('global.bundle_tags'); ?><?php echo $bundle->tags ; ?></p>
                     <?php endif; ?>
                     <p><button class="bundle-button"><?php in_array($bundle->view, $activation) ? _e('global.deactivate') : _e('global.activate') ;?></button></p>
                 </div>

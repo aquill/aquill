@@ -17,11 +17,11 @@
             
             <fieldset>
                 <div class="control-group">
-                    <label for="permalink" class="control-label"><?php _e('urls.tag'); ?></label>
+                    <label for="permalink" class="control-label"><?php _e('urls.home'); ?></label>
 
                     <div class="controls">
                         <input id="custom" type="text" name="rewrite_home" value="<?php echo $rewrite_home; ?>">
-                        <i class="info"><?php _e('urls.tag_description'); ?></i>
+                        <i class="info"><?php _e('urls.home_description'); ?></i>
                     </div>
                 </div>
 
@@ -31,7 +31,7 @@
                         <i class="info"><?php _e('urls.post_description'); ?></i>
                     </label>
 
-                    <div class="controls">
+                    <div class="controls post-urls">
                         <?php $checked = null;
                         foreach ($posts as $key => $value) : ?>
                             <?php if ($key == 'custom') : ?>
@@ -82,11 +82,11 @@
                 </div>
 
                 <div class="control-group">
-                    <label for="permalink" class="control-label"><?php _e('urls.tag'); ?></label>
+                    <label for="permalink" class="control-label"><?php _e('urls.author'); ?></label>
 
                     <div class="controls">
                         <input id="custom" type="text" name="rewrite_author" value="<?php echo $rewrite_author; ?>">
-                        <i class="info"><?php _e('urls.tag_description'); ?></i>
+                        <i class="info"><?php _e('urls.author_description'); ?></i>
                     </div>
                 </div>
             </fieldset>

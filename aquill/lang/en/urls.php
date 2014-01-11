@@ -4,6 +4,8 @@ return array(
 
     'title' => 'Clean URLs',
     'description' => '',
+    'home' => 'Home rewrite',
+    'home_description' => 'Custom homepage',
     'post' => 'Post rewrite',
     'post_description' => 'You can use keys: {year}, {month}, {day}, {id}, {name}, {category}',
     'page' => 'Page rewrite',

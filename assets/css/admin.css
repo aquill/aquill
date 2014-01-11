@@ -458,6 +458,9 @@ fieldset.editor textarea {
     left: 6em;
     display: none;
 }
+.post-urls label {
+    margin-left: .5em;
+}
 .theme-screenshot {
     float: left;
     width: 60%;

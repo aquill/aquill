@@ -13,19 +13,18 @@
             <div class="theme-info">
                 <h1 class="theme-name">
                     <span><?php echo $theme->name ; ?></span>
-                    
                 </h1>
-                <p class="theme-author">By <?php echo $theme->author(); ?></p>
-                <p class="theme-version">Version: <?php echo $theme->version; ?></p>
+                <p class="theme-author"><?php _e('global.theme_author', array('author' => $theme->author())); ?></p>
+                <p class="theme-version"><?php _e('global.theme_version'); ?><?php echo $theme->version; ?></p>
                 <?php if ($theme->description) : ?>
-                <p class="theme-description">Description: <?php echo $theme->description ; ?></p>
+                <p class="theme-description"><?php _e('global.theme_description'); ?><?php echo $theme->description ; ?></p>
                 <?php endif; if ($theme->tags) : ?>
-                <p class="theme-tags">Tags: <?php echo $theme->tags ; ?></p>
+                <p class="theme-tags"><?php _e('global.theme_tags'); ?><?php echo $theme->tags ; ?></p>
                 <?php endif; ?>
                 <?php if ($current_theme != $theme->view) : ?>
-                <p class="theme-button"><button>Activate</button></p>
+                <p class="theme-button"><button><?php _e('global.activate'); ?></button></p>
                 <?php else : ?>
-                <p class="theme-button"><small class="theme-current button">Current theme</small></p>
+                <p class="theme-button"><small class="theme-current button"><?php _e('global.current_theme'); ?></small></p>
                 <?php endif; ?>
             </div>
         </form>

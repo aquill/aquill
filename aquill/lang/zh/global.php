@@ -8,6 +8,16 @@ return array(
     'update' => '更新',
     'activate' => '激活',
     'deactivate' => '停用',
+    'current_theme' => '当前主题',
+    'theme_description' => '描述：',
+    'theme_tags' => '标签：',
+    'theme_version' => '版本：',
+    'theme_author' => '由 :author 制作',
+
+    'bundle_description' => '描述：',
+    'bundle_tags' => '标签：',
+    'bundle_version' => '版本：',
+    'bundle_author' => '由 :author 制作',
 
     'head' => '管理面板',
     'dashboard' => '控制台', 

@@ -141,7 +141,7 @@ label {
     line-height: 1.6em;
 }
 .controls label:first-child {
-    margin-left: 0;
+    margin-left: .5em;
 }
 
 input.hidden {

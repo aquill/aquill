@@ -6,18 +6,18 @@ return array(
     'description' => '',
 
     'debug' => '调试模式',
-    'debug_description' => 'Only check this if you are experiencing problems and would like more error reporting to occur. Uncheck this once you have finished debugging.',
+    'debug_description' => '如果您遇到问题，想得到更多的错误报告，可以选中此项。',
 
     'default' => 'SMTP',
 
     'host' => '主机',
-    'host_description' => 'If localhost doesn\'t work for you, check with your host for the SMTP hostname.',
+    'host_description' => '邮件SMTP服务器地址',
     'port' => '端口',
-    'port_description' => 'This is generally 25.',
+    'port_description' => '通常是25',
     'secure' => '安全', 
-    'secure_description' => 'Sets connection prefix for secure connections (prefix method must be supported by your PHP install and your SMTP host)', 
+    'secure_description' => '安全连接前缀', 
     'auth' => '验证', 
-    'auth_description' => 'If checked, you must provide the SMTP username and password below', 
+    'auth_description' => '默认勾选，是必需项，要求填写你的邮箱用户名和密码', 
     'user' => '用户名',
     'user_description' => '用户名',
     'pass' => '密码',

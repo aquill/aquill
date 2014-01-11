@@ -14,11 +14,9 @@
 ;
 name        = "Aquill Official"
 description = "The theme for Aquill official site "
-version     = 1.0.1
-license     = http://gleezcms.org/license
-themeURL    = https://github.com/gleez/cms/tree/master/themes/fluid
-depends     =
-author      = "Gleez Team"
-authorURL   = http://www.gleeztech.com/
-site        = 1
-admin       = 0
+
+author      = "Aquill Team"
+author_url  = http://aquill.org/
+
+version     = 0.1.1
+license     = http://aquill.org/license

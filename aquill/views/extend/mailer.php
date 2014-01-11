@@ -52,17 +52,6 @@
                 </div>
 
                 <div class="control-group">
-                    <label for="debug" class="control-label"><?php _e('mailer.debug'); ?></label>
-
-                    <div class="controls">
-                        <label>
-                            <input <?php echo $smtp_debug ? 'checked' : '' ; ?> id="debug" type="checkbox" name="smtp_debug" value="1">
-                            <i><?php _e('mailer.debug_description'); ?></i>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="control-group">
                     <label for="user" class="control-label"><?php _e('mailer.user'); ?></label>
 
                     <div class="controls">
@@ -74,7 +63,18 @@
                     <label for="pass" class="control-label"><?php _e('mailer.pass'); ?></label>
 
                     <div class="controls">
-                        <input placeholder="<?php _e('mailer.pass_description'); ?>" id="pass" type="text" name="smtp_pass" value="<?php echo $smtp_pass; ?>">
+                        <input placeholder="<?php _e('mailer.pass_description'); ?>" id="pass" type="password" name="smtp_pass" value="<?php echo $smtp_pass; ?>">
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label for="debug" class="control-label"><?php _e('mailer.debug'); ?></label>
+
+                    <div class="controls">
+                        <label>
+                            <input <?php echo $smtp_debug ? 'checked' : '' ; ?> id="debug" type="checkbox" name="smtp_debug" value="1">
+                            <i><?php _e('mailer.debug_description'); ?></i>
+                        </label>
                     </div>
                 </div>
 
