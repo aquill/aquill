@@ -13,8 +13,18 @@ function add_theme_asset($container = 'header', $name, $source, $dependencies = 
 }
 
 function admin_site_head() {
+    $title = __('global.head') . ' - Aquill';
+    $menu = array('dashboard', 'posts', 'tags', 'comments', 'users', 'media',
+        'themes', 'bundles', 'mailer', 'urls', 'general');
 
-    return '管理面板';
+    foreach ($menu as $item) {
+        if (uri_has($item)) {
+            $title = __('global.'.$item) . ' - '. $title;
+            break;
+        }
+    }
+
+    return $title;
 }
 
 function admin_body_class($classes = array())

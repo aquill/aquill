@@ -4,14 +4,6 @@
 // Site Routes
 // --------------------------------------------------------------
 
-Route::get('test', function() {
-    $vars['media'] = Media::inherits()
-                ->order_by('created_at', 'DESC')
-                ->paginate(50);
-
-    return View::make('test', $vars);
-});
-
 Route::get('/, home', 'site@home');
 Route::get('robots.txt', 'site@robots');
 Route::get('(feed|rss|atom)', 'site@feed');

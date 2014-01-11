@@ -13,7 +13,7 @@ class Template extends View
     {
         $root = PATH . 'themes' . DS . get_option('site_theme', 'default') . DS;
 
-        if ($view == 'category' or $view == 'tag' or $view == 'search') {
+        if ($view == 'category' or $view == 'tag' or $view == 'search' or $view == '404') {
             if (!file_exists($path = $root . $view . EXT)) {
                 $view = 'index';
             }

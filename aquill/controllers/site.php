@@ -16,19 +16,17 @@ class SiteController extends Controller
 
     public function home()
     {
-
         $homepage = get_option('rewrite_home');
 
         $posts = Post::published()->paginate(10);
 
         Registry::set('posts', $posts);
 
-        if (is_null($homepage)) {
-
-            return Theme::view('index');
+        if (Theme::exists($homepage)) {
+            return Theme::view($homepage);
         }
 
-        return Theme::view($homepage);
+        return Theme::view('index');
     }
 
     public function feed($uri)
