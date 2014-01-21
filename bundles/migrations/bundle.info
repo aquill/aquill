@@ -24,7 +24,4 @@ license     = http://aquill.org/license
 description = "Migration to Aquill"
 ;tags        = "one-column"
 
-;site        = 1
-;admin       = 0
-
 ;bundles     =

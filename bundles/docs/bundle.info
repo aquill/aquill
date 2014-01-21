@@ -1,4 +1,4 @@
-; Aquill Default Theme
+; Aquill Documentation
 ;
 ; Author:     Aqiull Team
 ; Copyright:  (c) 2013 Aqiull Team
@@ -12,7 +12,7 @@
 ;
 ; Bundle info
 ;
-name  = "Document"
+name  = "Documentation"
 url   = https://github.com/aquill/bundles/docs
 
 author      = "Aquill Team"
@@ -21,10 +21,7 @@ author_url  = http://www.aquill.org/
 version     = 0.1.1
 license     = http://aquill.org/license
 
-description = "Document for Aquill"
+description = "Documentation for Aquill"
 ;tags        = "one-column"
-
-;site        = 1
-;admin       = 0
 
 ;bundles     =
