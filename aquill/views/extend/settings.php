@@ -47,7 +47,7 @@
 
                             <select id="lang" name="language">
                                 <?php foreach ($languages as $key => $lang): ?>
-                                    <option value="<?php echo $key; ?>"><?php echo $lang; ?></option>
+                                    <option value="<?php echo $key; ?>" <?php echo $key == $language ? 'selected' : ''; ?>><?php echo $lang; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
@@ -58,7 +58,7 @@
                         <div class="controls">
                             <select id="timezone" name="timezone">
                                 <?php foreach ($timezones as $value => $option): ?>
-                                    <option value="<?php echo $value; ?>"><?php echo $option; ?></option>
+                                    <option value="<?php echo $value; ?>" <?php echo $value == $timezone ? 'selected' : ''; ?>><?php echo $option; ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>

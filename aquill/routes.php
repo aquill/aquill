@@ -25,6 +25,9 @@ Route::get('admin/posts, admin/posts/(:num)', 'post@index');
 
 Route::post('admin/posts', 'post@paginate');
 Route::post('admin/posts/new, admin/posts/edit/(:num)', 'post@push');
+
+Route::get('admin/posts/publish/(:num)', 'post@publish');
+Route::get('admin/posts/draft/(:num)', 'post@draft');
 Route::get('admin/posts/delete/(:num)', 'post@delete');
 
 // --------------------------------------------------------------
@@ -57,7 +60,7 @@ Route::get('amnesia', 'auth@amnesia');
 Route::get('admin/users, admin/users/(:num)', 'user@index');
 Route::post('admin/users', 'user@paginate');
 Route::post('admin/users/new, admin/users/edit/(:num)', 'user@update');
-Route::post('admin/users/delete/(:num)', 'user@delete');
+Route::get('admin/users/delete/(:num)', 'user@delete');
 
 // --------------------------------------------------------------
 // Media Routes

@@ -7,6 +7,7 @@ class Page extends Post
     {
         $patterns['id'] = $this->id;
         $patterns['name'] = $this->slug;
+
         return url(rewrite($patterns, 'page'));
     }
 

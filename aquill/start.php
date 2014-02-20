@@ -34,7 +34,7 @@ Config::set('smtp.localhost', get_option('smtp_localhost'));
 
 Asset::container('header')->add('global', 'assets/css/global.css');
 Asset::container('header')->add('admin', 'assets/css/admin.css');
-Asset::container('header')->add('color', 'assets/css/colors/'.get_option('site_color').'.css');
+Asset::container('header')->add('color', 'assets/css/colors/'.get_option('site_color', 'purple').'.css');
 
 Asset::container('header')->add('jquery', 'assets/js/jquery.js');
 Asset::container('header')->add('autosize', 'assets/js/autosize.js');

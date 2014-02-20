@@ -12,7 +12,7 @@
                 <button type="submit" class="btn green">
                     <span class="icon-save"></span>
                     <?php //_e('global.update'); ?></button>
-                <a class="button red"
+                <a class="button red delete"
                    href="<?php echo url('admin/users/delete/' . $user->id); ?>">
                    <span class="icon-delete"></span>
                    <?php //_e('global.delete'); ?></a>

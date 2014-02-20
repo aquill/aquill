@@ -24,4 +24,5 @@ class Comment extends Eloquent
     {
         return date($format, strtotime($this->created_at));
     }
+
 }

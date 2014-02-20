@@ -46,7 +46,7 @@
                 <label for="description" class="control-label"><?php _e('category.description'); ?></label>
 
                 <div class="controls">
-                    <textarea placeholder="<?php _e('category.description'); ?>" name="description" rows="3"
+                    <textarea placeholder="<?php _e('category.description'); ?>" id="description" name="description" rows="3"
                               cols="50"><?php echo $category->description; ?></textarea>
                 </div>
             </div>

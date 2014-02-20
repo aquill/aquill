@@ -77,7 +77,7 @@ function dd($value) {
  * @return string
  */
 function exec_time() {
-    $elapsed = number_format((microtime(true) - LARAVEL_START) * 1000, 2);
+    $elapsed = number_format((microtime(true) - AQUILL_START) * 1000, 2);
     return '<i class="elapsed">' . $elapsed . 'ms</i>';
 }
 

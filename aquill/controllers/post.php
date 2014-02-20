@@ -74,6 +74,20 @@ class PostController extends AdminController
         return Redirect::to('admin/posts/' . $id);
     }
 
+    public function draft($id)
+    {
+        if (!is_null($id)) Post::draft($id);
+
+        return Redirect::to('admin/posts/' . $id);
+    }
+
+    public function publish($id)
+    {
+        if (!is_null($id)) Post::publish($id);
+
+        return Redirect::to('admin/posts/' . $id);
+    }
+
     public function delete($id)
     {
         if (!is_null($id)) Post::delete($id);

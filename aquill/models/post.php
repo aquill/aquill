@@ -4,6 +4,12 @@ class Post extends Eloquent
 {
     public static $table = 'posts';
 
+    public static function all($columns = array('*'))
+    {
+        return static::where('type', '=', get_class())
+                    ->order_by('created_at', 'DESC');
+    }
+
     public static function published()
     {
         return static::where('status', '=', 'publish')
@@ -18,7 +24,8 @@ class Post extends Eloquent
                     ->order_by('created_at', 'DESC');
     }
 
-    public static function delete($id) {
+    public static function delete($id)
+    {
         DB::table('posts')->delete($id);
         DB::table('relationships')->delete(array('post_id' => $id));
         DB::table('comments')->delete(array('post_id' => $id));
@@ -41,6 +48,16 @@ class Post extends Eloquent
         }
 
         return $id;
+    }
+
+    public static function draft($id)
+    {
+        static::where('id', '=', $id)->update(array('status' => 'draft'));
+    }
+
+    public static function publish($id)
+    {
+        static::where('id', '=', $id)->update(array('status' => 'publish'));
     }
 
     public function id()

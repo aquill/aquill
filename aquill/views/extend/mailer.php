@@ -79,10 +79,11 @@
                 </div>
 
                 <section class="form-actions">
-                    <button type="submit" class="btn"><?php _et('global.save'); ?></button>
+                    <button type="submit" class="btn"><?php _e('global.save'); ?></button>
                 </section>
             </fieldset>
         </form>
     </div>
 </section>
+
 <?php partial('partials/footer'); ?>

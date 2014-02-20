@@ -7,10 +7,9 @@
         </a>
         <em class="status"><?php _e('post.' . $post->status); ?></em>
         <ul class="statuses">
-            <li><?php _e('post.publish'); ?></li>
-            <li><?php _e('post.draft'); ?></li>
-            <li><a class="delete"
-                   href="<?php echo url('admin/posts/delete/' . $post->id()); ?>"><?php _e('global.delete'); ?></a></li>
+            <li><a href="<?php echo url('admin/posts/publish/' . $post->id()); ?>"><?php _e('post.publish'); ?></a></li>
+            <li><a href="<?php echo url('admin/posts/draft/' . $post->id()); ?>"><?php _e('post.draft'); ?></a></li>
+            <li><a class="delete" href="<?php echo url('admin/posts/delete/' . $post->id()); ?>"><?php _e('global.delete'); ?></a></li>
         </ul>
     </li>
 <?php endforeach; ?>
