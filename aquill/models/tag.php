@@ -7,6 +7,8 @@ class Tag extends Eloquent
 
     public static $titles = null;
 
+    public static $names = null;
+
     public static function titles()
     {
         if (is_null(static::$titles)) {
@@ -20,6 +22,21 @@ class Tag extends Eloquent
         }
         
         return static::$titles;
+    }
+
+    public static function names()
+    {
+        if (is_null(static::$names)) {
+            $terms = static::order_by('name', 'ASC')
+                            ->where('taxonomy', '=', 'tag')
+                            ->get();
+
+            foreach ($terms as $term) {
+                static::$names[$term->slug] = $term->name;
+            }
+        }
+        
+        return static::$names;
     }
 
     public static function push($input)

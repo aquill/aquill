@@ -7,10 +7,11 @@
     <aside id="statuses" class="widget widget-statuses">
         <h3 class="icon-select"><?php _e('post.posts'); ?></h3>
         <ul>
-            <li><?php _e('post.pages'); ?></li>
-            <?php foreach ($categories as $id => $name) : ?>
-                <li><?php echo $name; ?></li>
+            <li><a href="<?php echo url('/admin/pages'); ?>"><?php _e('post.pages'); ?></a></li>
+            <?php foreach ($categories as $slug => $name) : ?>
+                <li><a href="<?php echo url('/admin/posts/'.$slug); ?>"><?php echo $name; ?></li>
             <?php endforeach; ?>
+            <li><a href="<?php echo url('/admin/posts/trashes'); ?>"><?php _e('post.trash'); ?></a></li>
         </ul>
     </aside>
 

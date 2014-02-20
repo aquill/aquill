@@ -60,6 +60,11 @@ class Post extends Eloquent
         static::where('id', '=', $id)->update(array('status' => 'publish'));
     }
 
+    public static function trash($id)
+    {
+        static::where('id', '=', $id)->update(array('status' => 'trash'));
+    }
+
     public function id()
     {
         return $this->id;

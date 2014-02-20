@@ -17,7 +17,90 @@ class PostController extends AdminController
             'draft' => __('post.draft')
         );
 
-        $vars['categories'] = $data['categories'] = Category::titles();
+        $vars['categories'] = Category::names();
+
+        $data['categories'] = Category::titles();
+
+        if ($id != null) {
+            $data['post'] = Post::find($id);
+        } else {
+            $data['post'] = new Post;
+        }
+
+        return View::make('posts/index', $vars)->nest('formdata', 'posts/form', $data);
+    }
+
+    public function pages($id = null)
+    {
+        $vars['posts'] = Post::where_in('status', array('publish', 'draft'))
+            ->where('type', '=', 'page')
+            ->order_by('created_at', 'DESC')
+            ->paginate(10);
+
+        $data['messages'] = Notify::read();
+
+        $data['statuses'] = array(
+            'publish' => __('post.publish'),
+            'draft' => __('post.draft')
+        );
+
+        $vars['categories'] = Category::names();
+
+        $data['categories'] = Category::titles();
+
+        if ($id != null) {
+            $data['post'] = Post::find($id);
+        } else {
+            $data['post'] = new Post;
+        }
+
+        return View::make('posts/index', $vars)->nest('formdata', 'posts/form', $data);
+    }
+
+    public function trashes($id = null)
+    {
+        $vars['posts'] = Post::where('status', '=', 'trash')
+            ->where('type', '=', 'page')
+            ->order_by('created_at', 'DESC')
+            ->paginate(10);
+
+        $data['messages'] = Notify::read();
+
+        $data['statuses'] = array(
+            'publish' => __('post.publish'),
+            'draft' => __('post.draft')
+        );
+
+        $vars['categories'] = Category::names();
+
+        $data['categories'] = Category::titles();
+
+        if ($id != null) {
+            $data['post'] = Post::find($id);
+        } else {
+            $data['post'] = new Post;
+        }
+
+        return View::make('posts/index', $vars)->nest('formdata', 'posts/form', $data);
+    }
+
+    public function category($category, $id = null)
+    {
+        $vars['posts'] = Post::where_in('status', array('publish', 'draft'))
+            ->where('type', '=', 'post')
+            ->order_by('created_at', 'DESC')
+            ->paginate(10);
+
+        $data['messages'] = Notify::read();
+
+        $data['statuses'] = array(
+            'publish' => __('post.publish'),
+            'draft' => __('post.draft')
+        );
+
+        $vars['categories'] = Category::names();
+
+        $data['categories'] = Category::titles();
 
         if ($id != null) {
             $data['post'] = Post::find($id);
@@ -86,6 +169,13 @@ class PostController extends AdminController
         if (!is_null($id)) Post::publish($id);
 
         return Redirect::to('admin/posts/' . $id);
+    }
+
+    public function trash($id)
+    {
+        if (!is_null($id)) Post::trash($id);
+
+        return Redirect::to('admin/posts/trashes/' . $id);
     }
 
     public function delete($id)

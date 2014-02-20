@@ -6,6 +6,7 @@ return array(
 
     'posts' => 'All Posts',
     'pages' => 'All Pages',
+    'trash' => 'Trash',
     
     'publish' => 'Publish',
     'draft' => 'Draft',

@@ -21,15 +21,19 @@ Route::post('comment', 'site@comment');
 // Post Routes
 // --------------------------------------------------------------
 
+Route::get('admin/pages, admin/pages/(:num)', 'post@pages');
 Route::get('admin/posts, admin/posts/(:num)', 'post@index');
-
-Route::post('admin/posts', 'post@paginate');
-Route::post('admin/posts/new, admin/posts/edit/(:num)', 'post@push');
+Route::get('admin/posts/trashes, admin/posts/trashes/(:num)', 'post@trashes');
 
 Route::get('admin/posts/publish/(:num)', 'post@publish');
 Route::get('admin/posts/draft/(:num)', 'post@draft');
+Route::get('admin/posts/trash/(:num)', 'post@trash');
 Route::get('admin/posts/delete/(:num)', 'post@delete');
 
+Route::get('admin/posts/(:any), admin/posts/(:any)/(:num)', 'post@category');
+
+Route::post('admin/posts', 'post@paginate');
+Route::post('admin/posts/new, admin/posts/edit/(:num)', 'post@push');
 // --------------------------------------------------------------
 // Tag Routes
 // --------------------------------------------------------------

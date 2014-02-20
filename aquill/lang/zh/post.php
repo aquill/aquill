@@ -6,6 +6,7 @@ return array(
 
     'posts' => '所有文章',
     'pages' => '所有页面',
+    'trash' => '垃圾箱',
 
     'publish' => '发布',
     'draft' => '草稿',

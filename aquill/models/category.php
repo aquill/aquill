@@ -5,6 +5,8 @@ class Category extends Tag
 
     public static $titles = null;
 
+    public static $names = null;
+
     public static function titles()
     {
         if (is_null(static::$titles)) {
@@ -18,6 +20,21 @@ class Category extends Tag
         }
         
         return static::$titles;
+    }
+
+    public static function names()
+    {
+        if (is_null(static::$names)) {
+            $terms = static::order_by('name', 'ASC')
+                            ->where('taxonomy', '=', 'category')
+                            ->get();
+
+            foreach ($terms as $term) {
+                static::$names[$term->slug] = $term->name;
+            }
+        }
+        
+        return static::$names;
     }
 
     public static function push($input)
